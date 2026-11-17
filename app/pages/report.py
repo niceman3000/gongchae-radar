@@ -3,12 +3,16 @@
 from __future__ import annotations
 
 from html import escape
-from typing import Mapping
+from pathlib import Path
+from typing import Any, Mapping
 
 import streamlit as st
 
 from app.ui_components import apply_styles, change_card
 from src.report_repository import ReportContractError, ReportRepository
+
+
+ROOT = Path(__file__).resolve().parents[2]
 
 
 def _render_header(report: Mapping[str, Any]) -> None:
@@ -48,15 +52,48 @@ def _render_header(report: Mapping[str, Any]) -> None:
 
 
 def _render_sources(report: Mapping[str, Any]) -> None:
-    with st.expander("비교한 공식 공고"):
-        for label, key in (("전년도", "prev"), ("당해 연도", "curr")):
-            notice = report[key]
-            st.markdown(f"**{label} · {notice['title']}**")
-            st.caption(
-                f"공고번호 {notice['sn']} · 접수 {notice['period']['start']} ~ {notice['period']['end']}"
+    st.subheader("공식 공고 원문")
+    st.caption("잡알리오 외부 링크 대신 수집 당시 저장한 공식 PDF를 직접 확인합니다.")
+
+    columns = st.columns(2)
+    for column, (label, key) in zip(columns, (("현재 공고 (2026)", "curr"), ("비교 공고 (2025)", "prev"))):
+        notice = report[key]
+        pdf_path = ROOT / str(notice["pdf_path"])
+        with column:
+            st.markdown(f"**{label}**")
+            if pdf_path.exists():
+                st.download_button(
+                    "원문 PDF 내려받기",
+                    data=pdf_path.read_bytes(),
+                    file_name=f"{notice['sn']}.pdf",
+                    mime="application/pdf",
+                    key=f"download-{notice['sn']}",
+                    use_container_width=True,
+                )
+            else:
+                st.warning("저장된 원문 PDF를 찾을 수 없습니다.")
+
+    selection = st.selectbox(
+        "화면에서 바로 볼 공고",
+        options=["선택 안 함", "현재 공고 (2026)", "비교 공고 (2025)"],
+        index=0,
+    )
+    selected_key = {
+        "현재 공고 (2026)": "curr",
+        "비교 공고 (2025)": "prev",
+    }.get(selection)
+    if selected_key:
+        notice = report[selected_key]
+        pdf_path = ROOT / str(notice["pdf_path"])
+        if pdf_path.exists():
+            st.pdf(
+                pdf_path,
+                height=720,
+                key=f"viewer-{notice['sn']}",
+                alt=f"{notice['title']} 공식 공고문",
             )
-            if notice.get("source_url"):
-                st.link_button(f"{label} 원문 PDF 열기", notice["source_url"])
+        else:
+            st.warning("저장된 원문 PDF를 찾을 수 없습니다.")
 
 
 def render_report(report: Mapping[str, Any]) -> None:

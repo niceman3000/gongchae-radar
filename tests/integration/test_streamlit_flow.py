@@ -19,7 +19,12 @@ def test_kepco_report_opens_with_verified_changes_and_evidence():
     assert any("2025년도 하반기" in item.value for item in app.markdown)
     assert any("13건" in item.value for item in app.metric)
     assert any("421" in item.value and "490" in item.value for item in app.markdown)
+    assert len(app.download_button) == 2
+    assert app.selectbox[0].options == ["선택 안 함", "현재 공고 (2026)", "비교 공고 (2025)"]
     assert len(app.expander) >= 2
+
+    app.selectbox[0].set_value("현재 공고 (2026)").run()
+    assert not app.exception
 
 
 def test_review_required_candidates_are_hidden_by_default():
