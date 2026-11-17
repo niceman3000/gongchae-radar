@@ -19,3 +19,15 @@
 - Repository result: 리포트 3개 로드, 계약 오류 0개
 - Current evidence state: 한전 18건, 한수원 14건, 중부발전 23건이 모두 `review_required`
 - Interpretation: 파일 형식과 변환 코드는 통과했지만 PDF 쪽수·인용 검증 전이므로 확정 변경점은 0건이다.
+
+## 2026-11-17 - KEPCO manual ground truth
+
+- Sources: `data/pdf/290666.pdf`, `data/pdf/304551.pdf`
+- Visual review: 모집인원·지역/직렬 인원·필수자격·자격증 가점·전형 방식의 관련 쪽을 이미지로 확인
+- Ground truth: `evaluation/ground_truth/kepco.md`
+- Machine-readable evidence: `evaluation/ground_truth/kepco_evidence.json`
+- Report result: 한전 후보 18건 중 13건 `confirmed`, 5건 `review_required`
+- Guardrail check: 사람이 고른 인용도 PDF 번들 같은 쪽에 실제 존재할 때만 `verified=true`가 되도록 재검증
+- Rejected candidate example: API의 `광주/전남 → 전남광주` 표시는 PDF 원문상 실제 지역 변경으로 확인되지 않아 확정하지 않음
+- Test command: `.\.venv\Scripts\python.exe -m pytest -q`
+- Test result: `22 passed`

@@ -63,7 +63,7 @@
 ### Tests and Data Validation
 
 - [X] T010 [P] [US1] Owner=DEV stage1·stage2 고정 fixture를 합쳤을 때 중요도·상태·근거가 예상대로 나오는 실패 테스트를 `tests/unit/test_report_builder.py`에 먼저 작성한다.
-- [ ] T011 [P] [US1] Owner=DEV 한전 PDF `data/pdf/290666.pdf`, `data/pdf/304551.pdf`에서 인원·지역·필수자격·가점·전형 방식과 쪽수·인용을 확인해 `evaluation/ground_truth/kepco.md`를 작성한다.
+- [X] T011 [P] [US1] Owner=DEV 한전 PDF `data/pdf/290666.pdf`, `data/pdf/304551.pdf`에서 인원·지역·필수자격·가점·전형 방식과 쪽수·인용을 확인해 `evaluation/ground_truth/kepco.md`를 작성한다.
 - [ ] T012 [P] [US1] Owner=DATA-QA1 한수원 PDF `data/pdf/288681.pdf`, `data/pdf/302968.pdf`를 눈으로 대조해 5개 검토 영역·쪽수·원문 인용을 `evaluation/ground_truth/khnp.md`에 기록하고 불명확한 값은 `확인 필요`로 표시한다.
 - [ ] T013 [P] [US1] Owner=DATA-QA2 중부발전 PDF `data/pdf/287235.pdf`, `data/pdf/302314.pdf`를 눈으로 대조해 5개 검토 영역·쪽수·원문 인용을 `evaluation/ground_truth/komipo.md`에 기록하고 불명확한 값은 `확인 필요`로 표시한다.
 

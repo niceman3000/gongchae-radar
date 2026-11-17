@@ -39,9 +39,24 @@
       "source": "stage1",
       "ai_label": null,
       "confidence": "not_applicable",
-      "status": "review_required",
+      "status": "confirmed",
       "affected_units": [],
-      "evidence": []
+      "evidence": [
+        {
+          "side": "prev",
+          "notice_sn": "290666",
+          "page": 2,
+          "quote": "채용예정인원 : 총 421명 (일반전형 412명, 장애인(사무) 4명, SW 특화 5명)",
+          "verified": true
+        },
+        {
+          "side": "curr",
+          "notice_sn": "304551",
+          "page": 2,
+          "quote": "채용예정인원 : 총 490명 (일반전형 463명, 보훈 10명, 장애인 7명, SW특화 10명)",
+          "verified": true
+        }
+      ]
     },
     {
       "id": "stage1-006",
@@ -54,9 +69,24 @@
       "source": "stage1",
       "ai_label": null,
       "confidence": "not_applicable",
-      "status": "review_required",
+      "status": "confirmed",
       "affected_units": [],
-      "evidence": []
+      "evidence": [
+        {
+          "side": "prev",
+          "notice_sn": "290666",
+          "page": 5,
+          "quote": "사무 50배수\n1차전형\n② 자격증 가점2) 기술 15배수",
+          "verified": true
+        },
+        {
+          "side": "curr",
+          "notice_sn": "304551",
+          "page": 5,
+          "quote": "사무 50배수\n① 외국어 성적(100)1)\n1차전형 전기(배전,송변전) 10배수\n② 자격증 가점2)",
+          "verified": true
+        }
+      ]
     },
     {
       "id": "stage1-008",
@@ -69,9 +99,24 @@
       "source": "stage1",
       "ai_label": null,
       "confidence": "not_applicable",
-      "status": "review_required",
+      "status": "confirmed",
       "affected_units": [],
-      "evidence": []
+      "evidence": [
+        {
+          "side": "prev",
+          "notice_sn": "290666",
+          "page": 5,
+          "quote": "① 직무(역량)면접(60) ② 경험(인성)면접(40)",
+          "verified": true
+        },
+        {
+          "side": "curr",
+          "notice_sn": "304551",
+          "page": 5,
+          "quote": "① 직무면접(50) ② 경험면접(50)",
+          "verified": true
+        }
+      ]
     },
     {
       "id": "stage1-002",
@@ -124,9 +169,24 @@
       "source": "stage1",
       "ai_label": null,
       "confidence": "not_applicable",
-      "status": "review_required",
+      "status": "confirmed",
       "affected_units": [],
-      "evidence": []
+      "evidence": [
+        {
+          "side": "prev",
+          "notice_sn": "290666",
+          "page": 2,
+          "quote": "구 분 사무 전 기 합계\nICT 토목 건축\n배전 송변전 발전",
+          "verified": true
+        },
+        {
+          "side": "curr",
+          "notice_sn": "304551",
+          "page": 2,
+          "quote": "구 분 사무 전 기 합계\nICT 토목\n배전 송변전",
+          "verified": true
+        }
+      ]
     },
     {
       "id": "stage1-005",
@@ -145,9 +205,17 @@
       "source": "stage1",
       "ai_label": null,
       "confidence": "not_applicable",
-      "status": "review_required",
+      "status": "confirmed",
       "affected_units": [],
-      "evidence": []
+      "evidence": [
+        {
+          "side": "curr",
+          "notice_sn": "304551",
+          "page": 3,
+          "quote": "보훈 전형 : 10명\n구 분 사무 배전 송변전 합계\n전국권(보훈) 4 3 3 10",
+          "verified": true
+        }
+      ]
     },
     {
       "id": "stage1-007",
@@ -160,9 +228,24 @@
       "source": "stage1",
       "ai_label": null,
       "confidence": "not_applicable",
-      "status": "review_required",
+      "status": "confirmed",
       "affected_units": [],
-      "evidence": []
+      "evidence": [
+        {
+          "side": "prev",
+          "notice_sn": "290666",
+          "page": 5,
+          "quote": "※ 장애인 전형 전원합격",
+          "verified": true
+        },
+        {
+          "side": "curr",
+          "notice_sn": "304551",
+          "page": 5,
+          "quote": "※ 장애인 및 보훈 전형 전원합격",
+          "verified": true
+        }
+      ]
     },
     {
       "id": "stage1-010",
@@ -175,9 +258,24 @@
       "source": "stage1",
       "ai_label": null,
       "confidence": "not_applicable",
-      "status": "review_required",
+      "status": "confirmed",
       "affected_units": [],
-      "evidence": []
+      "evidence": [
+        {
+          "side": "prev",
+          "notice_sn": "290666",
+          "page": 3,
+          "quote": "통합채용포털에 등록된\n외 국 어 어학성적에 한하여 유효기간을 시험의 실시연도 +5년까지 인정",
+          "verified": true
+        },
+        {
+          "side": "curr",
+          "notice_sn": "304551",
+          "page": 4,
+          "quote": "국가공무원 채용시스템\n외 국 어 에 등록된 어학성적에 한하여 유효기간을 시험의 실시연도 +5년까지 인정",
+          "verified": true
+        }
+      ]
     },
     {
       "id": "stage1-012",
@@ -190,9 +288,17 @@
       "source": "stage1",
       "ai_label": null,
       "confidence": "not_applicable",
-      "status": "review_required",
+      "status": "confirmed",
       "affected_units": [],
-      "evidence": []
+      "evidence": [
+        {
+          "side": "curr",
+          "notice_sn": "304551",
+          "page": 3,
+          "quote": "보훈 전형은 「국가유공자법」에서 정한 취업지원대상자만 지원가능",
+          "verified": true
+        }
+      ]
     },
     {
       "id": "stage1-014",
@@ -220,9 +326,24 @@
       "source": "stage1",
       "ai_label": null,
       "confidence": "not_applicable",
-      "status": "review_required",
+      "status": "confirmed",
       "affected_units": [],
-      "evidence": []
+      "evidence": [
+        {
+          "side": "prev",
+          "notice_sn": "290666",
+          "page": 21,
+          "quote": "전력데이터 활용 신서비스 개발 경진대회",
+          "verified": true
+        },
+        {
+          "side": "curr",
+          "notice_sn": "304551",
+          "page": 20,
+          "quote": "(한전대표주관) 공공데이터활용\n아이디어 경진대회/공모전 입상자",
+          "verified": true
+        }
+      ]
     },
     {
       "id": "stage1-016",
@@ -235,9 +356,24 @@
       "source": "stage1",
       "ai_label": null,
       "confidence": "not_applicable",
-      "status": "review_required",
+      "status": "confirmed",
       "affected_units": [],
-      "evidence": []
+      "evidence": [
+        {
+          "side": "prev",
+          "notice_sn": "290666",
+          "page": 21,
+          "quote": "한전 발명특허대전 입상자",
+          "verified": true
+        },
+        {
+          "side": "curr",
+          "notice_sn": "304551",
+          "page": 20,
+          "quote": "한전 발명기술혁신대전 입상자",
+          "verified": true
+        }
+      ]
     },
     {
       "id": "stage1-017",
@@ -250,9 +386,17 @@
       "source": "stage1",
       "ai_label": null,
       "confidence": "not_applicable",
-      "status": "review_required",
+      "status": "confirmed",
       "affected_units": [],
-      "evidence": []
+      "evidence": [
+        {
+          "side": "curr",
+          "notice_sn": "304551",
+          "page": 20,
+          "quote": "한전 청년청렴 Auditor 우수활동자 ∘ 1차(서류)전형 10% 가점",
+          "verified": true
+        }
+      ]
     },
     {
       "id": "stage1-018",
@@ -265,9 +409,17 @@
       "source": "stage1",
       "ai_label": null,
       "confidence": "not_applicable",
-      "status": "review_required",
+      "status": "confirmed",
       "affected_units": [],
-      "evidence": []
+      "evidence": [
+        {
+          "side": "curr",
+          "notice_sn": "304551",
+          "page": 20,
+          "quote": "※ ’25년도 선정 우수활동자부터 적용",
+          "verified": true
+        }
+      ]
     },
     {
       "id": "stage1-009",
@@ -280,9 +432,24 @@
       "source": "stage1",
       "ai_label": null,
       "confidence": "not_applicable",
-      "status": "review_required",
+      "status": "confirmed",
       "affected_units": [],
-      "evidence": []
+      "evidence": [
+        {
+          "side": "prev",
+          "notice_sn": "290666",
+          "page": 3,
+          "quote": "'23.11.22.부터 응시하고 접수 마감일까지 발표한 국내정기시험 성적만 인정",
+          "verified": true
+        },
+        {
+          "side": "curr",
+          "notice_sn": "304551",
+          "page": 4,
+          "quote": "'24.11.28.부터 응시하고 접수 마감일까지 발표한 국내정기시험 성적만 인정",
+          "verified": true
+        }
+      ]
     },
     {
       "id": "stage1-011",

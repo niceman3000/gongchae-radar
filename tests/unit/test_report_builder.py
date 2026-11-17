@@ -70,6 +70,39 @@ def test_build_report_maps_stage1_candidates_without_claiming_confirmation():
     assert all(change["evidence"] == [] for change in report["changes"])
 
 
+def test_reviewed_evidence_is_rechecked_before_confirmation():
+    reviewed = {
+        "changes": {
+            "stage1-001": [
+                {"side": "prev", "page": 2, "quote": "총 10명"},
+                {"side": "curr", "page": 2, "quote": "총 20명"},
+            ],
+            "stage1-002": [
+                {"side": "prev", "page": 3, "quote": "존재하지 않는 문장"},
+                {"side": "curr", "page": 3, "quote": "부산"},
+            ],
+        }
+    }
+
+    report = build_report(
+        pair_config(),
+        stage1_result(),
+        api_item("100", "2025 공고", "20250101", "20250131", "https://example/100.pdf"),
+        api_item("200", "2026 공고", "20260101", "20260131", "https://example/200.pdf"),
+        reviewed_evidence=reviewed,
+        prev_all_text={"2": "채용예정인원 총 10명", "3": "서울"},
+        curr_all_text={"2": "채용예정인원 총 20명", "3": "부산"},
+        checked_at="2026-11-17",
+    )
+
+    headcount = next(item for item in report["changes"] if item["id"] == "stage1-001")
+    region = next(item for item in report["changes"] if item["id"] == "stage1-002")
+    assert headcount["status"] == "confirmed"
+    assert all(item["verified"] for item in headcount["evidence"])
+    assert region["status"] == "review_required"
+    assert [item["verified"] for item in region["evidence"]] == [False, True]
+
+
 def test_text_classification_is_merged_by_original_sentences():
     classifications = [
         {

@@ -25,6 +25,7 @@ Thumbs.db
 *.log
 *.tmp
 ~$*
+tmp/
 
 # Local model/API scratch outputs
 stage2/usage.json

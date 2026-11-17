@@ -12,9 +12,9 @@ from typing import Any, Iterable, Mapping
 from jsonschema import Draft202012Validator, FormatChecker
 
 try:
-    from src.evidence import can_confirm_change, validate_report_semantics
+    from src.evidence import can_confirm_change, validate_report_semantics, verify_evidence
 except ModuleNotFoundError:  # `python src/report_builder.py` 직접 실행 지원
-    from evidence import can_confirm_change, validate_report_semantics
+    from evidence import can_confirm_change, validate_report_semantics, verify_evidence
 
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -22,6 +22,7 @@ DEFAULT_CONFIG = ROOT / "config" / "demo_pairs.json"
 DEFAULT_STAGE1 = ROOT / "results" / "stage1_result.json"
 DEFAULT_SCHEMA = ROOT / "src" / "schemas" / "report.schema.json"
 DEFAULT_OUTPUT = ROOT / "data" / "reports"
+DEFAULT_REVIEW_DIR = ROOT / "evaluation" / "ground_truth"
 
 IMPORTANCE = {
     "number": 1,
@@ -160,6 +161,39 @@ def _stage1_changes(
             }
         )
     return changes
+
+
+def _apply_reviewed_evidence(
+    changes: list[dict[str, Any]],
+    reviewed: Mapping[str, Any] | None,
+    prev_all_text: Mapping[str, str] | None,
+    curr_all_text: Mapping[str, str] | None,
+    prev_sn: str,
+    curr_sn: str,
+) -> None:
+    """사람이 고른 인용만 원문과 재검증한 뒤 변경점을 확정한다."""
+    reviewed_changes = (reviewed or {}).get("changes") or {}
+    texts = {"prev": prev_all_text or {}, "curr": curr_all_text or {}}
+    notice_sns = {"prev": prev_sn, "curr": curr_sn}
+
+    for change in changes:
+        raw_items = reviewed_changes.get(change["id"]) or []
+        evidence = []
+        for raw in raw_items:
+            side = raw.get("side")
+            if side not in texts:
+                continue
+            candidate = {
+                "side": side,
+                "notice_sn": notice_sns[side],
+                "page": raw.get("page"),
+                "quote": str(raw.get("quote") or "")[:300],
+            }
+            evidence.append(verify_evidence(candidate, texts[side]))
+        if evidence:
+            change["evidence"] = evidence
+            if can_confirm_change(change):
+                change["status"] = "confirmed"
 
 
 def _convert_evidence(
@@ -344,12 +378,23 @@ def build_report(
     prev_extract: Mapping[str, Any] | None = None,
     curr_extract: Mapping[str, Any] | None = None,
     text_classifications: Iterable[Mapping[str, Any]] | None = None,
+    reviewed_evidence: Mapping[str, Any] | None = None,
+    prev_all_text: Mapping[str, str] | None = None,
+    curr_all_text: Mapping[str, str] | None = None,
     checked_at: str | None = None,
 ) -> dict[str, Any]:
     prev_sn, curr_sn = str(config["prev_sn"]), str(config["curr_sn"])
     tracks = [str(value) for value in config.get("track_focus") or ["기타"]]
     units = _build_units(prev_extract, curr_extract, prev_sn, curr_sn, tracks[0])
     changes = _stage1_changes(stage1, text_classifications) + _stage2_unit_changes(units)
+    _apply_reviewed_evidence(
+        changes,
+        reviewed_evidence,
+        prev_all_text,
+        curr_all_text,
+        prev_sn,
+        curr_sn,
+    )
     changes.sort(key=lambda item: (item["importance"], item["id"]))
     competition = stage1.get("competition_in_api") or {}
     published = bool(competition.get("prev") or competition.get("curr"))
@@ -389,6 +434,11 @@ def _optional_json(path: Path) -> Any | None:
     return load_json(path) if path.exists() else None
 
 
+def _bundle_text(path: Path) -> Mapping[str, str] | None:
+    bundle = _optional_json(path)
+    return (bundle or {}).get("all_text") if bundle else None
+
+
 def validate_report(report: Mapping[str, Any], schema_path: Path = DEFAULT_SCHEMA) -> None:
     schema = load_json(schema_path)
     validator = Draft202012Validator(schema, format_checker=FormatChecker())
@@ -424,6 +474,7 @@ def build_from_files(
         classifications = _optional_json(classification_path)
         if classifications is None and prefix == "kepco":
             classifications = _optional_json(ROOT / "stage2" / "text_class.json")
+        reviewed = _optional_json(DEFAULT_REVIEW_DIR / f"{prefix}_evidence.json")
 
         report = build_report(
             pair,
@@ -433,6 +484,9 @@ def build_from_files(
             prev_extract=prev_extract,
             curr_extract=curr_extract,
             text_classifications=classifications,
+            reviewed_evidence=reviewed,
+            prev_all_text=_bundle_text(ROOT / "stage2" / f"bundle_{prev_sn}.json"),
+            curr_all_text=_bundle_text(ROOT / "stage2" / f"bundle_{curr_sn}.json"),
             checked_at=checked_at,
         )
         validate_report(report)
