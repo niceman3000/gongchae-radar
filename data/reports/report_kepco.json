@@ -498,5 +498,68 @@
     "certificates": [],
     "majors": [],
     "manual_review_conditions": []
+  },
+  "visual_summary": {
+    "total_headcount": {
+      "label": "전체 채용인원",
+      "prev": 421,
+      "curr": 490,
+      "unit": "명"
+    },
+    "headcount_by_track": [
+      {
+        "label": "사무",
+        "prev": 80,
+        "curr": 110
+      },
+      {
+        "label": "배전",
+        "prev": 101,
+        "curr": 172
+      },
+      {
+        "label": "송변전",
+        "prev": 157,
+        "curr": 105
+      },
+      {
+        "label": "ICT",
+        "prev": 32,
+        "curr": 45
+      },
+      {
+        "label": "토목",
+        "prev": 23,
+        "curr": 31
+      },
+      {
+        "label": "발전(전기)",
+        "prev": 2,
+        "curr": 0
+      },
+      {
+        "label": "건축",
+        "prev": 17,
+        "curr": 0
+      }
+    ],
+    "selection_multiple": {
+      "label": "전기 직렬 서류 선발배수",
+      "prev": 15,
+      "curr": 10,
+      "unit": "배수"
+    },
+    "interview_weights": [
+      {
+        "label": "직무면접",
+        "prev": 60,
+        "curr": 50
+      },
+      {
+        "label": "경험면접",
+        "prev": 40,
+        "curr": 50
+      }
+    ]
   }
 }

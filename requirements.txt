@@ -1,4 +1,5 @@
 streamlit[pdf]>=1.67,<2
+pandas>=2,<4
 pdfplumber>=0.11,<1
 jsonschema>=4,<5
 pytest>=8,<10

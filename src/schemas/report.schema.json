@@ -41,7 +41,8 @@
       "items": {"$ref": "#/$defs/unit"}
     },
     "competition": {"$ref": "#/$defs/competition"},
-    "requirements": {"$ref": "#/$defs/requirements"}
+    "requirements": {"$ref": "#/$defs/requirements"},
+    "visual_summary": {"$ref": "#/$defs/visual_summary"}
   },
   "$defs": {
     "notice": {
@@ -171,6 +172,44 @@
         "certificates": {"type": "array", "items": {"$ref": "#/$defs/requirement_item"}},
         "majors": {"type": "array", "items": {"$ref": "#/$defs/requirement_item"}},
         "manual_review_conditions": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "numeric_pair": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["label", "prev", "curr", "unit"],
+      "properties": {
+        "label": {"type": "string", "minLength": 1},
+        "prev": {"type": "number", "minimum": 0},
+        "curr": {"type": "number", "minimum": 0},
+        "unit": {"type": "string", "minLength": 1}
+      }
+    },
+    "chart_row": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["label", "prev", "curr"],
+      "properties": {
+        "label": {"type": "string", "minLength": 1},
+        "prev": {"type": "number", "minimum": 0},
+        "curr": {"type": "number", "minimum": 0}
+      }
+    },
+    "visual_summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["total_headcount", "headcount_by_track", "selection_multiple", "interview_weights"],
+      "properties": {
+        "total_headcount": {"$ref": "#/$defs/numeric_pair"},
+        "headcount_by_track": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/chart_row"}
+        },
+        "selection_multiple": {"$ref": "#/$defs/numeric_pair"},
+        "interview_weights": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/chart_row"}
+        }
       }
     },
     "competition": {

@@ -379,6 +379,7 @@ def build_report(
     curr_extract: Mapping[str, Any] | None = None,
     text_classifications: Iterable[Mapping[str, Any]] | None = None,
     reviewed_evidence: Mapping[str, Any] | None = None,
+    visual_summary: Mapping[str, Any] | None = None,
     prev_all_text: Mapping[str, str] | None = None,
     curr_all_text: Mapping[str, str] | None = None,
     checked_at: str | None = None,
@@ -399,7 +400,7 @@ def build_report(
     competition = stage1.get("competition_in_api") or {}
     published = bool(competition.get("prev") or competition.get("curr"))
 
-    return {
+    report = {
         "schema_version": "1.0.0",
         "pair_id": str(config["pair_id"]),
         "pair_name": str(config["pair_name"]),
@@ -419,6 +420,9 @@ def build_report(
         },
         "requirements": _requirements(curr_extract, curr_sn, tracks),
     }
+    if visual_summary is not None:
+        report["visual_summary"] = dict(visual_summary)
+    return report
 
 
 def _find_stage1(all_results: Mapping[str, Any], prev_sn: str, curr_sn: str) -> Mapping[str, Any]:
@@ -475,6 +479,7 @@ def build_from_files(
         if classifications is None and prefix == "kepco":
             classifications = _optional_json(ROOT / "stage2" / "text_class.json")
         reviewed = _optional_json(DEFAULT_REVIEW_DIR / f"{prefix}_evidence.json")
+        visual_summary = _optional_json(DEFAULT_REVIEW_DIR / f"{prefix}_summary.json")
 
         report = build_report(
             pair,
@@ -485,6 +490,7 @@ def build_from_files(
             curr_extract=curr_extract,
             text_classifications=classifications,
             reviewed_evidence=reviewed,
+            visual_summary=visual_summary,
             prev_all_text=_bundle_text(ROOT / "stage2" / f"bundle_{prev_sn}.json"),
             curr_all_text=_bundle_text(ROOT / "stage2" / f"bundle_{curr_sn}.json"),
             checked_at=checked_at,

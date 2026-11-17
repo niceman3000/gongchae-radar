@@ -40,3 +40,11 @@
 - Evidence UI: 전년도·당해 연도 값, 상태, PDF 쪽수, 원문 인용, 공식 PDF 링크 표시
 - AppTest: 예외 0건, 제목·13건 지표·421→490 변경값·근거 영역·미확정 후보 기본 숨김 확인
 - Full test result after implementation: `24 passed`
+
+## 2026-11-17 - Numeric summary and plain-language change copy
+
+- Added: 전체 채용인원, 직렬별 인원, 전기직 서류 선발배수, 면접 배점의 표·막대그래프
+- Data rule: `evaluation/ground_truth/kepco_summary.json`의 원문 확인 수치만 시각화
+- Plain-language copy: `NCS 목록 변경` 같은 내부 용어를 쉬운 제목과 `지원자에게 의미` 문장으로 변환
+- AI disclosure: 현재 상세 화면의 실시간 AI 호출 여부와 코드·사람·AI 역할을 화면에 표시
+- Full test result: `25 passed`

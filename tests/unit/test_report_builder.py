@@ -103,6 +103,29 @@ def test_reviewed_evidence_is_rechecked_before_confirmation():
     assert [item["verified"] for item in region["evidence"]] == [False, True]
 
 
+def test_visual_summary_is_attached_when_reviewed_data_exists():
+    summary = {
+        "total_headcount": {"label": "전체", "prev": 10, "curr": 20, "unit": "명"},
+        "headcount_by_track": [{"label": "전기", "prev": 4, "curr": 8}],
+        "selection_multiple": {"label": "서류", "prev": 15, "curr": 10, "unit": "배수"},
+        "interview_weights": [
+            {"label": "직무", "prev": 60, "curr": 50},
+            {"label": "경험", "prev": 40, "curr": 50},
+        ],
+    }
+
+    report = build_report(
+        pair_config(),
+        stage1_result(),
+        api_item("100", "2025 공고", "20250101", "20250131", "https://example/100.pdf"),
+        api_item("200", "2026 공고", "20260101", "20260131", "https://example/200.pdf"),
+        visual_summary=summary,
+        checked_at="2026-11-17",
+    )
+
+    assert report["visual_summary"] == summary
+
+
 def test_text_classification_is_merged_by_original_sentences():
     classifications = [
         {

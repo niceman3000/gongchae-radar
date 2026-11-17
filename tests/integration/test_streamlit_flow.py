@@ -19,6 +19,9 @@ def test_kepco_report_opens_with_verified_changes_and_evidence():
     assert any("2025년도 하반기" in item.value for item in app.markdown)
     assert any("13건" in item.value for item in app.metric)
     assert any("421" in item.value and "490" in item.value for item in app.markdown)
+    assert any("숫자로 보는 핵심 변화" in item.value for item in app.subheader)
+    assert any("전체 채용인원" in item.label and item.value == "490명" for item in app.metric)
+    assert len(app.dataframe) == 1
     assert len(app.download_button) == 2
     assert app.selectbox[0].options == ["선택 안 함", "현재 공고 (2026)", "비교 공고 (2025)"]
     assert len(app.expander) >= 2
@@ -33,3 +36,8 @@ def test_review_required_candidates_are_hidden_by_default():
     visible_text = " ".join(item.value for item in app.markdown)
     assert "전남광주" not in visible_text
     assert len(app.toggle) == 1
+
+    app.toggle[0].set_value(True).run()
+    visible_text = " ".join(item.value for item in app.markdown)
+    assert "API 직무 목록에서 ‘기계’ 항목이 빠짐" in visible_text
+    assert "NCS는 직무 분류표입니다" in visible_text
