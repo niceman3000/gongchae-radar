@@ -189,7 +189,14 @@ def _render_ai_usage() -> None:
 def render_report(report: Mapping[str, Any]) -> None:
     apply_styles()
     _render_header(report)
-    st.info("확정 결과에는 PDF 쪽수와 원문 인용이 반드시 붙습니다. 확인되지 않은 후보는 따로 표시합니다.")
+    confirmed_count = sum(item["status"] == "confirmed" for item in report["changes"])
+    if confirmed_count:
+        st.info("확정 결과에는 PDF 쪽수와 원문 인용이 반드시 붙습니다. 확인되지 않은 후보는 따로 표시합니다.")
+    else:
+        st.warning(
+            "이 기업은 자동 비교 후보까지만 만들어졌고 PDF 원문 대조가 아직 끝나지 않았습니다. "
+            "아래 후보는 확정된 변경사항으로 사용하면 안 됩니다."
+        )
     _render_ai_usage()
     _render_visual_summary(report)
 
@@ -204,7 +211,7 @@ def render_report(report: Mapping[str, Any]) -> None:
 
     titles = {"prev": report["prev"]["title"], "curr": report["curr"]["title"]}
     for change in visible:
-        change_card(change, titles)
+        change_card(change, titles, str(report["pair_id"]))
 
     if not visible:
         st.warning("표시할 확정 변경점이 없습니다.")
@@ -212,10 +219,31 @@ def render_report(report: Mapping[str, Any]) -> None:
     _render_sources(report)
 
 
+def _report_option_label(report: Mapping[str, Any]) -> str:
+    confirmed = sum(item["status"] == "confirmed" for item in report["changes"])
+    review = sum(item["status"] == "review_required" for item in report["changes"])
+    status = f"원문 확인 {confirmed}건" if confirmed else f"원문 대조 중 · 후보 {review}건"
+    return f'{report["institution"]} · {report["pair_name"]} · {status}'
+
+
 def render_report_page(pair_id: str = "kepco-2025-2026-h2") -> None:
     repository = ReportRepository()
     try:
-        report = repository.load(pair_id)
+        reports = repository.list_reports()
+        if not reports:
+            raise KeyError("표시할 리포트가 없습니다.")
+
+        reports_by_id = {report["pair_id"]: report for report in reports}
+        default_index = list(reports_by_id).index(pair_id) if pair_id in reports_by_id else 0
+        apply_styles()
+        selected_pair_id = st.selectbox(
+            "지원할 기업과 비교 공고 선택",
+            options=list(reports_by_id),
+            index=default_index,
+            format_func=lambda value: _report_option_label(reports_by_id[value]),
+            help="현재 공고와 전년도 유사 공고 한 쌍을 선택합니다.",
+        )
+        report = reports_by_id[selected_pair_id]
     except (KeyError, ReportContractError) as exc:
         apply_styles()
         st.error(f"리포트를 열 수 없습니다: {exc}")
