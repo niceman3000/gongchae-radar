@@ -63,6 +63,25 @@ AI는 3곳에서만 쓴다: ① PDF 칸 채우기 ② 문구 변경 분류 ③ �
 
 처음 환경을 만드는 경우에는 **GUIDE.md 8장을 Step 0부터 순서대로** 따라 하세요.
 
+### AI 구조화 파이프라인
+
+실제 호출 없이 준비상태를 확인합니다.
+
+```powershell
+.\.venv\Scripts\python.exe tools\run_ai_pipeline.py --check --pair kepco-2025-2026-h2
+```
+
+API 키를 환경변수에 설정한 뒤 실행하면 PDF 구조화, 문구 분류, 인용 검증, 리포트 재생성을
+순서대로 수행합니다. 키와 모델 응답 원문은 Git에 저장하지 않습니다.
+
+```powershell
+$env:ANTHROPIC_API_KEY = "발급받은 키"
+.\.venv\Scripts\python.exe tools\run_ai_pipeline.py --pair kepco-2025-2026-h2
+```
+
+AI가 제시한 인용문이 지정된 PDF 쪽에 실제로 존재하지 않으면 `verified=false`로 남으며 확정
+변경점으로 표시되지 않습니다.
+
 ## 6. 대회 규칙상 반드시 지킬 것
 - **API 키를 코드·깃·영상·발표자료에 넣지 말 것** (환경변수). data.go.kr 키는 노출 이력이 있어 재발급 예정.
 - **실제 개인정보를 외부 AI(API 포함)에 보내지 말 것** → 사용자 입력은 직렬·지역·자격증 같은 조건만, 이름·연락처 받지 않기. 시연은 가상 인물.

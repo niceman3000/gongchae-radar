@@ -48,3 +48,12 @@
 - Plain-language copy: `NCS 목록 변경` 같은 내부 용어를 쉬운 제목과 `지원자에게 의미` 문장으로 변환
 - AI disclosure: 현재 상세 화면의 실시간 AI 호출 여부와 코드·사람·AI 역할을 화면에 표시
 - Full test result: `25 passed`
+
+## 2026-11-17 - Testable AI extraction pipeline
+
+- Added: `src/model_client.py`, `src/ai_pipeline.py`, `tools/run_ai_pipeline.py`
+- AI tasks: 관련 PDF 쪽 구조화, 전년도·당해 연도 문구의 실질/표현 변경 분류와 쉬운 설명
+- Guardrail: AI가 반환한 모든 page·quote를 코드로 다시 확인하고 불일치는 `verified=false` 처리
+- Offline tests: 정상 인용, 조작된 숫자·인용 거부, 유효 문구 분류, JSON 오류 처리
+- Readiness check: Anthropic API 키 미설정, 따라서 실제 외부 모델 호출과 생성 결과는 아직 0건
+- Full test result: `29 passed`
