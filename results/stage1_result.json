@@ -159,6 +159,7 @@
       }
     ],
     "format_only_lines": 2,
+    "expression_only_lines": 0,
     "competition_in_api": {
       "prev": false,
       "curr": false
@@ -259,12 +260,6 @@
       },
       {
         "field": "응시자격",
-        "type": "text",
-        "prev": "- 유효성적 : 입사지원서 접수마감일 기준 최근 2년 이내 국내 정기시험 성적에 한하며, 국외응시·조회불가 성적·특별시험 성적 등은 불인정(TOEFL은 국외응시 성적가능)",
-        "curr": "- 유효성적 : 입사지원서 접수마감일 기준 최근 2년 이내 국내 정기시험 성적에 한하며, 국외응시·조회불가 성적·특별시험 성적 등은 불인정(단, TOEFL은 국외응시 성적가능)"
-      },
-      {
-        "field": "응시자격",
         "type": "date",
         "prev": "(‘23.08.08. 이후 응시하고 접수마감 이전까지 입력이 가능한 성적)",
         "curr": "(‘24.08.07. 이후 응시하고 접수마감 이전까지 입력이 가능한 성적)"
@@ -295,6 +290,7 @@
       }
     ],
     "format_only_lines": 0,
+    "expression_only_lines": 1,
     "competition_in_api": {
       "prev": false,
       "curr": false
@@ -487,6 +483,7 @@
       }
     ],
     "format_only_lines": 23,
+    "expression_only_lines": 0,
     "competition_in_api": {
       "prev": false,
       "curr": true

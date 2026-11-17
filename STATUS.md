@@ -30,7 +30,7 @@
 ## 현재 만들어진 결과물
 
 - `data/reports/report_kepco.json`: 한전 변경 후보 18건, 원문 확정 13건
-- `data/reports/report_khnp.json`: 한수원 변경 후보 14건
+- `data/reports/report_khnp.json`: 한수원 변경 후보 13건 (`단,`만 추가된 동일 의미 문구 1건 자동 제외)
 - `data/reports/report_komipo.json`: 중부발전 변경 후보 23건
 - 현재 확정 변경점: 한전 13건, 한수원·중부발전 0건
 - 한전 미확정 5건에는 API 정규화 문구가 PDF 실제 변경을 뒷받침하지 않는 지역명 후보 등이 포함됨

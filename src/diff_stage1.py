@@ -11,6 +11,7 @@
   removed  올해 사라진 줄                            -> 실질 변경 후보, 2단계 AI 확인
   date     날짜만 바뀜 (어학 유효기간 등 매년 갱신)  -> 통상 갱신, 낮은 우선순위
   rename   행정구역 등 명칭만 바뀜                   -> 표현 변경
+  expression 쉼표·괄호·'단,'만 달라 의미가 같음      -> 코드에서 제외
   text     그 밖의 문구 변경                         -> 2단계 AI가 실질/표현 분류
 """
 import difflib
@@ -41,12 +42,26 @@ ALIASES = [
 NUM_UNIT = re.compile(r"\d+(?:\.\d+)?\s*(?:배수|점|명|%|개월)")
 DATE = re.compile(r"'?\d{2}\.\s*\d{1,2}\.\s*\d{1,2}\.?|\d{4}\.\s*\d{1,2}\.\s*\d{1,2}\.?"
                   r"|'?\d{2,4}년(?:도)?(?:\s*\d{1,2}월)?(?:\s*\d{1,2}일)?")
+CONTENT_NUMBER = re.compile(r"\d+(?:[.,]\d+)?")
+STANDALONE_DISCOURSE = re.compile(r"(?<![\w])단\s*[,，]\s*")
 
 
 def canon(s):
     """띄어쓰기·문장부호 차이 제거 (표기만 다른 줄 걸러내기)"""
     s = s.replace("\u2019", "'").replace("\u2018", "'").replace("\u00b7", ",")
     return re.sub(r"[\s:]", "", s)
+
+
+def expression_canon(s):
+    """의미를 바꾸지 않는 제한적 표기 차이만 제거한다."""
+    s = s.replace("\u2019", "'").replace("\u2018", "'").replace("\u00b7", ",")
+    s = STANDALONE_DISCOURSE.sub("", s)
+    return re.sub(r"[^\w]", "", s).replace("_", "")
+
+
+def content_numbers(s):
+    """표현 필터가 숫자·날짜 변경을 삼키지 않도록 모든 숫자를 보존한다."""
+    return [value.replace(",", "") for value in CONTENT_NUMBER.findall(s or "")]
 
 
 def load_item(path):
@@ -77,6 +92,8 @@ def classify_pair(a, b):
     """한 줄이 바뀐 경우 분류"""
     if canon(a) == canon(b):
         return "format", {}
+    if content_numbers(a) == content_numbers(b) and expression_canon(a) == expression_canon(b):
+        return "expression", {}
     a_n, ha = norm_alias(a)
     b_n, hb = norm_alias(b)
     if canon(a_n) == canon(b_n):
@@ -177,11 +194,14 @@ def compare(prev, curr):
         add({"field": "모집단위 세분화", "type": "added", "curr": split_new})
 
     # 문장형
-    seen, fmt = set(), 0
+    seen, fmt, expression = set(), 0, 0
     for f, label in TEXT_FIELDS.items():
         for c in diff_text(prev.get(f), curr.get(f)):
             if c["type"] == "format":
                 fmt += 1
+                continue
+            if c["type"] == "expression":
+                expression += 1
                 continue
             k = (label, c["type"], c.get("prev"), c.get("curr"))
             if k in seen:
@@ -189,6 +209,7 @@ def compare(prev, curr):
             seen.add(k)
             add({"field": label, **c})
     out["format_only_lines"] = fmt
+    out["expression_only_lines"] = expression
 
     # 경쟁률 데이터 유무 (기관이 API에 공시했는지)
     def has_numbers(units):
@@ -214,6 +235,8 @@ def to_markdown(name, r):
              f"- API 경쟁률 공시: 작년 {'있음' if r['competition_in_api']['prev'] else '없음'}, "
              f"올해 {'있음' if r['competition_in_api']['curr'] else '없음'}",
              f"- 띄어쓰기·문장부호만 다른 줄 {r['format_only_lines']}개는 제외", ""]
+    if r.get("expression_only_lines"):
+        lines.insert(-1, f"- 쉼표·괄호·'단,'만 달라 의미가 같은 줄 {r['expression_only_lines']}개는 제외")
     for c in sorted(r["changes"], key=lambda c: PRIORITY.get(c["type"], 9)):
         tag = LABEL.get(c["type"], c["type"])
         if c["type"] == "list":
