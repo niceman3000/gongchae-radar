@@ -62,14 +62,14 @@
 
 ### Tests and Data Validation
 
-- [ ] T010 [P] [US1] Owner=DEV stage1·stage2 고정 fixture를 합쳤을 때 중요도·상태·근거가 예상대로 나오는 실패 테스트를 `tests/unit/test_report_builder.py`에 먼저 작성한다.
+- [X] T010 [P] [US1] Owner=DEV stage1·stage2 고정 fixture를 합쳤을 때 중요도·상태·근거가 예상대로 나오는 실패 테스트를 `tests/unit/test_report_builder.py`에 먼저 작성한다.
 - [ ] T011 [P] [US1] Owner=DEV 한전 PDF `data/pdf/290666.pdf`, `data/pdf/304551.pdf`에서 인원·지역·필수자격·가점·전형 방식과 쪽수·인용을 확인해 `evaluation/ground_truth/kepco.md`를 작성한다.
 - [ ] T012 [P] [US1] Owner=DATA-QA1 한수원 PDF `data/pdf/288681.pdf`, `data/pdf/302968.pdf`를 눈으로 대조해 5개 검토 영역·쪽수·원문 인용을 `evaluation/ground_truth/khnp.md`에 기록하고 불명확한 값은 `확인 필요`로 표시한다.
 - [ ] T013 [P] [US1] Owner=DATA-QA2 중부발전 PDF `data/pdf/287235.pdf`, `data/pdf/302314.pdf`를 눈으로 대조해 5개 검토 영역·쪽수·원문 인용을 `evaluation/ground_truth/komipo.md`에 기록하고 불명확한 값은 `확인 필요`로 표시한다.
 
 ### Implementation
 
-- [ ] T014 [US1] Owner=DEV `src/report_builder.py`에 stage1 변경 후보, stage2 추출값·문구 분류, 공고 메타데이터를 report v1 계약으로 합치는 CLI를 구현해 T010을 통과시킨다.
+- [X] T014 [US1] Owner=DEV `src/report_builder.py`에 stage1 변경 후보, stage2 추출값·문구 분류, 공고 메타데이터를 report v1 계약으로 합치는 CLI를 구현해 T010을 통과시킨다.
 - [ ] T015 [US1] Owner=DEV `config/demo_pairs.json`의 3쌍을 처리해 `data/reports/report_kepco.json`, `data/reports/report_khnp.json`, `data/reports/report_komipo.json`을 생성하고 T011~T013의 원문 검증 결과를 반영한다.
 - [ ] T016 [US1] Owner=DEV 리포트 3개의 JSON Schema·Evidence 의미 검증을 `tests/contract/test_report_schema.py`에서 통과시키고 불일치를 `evaluation/test-log.md`에 기록한다.
 - [ ] T017 [P] [US1] Owner=DEV 상태 배지와 쪽수·인용 근거 카드를 `app/ui_components.py`에 만들고 중요도순 변경 목록과 모집단위별 인원을 `app/pages/report.py`에 구현한다.

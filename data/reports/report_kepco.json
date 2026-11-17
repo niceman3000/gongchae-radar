@@ -1,0 +1,335 @@
+{
+  "schema_version": "1.0.0",
+  "pair_id": "kepco-2025-2026-h2",
+  "pair_name": "한전 4직급 대졸(하반기)",
+  "institution": "한국전력공사",
+  "checked_at": "2026-11-17",
+  "prev": {
+    "sn": "290666",
+    "title": "2025년도 하반기 대졸수준 채용공고",
+    "period": {
+      "start": "20250909",
+      "end": "20250923"
+    },
+    "pdf_path": "data/pdf/290666.pdf",
+    "source_url": "https://opendata.alio.go.kr/recruit/downloadAtchFile?recrutAtchFileNo=2987758"
+  },
+  "curr": {
+    "sn": "304551",
+    "title": "2026년도 하반기 4직급 대졸수준 신입사원 채용공고",
+    "period": {
+      "start": "20260902",
+      "end": "20260916"
+    },
+    "pdf_path": "data/pdf/304551.pdf",
+    "source_url": "https://opendata.alio.go.kr/recruit/downloadAtchFile?recrutAtchFileNo=3072795"
+  },
+  "tracks": [
+    "전기"
+  ],
+  "changes": [
+    {
+      "id": "stage1-001",
+      "importance": 1,
+      "category": "인원",
+      "title": "채용인원: 421 → 490",
+      "change_type": "number",
+      "prev_value": 421,
+      "curr_value": 490,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-006",
+      "importance": 1,
+      "category": "전형",
+      "title": "전형방법: ○ 외국어성적(100점), 자격증가점(사무20, 기술40), / 사무 : 50배수, 기술 : 15배수 → ○ 외국어성적(100점), 자격증가점(사무20점, 기술40점) / 사무 : 50배수, 전기(배전, 송변전) : 10배수, 기술(전기 외) : 15배수",
+      "change_type": "number",
+      "prev_value": "○ 외국어성적(100점), 자격증가점(사무20, 기술40), / 사무 : 50배수, 기술 : 15배수",
+      "curr_value": "○ 외국어성적(100점), 자격증가점(사무20점, 기술40점) / 사무 : 50배수, 전기(배전, 송변전) : 10배수, 기술(전기 외) : 15배수",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-008",
+      "importance": 1,
+      "category": "전형",
+      "title": "전형방법: ○ 직무(역량)면접(60점), 경험(인성)면접(40점) / 1배수 → ○ 직무면접(50점), 경험면접(50점) / 1배수",
+      "change_type": "number",
+      "prev_value": "○ 직무(역량)면접(60점), 경험(인성)면접(40점) / 1배수",
+      "curr_value": "○ 직무면접(50점), 경험면접(50점) / 1배수",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-002",
+      "importance": 2,
+      "category": "지역",
+      "title": "근무지역 목록 변경",
+      "change_type": "list",
+      "prev_value": [
+        "광주",
+        "전남"
+      ],
+      "curr_value": [
+        "전남광주"
+      ],
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-003",
+      "importance": 2,
+      "category": "직무분야(NCS)",
+      "title": "직무분야(NCS) 목록 변경",
+      "change_type": "list",
+      "prev_value": [
+        "기계"
+      ],
+      "curr_value": [],
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-004",
+      "importance": 2,
+      "category": "모집단위",
+      "title": "모집단위 목록 변경",
+      "change_type": "list",
+      "prev_value": [
+        "건축",
+        "발전"
+      ],
+      "curr_value": [],
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-005",
+      "importance": 2,
+      "category": "모집단위",
+      "title": "모집단위 세분화 추가: ['배전(보훈)', '배전(일반)', '사무(보훈)', '송변전(보훈)', '송변전(일반)']",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": [
+        "배전(보훈)",
+        "배전(일반)",
+        "사무(보훈)",
+        "송변전(보훈)",
+        "송변전(일반)"
+      ],
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-007",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법: ※ 장애인 전형 전원 합격 → ※ 장애인 및 보훈 전형 전원 합격",
+      "change_type": "text",
+      "prev_value": "※ 장애인 전형 전원 합격",
+      "curr_value": "※ 장애인 및 보훈 전형 전원 합격",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-010",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격: (단, TOEIC, TOEIC-S, OPIc, TEPS, TEPS-S, JPT, HSK는 통합채용포털에 등록된 어학성적에 한하여 유효기간을 시험의 실시연도 +5년까지 인정) → (단, TOEIC, TOEIC-S, OPIc, TEPS, TEPS-S, JPT, HSK는 국가공무원 채용시스템에 등록된 어학성적에 한하여 유효기간을 시험의 실시연도 +5년까지 인정)",
+      "change_type": "text",
+      "prev_value": "(단, TOEIC, TOEIC-S, OPIc, TEPS, TEPS-S, JPT, HSK는 통합채용포털에 등록된 어학성적에 한하여 유효기간을 시험의 실시연도 +5년까지 인정)",
+      "curr_value": "(단, TOEIC, TOEIC-S, OPIc, TEPS, TEPS-S, JPT, HSK는 국가공무원 채용시스템에 등록된 어학성적에 한하여 유효기간을 시험의 실시연도 +5년까지 인정)",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-012",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 추가: ○ 보훈 분야는 「국가유공자법」에서 정한 취업지원대상자만 지원 가능",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": "○ 보훈 분야는 「국가유공자법」에서 정한 취업지원대상자만 지원 가능",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-014",
+      "importance": 2,
+      "category": "결격사유",
+      "title": "결격사유 추가: ○ 보훈 분야의 경우 「국가유공자법」에서 정한 취업지원대상자가 아닌 자",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": "○ 보훈 분야의 경우 「국가유공자법」에서 정한 취업지원대상자가 아닌 자",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-015",
+      "importance": 2,
+      "category": "가점",
+      "title": "우대사항: ○ 전력데이터 활용 신서비스 개발 경진대회 입상자 → ○ (한전 대표주관)공공데이터활용 아이디어 경진대회/공모전 입상자",
+      "change_type": "text",
+      "prev_value": "○ 전력데이터 활용 신서비스 개발 경진대회 입상자",
+      "curr_value": "○ (한전 대표주관)공공데이터활용 아이디어 경진대회/공모전 입상자",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-016",
+      "importance": 2,
+      "category": "가점",
+      "title": "우대사항: ○ 한전 발명특허대전 입상자 → ○ 한전 발명기술혁신대전 입상자",
+      "change_type": "text",
+      "prev_value": "○ 한전 발명특허대전 입상자",
+      "curr_value": "○ 한전 발명기술혁신대전 입상자",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-017",
+      "importance": 2,
+      "category": "가점",
+      "title": "우대사항 추가: ○ 한전 청년청렴 Auditor 우수활동자 : 1차전형 10% 가점",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": "○ 한전 청년청렴 Auditor 우수활동자 : 1차전형 10% 가점",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-018",
+      "importance": 2,
+      "category": "가점",
+      "title": "우대사항 추가: ※ '25년도 선정 우수활동자부터 적용",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": "※ '25년도 선정 우수활동자부터 적용",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-009",
+      "importance": 3,
+      "category": "자격",
+      "title": "응시자격: ○ 유효성적 : '23. 11. 22부터 응시하고 접수 마감일까지 발표한 국내 정기시험 성적만 인정 → ○ 유효성적 : '24. 11. 28.부터 응시하고 접수 마감일까지 발표한 국내 정기시험 성적만 인정",
+      "change_type": "date",
+      "prev_value": "○ 유효성적 : '23. 11. 22부터 응시하고 접수 마감일까지 발표한 국내 정기시험 성적만 인정",
+      "curr_value": "○ 유효성적 : '24. 11. 28.부터 응시하고 접수 마감일까지 발표한 국내 정기시험 성적만 인정",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-011",
+      "importance": 3,
+      "category": "자격",
+      "title": "응시자격: ○ 전국권(이전지역인재) 지원시 광주광역시, 전라남도 소재 학교(대학까지의 최종학력 기준, 대학원 이상 제외) 졸업(예정)·중퇴·재학·휴학중인 자만 지원 가능 → ○ 전국권(이전지역인재) 지원시 전남광주 소재 학교(대학까지의 최종학력 기준, 대학원 이상 제외) 졸업(예정)·중퇴·재학·휴학중인 자만 지원 가능",
+      "change_type": "rename",
+      "prev_value": "○ 전국권(이전지역인재) 지원시 광주광역시, 전라남도 소재 학교(대학까지의 최종학력 기준, 대학원 이상 제외) 졸업(예정)·중퇴·재학·휴학중인 자만 지원 가능",
+      "curr_value": "○ 전국권(이전지역인재) 지원시 전남광주 소재 학교(대학까지의 최종학력 기준, 대학원 이상 제외) 졸업(예정)·중퇴·재학·휴학중인 자만 지원 가능",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-013",
+      "importance": 3,
+      "category": "결격사유",
+      "title": "결격사유: ○ 전국권(이전지역인재) 지원시 광주광역시, 전라남도 소재 학교(대학까지의 최종학력 기준, 대학원 이상 제외) 졸업(예정)·중퇴·재학·휴학중인 자가 아닌 자 → ○ 전국권(이전지역인재) 지원시 전남광주 소재 학교(대학까지의 최종학력 기준, 대학원 이상 제외) 졸업(예정)·중퇴·재학·휴학중인 자가 아닌 자",
+      "change_type": "rename",
+      "prev_value": "○ 전국권(이전지역인재) 지원시 광주광역시, 전라남도 소재 학교(대학까지의 최종학력 기준, 대학원 이상 제외) 졸업(예정)·중퇴·재학·휴학중인 자가 아닌 자",
+      "curr_value": "○ 전국권(이전지역인재) 지원시 전남광주 소재 학교(대학까지의 최종학력 기준, 대학원 이상 제외) 졸업(예정)·중퇴·재학·휴학중인 자가 아닌 자",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    }
+  ],
+  "units": [],
+  "competition": {
+    "published": false,
+    "prev": null,
+    "curr": null,
+    "note": "기관 미공시",
+    "checked_at": null
+  },
+  "requirements": {
+    "tracks": [
+      "전기"
+    ],
+    "regions": [],
+    "certificates": [],
+    "majors": [],
+    "manual_review_conditions": []
+  }
+}
