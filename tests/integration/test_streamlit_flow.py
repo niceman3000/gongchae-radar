@@ -20,8 +20,8 @@ def test_kepco_report_opens_with_verified_changes_and_evidence():
     assert any("13건" in item.value for item in app.metric)
     assert any("421" in item.value and "490" in item.value for item in app.markdown)
     assert any("숫자로 보는 핵심 변화" in item.value for item in app.subheader)
-    assert any("전체 채용인원" in item.label and item.value == "490명" for item in app.metric)
-    assert len(app.dataframe) == 1
+    assert any("공고 전체 선발인원" in item.label and item.value == "490명" for item in app.metric)
+    assert len(app.dataframe) == 2
     assert len(app.download_button) == 2
     assert len(app.selectbox[0].options) == 3
     assert app.selectbox[1].options == ["선택 안 함", "현재 공고 (2026)", "비교 공고 (2025)"]
@@ -53,6 +53,11 @@ def test_user_can_switch_company_without_treating_candidates_as_confirmed():
     assert any("한국수력원자력 채용공고 비교" in item.value for item in app.markdown)
     assert any("0건" in item.value for item in app.metric)
     assert any("PDF 원문 대조가 아직 끝나지 않았습니다" in item.value for item in app.warning)
+    visible_text = " ".join(item.value for item in app.markdown)
+    assert "2025: 총 139명" in visible_text
+    assert "일반전형 120명" in visible_text
+    assert "2026: 총 229명" in visible_text
+    assert "보훈특별전형 20명" in visible_text
 
     app.toggle[0].set_value(True).run()
     visible_text = " ".join(item.value for item in app.markdown)

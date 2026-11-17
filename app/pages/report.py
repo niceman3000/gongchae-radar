@@ -106,21 +106,55 @@ def _render_visual_summary(report: Mapping[str, Any]) -> None:
     st.caption("그래프는 원문 확인이 끝난 수치만 사용합니다. 정확한 문장은 아래 변경사항에서 확인할 수 있습니다.")
 
     total = summary["total_headcount"]
-    selection = summary["selection_multiple"]
     total_delta = total["curr"] - total["prev"]
     total_rate = total_delta / total["prev"] * 100 if total["prev"] else 0
-    total_column, selection_column = st.columns(2)
+    selection = summary.get("selection_multiple")
+    if selection:
+        total_column, selection_column = st.columns(2)
+    else:
+        total_column = st.container()
     total_column.metric(
         total["label"],
         f'{total["curr"]:g}{total["unit"]}',
         f'{total_delta:+g}{total["unit"]} ({total_rate:+.1f}%)',
     )
-    selection_column.metric(
-        selection["label"],
-        f'{selection["curr"]:g}{selection["unit"]}',
-        f'2025년 {selection["prev"]:g}{selection["unit"]}',
-        delta_color="off",
-    )
+    if selection:
+        selection_column.metric(
+            selection["label"],
+            f'{selection["curr"]:g}{selection["unit"]}',
+            f'2025년 {selection["prev"]:g}{selection["unit"]}',
+            delta_color="off",
+        )
+
+    breakdown = summary.get("headcount_breakdown") or []
+    if breakdown:
+        st.markdown("#### 전체 선발인원의 구성")
+        if summary.get("scope_note"):
+            st.caption(summary["scope_note"])
+        for year_key, year_label in (("prev", "2025"), ("curr", "2026")):
+            detail = ", ".join(
+                f'{row["label"]} {row[year_key]:g}명' for row in breakdown
+            )
+            st.markdown(f'**{year_label}: 총 {total[year_key]:g}명** ({detail})')
+        breakdown_rows = [
+            {
+                "전형": row["label"],
+                "2025": row["prev"],
+                "2026": row["curr"],
+                "증감": row["curr"] - row["prev"],
+            }
+            for row in breakdown
+        ]
+        st.dataframe(
+            pd.DataFrame(breakdown_rows),
+            hide_index=True,
+            use_container_width=True,
+            column_config={
+                "2025": st.column_config.NumberColumn("2025", format="%d명"),
+                "2026": st.column_config.NumberColumn("2026", format="%d명"),
+                "증감": st.column_config.NumberColumn("증감", format="%+d명"),
+            },
+        )
 
     headcount_rows = [
         {
@@ -129,47 +163,50 @@ def _render_visual_summary(report: Mapping[str, Any]) -> None:
             "2026": row["curr"],
             "증감": row["curr"] - row["prev"],
         }
-        for row in summary["headcount_by_track"]
+        for row in summary.get("headcount_by_track") or []
     ]
-    headcount = pd.DataFrame(headcount_rows)
-    st.markdown("#### 직렬별 일반전형 채용인원")
-    st.bar_chart(
-        headcount.set_index("직렬")[["2025", "2026"]],
-        horizontal=True,
-        stack=False,
-        height=390,
-    )
-    st.dataframe(
-        headcount,
-        hide_index=True,
-        use_container_width=True,
-        column_config={
-            "2025": st.column_config.NumberColumn("2025", format="%d명"),
-            "2026": st.column_config.NumberColumn("2026", format="%d명"),
-            "증감": st.column_config.NumberColumn("증감", format="%+d명"),
-        },
-    )
+    if headcount_rows:
+        headcount = pd.DataFrame(headcount_rows)
+        st.markdown("#### 직렬별 일반전형 채용인원")
+        st.bar_chart(
+            headcount.set_index("직렬")[["2025", "2026"]],
+            horizontal=True,
+            stack=False,
+            height=390,
+        )
+        st.dataframe(
+            headcount,
+            hide_index=True,
+            use_container_width=True,
+            column_config={
+                "2025": st.column_config.NumberColumn("2025", format="%d명"),
+                "2026": st.column_config.NumberColumn("2026", format="%d명"),
+                "증감": st.column_config.NumberColumn("증감", format="%+d명"),
+            },
+        )
 
-    multiple_column, interview_column = st.columns(2)
-    with multiple_column:
-        st.markdown("#### 전기직 서류 선발배수")
-        multiples = pd.DataFrame(
-            [
-                {"연도": "2025", "선발배수": selection["prev"]},
-                {"연도": "2026", "선발배수": selection["curr"]},
-            ]
-        ).set_index("연도")
-        st.bar_chart(multiples, horizontal=True, height=250)
-    with interview_column:
-        st.markdown("#### 일반직 면접 배점 구성")
-        weights = pd.DataFrame(
-            {
-                "연도": ["2025", "2026"],
-                "직무면접": [summary["interview_weights"][0]["prev"], summary["interview_weights"][0]["curr"]],
-                "경험면접": [summary["interview_weights"][1]["prev"], summary["interview_weights"][1]["curr"]],
-            }
-        ).set_index("연도")
-        st.bar_chart(weights, horizontal=True, stack=True, height=250)
+    interview_weights = summary.get("interview_weights") or []
+    if selection and interview_weights:
+        multiple_column, interview_column = st.columns(2)
+        with multiple_column:
+            st.markdown("#### 전기직 서류 선발배수")
+            multiples = pd.DataFrame(
+                [
+                    {"연도": "2025", "선발배수": selection["prev"]},
+                    {"연도": "2026", "선발배수": selection["curr"]},
+                ]
+            ).set_index("연도")
+            st.bar_chart(multiples, horizontal=True, height=250)
+        with interview_column:
+            st.markdown("#### 일반직 면접 배점 구성")
+            weights = pd.DataFrame(
+                {
+                    "연도": ["2025", "2026"],
+                    "직무면접": [interview_weights[0]["prev"], interview_weights[0]["curr"]],
+                    "경험면접": [interview_weights[1]["prev"], interview_weights[1]["curr"]],
+                }
+            ).set_index("연도")
+            st.bar_chart(weights, horizontal=True, stack=True, height=250)
 
 
 def _render_ai_usage() -> None:

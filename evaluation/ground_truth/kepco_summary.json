@@ -1,10 +1,17 @@
 {
   "total_headcount": {
-    "label": "전체 채용인원",
+    "label": "공고 전체 선발인원",
     "prev": 421,
     "curr": 490,
     "unit": "명"
   },
+  "scope_note": "일반전형·보훈·장애인·SW 특화 전형을 합친 공고 전체 기준입니다.",
+  "headcount_breakdown": [
+    {"label": "일반전형", "prev": 412, "curr": 463},
+    {"label": "보훈전형", "prev": 0, "curr": 10},
+    {"label": "장애인전형", "prev": 4, "curr": 7},
+    {"label": "SW 특화전형", "prev": 5, "curr": 10}
+  ],
   "headcount_by_track": [
     {"label": "사무", "prev": 80, "curr": 110},
     {"label": "배전", "prev": 101, "curr": 172},

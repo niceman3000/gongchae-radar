@@ -280,5 +280,31 @@
     "certificates": [],
     "majors": [],
     "manual_review_conditions": []
+  },
+  "visual_summary": {
+    "total_headcount": {
+      "label": "공고 전체 선발인원",
+      "prev": 139,
+      "curr": 229,
+      "unit": "명"
+    },
+    "scope_note": "일반전형·보훈특별전형·사회형평전형의 별도 모집요강을 합산한 공고 전체 기준입니다.",
+    "headcount_breakdown": [
+      {
+        "label": "일반전형",
+        "prev": 120,
+        "curr": 199
+      },
+      {
+        "label": "보훈특별전형",
+        "prev": 8,
+        "curr": 20
+      },
+      {
+        "label": "사회형평전형",
+        "prev": 11,
+        "curr": 10
+      }
+    ]
   }
 }
