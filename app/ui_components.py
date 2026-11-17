@@ -2,8 +2,10 @@
 
 from __future__ import annotations
 
+from difflib import SequenceMatcher
 import json
 from html import escape
+import re
 from typing import Any, Mapping
 
 import streamlit as st
@@ -38,7 +40,13 @@ CHANGE_COPY = {
         "공고 전체 선발인원 증가: 139명 → 229명",
         "일반전형·보훈특별전형·사회형평전형을 모두 합친 공고 전체 기준입니다. 위 구성표에서 전형별 증감을 확인할 수 있습니다.",
     ),
+    ("khnp-2025-2026-round3", "stage1-004"): (
+        "사전평가 기준 변경: 일부 지원자는 전체 사전평가 면제",
+        "API 문구상 2025년에는 해당 지원자도 자기소개서 적부평가를 받았지만, 2026년에는 응시자격이 적격이면 1차 사전평가를 면제합니다. PDF 원문 확인이 남아 있습니다.",
+    ),
 }
+
+LONG_TEXT_THRESHOLD = 90
 
 
 def apply_styles() -> None:
@@ -71,6 +79,23 @@ def apply_styles() -> None:
             border-left: 3px solid #6b86e8; padding: .3rem .7rem; color: #39465c;
             background: #f7f9ff; border-radius: 0 .45rem .45rem 0;
         }
+        .diff-panel {
+            border: 1px solid #e3e7ef; border-radius: .75rem; padding: .75rem .85rem;
+            min-height: 7.5rem; background: #ffffff;
+        }
+        .diff-panel-prev { border-top: 3px solid #d56a6a; }
+        .diff-panel-curr { border-top: 3px solid #3a9a6b; }
+        .diff-label { color: #5f6b7d; font-size: .78rem; font-weight: 800; margin-bottom: .5rem; }
+        .diff-text { color: #273247; line-height: 1.65; overflow-wrap: anywhere; }
+        .diff-removed {
+            color: #9f2f2f; background: #ffe3e3; border-radius: .25rem;
+            padding: .08rem .2rem; text-decoration: line-through; font-weight: 750;
+        }
+        .diff-added {
+            color: #11673f; background: #dcf7e9; border-radius: .25rem;
+            padding: .08rem .2rem; font-weight: 750;
+        }
+        .diff-ellipsis { color: #8791a2; padding: 0 .15rem; }
         </style>
         """,
         unsafe_allow_html=True,
@@ -106,6 +131,80 @@ def _value_box(label: str, value: Any) -> None:
     )
 
 
+def _shorten_equal_text(value: str, context: int = 24) -> str:
+    if len(value) <= context * 2 + 10:
+        return escape(value)
+    return (
+        escape(value[:context])
+        + '<span class="diff-ellipsis"> … </span>'
+        + escape(value[-context:])
+    )
+
+
+def diff_side_html(previous: str, current: str, side: str) -> str:
+    """긴 문장에서 공통 부분은 접고 삭제·추가 구절만 강조한다."""
+    previous_tokens = re.findall(r"\s+|[\w]+|[^\w\s]", previous)
+    current_tokens = re.findall(r"\s+|[\w]+|[^\w\s]", current)
+    matcher = SequenceMatcher(None, previous_tokens, current_tokens, autojunk=False)
+    output: list[str] = []
+    for tag, prev_start, prev_end, curr_start, curr_end in matcher.get_opcodes():
+        if tag == "equal":
+            output.append(_shorten_equal_text("".join(previous_tokens[prev_start:prev_end])))
+        elif side == "prev" and tag in {"delete", "replace"}:
+            removed = escape("".join(previous_tokens[prev_start:prev_end]))
+            if removed:
+                output.append(f'<span class="diff-removed">{removed}</span>')
+        elif side == "curr" and tag in {"insert", "replace"}:
+            added = escape("".join(current_tokens[curr_start:curr_end]))
+            if added:
+                output.append(f'<span class="diff-added">{added}</span>')
+    return "".join(output)
+
+
+def concise_change_title(change: Mapping[str, Any], pair_id: str) -> tuple[str, str]:
+    curated = CHANGE_COPY.get((pair_id, str(change.get("id"))))
+    if curated:
+        return curated
+
+    raw_title = str(change["title"])
+    if len(raw_title) <= 80:
+        return raw_title, "지원자에게 미치는 영향을 추가 확인 중입니다."
+
+    prefix = raw_title.split(":", 1)[0].strip()
+    subject = prefix if 1 <= len(prefix) <= 16 else str(change.get("category") or "공고")
+    return (
+        f"{subject} 세부 기준 변경",
+        "빨간색은 이전 공고에서 빠진 내용, 초록색은 새 공고에 추가된 내용입니다. 정확한 적용 범위는 원문 확인이 필요합니다.",
+    )
+
+
+def _render_long_text_diff(previous: str, current: str) -> None:
+    before, after = st.columns(2)
+    with before:
+        st.markdown(
+            '<div class="diff-panel diff-panel-prev">'
+            '<div class="diff-label">2025 · 삭제되거나 바뀐 부분</div>'
+            f'<div class="diff-text">{diff_side_html(previous, current, "prev")}</div>'
+            '</div>',
+            unsafe_allow_html=True,
+        )
+    with after:
+        st.markdown(
+            '<div class="diff-panel diff-panel-curr">'
+            '<div class="diff-label">2026 · 추가되거나 바뀐 부분</div>'
+            f'<div class="diff-text">{diff_side_html(previous, current, "curr")}</div>'
+            '</div>',
+            unsafe_allow_html=True,
+        )
+
+    with st.expander("원문 전체 비교"):
+        old, new = st.columns(2)
+        with old:
+            _value_box("2025 전체 문구", previous)
+        with new:
+            _value_box("2026 전체 문구", current)
+
+
 def evidence_card(item: Mapping[str, Any], titles: Mapping[str, str]) -> None:
     side = str(item["side"])
     year_label = "전년도" if side == "prev" else "당해 연도"
@@ -117,10 +216,7 @@ def evidence_card(item: Mapping[str, Any], titles: Mapping[str, str]) -> None:
 
 
 def change_card(change: Mapping[str, Any], titles: Mapping[str, str], pair_id: str) -> None:
-    plain_title, impact = CHANGE_COPY.get(
-        (pair_id, str(change.get("id"))),
-        (str(change["title"]), "지원자에게 미치는 영향을 추가 확인 중입니다."),
-    )
+    plain_title, impact = concise_change_title(change, pair_id)
     with st.container(border=True):
         left, right = st.columns([4, 1])
         with left:
@@ -133,11 +229,20 @@ def change_card(change: Mapping[str, Any], titles: Mapping[str, str], pair_id: s
         with right:
             status_badge(str(change["status"]))
 
-        before, after = st.columns(2)
-        with before:
-            _value_box("2025", change.get("prev_value"))
-        with after:
-            _value_box("2026", change.get("curr_value"))
+        previous = change.get("prev_value")
+        current = change.get("curr_value")
+        if (
+            isinstance(previous, str)
+            and isinstance(current, str)
+            and max(len(previous), len(current)) >= LONG_TEXT_THRESHOLD
+        ):
+            _render_long_text_diff(previous, current)
+        else:
+            before, after = st.columns(2)
+            with before:
+                _value_box("2025", previous)
+            with after:
+                _value_box("2026", current)
 
         evidence = list(change.get("evidence") or [])
         if evidence:

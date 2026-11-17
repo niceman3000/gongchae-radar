@@ -62,3 +62,6 @@ def test_user_can_switch_company_without_treating_candidates_as_confirmed():
     app.toggle[0].set_value(True).run()
     visible_text = " ".join(item.value for item in app.markdown)
     assert "전체 채용인원 증가: 421명 → 490명" not in visible_text
+    assert "사전평가 기준 변경: 일부 지원자는 전체 사전평가 면제" in visible_text
+    assert 'class="diff-removed"' in visible_text
+    assert 'class="diff-added"' in visible_text
