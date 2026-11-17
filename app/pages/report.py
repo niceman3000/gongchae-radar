@@ -12,12 +12,32 @@ from src.report_repository import ReportContractError, ReportRepository
 
 
 def _render_header(report: Mapping[str, Any]) -> None:
-    st.markdown('<div class="radar-eyebrow">PUBLIC RECRUITMENT CHANGE RADAR</div>', unsafe_allow_html=True)
-    st.markdown('<div class="radar-title">공채레이더</div>', unsafe_allow_html=True)
+    institution = escape(str(report["institution"]))
+    st.markdown('<div class="radar-eyebrow">공채레이더 · 전년도 공고 비교</div>', unsafe_allow_html=True)
     st.markdown(
-        f'<div class="radar-subtitle">{escape(str(report["institution"]))} 공고를 전년도와 직접 대조한 결과입니다.</div>',
+        f'<div class="radar-title">{institution} 채용공고 비교</div>',
         unsafe_allow_html=True,
     )
+    st.markdown(
+        '<div class="radar-subtitle">현재 지원할 공고와 전년도 공고에서 달라진 내용을 확인합니다.</div>',
+        unsafe_allow_html=True,
+    )
+
+    with st.container(border=True):
+        st.markdown(f"### 지원 대상 기업: {report['institution']}")
+        current, previous = st.columns(2)
+        with current:
+            st.markdown("**현재 지원 공고 (2026)**")
+            st.write(report["curr"]["title"])
+            st.caption(
+                f"공고번호 {report['curr']['sn']} · 접수 {report['curr']['period']['start']} ~ {report['curr']['period']['end']}"
+            )
+        with previous:
+            st.markdown("**비교 기준 공고 (2025)**")
+            st.write(report["prev"]["title"])
+            st.caption(
+                f"공고번호 {report['prev']['sn']} · 접수 {report['prev']['period']['start']} ~ {report['prev']['period']['end']}"
+            )
 
     confirmed = sum(item["status"] == "confirmed" for item in report["changes"])
     review = sum(item["status"] == "review_required" for item in report["changes"])

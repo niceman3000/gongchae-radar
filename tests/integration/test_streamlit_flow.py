@@ -11,6 +11,12 @@ def test_kepco_report_opens_with_verified_changes_and_evidence():
 
     assert not app.exception
     assert any("공채레이더" in item.value for item in app.markdown)
+    assert any("한국전력공사 채용공고 비교" in item.value for item in app.markdown)
+    assert any("지원 대상 기업: 한국전력공사" in item.value for item in app.markdown)
+    assert any("현재 지원 공고 (2026)" in item.value for item in app.markdown)
+    assert any("비교 기준 공고 (2025)" in item.value for item in app.markdown)
+    assert any("2026년도 하반기" in item.value for item in app.markdown)
+    assert any("2025년도 하반기" in item.value for item in app.markdown)
     assert any("13건" in item.value for item in app.metric)
     assert any("421" in item.value and "490" in item.value for item in app.markdown)
     assert len(app.expander) >= 2
