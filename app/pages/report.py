@@ -22,7 +22,7 @@ def _render_header(report: Mapping[str, Any]) -> None:
     confirmed = sum(item["status"] == "confirmed" for item in report["changes"])
     review = sum(item["status"] == "review_required" for item in report["changes"])
     first, second, third = st.columns(3)
-    first.metric("원문 확인 변경", f"{confirmed}건")
+    first.metric("확인된 변경사항", f"{confirmed}건")
     second.metric("추가 확인 필요", f"{review}건")
     third.metric("데이터 확인일", report["checked_at"])
 
