@@ -1,0 +1,52 @@
+{
+  "$comment": "2단계 AI 추출 스키마. API 텍스트(전형방법·자격·우대·인원)는 1단계 코드가 이미 비교하므로, 여기서는 PDF에만 있는 정보만 채운다. 모든 값은 evidence(쪽수+원문 인용)를 반드시 가진다. 공고에 없으면 value=null, status='명시 없음'.",
+  "version": "0.1",
+  "notice": {
+    "sn": "잡알리오/API 공고번호 (예: 304551)",
+    "institution": "기관명",
+    "season": "예: 2026 하반기, 2026 제3차",
+    "source_pdf": "공고문 파일명"
+  },
+  "units": [
+    {
+      "unit_name": "공고에 적힌 모집단위 이름 그대로 (예: 배전(일반))",
+      "track": "직렬 태그: 전기 | 기계 | 사무 | ICT | 토목 | 건축 | 화학 | 원자력 | 기타",
+      "headcount_total": {"value": 0, "evidence": {"page": 0, "quote": ""}},
+      "headcount_by_region": [
+        {"region": "예: 전국권, 부산울산, 경남", "value": 0, "evidence": {"page": 0, "quote": ""}}
+      ],
+      "required_qualifications": [
+        {"item": "필수 자격 (예: 전기기사 이상 또는 관련 전공)", "evidence": {"page": 0, "quote": ""}}
+      ],
+      "certificate_bonus": [
+        {"certificate": "예: 전기기사", "points": 0, "stage": "예: 1차 서류", "evidence": {"page": 0, "quote": ""}}
+      ],
+      "stages": [
+        {
+          "stage": "예: 1차 서류, 2차 필기, 3차 면접",
+          "components": [{"name": "예: 직무능력검사", "points": 0}],
+          "pass_multiple": "예: 10배수, 2.5배수",
+          "pass_rule": "예: 커트라인 130점 이상 전원 합격",
+          "evidence": {"page": 0, "quote": ""}
+        }
+      ],
+      "regional_talent": {"rule": "예: 이전지역인재 3% 가점", "evidence": {"page": 0, "quote": ""}},
+      "employment": {"type": "예: 정규직(수습 3개월), 채용형 인턴", "evidence": {"page": 0, "quote": ""}}
+    }
+  ],
+  "notice_level": {
+    "schedule": [{"step": "예: 필기시험", "date": "YYYY-MM-DD", "evidence": {"page": 0, "quote": ""}}],
+    "advance_notices": [{"content": "다음 채용부터 바뀌는 내용 (사전예고)", "effective_from": "", "evidence": {"page": 0, "quote": ""}}]
+  },
+  "status_values": ["확인", "명시 없음", "확인 필요"],
+  "text_change_classification": {
+    "$comment": "1단계에서 '문구 변경(text)'으로 넘어온 줄만 AI가 분류. 바뀐 두 줄만 보내므로 토큰이 적다.",
+    "input": {"field": "", "prev": "", "curr": ""},
+    "output": {
+      "label": "실질 변경 | 표현 변경",
+      "who_is_affected": "예: 보훈 대상자, 전기직 지원자, 영향 없음",
+      "one_line": "사용자에게 보여 줄 한 줄 설명",
+      "confidence": "높음 | 낮음 (낮음이면 화면에 '확인 필요')"
+    }
+  }
+}

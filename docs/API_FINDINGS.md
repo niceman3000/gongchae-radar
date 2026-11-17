@@ -1,0 +1,13 @@
+# 재정경제부 공공기관 채용정보 조회서비스 — 실측 결과 (2026-11-16, 팀 PC에서 실행)
+- 목록: apis.data.go.kr/1051000/recruitment/list  (serviceKey, resultType=json, pageNo, numOfRows, ongoingYn, pblntInstCd ...)
+  - totalCount 115,082 / 가장 오래된 공고 2018-01-02 → 과거 공고 API로 조회 가능
+  - 기관 필터 pblntInstCd 동작 (한전 C0247 → 1,575건)
+  - recrutPblntSn = 잡알리오 idx (290666, 304551 일치)
+  - 텍스트 필드: recrutNope, aplyQlfcCn, disqlfcRsn, scrnprcdrMthdExpln, prefCn, prefCondCn, workRgnNmLst, ncsCdNmLst ...
+  - 목록에서는 files/steps 가 빈 배열
+- 상세: .../recruitment/detail?sn=<공고번호>
+  - files: atchFileType A=공고문 B=입사지원서 C=직무기술서, url(다운로드 주소) 포함 → 공고문 PDF 자동 다운로드 가능
+  - steps: 모집단위(recrutPbancTtl)별 단계 행, recrutNope(선발)/aplyNope(응시)/cmpttRt/rsnOcrnYmd
+    - 중부발전 2026 제2차: 값 있음 (전기 대졸 일반 1차 2133→946, 2차 627→91)
+    - 한전 2025·2026 대졸: 모집단위 행은 있으나 값이 전부 null (잡알리오 화면에는 값 있음) → API 경쟁률은 '공시된 경우만'
+- API 텍스트만으로 찾은 한전 변경점: 서류 15배수→전기 10배수, 면접 직무60/경험40→50/50, 인원 421→490
