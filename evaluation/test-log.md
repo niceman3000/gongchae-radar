@@ -31,3 +31,12 @@
 - Rejected candidate example: API의 `광주/전남 → 전남광주` 표시는 PDF 원문상 실제 지역 변경으로 확인되지 않아 확정하지 않음
 - Test command: `.\.venv\Scripts\python.exe -m pytest -q`
 - Test result: `22 passed`
+
+## 2026-11-17 - First Streamlit report screen
+
+- Entry point: `streamlit_app.py`
+- Screen: `app/pages/report.py`, `app/ui_components.py`
+- Behavior: 한전 확정 변경 13건을 기본 표시하고 확인 필요 후보 5건은 토글 뒤로 분리
+- Evidence UI: 전년도·당해 연도 값, 상태, PDF 쪽수, 원문 인용, 공식 PDF 링크 표시
+- AppTest: 예외 0건, 제목·13건 지표·421→490 변경값·근거 영역·미확정 후보 기본 숨김 확인
+- Full test result after implementation: `24 passed`

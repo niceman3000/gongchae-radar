@@ -72,8 +72,8 @@
 - [X] T014 [US1] Owner=DEV `src/report_builder.py`에 stage1 변경 후보, stage2 추출값·문구 분류, 공고 메타데이터를 report v1 계약으로 합치는 CLI를 구현해 T010을 통과시킨다.
 - [ ] T015 [US1] Owner=DEV `config/demo_pairs.json`의 3쌍을 처리해 `data/reports/report_kepco.json`, `data/reports/report_khnp.json`, `data/reports/report_komipo.json`을 생성하고 T011~T013의 원문 검증 결과를 반영한다.
 - [ ] T016 [US1] Owner=DEV 리포트 3개의 JSON Schema·Evidence 의미 검증을 `tests/contract/test_report_schema.py`에서 통과시키고 불일치를 `evaluation/test-log.md`에 기록한다.
-- [ ] T017 [P] [US1] Owner=DEV 상태 배지와 쪽수·인용 근거 카드를 `app/ui_components.py`에 만들고 중요도순 변경 목록과 모집단위별 인원을 `app/pages/report.py`에 구현한다.
-- [ ] T018 [US1] Owner=DEV 고정 한전 리포트로 상세 화면을 여는 AppTest를 `tests/integration/test_streamlit_flow.py`에 추가해 예외 0건과 근거 표시를 확인한다.
+- [X] T017 [P] [US1] Owner=DEV 상태 배지와 쪽수·인용 근거 카드를 `app/ui_components.py`에 만들고 중요도순 변경 목록과 모집단위별 인원을 `app/pages/report.py`에 구현한다.
+- [X] T018 [US1] Owner=DEV 고정 한전 리포트로 상세 화면을 여는 AppTest를 `tests/integration/test_streamlit_flow.py`에 추가해 예외 0건과 근거 표시를 확인한다.
 
 **Checkpoint**: 조건 입력 없이도 한전 리포트 URL·화면만으로 P1 가치를 시연할 수 있다.
 
