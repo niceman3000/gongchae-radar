@@ -6,6 +6,7 @@ import argparse
 import os
 from pathlib import Path
 import sys
+import tomllib
 
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -28,14 +29,29 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
+def load_secret(name: str) -> str:
+    environment_value = os.environ.get(name, "").strip()
+    if environment_value:
+        return environment_value
+    secrets_path = ROOT / ".streamlit" / "secrets.toml"
+    if not secrets_path.exists():
+        return ""
+    try:
+        with secrets_path.open("rb") as stream:
+            value = tomllib.load(stream).get(name, "")
+    except (OSError, tomllib.TOMLDecodeError):
+        return ""
+    return str(value).strip()
+
+
 def main() -> None:
     args = parse_args()
-    key = os.environ.get("ANTHROPIC_API_KEY", "").strip()
+    key = load_secret("ANTHROPIC_API_KEY")
     if args.check:
         print(f"pair={args.pair}")
         print(f"ANTHROPIC_API_KEY={'configured' if key else 'missing'}")
-        print(f"extract_model={os.environ.get('MODEL_EXTRACT', DEFAULT_EXTRACT_MODEL)}")
-        print(f"classify_model={os.environ.get('MODEL_CLASSIFY', DEFAULT_CLASSIFY_MODEL)}")
+        print(f"extract_model={load_secret('MODEL_EXTRACT') or DEFAULT_EXTRACT_MODEL}")
+        print(f"classify_model={load_secret('MODEL_CLASSIFY') or DEFAULT_CLASSIFY_MODEL}")
         return
 
     try:
@@ -43,8 +59,8 @@ def main() -> None:
         paths = run_pair(
             args.pair,
             client,
-            extract_model=os.environ.get("MODEL_EXTRACT", DEFAULT_EXTRACT_MODEL),
-            classify_model=os.environ.get("MODEL_CLASSIFY", DEFAULT_CLASSIFY_MODEL),
+            extract_model=load_secret("MODEL_EXTRACT") or DEFAULT_EXTRACT_MODEL,
+            classify_model=load_secret("MODEL_CLASSIFY") or DEFAULT_CLASSIFY_MODEL,
         )
     except (AiPipelineError, ModelClientError) as exc:
         raise SystemExit(str(exc)) from exc

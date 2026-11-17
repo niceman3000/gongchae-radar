@@ -16,8 +16,8 @@ from src.report_builder import build_from_files, load_json
 
 
 ROOT = Path(__file__).resolve().parent.parent
-DEFAULT_EXTRACT_MODEL = "claude-sonnet-5-5"
-DEFAULT_CLASSIFY_MODEL = "claude-haiku-5-5"
+DEFAULT_EXTRACT_MODEL = "claude-sonnet-5"
+DEFAULT_CLASSIFY_MODEL = "claude-haiku-4-5"
 
 
 class AiPipelineError(RuntimeError):

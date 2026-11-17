@@ -31,8 +31,8 @@
 
 ## Decision 4: 기존 Claude 모델 구성 유지
 
-- **Decision**: PDF 구조화에는 `claude-sonnet-5-5`, 문구 분류와 짧은 근거 질문에는
-  `claude-haiku-5-5`를 기본으로 사용하되 환경변수로 교체할 수 있게 한다.
+- **Decision**: PDF 구조화에는 `claude-sonnet-5`, 문구 분류와 짧은 근거 질문에는
+  `claude-haiku-4-5`를 기본으로 사용하되 환경변수로 교체할 수 있게 한다.
 - **Rationale**: 기존 코드와 가이드의 역할 분리가 이미 구현되어 있고 두 모델 ID는 현재 공식
   모델 목록에 포함된다. 모델명을 코드 여러 곳에 반복하지 않고 실행 환경에서 고정한다.
 - **Alternatives considered**: 모델 공급자 변경은 현재 결과와 프롬프트를 다시 검증해야 하므로

@@ -18,8 +18,8 @@ import time
 import urllib.request
 
 API = "https://api.anthropic.com/v1/messages"
-MODEL_EXTRACT = os.environ.get("MODEL_EXTRACT", "claude-sonnet-5-5")
-MODEL_CLASSIFY = os.environ.get("MODEL_CLASSIFY", "claude-haiku-5-5")
+MODEL_EXTRACT = os.environ.get("MODEL_EXTRACT", "claude-sonnet-5")
+MODEL_CLASSIFY = os.environ.get("MODEL_CLASSIFY", "claude-haiku-4-5")
 PAIR = ("290666", "304551")              # 한전 4직급 대졸 하반기 2025, 2026
 PAIR_NAME = "한전 4직급 대졸(하반기)"
 FOCUS_UNITS = "전기 직렬(배전, 송변전, 발전(전기) 등)"
