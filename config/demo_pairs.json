@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0.0",
+  "pairs": [
+    {
+      "pair_id": "kepco-2025-2026-h2",
+      "pair_name": "한전 4직급 대졸(하반기)",
+      "institution": "한국전력공사",
+      "track_focus": ["전기"],
+      "prev_sn": "290666",
+      "curr_sn": "304551",
+      "prev_api": "data/api/api_detail_290666.json",
+      "curr_api": "data/api/api_detail_304551.json",
+      "prev_pdf": "data/pdf/290666.pdf",
+      "curr_pdf": "data/pdf/304551.pdf"
+    },
+    {
+      "pair_id": "khnp-2025-2026-round3",
+      "pair_name": "한수원 대졸 신입 3차",
+      "institution": "한국수력원자력",
+      "track_focus": ["전기"],
+      "prev_sn": "288681",
+      "curr_sn": "302968",
+      "prev_api": "data/api/api_detail_288681.json",
+      "curr_api": "data/api/api_detail_302968.json",
+      "prev_pdf": "data/pdf/288681.pdf",
+      "curr_pdf": "data/pdf/302968.pdf"
+    },
+    {
+      "pair_id": "komipo-2025-2026-round2",
+      "pair_name": "중부발전 4직급 신입 2차",
+      "institution": "한국중부발전",
+      "track_focus": ["전기"],
+      "prev_sn": "287235",
+      "curr_sn": "302314",
+      "prev_api": "data/api/api_detail_287235.json",
+      "curr_api": "data/api/api_detail_302314.json",
+      "prev_pdf": "data/pdf/287235.pdf",
+      "curr_pdf": "data/pdf/302314.pdf"
+    }
+  ]
+}

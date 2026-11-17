@@ -28,9 +28,9 @@
 
 **Purpose**: 실제 팀 저장소와 실행 환경을 한 곳으로 고정한다.
 
-- [ ] T001 Owner=DEV 실제 팀 Git 저장소를 기준 저장소로 확정하고 `.gitignore`에 `.venv/`, `.streamlit/secrets.toml`, `__pycache__/`, 키·임시 결과 파일을 추가한다. 현재 ZIP 작업본을 사용할 경우 `.git/`을 초기화하고 최초 기준 커밋을 남긴다.
-- [ ] T002 Owner=DEV `requirements.txt`에 `streamlit`, `pdfplumber`, `jsonschema`, `pytest`를 추가하고 `app/pages/`, `data/reports/`, `evaluation/ground_truth/`, `tests/contract/`, `tests/unit/`, `tests/integration/` 구조를 만든다.
-- [ ] T003 [P] Owner=DEV `config/demo_pairs.json`에 한전 `290666-304551`, 한수원 `288681-302968`, 중부발전 `287235-302314` 공고 쌍을 등록하고 `.streamlit/secrets.toml.example`에는 값이 비어 있는 키 이름만 기록한다.
+- [X] T001 Owner=DEV 실제 팀 Git 저장소를 기준 저장소로 확정하고 `.gitignore`에 `.venv/`, `.streamlit/secrets.toml`, `__pycache__/`, 키·임시 결과 파일을 추가한다. 현재 ZIP 작업본을 사용할 경우 `.git/`을 초기화하고 최초 기준 커밋을 남긴다.
+- [X] T002 Owner=DEV `requirements.txt`에 `streamlit`, `pdfplumber`, `jsonschema`, `pytest`를 추가하고 `app/pages/`, `data/reports/`, `evaluation/ground_truth/`, `tests/contract/`, `tests/unit/`, `tests/integration/` 구조를 만든다.
+- [X] T003 [P] Owner=DEV `config/demo_pairs.json`에 한전 `290666-304551`, 한수원 `288681-302968`, 중부발전 `287235-302314` 공고 쌍을 등록하고 `.streamlit/secrets.toml.example`에는 값이 비어 있는 키 이름만 기록한다.
 
 **Checkpoint**: 새 팀원이 저장소를 받아 설치할 수 있고 실제 키가 저장소에 없다.
 
@@ -42,12 +42,12 @@
 
 **CRITICAL**: 이 단계 전에는 화면 구현을 시작하지 않는다.
 
-- [ ] T004 [P] Owner=DEV `specs/001-recruitment-radar-mvp/contracts/report.schema.json`을 `src/schemas/report.schema.json`에 반영하고 유효·무효 예시를 검사하는 `tests/contract/test_report_schema.py`를 먼저 작성한다.
-- [ ] T005 [P] Owner=DEV 쪽수 범위, 빈 인용, 원문 불일치, 양쪽 근거 누락 사례를 포함한 실패 테스트를 `tests/unit/test_evidence.py`에 먼저 작성한다.
-- [ ] T006 Owner=DEV `src/evidence.py`에 PDF 번들의 `all_text`를 이용한 인용 검증과 `confirmed` 표시 가능 여부 검사를 구현해 T005를 통과시킨다.
-- [ ] T007 [P] Owner=DEV `src/report_repository.py`에 `data/reports/report_*.json` 목록 로드, `pair_id` 조회, 계약 오류 격리 기능을 구현한다.
-- [ ] T008 [P] Owner=DEV 비개발 팀원이 그대로 채울 수 있는 5개 검토 영역·쪽수·원문 인용 표를 `evaluation/ground_truth/TEMPLATE.md`에 작성한다.
-- [ ] T009 Owner=DEV `python -m pytest tests/contract tests/unit -q`를 실행하고 기반 테스트 결과를 `evaluation/test-log.md`에 기록한다.
+- [X] T004 [P] Owner=DEV `specs/001-recruitment-radar-mvp/contracts/report.schema.json`을 `src/schemas/report.schema.json`에 반영하고 유효·무효 예시를 검사하는 `tests/contract/test_report_schema.py`를 먼저 작성한다.
+- [X] T005 [P] Owner=DEV 쪽수 범위, 빈 인용, 원문 불일치, 양쪽 근거 누락 사례를 포함한 실패 테스트를 `tests/unit/test_evidence.py`에 먼저 작성한다.
+- [X] T006 Owner=DEV `src/evidence.py`에 PDF 번들의 `all_text`를 이용한 인용 검증과 `confirmed` 표시 가능 여부 검사를 구현해 T005를 통과시킨다.
+- [X] T007 [P] Owner=DEV `src/report_repository.py`에 `data/reports/report_*.json` 목록 로드, `pair_id` 조회, 계약 오류 격리 기능을 구현한다.
+- [X] T008 [P] Owner=DEV 비개발 팀원이 그대로 채울 수 있는 5개 검토 영역·쪽수·원문 인용 표를 `evaluation/ground_truth/TEMPLATE.md`에 작성한다.
+- [X] T009 Owner=DEV `python -m pytest tests/contract tests/unit -q`를 실행하고 기반 테스트 결과를 `evaluation/test-log.md`에 기록한다.
 
 **Checkpoint**: 잘못된 리포트와 근거가 화면 계층에 들어오기 전에 차단된다.
 
