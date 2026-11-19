@@ -1,0 +1,632 @@
+{
+  "schema_version": "1.0.0",
+  "pair_id": "c1044-277985-292578",
+  "pair_name": "에스알 · 2025년 주식회사 에스알 일반직 채용 공고",
+  "institution": "에스알",
+  "checked_at": "2026-11-19",
+  "prev": {
+    "sn": "277985",
+    "title": "2024년 일반직 및 계약직 추가채용 공고",
+    "period": {
+      "start": "20241031",
+      "end": "20241114"
+    },
+    "pdf_path": "data/pdf/277985.pdf",
+    "source_url": "https://opendata.alio.go.kr/recruit/downloadAtchFile?recrutAtchFileNo=2906498"
+  },
+  "curr": {
+    "sn": "292578",
+    "title": "2025년 주식회사 에스알 일반직 채용 공고",
+    "period": {
+      "start": "20251104",
+      "end": "20251118"
+    },
+    "pdf_path": "data/pdf/292578.pdf",
+    "source_url": "https://opendata.alio.go.kr/recruit/downloadAtchFile?recrutAtchFileNo=3004480"
+  },
+  "tracks": [
+    "전체"
+  ],
+  "changes": [
+    {
+      "id": "stage1-001",
+      "importance": 1,
+      "category": "인원",
+      "title": "채용인원: 37 → 67",
+      "change_type": "number",
+      "prev_value": 37,
+      "curr_value": 67,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-002",
+      "importance": 2,
+      "category": "직무분야(NCS)",
+      "title": "직무분야(NCS) 목록 변경",
+      "change_type": "list",
+      "prev_value": [],
+      "curr_value": [
+        "건설",
+        "환경.에너지.안전"
+      ],
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-003",
+      "importance": 2,
+      "category": "고용형태",
+      "title": "고용형태 목록 변경",
+      "change_type": "list",
+      "prev_value": [
+        "비정규직"
+      ],
+      "curr_value": [],
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-004",
+      "importance": 2,
+      "category": "학력조건",
+      "title": "학력조건 목록 변경",
+      "change_type": "list",
+      "prev_value": [],
+      "curr_value": [
+        "고졸",
+        "대졸(2~3년)",
+        "석사"
+      ],
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-005",
+      "importance": 2,
+      "category": "모집단위",
+      "title": "모집단위 목록 변경",
+      "change_type": "list",
+      "prev_value": [
+        "계약직 IT시스템(TA담당)",
+        "계약직 출납담당(육아휴직 대체)",
+        "사무영업 IT",
+        "사무영업 경력객실장(광주 등)",
+        "사무영업 경력객실장(부산 등)",
+        "사무영업 보훈고졸",
+        "사무영업 일반",
+        "사무영업 차량기계",
+        "사무영업 차량전기",
+        "전문계약직 회계사"
+      ],
+      "curr_value": [
+        "경력직 객실장(광주)",
+        "경력직 객실장(부산)",
+        "경력직 시설통신",
+        "신입직 AX기획·서비스",
+        "신입직 객실장(고졸)",
+        "신입직 객실장(광주)",
+        "신입직 객실장(부산)",
+        "신입직 객실장(수서)",
+        "신입직 객실장(자립준비청년)",
+        "신입직 기록물관리",
+        "신입직 시설기계",
+        "신입직 역무원",
+        "신입직 역무원(고졸)",
+        "신입직 역무원(자립준비청년)",
+        "신입직 영업마케팅",
+        "신입직 차량기계",
+        "신입직 차량전기",
+        "신입직 환경·에너지"
+      ],
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-006",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법 삭제: 1. 사무영업(일반, 차량, IT, 보훈고졸)",
+      "change_type": "removed",
+      "prev_value": "1. 사무영업(일반, 차량, IT, 보훈고졸)",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-007",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법 추가: 1. 경력직 \"시설통신\", 신입직 전체 채용분야",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": "1. 경력직 \"시설통신\", 신입직 전체 채용분야",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-008",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법: 다. 필기전형 : NCS직업기초(SR일반상식 포함), 직무수행능력, 인성/조직적합 검사(배점 無) → 다. 필기전형 : NCS직업기초(SR일반상식 포함), 직무수행능력",
+      "change_type": "text",
+      "prev_value": "다. 필기전형 : NCS직업기초(SR일반상식 포함), 직무수행능력, 인성/조직적합 검사(배점 無)",
+      "curr_value": "다. 필기전형 : NCS직업기초(SR일반상식 포함), 직무수행능력",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-009",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법: 라. 면접전형 : 1차 PT면접, 2차 심층면접 → 마. 면접전형 : 1차 PT면접, 2차 심층면접",
+      "change_type": "text",
+      "prev_value": "라. 면접전형 : 1차 PT면접, 2차 심층면접",
+      "curr_value": "마. 면접전형 : 1차 PT면접, 2차 심층면접",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-010",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법 삭제: 2. 사무영업(경력객실장)",
+      "change_type": "removed",
+      "prev_value": "2. 사무영업(경력객실장)",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-011",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법 추가: 라. 인성/조직적합 검사(배점 無)",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": "라. 인성/조직적합 검사(배점 無)",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-012",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법 추가: 2. 경력직 \"객실장\" 채용분야",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": "2. 경력직 \"객실장\" 채용분야",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-013",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법: 다. 면접전형 : 1차 실무면접, 2차 심층면접 → 라. 면접전형 : 1차 실무면접, 2차 심층면접",
+      "change_type": "text",
+      "prev_value": "다. 면접전형 : 1차 실무면접, 2차 심층면접",
+      "curr_value": "라. 면접전형 : 1차 실무면접, 2차 심층면접",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-014",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법 삭제: 3. 계약직 분야",
+      "change_type": "removed",
+      "prev_value": "3. 계약직 분야",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-015",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법 삭제: 가. 전형절차 : 접수 > 서류전형 > 면접전형 > 최종합격",
+      "change_type": "removed",
+      "prev_value": "가. 전형절차 : 접수 > 서류전형 > 면접전형 > 최종합격",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-016",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법 삭제: 나. 서류전형 : 주요활동 경력사항 및 직무수행계획,",
+      "change_type": "removed",
+      "prev_value": "나. 서류전형 : 주요활동 경력사항 및 직무수행계획,",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-017",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법 삭제: 다. 면접전형 : 실무면접",
+      "change_type": "removed",
+      "prev_value": "다. 면접전형 : 실무면접",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-018",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법: 4. 자세한 사항은 공고문 또는 SR 홈페이지(기업홍보 채용공고) 참조 → 3. 자세한 사항은 공고문 또는 SR 홈페이지(기업홍보 채용공고) 참조",
+      "change_type": "text",
+      "prev_value": "4. 자세한 사항은 공고문 또는 SR 홈페이지(기업홍보 채용공고) 참조",
+      "curr_value": "3. 자세한 사항은 공고문 또는 SR 홈페이지(기업홍보 채용공고) 참조",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-019",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법 추가: 다. 인성/조직적합 검사(배점 無)",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": "다. 인성/조직적합 검사(배점 無)",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-020",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격: 2. 성별 : 제한없음, 학력 : 제한없음 → 2. 성별 : 제한없음, 학력 : 채용분야별 별도",
+      "change_type": "text",
+      "prev_value": "2. 성별 : 제한없음, 학력 : 제한없음",
+      "curr_value": "2. 성별 : 제한없음, 학력 : 채용분야별 별도",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-021",
+      "importance": 2,
+      "category": "결격사유",
+      "title": "결격사유: - 부패방지 및 국민권익위원회 설치와 운영에 관한 법률 제82조(비위면직자 등의 취업제한)에 따라 취업제한 대상자에 해당없는 자 → - 부패방지 및 국민권익위원회 설치 및 운영에 관한 법률 제82조(비위면직자 등의 취업제한)에 따라 취업제한 대상자에 해당없는 자",
+      "change_type": "text",
+      "prev_value": "- 부패방지 및 국민권익위원회 설치와 운영에 관한 법률 제82조(비위면직자 등의 취업제한)에 따라 취업제한 대상자에 해당없는 자",
+      "curr_value": "- 부패방지 및 국민권익위원회 설치 및 운영에 관한 법률 제82조(비위면직자 등의 취업제한)에 따라 취업제한 대상자에 해당없는 자",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    }
+  ],
+  "change_groups": [
+    {
+      "id": "group-stage1-006",
+      "category": "전형",
+      "member_ids": [
+        "stage1-006",
+        "stage1-010"
+      ],
+      "shared_terms": [
+        "사무영업"
+      ]
+    },
+    {
+      "id": "group-stage1-007",
+      "category": "전형",
+      "member_ids": [
+        "stage1-007",
+        "stage1-012"
+      ],
+      "shared_terms": [
+        "채용분야",
+        "경력직"
+      ]
+    },
+    {
+      "id": "group-stage1-008",
+      "category": "전형",
+      "member_ids": [
+        "stage1-008",
+        "stage1-011",
+        "stage1-019"
+      ],
+      "shared_terms": [
+        "조직적합",
+        "검사",
+        "배점",
+        "인성"
+      ]
+    },
+    {
+      "id": "group-stage1-015",
+      "category": "전형",
+      "member_ids": [
+        "stage1-015",
+        "stage1-016",
+        "stage1-017"
+      ],
+      "shared_terms": [
+        "서류전형",
+        "면접전형"
+      ]
+    }
+  ],
+  "notice_info": {
+    "period": {
+      "start": "2025.11.04",
+      "end": "2025.11.18"
+    },
+    "rules": [],
+    "submissions": [],
+    "benefits": [
+      {
+        "section": "",
+        "name": "장애인",
+        "benefit": "「장애인고용촉진 및 직업재활법」에 따른 장애인 限",
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "국가유공자",
+        "benefit": "「국가유공자 등 예우 및 지원에 관한 법률」에 따른 취업지원대상자 限(채용 예정인원이 4명 이상인 채용분야)",
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      }
+    ]
+  },
+  "units": [],
+  "competition": {
+    "published": false,
+    "prev": null,
+    "curr": null,
+    "note": "기관 미공시",
+    "checked_at": null
+  },
+  "requirements": {
+    "tracks": [
+      "기타",
+      "ICT",
+      "기계",
+      "전기",
+      "화학"
+    ],
+    "regions": [
+      "경기",
+      "광주",
+      "부산",
+      "서울"
+    ],
+    "certificates": [],
+    "majors": [],
+    "manual_review_conditions": [],
+    "units": [
+      {
+        "name": "경력직 객실장(부산)",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "경력직 객실장(광주)",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "경력직 시설통신",
+        "track": "ICT",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "신입직 객실장(수서)",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "신입직 객실장(부산)",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "신입직 객실장(광주)",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "신입직 역무원",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "신입직 영업마케팅",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "신입직 차량기계",
+        "track": "기계",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "신입직 차량전기",
+        "track": "전기",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "신입직 시설기계",
+        "track": "기계",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "신입직 환경·에너지",
+        "track": "화학",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "신입직 AX기획·서비스",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "신입직 기록물관리",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "신입직 객실장(자립준비청년)",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "신입직 역무원(자립준비청년)",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "신입직 객실장(고졸)",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "신입직 역무원(고졸)",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "신입직 역무원(보훈)",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      }
+    ],
+    "common_checks": [],
+    "region_note": null,
+    "bonus_rule": null,
+    "reviewed": null
+  },
+  "tier": "auto",
+  "category": "준시장형"
+}

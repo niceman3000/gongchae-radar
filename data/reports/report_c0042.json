@@ -1,0 +1,1078 @@
+{
+  "schema_version": "1.0.0",
+  "pair_id": "c0042-280977-295867",
+  "pair_name": "한국남동발전 · 2026년 한국남동발전(주) 신입사원 채용 공고",
+  "institution": "한국남동발전",
+  "checked_at": "2026-11-19",
+  "prev": {
+    "sn": "280977",
+    "title": "2025년 한국남동발전(주) 상반기 신입 및 경력사원 채용 공고",
+    "period": {
+      "start": "20250123",
+      "end": "20250210"
+    },
+    "pdf_path": "data/pdf/280977.pdf",
+    "source_url": "https://opendata.alio.go.kr/recruit/downloadAtchFile?recrutAtchFileNo=2926589"
+  },
+  "curr": {
+    "sn": "295867",
+    "title": "2026년 한국남동발전(주) 신입사원 채용 공고",
+    "period": {
+      "start": "20260126",
+      "end": "20260210"
+    },
+    "pdf_path": "data/pdf/295867.pdf",
+    "source_url": "https://opendata.alio.go.kr/recruit/downloadAtchFile?recrutAtchFileNo=3023033"
+  },
+  "tracks": [
+    "전체"
+  ],
+  "changes": [
+    {
+      "id": "stage1-001",
+      "importance": 1,
+      "category": "인원",
+      "title": "채용인원: 100 → 130",
+      "change_type": "number",
+      "prev_value": 100,
+      "curr_value": 130,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-002",
+      "importance": 2,
+      "category": "지역",
+      "title": "근무지역 목록 변경",
+      "change_type": "list",
+      "prev_value": [],
+      "curr_value": [
+        "대전"
+      ],
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-003",
+      "importance": 2,
+      "category": "직무분야(NCS)",
+      "title": "직무분야(NCS) 목록 변경",
+      "change_type": "list",
+      "prev_value": [],
+      "curr_value": [
+        "건설"
+      ],
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-004",
+      "importance": 2,
+      "category": "모집단위",
+      "title": "모집단위 목록 변경",
+      "change_type": "list",
+      "prev_value": [
+        "(경력)기상전문가",
+        "(신입)보훈-ICT",
+        "(신입)보훈-기계",
+        "(신입)보훈-사무",
+        "(신입)보훈-전기",
+        "(신입)보훈-화학",
+        "(신입)일반-ICT",
+        "(신입)일반-기계",
+        "(신입)일반-사무",
+        "(신입)일반-전기",
+        "(신입)일반-화학",
+        "(신입)장애-ICT",
+        "(신입)장애-기계",
+        "(신입)장애-사무",
+        "(신입)장애-전기",
+        "(신입)장애-화학"
+      ],
+      "curr_value": [
+        "보훈-ICT",
+        "보훈-건축",
+        "보훈-기계",
+        "보훈-사무",
+        "보훈-전기",
+        "보훈-토목",
+        "보훈-화학",
+        "일반-ICT",
+        "일반-건축",
+        "일반-기계",
+        "일반-사무",
+        "일반-전기",
+        "일반-토목",
+        "일반-화학",
+        "장애-ICT",
+        "장애-기계",
+        "장애-사무",
+        "장애-전기",
+        "장애-화학"
+      ],
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-005",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법: ■ 신입(일반, 보훈, 장애) → ■ 대졸수준 신입(일반, 보훈, 장애)",
+      "change_type": "text",
+      "prev_value": "■ 신입(일반, 보훈, 장애)",
+      "curr_value": "■ 대졸수준 신입(일반, 보훈, 장애)",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-006",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법 삭제: ■ 경력(기상전문가)",
+      "change_type": "removed",
+      "prev_value": "■ 경력(기상전문가)",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-007",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법 삭제: ○ 1차(서류) : 5배수 선발",
+      "change_type": "removed",
+      "prev_value": "○ 1차(서류) : 5배수 선발",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-008",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법 삭제: - 지원자격(적부판정)",
+      "change_type": "removed",
+      "prev_value": "- 지원자격(적부판정)",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-009",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법 삭제: - 지원서심사(100점) : 업무실적서(50점) + 직무수행계획서(50점)",
+      "change_type": "removed",
+      "prev_value": "- 지원서심사(100점) : 업무실적서(50점) + 직무수행계획서(50점)",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-010",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법 삭제: - 온라인 인성검사(적부판정)",
+      "change_type": "removed",
+      "prev_value": "- 온라인 인성검사(적부판정)",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-011",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법 삭제: ○ 2차(면접)",
+      "change_type": "removed",
+      "prev_value": "○ 2차(면접)",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-012",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법 삭제: - 종합면접(100점)",
+      "change_type": "removed",
+      "prev_value": "- 종합면접(100점)",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-013",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법 삭제: * 면접점수 순 채용예정인원의 1배수",
+      "change_type": "removed",
+      "prev_value": "* 면접점수 순 채용예정인원의 1배수",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-014",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법 삭제: ○ 최종합격 : 신체검사, 신원조사 등 결과 적격자",
+      "change_type": "removed",
+      "prev_value": "○ 최종합격 : 신체검사, 신원조사 등 결과 적격자",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-015",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법 삭제: ※ 기타 세부사항은 공고문 참조",
+      "change_type": "removed",
+      "prev_value": "※ 기타 세부사항은 공고문 참조",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-016",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 삭제: ■ 공통",
+      "change_type": "removed",
+      "prev_value": "■ 공통",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-017",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 추가: ■ 대졸수준 신입(일반, 보훈, 장애)",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": "■ 대졸수준 신입(일반, 보훈, 장애)",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-018",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 추가: ○ 자격 : [일반]제한없음, [보훈] 보훈관련법에 의한 취업지원대상자, [장애] 「장애인고용촉진 및 직업재활법」에 의한 장애인 등록자",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": "○ 자격 : [일반]제한없음, [보훈] 보훈관련법에 의한 취업지원대상자, [장애] 「장애인고용촉진 및 직업재활법」에 의한 장애인 등록자",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-019",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 추가: ○ 외국어 : [일반] 토익 700점이상, [보훈,장애] 토익 500점이상",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": "○ 외국어 : [일반] 토익 700점이상, [보훈,장애] 토익 500점이상",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-020",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 추가: ※ 기타 어학성적 환산점수 인정(채용공고문 붙임3 참조)",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": "※ 기타 어학성적 환산점수 인정(채용공고문 붙임3 참조)",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-021",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 삭제: ■ 신입(일반, 보훈, 장애)",
+      "change_type": "removed",
+      "prev_value": "■ 신입(일반, 보훈, 장애)",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-022",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 삭제: ○ 자격 : [일반]제한없음, [보훈] 보훈관련법에 의한 취업지원대상자, [장애] 「장애인고용촉진 및 직업재활법」에 의한 장애인 등록자",
+      "change_type": "removed",
+      "prev_value": "○ 자격 : [일반]제한없음, [보훈] 보훈관련법에 의한 취업지원대상자, [장애] 「장애인고용촉진 및 직업재활법」에 의한 장애인 등록자",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-023",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 삭제: ○ 외국어 : [일반] 토익 700점이상, [보훈, 장애] 토익 500점이상",
+      "change_type": "removed",
+      "prev_value": "○ 외국어 : [일반] 토익 700점이상, [보훈, 장애] 토익 500점이상",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-024",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 삭제: ※ 기타 어학성적 환산점수 인정(채용공고문 붙임3 참조)",
+      "change_type": "removed",
+      "prev_value": "※ 기타 어학성적 환산점수 인정(채용공고문 붙임3 참조)",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-025",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 삭제: ■ 경력(기상전문가)",
+      "change_type": "removed",
+      "prev_value": "■ 경력(기상전문가)",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-026",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 삭제: ○ 자격 : 다음 중 어느 하나에 해당하는 자",
+      "change_type": "removed",
+      "prev_value": "○ 자격 : 다음 중 어느 하나에 해당하는 자",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-027",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 삭제: 1) 자격 보유자",
+      "change_type": "removed",
+      "prev_value": "1) 자격 보유자",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-028",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 삭제: ① 기상예보사 또는 기상감정사",
+      "change_type": "removed",
+      "prev_value": "① 기상예보사 또는 기상감정사",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-029",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 삭제: ② 기상예보기술사 자격증 소지자",
+      "change_type": "removed",
+      "prev_value": "② 기상예보기술사 자격증 소지자",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-030",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 삭제: ③ 기상기사 또는 기상감정기사 취득 후 기상 관련 분야 실무경력 2년 이상인 자",
+      "change_type": "removed",
+      "prev_value": "③ 기상기사 또는 기상감정기사 취득 후 기상 관련 분야 실무경력 2년 이상인 자",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-031",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 삭제: 2) 관련분야 학위 소지자로서 경력 보유자",
+      "change_type": "removed",
+      "prev_value": "2) 관련분야 학위 소지자로서 경력 보유자",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-032",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 삭제: ① 기상 분야 학사 학위 소지자로서 기상 관련 분야 실무경력 4년 이상인 자(석사 이상은 2년 이상)",
+      "change_type": "removed",
+      "prev_value": "① 기상 분야 학사 학위 소지자로서 기상 관련 분야 실무경력 4년 이상인 자(석사 이상은 2년 이상)",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-033",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 삭제: ② 풍력 관련 분야 학사 학위 소지자로서 해상풍력 발전량 관련 실무경력 4년 이상인 자(석사 이상은 2년 이상)",
+      "change_type": "removed",
+      "prev_value": "② 풍력 관련 분야 학사 학위 소지자로서 해상풍력 발전량 관련 실무경력 4년 이상인 자(석사 이상은 2년 이상)",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-034",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 삭제: ※ 관련 분야 및 경력 세부기준은 채용공고문 참조",
+      "change_type": "removed",
+      "prev_value": "※ 관련 분야 및 경력 세부기준은 채용공고문 참조",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-035",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 삭제: ○ 우대 : 기상예보기술사 자격증 소지자, 해상풍력 발전량 산출 해외교육 이수자",
+      "change_type": "removed",
+      "prev_value": "○ 우대 : 기상예보기술사 자격증 소지자, 해상풍력 발전량 산출 해외교육 이수자",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-036",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 삭제: ○ 외국어 : 제한없음",
+      "change_type": "removed",
+      "prev_value": "○ 외국어 : 제한없음",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-037",
+      "importance": 2,
+      "category": "가점",
+      "title": "우대사항 삭제: ■ 공통",
+      "change_type": "removed",
+      "prev_value": "■ 공통",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-038",
+      "importance": 2,
+      "category": "가점",
+      "title": "우대사항 추가: ■ 대졸수준 신입(일반, 보훈, 장애)",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": "■ 대졸수준 신입(일반, 보훈, 장애)",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-039",
+      "importance": 2,
+      "category": "가점",
+      "title": "우대사항 삭제: ■ 신입",
+      "change_type": "removed",
+      "prev_value": "■ 신입",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-040",
+      "importance": 2,
+      "category": "가점",
+      "title": "우대사항 삭제: ■ 경력",
+      "change_type": "removed",
+      "prev_value": "■ 경력",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-041",
+      "importance": 2,
+      "category": "가점",
+      "title": "우대사항 삭제: ○ 자격증 : 전형 각 단계별 만점의 3%",
+      "change_type": "removed",
+      "prev_value": "○ 자격증 : 전형 각 단계별 만점의 3%",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-042",
+      "importance": 2,
+      "category": "가점",
+      "title": "우대사항 삭제: ○ 해상풍력 발전량 산출 해외교육 이수자 : 전형 각 단계별 만점의 3%",
+      "change_type": "removed",
+      "prev_value": "○ 해상풍력 발전량 산출 해외교육 이수자 : 전형 각 단계별 만점의 3%",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-043",
+      "importance": 2,
+      "category": "가점",
+      "title": "우대사항 추가: ※ 체험형인턴 우수자 가점은 대졸수준 채용에 한하여 적용",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": "※ 체험형인턴 우수자 가점은 대졸수준 채용에 한하여 적용",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    }
+  ],
+  "change_groups": [
+    {
+      "id": "group-stage1-008",
+      "category": "전형",
+      "member_ids": [
+        "stage1-008",
+        "stage1-010"
+      ],
+      "shared_terms": [
+        "적부판정"
+      ]
+    },
+    {
+      "id": "group-stage1-017",
+      "category": "자격",
+      "member_ids": [
+        "stage1-017",
+        "stage1-018",
+        "stage1-019",
+        "stage1-021",
+        "stage1-022",
+        "stage1-023",
+        "stage1-036"
+      ],
+      "shared_terms": [
+        "보훈",
+        "장애",
+        "장애인고용촉진",
+        "취업지원대상자",
+        "보훈관련법",
+        "직업재활법"
+      ]
+    },
+    {
+      "id": "group-stage1-020",
+      "category": "자격",
+      "member_ids": [
+        "stage1-020",
+        "stage1-024",
+        "stage1-034"
+      ],
+      "shared_terms": [
+        "채용공고문",
+        "어학성적",
+        "환산점수",
+        "붙임",
+        "인정",
+        "참조"
+      ]
+    },
+    {
+      "id": "group-stage1-027",
+      "category": "자격",
+      "member_ids": [
+        "stage1-027",
+        "stage1-029",
+        "stage1-030",
+        "stage1-031",
+        "stage1-032",
+        "stage1-033",
+        "stage1-035"
+      ],
+      "shared_terms": [
+        "보유자",
+        "기상예보기술사",
+        "소지자",
+        "자격증",
+        "실무경력",
+        "이상인"
+      ]
+    },
+    {
+      "id": "group-stage1-041",
+      "category": "가점",
+      "member_ids": [
+        "stage1-041",
+        "stage1-042"
+      ],
+      "shared_terms": [
+        "단계별",
+        "만점"
+      ]
+    }
+  ],
+  "notice_info": {
+    "period": {
+      "start": "2026.01.26",
+      "end": "2026.02.10"
+    },
+    "rules": [
+      {
+        "topic": "연령",
+        "text": "연령 : 제한없음(단, 취업규칙상 정년(만60세) 초과자 제외)"
+      }
+    ],
+    "submissions": [],
+    "benefits": [
+      {
+        "section": "대졸수준 신입(일반, 보훈, 장애)",
+        "name": "취업보호대상자(보훈)",
+        "benefit": "전형 각 단계별 만점의 5% 또는 10%(증명서상 가점적용)",
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "대졸수준 신입(일반, 보훈, 장애)",
+        "name": "장애인",
+        "benefit": "전형 각 단계별 만점의 10% 가점",
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "대졸수준 신입(일반, 보훈, 장애)",
+        "name": "저소득층가정(기초생활수급자, 한부모가족)",
+        "benefit": "서류전형, 필기전형 만점의 5%",
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "대졸수준 신입(일반, 보훈, 장애)",
+        "name": "다문화가정",
+        "benefit": "서류전형, 필기전형 만점의 5%",
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "대졸수준 신입(일반, 보훈, 장애)",
+        "name": "자립준비청년",
+        "benefit": "서류전형, 필기전형 만점의 5%",
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "대졸수준 신입(일반, 보훈, 장애)",
+        "name": "발전소주변지역 주민",
+        "benefit": "필기전형 만점의 10%(본인 및 자녀)",
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "대졸수준 신입(일반, 보훈, 장애)",
+        "name": "북한이탈주민",
+        "benefit": "서류전형 만점의 5%",
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "대졸수준 신입(일반, 보훈, 장애)",
+        "name": "시간선택제 근로자",
+        "benefit": "서류전형 만점의 10%(단, 공고일 현재 당사 재직자에 한함)",
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "대졸수준 신입(일반, 보훈, 장애)",
+        "name": "자격증",
+        "benefit": "서류전형 만점의 3~10%",
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "대졸수준 신입(일반, 보훈, 장애)",
+        "name": "고급자격증",
+        "benefit": "서류전형 면제, 필기전형 만점의 10%",
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "대졸수준 신입(일반, 보훈, 장애)",
+        "name": "체험형인턴 우수자",
+        "benefit": "서류전형 만점의 3% 또는 5%(당사인턴에 한하며 3년이내 1회한정)",
+        "notes": [
+          "체험형인턴 우수자 가점은 대졸수준 채용에 한하여 적용"
+        ],
+        "change": "same",
+        "prev_benefit": null
+      }
+    ]
+  },
+  "units": [],
+  "competition": {
+    "published": false,
+    "prev": null,
+    "curr": null,
+    "note": "기관 미공시",
+    "checked_at": null
+  },
+  "requirements": {
+    "tracks": [
+      "사무",
+      "기계",
+      "전기",
+      "화학",
+      "ICT",
+      "토목",
+      "건축"
+    ],
+    "regions": [
+      "강원",
+      "경기",
+      "경남",
+      "대전",
+      "인천",
+      "전남"
+    ],
+    "certificates": [],
+    "majors": [],
+    "manual_review_conditions": [],
+    "units": [
+      {
+        "name": "일반-사무",
+        "track": "사무",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "일반-기계",
+        "track": "기계",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "일반-전기",
+        "track": "전기",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "일반-화학",
+        "track": "화학",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "일반-ICT",
+        "track": "ICT",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "일반-토목",
+        "track": "토목",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "일반-건축",
+        "track": "건축",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "보훈-사무",
+        "track": "사무",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "보훈-기계",
+        "track": "기계",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "보훈-전기",
+        "track": "전기",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "보훈-화학",
+        "track": "화학",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "보훈-ICT",
+        "track": "ICT",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "보훈-토목",
+        "track": "토목",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "보훈-건축",
+        "track": "건축",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "장애-사무",
+        "track": "사무",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "장애-기계",
+        "track": "기계",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "장애-전기",
+        "track": "전기",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "장애-화학",
+        "track": "화학",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "장애-ICT",
+        "track": "ICT",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      }
+    ],
+    "common_checks": [],
+    "region_note": null,
+    "bonus_rule": null,
+    "reviewed": null
+  },
+  "tier": "auto",
+  "category": "시장형"
+}

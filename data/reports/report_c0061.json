@@ -1,0 +1,620 @@
+{
+  "schema_version": "1.0.0",
+  "pair_id": "c0061-286446-301943",
+  "pair_name": "주택도시보증공사 · 2026년도 주택도시보증공사 정규직(신입직) 채용공고",
+  "institution": "주택도시보증공사",
+  "checked_at": "2026-11-19",
+  "prev": {
+    "sn": "286446",
+    "title": "2025년도 주택도시보증공사 정규직 채용공고",
+    "period": {
+      "start": "20250528",
+      "end": "20250612"
+    },
+    "pdf_path": "data/pdf/286446.pdf",
+    "source_url": "https://opendata.alio.go.kr/recruit/downloadAtchFile?recrutAtchFileNo=2965573"
+  },
+  "curr": {
+    "sn": "301943",
+    "title": "2026년도 주택도시보증공사 정규직(신입직) 채용공고",
+    "period": {
+      "start": "20260623",
+      "end": "20260708"
+    },
+    "pdf_path": "data/pdf/301943.pdf",
+    "source_url": "https://opendata.alio.go.kr/recruit/downloadAtchFile?recrutAtchFileNo=3057409"
+  },
+  "tracks": [
+    "전체"
+  ],
+  "changes": [
+    {
+      "id": "stage1-001",
+      "importance": 1,
+      "category": "인원",
+      "title": "채용인원: 82 → 71",
+      "change_type": "number",
+      "prev_value": 82,
+      "curr_value": 71,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-005",
+      "importance": 1,
+      "category": "가점",
+      "title": "우대사항: ㅇ 우대방법: 필기전형 및 면접전형 시 가점 부여(장애인 5%, 의사상자 3% 또는 5%, 그 외 3%) → ㅇ 우대방법: 필기전형 및 면접전형 시 가점 부여(장애인 5% 또는 10%, 의사상자 3% 또는 5%, 그 외 3%)",
+      "change_type": "number",
+      "prev_value": "ㅇ 우대방법: 필기전형 및 면접전형 시 가점 부여(장애인 5%, 의사상자 3% 또는 5%, 그 외 3%)",
+      "curr_value": "ㅇ 우대방법: 필기전형 및 면접전형 시 가점 부여(장애인 5% 또는 10%, 의사상자 3% 또는 5%, 그 외 3%)",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-007",
+      "importance": 1,
+      "category": "가점",
+      "title": "우대사항: ㅇ 우대방법: 면접전형 시 1% 가점 부여 → ㅇ 우대방법: 면접전형 시 수료자(1%), 우수인턴(2%) 가점 부여",
+      "change_type": "number",
+      "prev_value": "ㅇ 우대방법: 면접전형 시 1% 가점 부여",
+      "curr_value": "ㅇ 우대방법: 면접전형 시 수료자(1%), 우수인턴(2%) 가점 부여",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-002",
+      "importance": 2,
+      "category": "모집단위",
+      "title": "모집단위 목록 변경",
+      "change_type": "list",
+      "prev_value": [
+        "(신입직) 관리6급-부동산",
+        "(신입직) 관리6급-통계",
+        "(신입직) 관리6급-회계사/세무사",
+        "(신입직) 관리7급"
+      ],
+      "curr_value": [
+        "(신입직) 관리6급-공인회계사",
+        "(신입직) 관리6급-인공지능(AI)",
+        "(신입직) 관리7급-금융",
+        "(신입직) 관리7급-전산"
+      ],
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-003",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법: ㅇ 관리6급(일반, 장애인, 국가유공자) : NCS직무적합평가 40문제(100점) + 전공필기 80문제(200점) → ㅇ 관리6급(일반, 장애인, 국가유공자) : NCS직무적합평가 40문제(100점) + 전공필기 60문제(200점)",
+      "change_type": "text",
+      "prev_value": "ㅇ 관리6급(일반, 장애인, 국가유공자) : NCS직무적합평가 40문제(100점) + 전공필기 80문제(200점)",
+      "curr_value": "ㅇ 관리6급(일반, 장애인, 국가유공자) : NCS직무적합평가 40문제(100점) + 전공필기 60문제(200점)",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-004",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법: ㅇ 관리6급(회계사ㆍ세무사, 보험계리사), 관리7급 : NCS 직무적합평가 40문제 (100점) → ㅇ 관리6급(공인회계사, 보험계리사), 관리7급 : NCS 직무적합평가 40문제 (100점)",
+      "change_type": "text",
+      "prev_value": "ㅇ 관리6급(회계사ㆍ세무사, 보험계리사), 관리7급 : NCS 직무적합평가 40문제 (100점)",
+      "curr_value": "ㅇ 관리6급(공인회계사, 보험계리사), 관리7급 : NCS 직무적합평가 40문제 (100점)",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-006",
+      "importance": 2,
+      "category": "가점",
+      "title": "우대사항: □ 공사 우수인턴 수료자 → □ 공사 인턴",
+      "change_type": "text",
+      "prev_value": "□ 공사 우수인턴 수료자",
+      "curr_value": "□ 공사 인턴",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-008",
+      "importance": 2,
+      "category": "가점",
+      "title": "우대사항: ※ 사회형평적 인력활용 대상자에 따른 우대사항 적용 시「국가유공자 등 예우 및 지원에 관한 법률」제31조제3항을 따름 → ※ 취업지원대상자에 대한 우대사항 적용 시「국가유공자 등 예우 및 지원에 관한 법률」제31조제3항을 따름",
+      "change_type": "text",
+      "prev_value": "※ 사회형평적 인력활용 대상자에 따른 우대사항 적용 시「국가유공자 등 예우 및 지원에 관한 법률」제31조제3항을 따름",
+      "curr_value": "※ 취업지원대상자에 대한 우대사항 적용 시「국가유공자 등 예우 및 지원에 관한 법률」제31조제3항을 따름",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-009",
+      "importance": 2,
+      "category": "가점",
+      "title": "우대사항 삭제: * 「이전지역인재 채용목표제 운영지침」(국토부 예규 제639호)을 준용 및 의거하여 5명 이하 채용분야는 목표제 미적용",
+      "change_type": "removed",
+      "prev_value": "* 「이전지역인재 채용목표제 운영지침」(국토부 예규 제639호)을 준용 및 의거하여 5명 이하 채용분야는 목표제 미적용",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-010",
+      "importance": 2,
+      "category": "가점",
+      "title": "우대사항 추가: ※ 이전공공기관의 사회적 책임 이행을 위하여 5명 이하 분야도 지역인재 채용목표제 우대 실시",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": "※ 이전공공기관의 사회적 책임 이행을 위하여 5명 이하 분야도 지역인재 채용목표제 우대 실시",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    }
+  ],
+  "change_groups": [
+    {
+      "id": "group-stage1-006",
+      "category": "가점",
+      "member_ids": [
+        "stage1-007",
+        "stage1-006"
+      ],
+      "shared_terms": [
+        "우수인턴",
+        "수료자"
+      ]
+    },
+    {
+      "id": "group-stage1-009",
+      "category": "가점",
+      "member_ids": [
+        "stage1-009",
+        "stage1-010"
+      ],
+      "shared_terms": [
+        "채용목표제"
+      ]
+    }
+  ],
+  "notice_info": {
+    "period": {
+      "start": "2026.06.23",
+      "end": "2026.07.08"
+    },
+    "rules": [
+      {
+        "topic": "연령",
+        "text": "① 공고일 기준 만 60세(정년) 미만인 자"
+      },
+      {
+        "topic": "기타",
+        "text": "② 입사예정일 이후 즉시 근무가 가능한 자"
+      }
+    ],
+    "submissions": [
+      "증빙서류 제출 : 입사지원서에 기재한 지원자격 및 우대사항 등에 대한 진위여부 확인을 위해 증빙서류를 징구하여 필기전형 합격자 선정"
+    ],
+    "benefits": [
+      {
+        "section": "",
+        "name": "채용가점",
+        "benefit": null,
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "장애인",
+        "benefit": null,
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "저소득층",
+        "benefit": null,
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "북한이탈주민",
+        "benefit": null,
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "다문화가족",
+        "benefit": null,
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "자립준비청년",
+        "benefit": null,
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "의사상자",
+        "benefit": null,
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "ㅇ 적용대상",
+        "benefit": "전분야",
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "ㅇ 우대방법",
+        "benefit": "필기전형 및 면접전형 시 가점 부여(장애인 5% 또는 10%, 의사상자 3% 또는 5%, 그 외 3%)",
+        "notes": [],
+        "change": "changed",
+        "prev_benefit": "필기전형 및 면접전형 시 가점 부여(장애인 5%, 의사상자 3% 또는 5%, 그 외 3%)"
+      },
+      {
+        "section": "",
+        "name": "취업지원대상자",
+        "benefit": null,
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "ㅇ 적용대상",
+        "benefit": "전분야",
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "ㅇ 우대방법",
+        "benefit": "필기전형 및 면접전형 시 관계법령에 따른 비율(5~10%)에 따른 가점 부여",
+        "notes": [],
+        "change": "changed",
+        "prev_benefit": "필기전형 및 면접전형 시 가점 부여(장애인 5%, 의사상자 3% 또는 5%, 그 외 3%)"
+      },
+      {
+        "section": "",
+        "name": "전문자격",
+        "benefit": null,
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "ㅇ 적용대상",
+        "benefit": "신입직",
+        "notes": [],
+        "change": "changed",
+        "prev_benefit": "전분야"
+      },
+      {
+        "section": "",
+        "name": "ㅇ 전문자격 종류",
+        "benefit": "변호사, 공인회계사, 세무사, 변리사, 감정평가사, 공인노무사, 건축사, 법무사, 기술사(국가기술자격법에 따른 건축, 정보통신 직무분야), 보험계리사",
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "ㅇ 우대방법",
+        "benefit": "필기전형 및 면접전형 시 10% 가점 부여",
+        "notes": [],
+        "change": "changed",
+        "prev_benefit": "필기전형 및 면접전형 시 가점 부여(장애인 5%, 의사상자 3% 또는 5%, 그 외 3%)"
+      },
+      {
+        "section": "",
+        "name": "한국사능력검정시험 2급 이상 자격 소지자",
+        "benefit": null,
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "ㅇ 적용대상",
+        "benefit": "신입직",
+        "notes": [],
+        "change": "changed",
+        "prev_benefit": "전분야"
+      },
+      {
+        "section": "",
+        "name": "ㅇ 우대방법",
+        "benefit": "필기전형 시 0.3% 가점 부여",
+        "notes": [],
+        "change": "changed",
+        "prev_benefit": "필기전형 및 면접전형 시 가점 부여(장애인 5%, 의사상자 3% 또는 5%, 그 외 3%)"
+      },
+      {
+        "section": "",
+        "name": "공사 인턴",
+        "benefit": null,
+        "notes": [],
+        "change": "new",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "ㅇ 적용대상",
+        "benefit": "신입직",
+        "notes": [],
+        "change": "changed",
+        "prev_benefit": "전분야"
+      },
+      {
+        "section": "",
+        "name": "ㅇ 우대방법",
+        "benefit": "면접전형 시 수료자(1%), 우수인턴(2%) 가점 부여",
+        "notes": [
+          "각 전형별 가점을 제외한 최종점수가 40점(100점 만점) 미만인 경우 우대가점 미적용"
+        ],
+        "change": "changed",
+        "prev_benefit": "필기전형 및 면접전형 시 가점 부여(장애인 5%, 의사상자 3% 또는 5%, 그 외 3%)"
+      },
+      {
+        "section": "",
+        "name": "다만, 둘 이상의 과목으로 실시되는 전형의 경우 40점(100점 만점) 미만인 과목이 한 과목이라도 있는 경우에도 우대가점 미적용",
+        "benefit": null,
+        "notes": [
+          "우대사항 중복 시 가장 유리한 사항만 적용. 단, 취업지원 대상자가 전문자격을 보유한 경우 중복하여 가점 적용",
+          "취업지원대상자에 대한 우대사항 적용 시「국가유공자 등 예우 및 지원에 관한 법률」제31조제3항을 따름",
+          "전문자격의 경우 국내 자격증에 한하고 합격증으로 대체가능하며, 복수의 전문자격증 소지자는 1개 자격증만 우대"
+        ],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "동점자 우선 선발",
+        "benefit": null,
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "선발예정인원을 초과하여 동점자가 발생하는 경우",
+        "benefit": null,
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "①「국가유공자 등 예우 및 지원에 관한 법률」등에 따른 취업지원대상자",
+        "benefit": null,
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "②「장애인고용촉진 및 직업재활법」에 따른 장애인",
+        "benefit": null,
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "③1차 면접점수 고득점자(총점)",
+        "benefit": null,
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "④필기시험 점수 고득점자[총점→공통과목(NCS)점수→직무과목(전공)점수]",
+        "benefit": null,
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "⑤인사위원회 의결 순서에 따라 합격자 결정",
+        "benefit": null,
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "지역인재 채용목표제",
+        "benefit": null,
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "비수도권(각 전형별 선발예정인원의 35%) 및 이전지역인재(각 전형별 선발예정인원의 30%) 채용목표 부여",
+        "benefit": null,
+        "notes": [
+          "이전공공기관의 사회적 책임 이행을 위하여 5명 이하 분야도 지역인재 채용목표제 우대 실시"
+        ],
+        "change": "same",
+        "prev_benefit": null
+      }
+    ]
+  },
+  "units": [],
+  "competition": {
+    "published": true,
+    "prev": null,
+    "curr": null,
+    "note": "API에 인원 정보가 있으나 경쟁률 수기 확인 필요",
+    "checked_at": null
+  },
+  "requirements": {
+    "tracks": [
+      "사무",
+      "기타",
+      "건축",
+      "ICT"
+    ],
+    "regions": [
+      "강원",
+      "경기",
+      "경남",
+      "광주",
+      "대구",
+      "대전",
+      "부산",
+      "서울",
+      "인천",
+      "전북",
+      "제주",
+      "충북"
+    ],
+    "certificates": [],
+    "majors": [],
+    "manual_review_conditions": [],
+    "units": [
+      {
+        "name": "(신입직) 관리6급-경영",
+        "track": "사무",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "(신입직) 관리6급-경제",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "(신입직) 관리6급-건축",
+        "track": "건축",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "(신입직) 관리6급-전산",
+        "track": "ICT",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "(신입직) 관리6급-인공지능(AI)",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "(신입직) 관리7급-금융",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "(신입직) 관리7급-전산",
+        "track": "ICT",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "(신입직) 관리6급-장애인(경영)",
+        "track": "사무",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "(신입직) 관리6급-국가유공자(경영)",
+        "track": "사무",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "(신입직) 관리6급-공인회계사",
+        "track": "사무",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "(신입직) 관리6급-보험계리사",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      }
+    ],
+    "common_checks": [],
+    "region_note": null,
+    "bonus_rule": null,
+    "reviewed": null
+  },
+  "tier": "auto",
+  "category": "준시장형"
+}

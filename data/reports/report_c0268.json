@@ -1,0 +1,914 @@
+{
+  "schema_version": "1.0.0",
+  "pair_id": "c0268-282791-297210",
+  "pair_name": "한국철도공사 · 2026년 상반기 한국철도공사 신입사원 채용 공고",
+  "institution": "한국철도공사",
+  "checked_at": "2026-11-19",
+  "prev": {
+    "sn": "282791",
+    "title": "2025년 상반기 한국철도공사 신입사원(채용형인턴) 채용 공고",
+    "period": {
+      "start": "20250205",
+      "end": "20250219"
+    },
+    "pdf_path": "data/pdf/282791.pdf",
+    "source_url": "https://opendata.alio.go.kr/recruit/downloadAtchFile?recrutAtchFileNo=2943517"
+  },
+  "curr": {
+    "sn": "297210",
+    "title": "2026년 상반기 한국철도공사 신입사원 채용 공고",
+    "period": {
+      "start": "20260225",
+      "end": "20260311"
+    },
+    "pdf_path": "data/pdf/297210.pdf",
+    "source_url": "https://opendata.alio.go.kr/recruit/downloadAtchFile?recrutAtchFileNo=3030414"
+  },
+  "tracks": [
+    "전체"
+  ],
+  "changes": [
+    {
+      "id": "stage1-001",
+      "importance": 1,
+      "category": "인원",
+      "title": "채용인원: 2243 → 1800",
+      "change_type": "number",
+      "prev_value": 2243,
+      "curr_value": 1800,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-027",
+      "importance": 1,
+      "category": "가점",
+      "title": "우대사항: ○ 공통직무, 안전, 직렬별 직무의 기능사 이상 자격증 소지자 : 필기시험에 한해 가점 → ○ 공통직무, 안전, 직렬별 직무의 기능사 이상 자격증 소지자 : 최대 12점(필기)",
+      "change_type": "number",
+      "prev_value": "○ 공통직무, 안전, 직렬별 직무의 기능사 이상 자격증 소지자 : 필기시험에 한해 가점",
+      "curr_value": "○ 공통직무, 안전, 직렬별 직무의 기능사 이상 자격증 소지자 : 최대 12점(필기)",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-028",
+      "importance": 1,
+      "category": "가점",
+      "title": "우대사항: ○ 한국철도 체험형인턴 수료자 : 필기시험에 한해 2점 가점 → ○ 한국철도공사 체험형인턴 수료자 : 2점 또는 3점(필기)",
+      "change_type": "number",
+      "prev_value": "○ 한국철도 체험형인턴 수료자 : 필기시험에 한해 2점 가점",
+      "curr_value": "○ 한국철도공사 체험형인턴 수료자 : 2점 또는 3점(필기)",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-002",
+      "importance": 2,
+      "category": "고용형태",
+      "title": "고용형태 목록 변경",
+      "change_type": "list",
+      "prev_value": [],
+      "curr_value": [
+        "정규직"
+      ],
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-003",
+      "importance": 2,
+      "category": "모집단위",
+      "title": "모집단위 목록 변경",
+      "change_type": "list",
+      "prev_value": [
+        "전기통신(보훈 제한경쟁채용)",
+        "체험형인턴 1차",
+        "토목(거주지 제한경쟁채용)",
+        "토목(보훈 제한경쟁채용)"
+      ],
+      "curr_value": [
+        "열차승무(공개경쟁채용)",
+        "열차승무(보훈 제한경쟁채용)",
+        "체험형인턴"
+      ],
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-004",
+      "importance": 2,
+      "category": "모집단위",
+      "title": "모집단위 세분화 추가: ['사무영업(보훈 제한경쟁채용)\\t', '사무영업(자격증 제한경쟁채용)\\t', '토목(공개경쟁채용)\\t']",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": [
+        "사무영업(보훈 제한경쟁채용)\t",
+        "사무영업(자격증 제한경쟁채용)\t",
+        "토목(공개경쟁채용)\t"
+      ],
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-005",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법: ○ 서류검증 : 입사지원서(적ㆍ부) → ○ 1차(서류전형) : 입사지원서(적ㆍ부)",
+      "change_type": "text",
+      "prev_value": "○ 서류검증 : 입사지원서(적ㆍ부)",
+      "curr_value": "○ 1차(서류전형) : 입사지원서(적ㆍ부)",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-006",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법: ○ 필기시험 : 2배수 선발, 직업기초능력평가(30문항), 직무수행능력평가(30문항), 철도법령(10문항) → ○ 2차(필기시험) : 2배수 선발, 직업기초능력평가(30문항), 직무수행능력평가(30문항), 철도법령(10문항)",
+      "change_type": "text",
+      "prev_value": "○ 필기시험 : 2배수 선발, 직업기초능력평가(30문항), 직무수행능력평가(30문항), 철도법령(10문항)",
+      "curr_value": "○ 2차(필기시험) : 2배수 선발, 직업기초능력평가(30문항), 직무수행능력평가(30문항), 철도법령(10문항)",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-007",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법: - 단, 자격증 제한경재채용 중 사무영업_무선제어, 토목_장비운전 분야와 보훈, 장애인 제한경쟁채용 분야는 직업기초능력평가(50문항), 철도법령(10문항)으로 필기시험 시행 → - 단, 자격증제한경쟁 중 사무영업(무선제어) 및 토목(장비운전), 보훈제한경쟁, 장애인제한경쟁, 거주지제한경쟁채용의 경우 직업기초능력평가(50문항), 철도법령(10문항)",
+      "change_type": "text",
+      "prev_value": "- 단, 자격증 제한경재채용 중 사무영업_무선제어, 토목_장비운전 분야와 보훈, 장애인 제한경쟁채용 분야는 직업기초능력평가(50문항), 철도법령(10문항)으로 필기시험 시행",
+      "curr_value": "- 단, 자격증제한경쟁 중 사무영업(무선제어) 및 토목(장비운전), 보훈제한경쟁, 장애인제한경쟁, 거주지제한경쟁채용의 경우 직업기초능력평가(50문항), 철도법령(10문항)",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-008",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법 삭제: ○ 최종 합격자 결정",
+      "change_type": "removed",
+      "prev_value": "○ 최종 합격자 결정",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-009",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법 삭제: - 공개경쟁채용(사무영업, 차량, 건축, 전기통신), 자격증 제한경쟁채용(사무영업_관제, 운전_일반, 운전_전동차), 거주지 제한경쟁채용(전기통신) : 필기 50%, 면접 50%를 반영하여 최종합격자 선정",
+      "change_type": "removed",
+      "prev_value": "- 공개경쟁채용(사무영업, 차량, 건축, 전기통신), 자격증 제한경쟁채용(사무영업_관제, 운전_일반, 운전_전동차), 거주지 제한경쟁채용(전기통신) : 필기 50%, 면접 50%를 반영하여 최종합격자 선정",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-010",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법: - 사무영업_무선제어, 토목분야(일반, 보훈, 거주지, 장비운전) : 필기50%, 실기25%, 면접25% 반영하여 최종합격자 선정 → - 실기시험이 있는 채용분야 : 필기50%, 실기25%, 면접25% 반영하여 최종합격자 선정",
+      "change_type": "text",
+      "prev_value": "- 사무영업_무선제어, 토목분야(일반, 보훈, 거주지, 장비운전) : 필기50%, 실기25%, 면접25% 반영하여 최종합격자 선정",
+      "curr_value": "- 실기시험이 있는 채용분야 : 필기50%, 실기25%, 면접25% 반영하여 최종합격자 선정",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-011",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법 삭제: - 체력심사 : 차량, 건축, 전기통신 직렬 지원자 중 필기시험 합격자 대상, '국민체력100' 평가 항목 중 4개 항목(근력, 근지구력 필수)에서 모두 3등급 이상인 경우 적격자로 선정",
+      "change_type": "removed",
+      "prev_value": "- 체력심사 : 차량, 건축, 전기통신 직렬 지원자 중 필기시험 합격자 대상, '국민체력100' 평가 항목 중 4개 항목(근력, 근지구력 필수)에서 모두 3등급 이상인 경우 적격자로 선정",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-012",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법 삭제: ※ 세부 사항은 첨부파일 공고문을 참조",
+      "change_type": "removed",
+      "prev_value": "※ 세부 사항은 첨부파일 공고문을 참조",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-013",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법 추가: ○ 3차(실기시험 및 면접시험)",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": "○ 3차(실기시험 및 면접시험)",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-014",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법 추가: - 실기시험이 없는 채용분야 : 필기 50%, 면접 50%를 반영하여 최종합격자 선정",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": "- 실기시험이 없는 채용분야 : 필기 50%, 면접 50%를 반영하여 최종합격자 선정",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-017",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격: ○ 거주지 제한경쟁채용 자격요건 : 당해연도 1월 1일부터 면접시험 최종일까지 계속하여 모집지역(‘정선군’, ‘영월군’, ‘태백시’)에 주민등록상 주소지를 두고 있어야 하며, 동기간 중 주민등록이 말소되거나 거주 불명으로 등록된 사실이 없어야 함. 또한 당해연도 1월 1일 이전까지 주민등록상 주소지 또는 국내거소신고(재외국민에 한함)가 모집지역(‘정선군’, ‘영월군’, ‘태백시’)으로 되어 있는 기간이 모두 합산하여 총 3년 이상인 사람도 응시가능 함 → ○ 거주지 제한경쟁채용 자격요건 : 2026년 1월 1일부터 면접시험 최종일까지 계속하여 모집지역(정선, 영월, 태백, 평창, 제천, 단양, 영주, 봉화, 울진, 아산, 예산, 홍성, 보령, 서천, 서산, 당진, 목포, 해남, 영암, 강진, 장흥, 보성)에 주민등록상 주소지를 두고 있어야 하며, 동기간 중 주민등록이 말소되거나 거주 불명으로 등록된 사실이 없어야 함. 또한 당해연도 1월 1일 이전까지 주민등록상 주소지 또는 국내거소신고(재외국민에 한함)가 모집지역으로 되어 있는 기간이 모두 합산하여 총 3년 이상인 사람도 응시가능 함",
+      "change_type": "text",
+      "prev_value": "○ 거주지 제한경쟁채용 자격요건 : 당해연도 1월 1일부터 면접시험 최종일까지 계속하여 모집지역(‘정선군’, ‘영월군’, ‘태백시’)에 주민등록상 주소지를 두고 있어야 하며, 동기간 중 주민등록이 말소되거나 거주 불명으로 등록된 사실이 없어야 함. 또한 당해연도 1월 1일 이전까지 주민등록상 주소지 또는 국내거소신고(재외국민에 한함)가 모집지역(‘정선군’, ‘영월군’, ‘태백시’)으로 되어 있는 기간이 모두 합산하여 총 3년 이상인 사람도 응시가능 함",
+      "curr_value": "○ 거주지 제한경쟁채용 자격요건 : 2026년 1월 1일부터 면접시험 최종일까지 계속하여 모집지역(정선, 영월, 태백, 평창, 제천, 단양, 영주, 봉화, 울진, 아산, 예산, 홍성, 보령, 서천, 서산, 당진, 목포, 해남, 영암, 강진, 장흥, 보성)에 주민등록상 주소지를 두고 있어야 하며, 동기간 중 주민등록이 말소되거나 거주 불명으로 등록된 사실이 없어야 함. 또한 당해연도 1월 1일 이전까지 주민등록상 주소지 또는 국내거소신고(재외국민에 한함)가 모집지역으로 되어 있는 기간이 모두 합산하여 총 3년 이상인 사람도 응시가능 함",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-018",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 삭제: * 주민등록초본(과거 주소 변동사항)상 거주사실 확인이 가능하여야 함",
+      "change_type": "removed",
+      "prev_value": "* 주민등록초본(과거 주소 변동사항)상 거주사실 확인이 가능하여야 함",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-019",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격: ○ 보훈 제한경쟁채용 자격요건 : 「국가유공자 등 예우 및 지원에 관한 법률」등에 따른 취업지원대상자로서 증명서 발급이 가능한 자 → ○ 보훈 제한경쟁채용 자격요건 : 「국가유공자 등 예우 및 지원에 관한 법률」등 보훈관계법률에 따른 취업지원대상자로서 증명서 발급이 가능한 자",
+      "change_type": "text",
+      "prev_value": "○ 보훈 제한경쟁채용 자격요건 : 「국가유공자 등 예우 및 지원에 관한 법률」등에 따른 취업지원대상자로서 증명서 발급이 가능한 자",
+      "curr_value": "○ 보훈 제한경쟁채용 자격요건 : 「국가유공자 등 예우 및 지원에 관한 법률」등 보훈관계법률에 따른 취업지원대상자로서 증명서 발급이 가능한 자",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-020",
+      "importance": 2,
+      "category": "가점",
+      "title": "우대사항: ○ 「국가유공자등 예우 및 지원에 관한 법률」 등 보훈 관계 법률에 따른 취업지원대상자로서 증명서 발급이 가능한 자 : 필기, 실기, 면접시험에 취업지원대상증명서 가점비율 적용(5점 또는 10점) → ○ 「국가유공자등 예우 및 지원에 관한 법률」 등 보훈 관계 법률에 따른 취업지원대상자로서 증명서 발급이 가능한 자 : 5점 또는 10점(필기, 실기, 면접)",
+      "change_type": "text",
+      "prev_value": "○ 「국가유공자등 예우 및 지원에 관한 법률」 등 보훈 관계 법률에 따른 취업지원대상자로서 증명서 발급이 가능한 자 : 필기, 실기, 면접시험에 취업지원대상증명서 가점비율 적용(5점 또는 10점)",
+      "curr_value": "○ 「국가유공자등 예우 및 지원에 관한 법률」 등 보훈 관계 법률에 따른 취업지원대상자로서 증명서 발급이 가능한 자 : 5점 또는 10점(필기, 실기, 면접)",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-021",
+      "importance": 2,
+      "category": "가점",
+      "title": "우대사항: ○ 「장애인고용촉진 및 직업재활법, 장애인고용촉진 및 직업재활법 시행령」에서 정한 장애인으로서 증명서 발급이 가능한 자 : 필기, 실기, 면접시험에 5점 가점 → ○ 「장애인고용촉진 및 직업재활법」, 「장애인고용촉진 및 직업재활법 시행령」에서 정한 장애인으로서 증명서 발급이 가능한 자 : 5점(필기, 실기, 면접)",
+      "change_type": "text",
+      "prev_value": "○ 「장애인고용촉진 및 직업재활법, 장애인고용촉진 및 직업재활법 시행령」에서 정한 장애인으로서 증명서 발급이 가능한 자 : 필기, 실기, 면접시험에 5점 가점",
+      "curr_value": "○ 「장애인고용촉진 및 직업재활법」, 「장애인고용촉진 및 직업재활법 시행령」에서 정한 장애인으로서 증명서 발급이 가능한 자 : 5점(필기, 실기, 면접)",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-022",
+      "importance": 2,
+      "category": "가점",
+      "title": "우대사항: ○ 「국민기초생활 보장법」 제2조에 의거 본인이 \"국민기초생활 수급대상자로\"로서 증명서 발급이 가능한 자 : 필기시험에 3점 가점 → ○ 「국민기초생활 보장법」 제2조에 의거 본인이 국민기초생활 수급대상자로서 증명서 발급이 가능한 자 : 3점(필기)",
+      "change_type": "text",
+      "prev_value": "○ 「국민기초생활 보장법」 제2조에 의거 본인이 \"국민기초생활 수급대상자로\"로서 증명서 발급이 가능한 자 : 필기시험에 3점 가점",
+      "curr_value": "○ 「국민기초생활 보장법」 제2조에 의거 본인이 국민기초생활 수급대상자로서 증명서 발급이 가능한 자 : 3점(필기)",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-023",
+      "importance": 2,
+      "category": "가점",
+      "title": "우대사항: ○ 「북한이탈주민의 보호 및 정착지원에 관한 법률」 제2조의 \"북한이탈주민\"으로서 \"북한이탈주민등록확인서\" 발급이 가능한 자 : 필기시험에 3점 가점 → ○ 「북한이탈주민의 보호 및 정착지원에 관한 법률」 제2조의 북한이탈주민으로서 북한이탈주민등록확인서 발급이 가능한 자 : 3점(필기)",
+      "change_type": "text",
+      "prev_value": "○ 「북한이탈주민의 보호 및 정착지원에 관한 법률」 제2조의 \"북한이탈주민\"으로서 \"북한이탈주민등록확인서\" 발급이 가능한 자 : 필기시험에 3점 가점",
+      "curr_value": "○ 「북한이탈주민의 보호 및 정착지원에 관한 법률」 제2조의 북한이탈주민으로서 북한이탈주민등록확인서 발급이 가능한 자 : 3점(필기)",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-024",
+      "importance": 2,
+      "category": "가점",
+      "title": "우대사항: ○ 「다문화가족지원법」 제2조의 다문화 가족으로서 증명서 발급이 가능한 자 : 필기시험에 3점 가점 → ○ 「다문화가족지원법」 제2조의 다문화 가족으로서 증명서 발급이 가능한 자 : 3점(필기)",
+      "change_type": "text",
+      "prev_value": "○ 「다문화가족지원법」 제2조의 다문화 가족으로서 증명서 발급이 가능한 자 : 필기시험에 3점 가점",
+      "curr_value": "○ 「다문화가족지원법」 제2조의 다문화 가족으로서 증명서 발급이 가능한 자 : 3점(필기)",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-025",
+      "importance": 2,
+      "category": "가점",
+      "title": "우대사항: ○ 「아동복지법」 제16조 및 제16조의 3에 따라 보호조치가 종료되거나 해당 시설에서 퇴소한 자로서 \"보호종료확인서\" 발급이 가능한 자 : 필기시험에 3점 가점 → ○ 「아동복지법」 제16조 및 제16조의 3에 따라 보호조치가 종료되거나 해당 시설에서 퇴소한자로서 보호종료확인서 발급이 가능한 자. 단, 「청년고용촉진 특별법 시행령」에 따른 청년에 한해 적용 : 3점(필기)",
+      "change_type": "text",
+      "prev_value": "○ 「아동복지법」 제16조 및 제16조의 3에 따라 보호조치가 종료되거나 해당 시설에서 퇴소한 자로서 \"보호종료확인서\" 발급이 가능한 자 : 필기시험에 3점 가점",
+      "curr_value": "○ 「아동복지법」 제16조 및 제16조의 3에 따라 보호조치가 종료되거나 해당 시설에서 퇴소한자로서 보호종료확인서 발급이 가능한 자. 단, 「청년고용촉진 특별법 시행령」에 따른 청년에 한해 적용 : 3점(필기)",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-026",
+      "importance": 2,
+      "category": "가점",
+      "title": "우대사항 삭제: 단, 「청년고용촉진 특별법 시행령」에 따른 '청년'에 한해 적용",
+      "change_type": "removed",
+      "prev_value": "단, 「청년고용촉진 특별법 시행령」에 따른 '청년'에 한해 적용",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-029",
+      "importance": 2,
+      "category": "가점",
+      "title": "우대사항 삭제: * '20년 하반기 이후 인턴수료자는 수료일로부터 2년간 적용",
+      "change_type": "removed",
+      "prev_value": "* '20년 하반기 이후 인턴수료자는 수료일로부터 2년간 적용",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-030",
+      "importance": 2,
+      "category": "가점",
+      "title": "우대사항 삭제: * '20년 상반기 이전 인턴수료자는 채용시험 응시 2회 한정 적용",
+      "change_type": "removed",
+      "prev_value": "* '20년 상반기 이전 인턴수료자는 채용시험 응시 2회 한정 적용",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-031",
+      "importance": 2,
+      "category": "가점",
+      "title": "우대사항 삭제: ○ 한국철도 체험형인턴 6개월 이상 근무자 중 상위 20% 성적 우수자 : 필기시험에 한해 1점 가점",
+      "change_type": "removed",
+      "prev_value": "○ 한국철도 체험형인턴 6개월 이상 근무자 중 상위 20% 성적 우수자 : 필기시험에 한해 1점 가점",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-032",
+      "importance": 2,
+      "category": "가점",
+      "title": "우대사항 삭제: * '24년 상반기 이후 인턴 우수자에 한해 수료일로부터 2년간 적용",
+      "change_type": "removed",
+      "prev_value": "* '24년 상반기 이후 인턴 우수자에 한해 수료일로부터 2년간 적용",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-033",
+      "importance": 2,
+      "category": "가점",
+      "title": "우대사항 추가: * 다문화가족의 국적이 명확히 확인 가능하여야 함",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": "* 다문화가족의 국적이 명확히 확인 가능하여야 함",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-034",
+      "importance": 2,
+      "category": "가점",
+      "title": "우대사항 추가: ○ 철도 직무 관련 기능사 이상 자격증 소지자 : 최대 8점(필기)",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": "○ 철도 직무 관련 기능사 이상 자격증 소지자 : 최대 8점(필기)",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-035",
+      "importance": 2,
+      "category": "가점",
+      "title": "우대사항 추가: ○ 자동차 운전면허 중 제1종 보통면허 이상(토목, 건축, 전기통신에 한함) : 0.3점(면접), 제2종 보통면허 소지자(토목, 건축, 전기통신에 한함) : 0.2점(면접)",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": "○ 자동차 운전면허 중 제1종 보통면허 이상(토목, 건축, 전기통신에 한함) : 0.3점(면접), 제2종 보통면허 소지자(토목, 건축, 전기통신에 한함) : 0.2점(면접)",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-015",
+      "importance": 3,
+      "category": "자격",
+      "title": "응시자격: ＊다만, 2008.1.1. 이후 출생자 또는 1964.12.31. 이전 출생자는 지원 불가 → ＊다만, 2009.1.1. 이후 출생자 또는 1965.12.31. 이전 출생자는 지원 불가",
+      "change_type": "date",
+      "prev_value": "＊다만, 2008.1.1. 이후 출생자 또는 1964.12.31. 이전 출생자는 지원 불가",
+      "curr_value": "＊다만, 2009.1.1. 이후 출생자 또는 1965.12.31. 이전 출생자는 지원 불가",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-016",
+      "importance": 3,
+      "category": "자격",
+      "title": "응시자격: ＊다만, 전역일이 최종합격자 발표일(2025.4.11.) 이전이며, 각 시험일에 참석 가능한 경우 지원 가능 → ＊다만, 전역일이 최종합격자 발표일(2026.5.8.) 이전이며, 각 시험일에 참석 가능한 경우 지원 가능",
+      "change_type": "date",
+      "prev_value": "＊다만, 전역일이 최종합격자 발표일(2025.4.11.) 이전이며, 각 시험일에 참석 가능한 경우 지원 가능",
+      "curr_value": "＊다만, 전역일이 최종합격자 발표일(2026.5.8.) 이전이며, 각 시험일에 참석 가능한 경우 지원 가능",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    }
+  ],
+  "change_groups": [
+    {
+      "id": "group-stage1-022",
+      "category": "가점",
+      "member_ids": [
+        "stage1-027",
+        "stage1-028",
+        "stage1-022",
+        "stage1-023",
+        "stage1-024",
+        "stage1-025",
+        "stage1-026",
+        "stage1-029",
+        "stage1-030",
+        "stage1-031",
+        "stage1-032",
+        "stage1-034",
+        "stage1-035"
+      ],
+      "shared_terms": [
+        "필기시험",
+        "가점",
+        "필기",
+        "최대",
+        "한국철",
+        "청년고용촉진"
+      ]
+    },
+    {
+      "id": "group-stage1-003",
+      "category": "모집단위",
+      "member_ids": [
+        "stage1-003",
+        "stage1-004"
+      ],
+      "shared_terms": [
+        "공개경쟁채용",
+        "제한경쟁채용",
+        "보훈",
+        "토목"
+      ]
+    },
+    {
+      "id": "group-stage1-007",
+      "category": "전형",
+      "member_ids": [
+        "stage1-007",
+        "stage1-008",
+        "stage1-009",
+        "stage1-010",
+        "stage1-011",
+        "stage1-014"
+      ],
+      "shared_terms": [
+        "제한경쟁채용",
+        "자격증",
+        "필기시험",
+        "합격자",
+        "사무영업",
+        "거주지"
+      ]
+    },
+    {
+      "id": "group-stage1-020",
+      "category": "가점",
+      "member_ids": [
+        "stage1-020",
+        "stage1-021"
+      ],
+      "shared_terms": [
+        "면접시험",
+        "면접"
+      ]
+    }
+  ],
+  "notice_info": {
+    "period": {
+      "start": "2026.02.25",
+      "end": "2026.03.11"
+    },
+    "rules": [
+      {
+        "topic": "병역",
+        "text": "＊다만, 전역일이 최종합격자 발표일(2026.5.8.) 이전이며, 각 시험일에 참석 가능한 경우 지원 가능"
+      },
+      {
+        "topic": "기타",
+        "text": "＊다만, 2009.1.1. 이후 출생자 또는 1965.12.31. 이전 출생자는 지원 불가"
+      }
+    ],
+    "submissions": [],
+    "benefits": [
+      {
+        "section": "",
+        "name": "「국가유공자등 예우 및 지원에 관한 법률」 등 보훈 관계 법률에 따른 취업지원대상자로서 증명서 발급이 가능한 자 : 5점 또는 10점(필기, 실기, 면접)",
+        "benefit": null,
+        "notes": [],
+        "change": "new",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "「장애인고용촉진 및 직업재활법」, 「장애인고용촉진 및 직업재활법 시행령」에서 정한 장애인으로서 증명서 발급이 가능한 자 : 5점(필기, 실기, 면접)",
+        "benefit": null,
+        "notes": [],
+        "change": "new",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "「국민기초생활 보장법」 제2조에 의거 본인이 국민기초생활 수급대상자로서 증명서 발급이 가능한 자 : 3점(필기)",
+        "benefit": null,
+        "notes": [],
+        "change": "new",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "「북한이탈주민의 보호 및 정착지원에 관한 법률」 제2조의 북한이탈주민으로서 북한이탈주민등록확인서 발급이 가능한 자 : 3점(필기)",
+        "benefit": null,
+        "notes": [],
+        "change": "new",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "「다문화가족지원법」 제2조의 다문화 가족으로서 증명서 발급이 가능한 자 : 3점(필기)",
+        "benefit": null,
+        "notes": [
+          "다문화가족의 국적이 명확히 확인 가능하여야 함"
+        ],
+        "change": "new",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "「아동복지법」 제16조 및 제16조의 3에 따라 보호조치가 종료되거나 해당 시설에서 퇴소한자로서 보호종료확인서 발급이 가능한 자. 단, 「청년고용촉진 특별법 시행령」에 따른 청년에 한해 적용 : 3점(필기)",
+        "benefit": null,
+        "notes": [],
+        "change": "new",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "공통직무, 안전, 직렬별 직무의 기능사 이상 자격증 소지자 : 최대 12점(필기)",
+        "benefit": null,
+        "notes": [],
+        "change": "new",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "철도 직무 관련 기능사 이상 자격증 소지자",
+        "benefit": "최대 8점(필기)",
+        "notes": [],
+        "change": "new",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "자동차 운전면허 중 제1종 보통면허 이상(토목, 건축, 전기통신에 한함) : 0.3점(면접), 제2종 보통면허 소지자(토목, 건축, 전기통신에 한함) : 0.2점(면접)",
+        "benefit": null,
+        "notes": [],
+        "change": "new",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "한국철도공사 체험형인턴 수료자",
+        "benefit": "2점 또는 3점(필기)",
+        "notes": [],
+        "change": "new",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "세부 사항은 첨부파일 공고문을 참조",
+        "benefit": null,
+        "notes": [],
+        "change": "new",
+        "prev_benefit": null
+      }
+    ]
+  },
+  "units": [],
+  "competition": {
+    "published": true,
+    "prev": null,
+    "curr": null,
+    "note": "API에 인원 정보가 있으나 경쟁률 수기 확인 필요",
+    "checked_at": null
+  },
+  "requirements": {
+    "tracks": [
+      "사무",
+      "기타",
+      "토목",
+      "건축",
+      "전기"
+    ],
+    "regions": [
+      "강원",
+      "경기",
+      "경남",
+      "경북",
+      "광주",
+      "대구",
+      "대전",
+      "부산",
+      "서울",
+      "세종",
+      "울산",
+      "인천",
+      "전남",
+      "전북",
+      "충남",
+      "충북"
+    ],
+    "certificates": [],
+    "majors": [],
+    "manual_review_conditions": [],
+    "units": [
+      {
+        "name": "사무영업(공개경쟁채용)",
+        "track": "사무",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "열차승무(공개경쟁채용)",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "차량(공개경쟁채용)",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "토목(공개경쟁채용)\t",
+        "track": "토목",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "건축(공개경쟁채용)",
+        "track": "건축",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "전기통신(공개경쟁채용)",
+        "track": "전기",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "사무영업(자격증 제한경쟁채용)\t",
+        "track": "사무",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "운전(자격증 제한경쟁채용)",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "토목(자격증 제한경쟁채용)",
+        "track": "토목",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "전기통신(거주지 제한경쟁채용)",
+        "track": "전기",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "사무영업(보훈 제한경쟁채용)\t",
+        "track": "사무",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "열차승무(보훈 제한경쟁채용)\t",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "차량(보훈 제한경쟁채용)",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "사무영업(장애인 제한경쟁채용)",
+        "track": "사무",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "차량(장애인 제한경쟁채용)",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "체험형인턴",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      }
+    ],
+    "common_checks": [],
+    "region_note": null,
+    "bonus_rule": null,
+    "reviewed": null
+  },
+  "tier": "auto",
+  "category": "준시장형"
+}

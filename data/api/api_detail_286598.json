@@ -1,0 +1,143 @@
+{
+  "resultCode": 200,
+  "resultMsg": "성공했습니다.",
+  "result": {
+    "recrutPblntSn": 286598,
+    "pblntInstCd": "C0533",
+    "pbadmsStdInstCd": "B553931",
+    "instNm": "해양환경공단",
+    "ncsCdLst": "R600009,R600015,R600023",
+    "ncsCdNmLst": "운전.운송,기계,환경.에너지.안전",
+    "hireTypeLst": "R1010",
+    "hireTypeNmLst": "정규직",
+    "workRgnLst": "R3014,R3011,R3016,R3018,R3019,R3024,R3023,R3022,R3025",
+    "workRgnNmLst": "부산,인천,울산,강원,충남,전북,전남,경남,제주",
+    "recrutSe": "R2010",
+    "recrutSeNm": "신입",
+    "prefCondCn": "취업지원대상자, 장애인, 저소득층, 북한이탈주민, 다문화가족, 공단 우수인턴",
+    "recrutNope": 19,
+    "pbancBgngYmd": "20250529",
+    "pbancEndYmd": "20250613",
+    "recrutPbancTtl": "2025년 상반기 해양환경공단 기술직 채용 공고",
+    "srcUrl": "https://www.koem.or.kr/site/insa/ex/board/View.do?cbIdx=478&bcIdx=34414",
+    "replmprYn": "N",
+    "aplyQlfcCn": "- 성별: 무관\r\n- 연령: 임용예정일 기준 15세 이상 34세 이하 / '제대군인지원에 관한 법률' 제2조 및 제16조에 따른 제대군인 응시 상한 연령 연장\r\n- 병역: 남성의 경우 병역의무를 마친 자(병역 면제자 포함) /병역법 제76조에서 정한 병역의무 불이행 사실이 없는 자\r\n- 채용분야별 응시자격에 대한 세부사항은 공고문 참조\r\n\r\n(1) 항해: 해기사(기관) 면허 4급(항해) 이상 소지자로서 임용 즉시 승선이 가능한 자\r\n  * 승선 기준: 선원법 및 선박직원법에 따른 상급안전교육과 선원건강진단을 모두 완료(이수)한 자\r\n  * 본 채용분야의 면접전형일 이전까지 상급안전교육 및 선원건강진단을 완료(이수)하여 면접당일 해당 증빙자료(건강진단서 및 교육 이수증) 제출  / 상급안전교육 및 선원건강진단 유효기간: 본 채용의 면접전형일 이내\r\n\r\n(2) 기관: 해기사(기관) 면허 4급(항해) 이상 소지자로서 임용 즉시 승선이 가능한 자\r\n  * 승선 기준: 선원법 및 선박직원법에 따른 상급안전교육과 선원건강진단을 모두 완료(이수)한 자\r\n  * 본 채용분야의 면접전형일 이전까지 상급안전교육 및 선원건강진단을 완료(이수)하여 면접당일 해당 증빙자료(건강진단서 및 교육 이수증) 제출  / 상급안전교육 및 선원건강진단 유효기간: 본 채용의 면접전형일 이내\r\n\r\n(3) 환경: 아래 1)~2)의 자격요건을 모두 갖춘 자\r\n 1) 국가기술자격법에 의한 해당분야 기능사 이상 자격증 취득자\r\n * 해당분야: 기계, 금속, 전기, 토목, 정보처리, 해양, 안전관리, 환경직무분야\r\n 2) 1종 대형 이상 운전면허 취득자 / 입사지원서 마감일 이전 기준, 해당 운전면허가 유효해야 함",
+    "disqlfcRsn": "- 공단 인사규정 제23조-\r\n 1. 피성년후견인\r\n 2. 파산선고를 받고 복권되지 아니한 자\r\n 3. 금고 이상의 실형을 선고받고 그 집행이 끝나거나(집행이 끝난 것으로 보는 경우를 포함한다) 집행이 면제된 날부터 5년이 지나지 아니한 자\r\n 4. 금고 이상의 형의 집행유예를 선고받고 그 유예기간이 끝난 날부터 2년이 지나지 아니한 자\r\n 5. 금고 이상의 형의 선고유예를 받은 경우에 그 선고유예 기간 중에 있는 자\r\n 6. 법원의 판결 또는 다른 법률에 따라 자격이 상실되거나 정지된 자\r\n 7. 직무와 관련하여 형법 제355조(배임 및 횡령) 및 제356조(업무상의 횡령과 배임)에 규정된 죄를 범한 자로서 300만원 이상의 벌금형을 선고받고 그 형이 확정된 후 2년이 지나지 아니한 자\r\n 8. 다음 각 목의 어느 하나에 해당하는 죄를 범한 사람으로서 100만원 이상의 벌금형을 선고받고 그 형이 확정된 후 3년이 지나지 아니한 사람\r\n 가. 성폭력범죄의 처벌 등에 관한 특례법 제2조에 따른 성폭력범죄\r\n 나. 정보통신망 이용촉진 및 정보보호 등에 관한 법률 제74조제1항제2호 및 제3호에 규정된 죄\r\n 다. 스토킹범죄의 처벌 등에 관한 법률 제2조제2호에 따른 스토킹범죄\r\n 9. 미성년대상 성범죄자(영구 결격)\r\n 10. 전직 근무기관으로부터 “해임”처분을 받은 날로부터 3년, “파면”처분을 받은 날로부터 5년이 경과하지 아니한 자\r\n 11. 부패방지 및 국민권익위원회의 설치와 운영에 관한 법률 제82조에 따른 비위면직자 등의 취업제한 적용을 받는 비위면직자",
+    "scrnprcdrMthdExpln": "- 채용공고 및 지원서 접수\r\n- (1차) 서류전형: 적격심사, 정성평가\r\n- (2차) 필기전형: 직무수행능력평가 / 항해 및 기관 분야는 생략\r\n- 온라인 인성검사(면접전형 참고자료로 활용)\r\n- (3차) 면접전형: 대면 + 인성\r\n- 최종합격자 발표 및 임용",
+    "prefCn": "취업지원대상자, 장애인, 저소득층, 북한이탈주민, 다문화가족, 공단 우수인턴\r\n* 우대사항 세부사항은 공고문 참조",
+    "acbgCondLst": "R7010",
+    "acbgCondNmLst": "학력무관",
+    "nonatchRsn": "온라인 입사지원 방식에 따른 입사지원서 미첨부",
+    "ongoingYn": null,
+    "decimalDay": -524,
+    "files": [
+      {
+        "recrutAtchFileNo": 2966427,
+        "sortNo": 1,
+        "atchFileNm": "채용공고문_기술직.pdf",
+        "atchFileType": "A",
+        "url": "https://opendata.alio.go.kr/recruit/downloadAtchFile?recrutAtchFileNo=2966427"
+      },
+      {
+        "recrutAtchFileNo": 2966428,
+        "sortNo": 2,
+        "atchFileNm": "직무설명자료(기술직).zip",
+        "atchFileType": "C",
+        "url": "https://opendata.alio.go.kr/recruit/downloadAtchFile?recrutAtchFileNo=2966428"
+      },
+      {
+        "recrutAtchFileNo": 2966429,
+        "sortNo": 3,
+        "atchFileNm": "유의사항 및 별지서식.zip",
+        "atchFileType": "Z",
+        "url": "https://opendata.alio.go.kr/recruit/downloadAtchFile?recrutAtchFileNo=2966429"
+      }
+    ],
+    "steps": [
+      {
+        "recrutStepSn": 1053482,
+        "recrutPblntSn": 286598,
+        "recrutPbancTtl": "항해",
+        "recrutNope": null,
+        "aplyNope": null,
+        "cmpttRt": null,
+        "rsnOcrnYmd": null,
+        "sortNo": 0,
+        "minStepSn": 1053482,
+        "maxStepSn": 1053483
+      },
+      {
+        "recrutStepSn": 1053483,
+        "recrutPblntSn": 286598,
+        "recrutPbancTtl": "항해",
+        "recrutNope": null,
+        "aplyNope": null,
+        "cmpttRt": 0.0,
+        "rsnOcrnYmd": null,
+        "sortNo": 0,
+        "minStepSn": 1053482,
+        "maxStepSn": 1053483
+      },
+      {
+        "recrutStepSn": 1053484,
+        "recrutPblntSn": 286598,
+        "recrutPbancTtl": "기관",
+        "recrutNope": null,
+        "aplyNope": null,
+        "cmpttRt": null,
+        "rsnOcrnYmd": null,
+        "sortNo": 1,
+        "minStepSn": 1053484,
+        "maxStepSn": 1053485
+      },
+      {
+        "recrutStepSn": 1053485,
+        "recrutPblntSn": 286598,
+        "recrutPbancTtl": "기관",
+        "recrutNope": null,
+        "aplyNope": null,
+        "cmpttRt": 0.0,
+        "rsnOcrnYmd": null,
+        "sortNo": 1,
+        "minStepSn": 1053484,
+        "maxStepSn": 1053485
+      },
+      {
+        "recrutStepSn": 1053486,
+        "recrutPblntSn": 286598,
+        "recrutPbancTtl": "환경",
+        "recrutNope": null,
+        "aplyNope": null,
+        "cmpttRt": null,
+        "rsnOcrnYmd": null,
+        "sortNo": 2,
+        "minStepSn": 1053486,
+        "maxStepSn": 1053488
+      },
+      {
+        "recrutStepSn": 1053487,
+        "recrutPblntSn": 286598,
+        "recrutPbancTtl": "환경",
+        "recrutNope": null,
+        "aplyNope": null,
+        "cmpttRt": null,
+        "rsnOcrnYmd": null,
+        "sortNo": 2,
+        "minStepSn": 1053486,
+        "maxStepSn": 1053488
+      },
+      {
+        "recrutStepSn": 1053488,
+        "recrutPblntSn": 286598,
+        "recrutPbancTtl": "환경",
+        "recrutNope": null,
+        "aplyNope": null,
+        "cmpttRt": 0.0,
+        "rsnOcrnYmd": null,
+        "sortNo": 2,
+        "minStepSn": 1053486,
+        "maxStepSn": 1053488
+      }
+    ]
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "resultCode": 200,
+  "resultMsg": "성공했습니다.",
+  "result": {
+    "recrutPblntSn": 291572,
+    "pblntInstCd": "C0257",
+    "pbadmsStdInstCd": "B190001",
+    "instNm": "한국조폐공사",
+    "ncsCdLst": "R600002,R600022",
+    "ncsCdNmLst": "경영.회계.사무,인쇄.목재.가구.공예",
+    "hireTypeLst": "R1040",
+    "hireTypeNmLst": "비정규직",
+    "workRgnLst": "R3012",
+    "workRgnNmLst": "대전",
+    "recrutSe": "R2010",
+    "recrutSeNm": "신입",
+    "prefCondCn": "취업지원대상자, 국민기초생활보장 수급자",
+    "recrutNope": 3,
+    "pbancBgngYmd": "20251001",
+    "pbancEndYmd": "20251016",
+    "recrutPbancTtl": "2025년도 제1차 한국조폐공사 ID본부 대체 기간제근로자 채용 공고",
+    "srcUrl": "https://www.komsco.com/kor/88/recruitment",
+    "replmprYn": "Y",
+    "aplyQlfcCn": "o 학력, 전공, 성별 제한 없음\r\no 「인사관리 규정」 제10조(채용결격사유)에 해당하지 않는 사람 ※ [채용공고문 붙임 #2] 참고\r\no 공사 「기간제근로자 관리 규정」 제23조에 따라 계약기간 중 만 70세가 도래하지 않는 사람\r\no 임용 즉시 업무종사가 가능하고, ID본부(대전 소재)에서 근무가 가능한 사람\r\n※ 학업, 이직 절차, 군 전역 등을 이유로 임용시기 조절 불가",
+    "disqlfcRsn": "1. 「국가공무원법」 제33조 각 호의 어느 하나에 해당하는 사람\r\n2. 「병역법」 제76조제1항에 따른 병역의무 불이행자\r\n3. 부정한 방법으로 채용되어 그 채용이 취소된 경우 취소된 날부터 5년이 지나지 아니한 사람\r\n4. 「부패방지 및 국민권익위원회 설치와 운영에 관한 법률」 제82조에 따른 비위면직자 등의 취업제한 사유에 해당하는 사람\r\n\r\n※ 상세내용은 첨부파일을 참조하여 주시기 바랍니다.",
+    "scrnprcdrMthdExpln": "o 1차 전형(서류심사): 5배수\r\n- 직무관련 경력(30점), 직무관련 자격(30점), 직무관련 교육(10점), 자기소개서(30점)\r\n\r\no 2차 전형(블라인드 면접시험): 1배수 \r\n- 직무역량 및 조직적합성 면접(100점)\r\n\r\n※ 상세내용은 첨부파일을 참조하여 주시기 바랍니다.",
+    "prefCn": "ㅇ 취업지원대상자: 매 전형마다 만점의 10% 또는 5% 가점 부여\r\n- 「국가유공자 등 예우 및 지원에 관한 법률」 등에 따른 취업지원대상자인 경우, 보훈 관계 법률에 따른 가점 부여 기준 적용\r\n- 각 전형별 동점자 발생 시 우선 선발\r\nㅇ 국민기초생활보장 수급자: 1차 전형 시 만점의 5% 가점 부여\r\n\r\n※ 상세내용은 첨부파일을 참조하여 주시기 바랍니다",
+    "acbgCondLst": "R7010",
+    "acbgCondNmLst": "학력무관",
+    "nonatchRsn": null,
+    "ongoingYn": null,
+    "decimalDay": -399,
+    "files": [
+      {
+        "recrutAtchFileNo": 2992102,
+        "sortNo": 3,
+        "atchFileNm": "2025년도 제1차 한국조폐공사 ID본부 대체 기간제근로자 채용 공고(붙임 포함).pdf",
+        "atchFileType": "A",
+        "url": "https://opendata.alio.go.kr/recruit/downloadAtchFile?recrutAtchFileNo=2992102"
+      },
+      {
+        "recrutAtchFileNo": 2992103,
+        "sortNo": 4,
+        "atchFileNm": "붙임3_기초심사자료(서식).hwp",
+        "atchFileType": "B",
+        "url": "https://opendata.alio.go.kr/recruit/downloadAtchFile?recrutAtchFileNo=2992103"
+      },
+      {
+        "recrutAtchFileNo": 2992104,
+        "sortNo": 5,
+        "atchFileNm": "붙임1_국가직무능력표준(NCS) 기반 직무설명자료.pdf",
+        "atchFileType": "C",
+        "url": "https://opendata.alio.go.kr/recruit/downloadAtchFile?recrutAtchFileNo=2992104"
+      },
+      {
+        "recrutAtchFileNo": 2992105,
+        "sortNo": 6,
+        "atchFileNm": "붙임4_1차 전형 직무경력 인정 기준 및 경력(재직) 증명서 양식.hwp",
+        "atchFileType": "Z",
+        "url": "https://opendata.alio.go.kr/recruit/downloadAtchFile?recrutAtchFileNo=2992105"
+      },
+      {
+        "recrutAtchFileNo": 2992106,
+        "sortNo": 7,
+        "atchFileNm": "붙임7_입사지원 포기서(서식).hwp",
+        "atchFileType": "Z",
+        "url": "https://opendata.alio.go.kr/recruit/downloadAtchFile?recrutAtchFileNo=2992106"
+      },
+      {
+        "recrutAtchFileNo": 2992107,
+        "sortNo": 8,
+        "atchFileNm": "붙임9_채용서류 반환 청구서(서식).hwp",
+        "atchFileType": "Z",
+        "url": "https://opendata.alio.go.kr/recruit/downloadAtchFile?recrutAtchFileNo=2992107"
+      }
+    ],
+    "steps": [
+      {
+        "recrutStepSn": 1110229,
+        "recrutPblntSn": 291572,
+        "recrutPbancTtl": "서무담당(대체 기간제근로자)",
+        "recrutNope": null,
+        "aplyNope": null,
+        "cmpttRt": null,
+        "rsnOcrnYmd": null,
+        "sortNo": 0,
+        "minStepSn": 1110229,
+        "maxStepSn": 1110230
+      },
+      {
+        "recrutStepSn": 1110230,
+        "recrutPblntSn": 291572,
+        "recrutPbancTtl": "서무담당(대체 기간제근로자)",
+        "recrutNope": null,
+        "aplyNope": null,
+        "cmpttRt": 0.0,
+        "rsnOcrnYmd": null,
+        "sortNo": 0,
+        "minStepSn": 1110229,
+        "maxStepSn": 1110230
+      },
+      {
+        "recrutStepSn": 1110231,
+        "recrutPblntSn": 291572,
+        "recrutPbancTtl": "개인정보면제조 담당(대체 기간제근로자)",
+        "recrutNope": null,
+        "aplyNope": null,
+        "cmpttRt": null,
+        "rsnOcrnYmd": null,
+        "sortNo": 1,
+        "minStepSn": 1110231,
+        "maxStepSn": 1110232
+      },
+      {
+        "recrutStepSn": 1110232,
+        "recrutPblntSn": 291572,
+        "recrutPbancTtl": "개인정보면제조 담당(대체 기간제근로자)",
+        "recrutNope": null,
+        "aplyNope": null,
+        "cmpttRt": 0.0,
+        "rsnOcrnYmd": null,
+        "sortNo": 1,
+        "minStepSn": 1110231,
+        "maxStepSn": 1110232
+      }
+    ]
+  }
+}

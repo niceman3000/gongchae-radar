@@ -1,0 +1,95 @@
+{
+  "resultCode": 200,
+  "resultMsg": "성공했습니다.",
+  "result": {
+    "recrutPblntSn": 292556,
+    "pblntInstCd": "C0082",
+    "pbadmsStdInstCd": "B552522",
+    "instNm": "한국서부발전(주)",
+    "ncsCdLst": "R600017",
+    "ncsCdNmLst": "화학",
+    "hireTypeLst": "R1040",
+    "hireTypeNmLst": "비정규직",
+    "workRgnLst": "R3017",
+    "workRgnNmLst": "경기",
+    "recrutSe": "R2030",
+    "recrutSeNm": "신입+경력",
+    "prefCondCn": "장애인 등(자세한 사항은 붙임의 채용공고문 참조)",
+    "recrutNope": 1,
+    "pbancBgngYmd": "20251104",
+    "pbancEndYmd": "20251119",
+    "recrutPbancTtl": "한국서부발전(주) 평택발전본부 기술담당원(기간제 근로자) 모집공고",
+    "srcUrl": "https://iwest.incruit.com",
+    "replmprYn": "Y",
+    "aplyQlfcCn": "- 연령, 학력, 성별 제한 없음\r\n-(남자의 경우) 병역의무를 필하였거나 면제된 자\r\n-당사 인사관리규정 제10조의 결격사유가 없는 자\r\n-합격 후 명시한 기간내 근무가 가능한 자\r\n",
+    "disqlfcRsn": "당사 인사관리규정 제10조(신규채용자의 결격 사유, 붙임의 채용공고문 참조)",
+    "scrnprcdrMthdExpln": "*지원서 접수\r\n-접수기간: '25.11.4(화) 11:00 ~ '25.11.19(수) 11:00\r\n-접수방법: 인터넷 접수\r\n*전형 방법\r\n-1차 서류전형: 블라인드 채용에 따른 기본사항 확인, 최소 적격여부 판정 \r\n-2차: 면접 전형: 인성 및 직무수행능력 검증\r\n-최종: 합격자발표(신체검사 및 신원조회 적격시)\r\n※ 상세내용: 붙임의 채용공고문 참조\r\n\r\n",
+    "prefCn": "장애인: 면접전형 만점의 10%\r\n※ 상세내용: 붙임의 채용공고문 참조",
+    "acbgCondLst": "R7010",
+    "acbgCondNmLst": "학력무관",
+    "nonatchRsn": null,
+    "ongoingYn": null,
+    "decimalDay": -365,
+    "files": [
+      {
+        "recrutAtchFileNo": 3004212,
+        "sortNo": 1,
+        "atchFileNm": "붙임1. 채용공고문(최종본) (1).hwp",
+        "atchFileType": "A",
+        "url": "https://opendata.alio.go.kr/recruit/downloadAtchFile?recrutAtchFileNo=3004212"
+      },
+      {
+        "recrutAtchFileNo": 3004213,
+        "sortNo": 2,
+        "atchFileNm": "입사지원서(자기소개서).hwp",
+        "atchFileType": "B",
+        "url": "https://opendata.alio.go.kr/recruit/downloadAtchFile?recrutAtchFileNo=3004213"
+      },
+      {
+        "recrutAtchFileNo": 3004214,
+        "sortNo": 3,
+        "atchFileNm": "붙임2. 직무기술서.hwp",
+        "atchFileType": "C",
+        "url": "https://opendata.alio.go.kr/recruit/downloadAtchFile?recrutAtchFileNo=3004214"
+      }
+    ],
+    "steps": [
+      {
+        "recrutStepSn": 1122252,
+        "recrutPblntSn": 292556,
+        "recrutPbancTtl": "기술담당원(화학)",
+        "recrutNope": null,
+        "aplyNope": null,
+        "cmpttRt": null,
+        "rsnOcrnYmd": null,
+        "sortNo": 0,
+        "minStepSn": 1122252,
+        "maxStepSn": 1122254
+      },
+      {
+        "recrutStepSn": 1122253,
+        "recrutPblntSn": 292556,
+        "recrutPbancTtl": "기술담당원(화학)",
+        "recrutNope": null,
+        "aplyNope": null,
+        "cmpttRt": null,
+        "rsnOcrnYmd": null,
+        "sortNo": 0,
+        "minStepSn": 1122252,
+        "maxStepSn": 1122254
+      },
+      {
+        "recrutStepSn": 1122254,
+        "recrutPblntSn": 292556,
+        "recrutPbancTtl": "기술담당원(화학)",
+        "recrutNope": null,
+        "aplyNope": null,
+        "cmpttRt": 0.0,
+        "rsnOcrnYmd": null,
+        "sortNo": 0,
+        "minStepSn": 1122252,
+        "maxStepSn": 1122254
+      }
+    ]
+  }
+}

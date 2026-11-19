@@ -1,0 +1,588 @@
+{
+  "schema_version": "1.0.0",
+  "pair_id": "c0261-286621-301381",
+  "pair_name": "한국지역난방공사 · 2026년 한국지역난방공사 신입직원 채용 공고",
+  "institution": "한국지역난방공사",
+  "checked_at": "2026-11-19",
+  "prev": {
+    "sn": "286621",
+    "title": "2025년 한국지역난방공사 신입직원 채용 공고",
+    "period": {
+      "start": "20250530",
+      "end": "20250614"
+    },
+    "pdf_path": "data/pdf/286621.pdf",
+    "source_url": "https://opendata.alio.go.kr/recruit/downloadAtchFile?recrutAtchFileNo=2966542"
+  },
+  "curr": {
+    "sn": "301381",
+    "title": "2026년 한국지역난방공사 신입직원 채용 공고",
+    "period": {
+      "start": "20260605",
+      "end": "20260620"
+    },
+    "pdf_path": "data/pdf/301381.pdf",
+    "source_url": "https://opendata.alio.go.kr/recruit/downloadAtchFile?recrutAtchFileNo=3054261"
+  },
+  "tracks": [
+    "전체"
+  ],
+  "changes": [
+    {
+      "id": "stage1-001",
+      "importance": 1,
+      "category": "인원",
+      "title": "채용인원: 67 → 72",
+      "change_type": "number",
+      "prev_value": 67,
+      "curr_value": 72,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-002",
+      "importance": 2,
+      "category": "직무분야(NCS)",
+      "title": "직무분야(NCS) 목록 변경",
+      "change_type": "list",
+      "prev_value": [
+        "정보통신"
+      ],
+      "curr_value": [
+        "법률.경찰.소방.교도.국방",
+        "영업판매"
+      ],
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-003",
+      "importance": 2,
+      "category": "모집단위",
+      "title": "모집단위 목록 변경",
+      "change_type": "list",
+      "prev_value": [],
+      "curr_value": [
+        "고졸인재_비수도권 지역인재 할당제 적용_기술(전기)",
+        "사회형평_장애_기술(전기)"
+      ],
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-004",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법: - 합격 대상 : 자기소개서 평가 결과 적격인 자 중 공통·직무자격·외국어 및 우대가점 합산 고득점 순으로 모집단위별 채용 예정인원의 50배수 선발 → - 합격대상 : 자기소개서 평가 결과 적격인 자 중 서류가점(공통·직무자격·외국어) 및 우대가점 합산 고득점 순으로 모집단위별 채용 예정인원의 50배수 선발",
+      "change_type": "text",
+      "prev_value": "- 합격 대상 : 자기소개서 평가 결과 적격인 자 중 공통·직무자격·외국어 및 우대가점 합산 고득점 순으로 모집단위별 채용 예정인원의 50배수 선발",
+      "curr_value": "- 합격대상 : 자기소개서 평가 결과 적격인 자 중 서류가점(공통·직무자격·외국어) 및 우대가점 합산 고득점 순으로 모집단위별 채용 예정인원의 50배수 선발",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-005",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법: - 합격 대상 : 인성검사 결과 적격 및 필기 과목별 점수가 40점 이상(가점적용 전 기준)인 자 중 우대가점 합산 고득점 순으로 모집단위별 채용 예정인원의 3배수 선발 (단, 사회형평분야 및 채용 예정인원이 1명인 모집단위는 5배수 선발) → - 합격대상 : 인성검사 결과 적격 및 필기 과목별 점수가 40점 이상(우대가점 적용 전 기준)인 자 중 필기전형 평가점수 및 우대가점 합산 고득점 순으로 모집단위별 채용예정인원의 3배수 선발 (단, 사회형평분야 및 채용예정인원이 1명인 모집단위는 5배수 선발)",
+      "change_type": "text",
+      "prev_value": "- 합격 대상 : 인성검사 결과 적격 및 필기 과목별 점수가 40점 이상(가점적용 전 기준)인 자 중 우대가점 합산 고득점 순으로 모집단위별 채용 예정인원의 3배수 선발 (단, 사회형평분야 및 채용 예정인원이 1명인 모집단위는 5배수 선발)",
+      "curr_value": "- 합격대상 : 인성검사 결과 적격 및 필기 과목별 점수가 40점 이상(우대가점 적용 전 기준)인 자 중 필기전형 평가점수 및 우대가점 합산 고득점 순으로 모집단위별 채용예정인원의 3배수 선발 (단, 사회형평분야 및 채용예정인원이 1명인 모집단위는 5배수 선발)",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-006",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법: - 합격 대상 : 면접 방식별(집단행동관찰, 직무역량, 심층) 평가위원 평균 점수가 60점 이상*인 자(가점 적용 전 기준) 중 필기전형(40%) 및 면접전형(60%) 결과**를 반영하여 고득점 순으로 모집단위별 채용예정인원의 1배수 선발 → - 합격대상 : 면접유형별(집단행동관찰, 직무역량, 심층) 평가위원 평균 점수*가 60점 이상인 자(우대가점 적용 전 기준) 중 필기전형(40%) 및 면접전형(60%) 결과**를 반영하여 고득점 순 모집단위별 채용예정인원의 1배수 선발",
+      "change_type": "text",
+      "prev_value": "- 합격 대상 : 면접 방식별(집단행동관찰, 직무역량, 심층) 평가위원 평균 점수가 60점 이상*인 자(가점 적용 전 기준) 중 필기전형(40%) 및 면접전형(60%) 결과**를 반영하여 고득점 순으로 모집단위별 채용예정인원의 1배수 선발",
+      "curr_value": "- 합격대상 : 면접유형별(집단행동관찰, 직무역량, 심층) 평가위원 평균 점수*가 60점 이상인 자(우대가점 적용 전 기준) 중 필기전형(40%) 및 면접전형(60%) 결과**를 반영하여 고득점 순 모집단위별 채용예정인원의 1배수 선발",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-007",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법: * 면접방식별 평균점수가 60점 미만인 자는 과락 처리 → * 면접유형별 평가위원 평균점수가 60점 미만인 자는 과락 처리",
+      "change_type": "text",
+      "prev_value": "* 면접방식별 평균점수가 60점 미만인 자는 과락 처리",
+      "curr_value": "* 면접유형별 평가위원 평균점수가 60점 미만인 자는 과락 처리",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-008",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법: ** 필기 및 면접전형의 가점을 포함한 점수 → ** 필기·면접전형별 평가점수 및 우대가점을 합산한 점수",
+      "change_type": "text",
+      "prev_value": "** 필기 및 면접전형의 가점을 포함한 점수",
+      "curr_value": "** 필기·면접전형별 평가점수 및 우대가점을 합산한 점수",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-009",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법: - 예비합격자 : 모집단위별 고득점 순으로 채용 예정인원의 1배수 선발 (단, 모집단위별 채용 예정인원이 1명일 경우 2배수 선발) → - 예비합격자 : 모집단위별 합격자를 제외한 인원 중 고득점 순으로 채용예정인원의 1배수 선발 (단, 모집단위별 채용예정인원이 1명일 경우 2배수 선발)",
+      "change_type": "text",
+      "prev_value": "- 예비합격자 : 모집단위별 고득점 순으로 채용 예정인원의 1배수 선발 (단, 모집단위별 채용 예정인원이 1명일 경우 2배수 선발)",
+      "curr_value": "- 예비합격자 : 모집단위별 합격자를 제외한 인원 중 고득점 순으로 채용예정인원의 1배수 선발 (단, 모집단위별 채용예정인원이 1명일 경우 2배수 선발)",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-010",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격: - 남성의 경우 병역필 또는 면제자(고졸인재분야는 병역미필자 응시 가능) → - 남성의 경우 병역필 또는 면제자(고졸인재분야 병역미필자 응시 가능)",
+      "change_type": "text",
+      "prev_value": "- 남성의 경우 병역필 또는 면제자(고졸인재분야는 병역미필자 응시 가능)",
+      "curr_value": "- 남성의 경우 병역필 또는 면제자(고졸인재분야 병역미필자 응시 가능)",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-013",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격: - 고졸인재 : 최종학력이 ‘고등학교 졸업’인 자 또는 ’26.2월 고교 졸업예정자(현재 고3), 대학 중퇴자 및 재학·휴학자 → - 고졸인재 : 최종학력이 ‘고등학교 졸업’인 자 또는 ’27.2월 고교 졸업예정자(현재 고3), 대학 중퇴자 및 재학·휴학자",
+      "change_type": "text",
+      "prev_value": "- 고졸인재 : 최종학력이 ‘고등학교 졸업’인 자 또는 ’26.2월 고교 졸업예정자(현재 고3), 대학 중퇴자 및 재학·휴학자",
+      "curr_value": "- 고졸인재 : 최종학력이 ‘고등학교 졸업’인 자 또는 ’27.2월 고교 졸업예정자(현재 고3), 대학 중퇴자 및 재학·휴학자",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-014",
+      "importance": 2,
+      "category": "가점",
+      "title": "우대사항: ※ 우대가점 2개 이상 보유 시 최상위 가점 1개만 인정 → ※ 우대가점 2개 이상 보유 시 최상위 가점 1개만 인정하며, 세부내용은 첨부파일의 채용공고문을 참조",
+      "change_type": "text",
+      "prev_value": "※ 우대가점 2개 이상 보유 시 최상위 가점 1개만 인정",
+      "curr_value": "※ 우대가점 2개 이상 보유 시 최상위 가점 1개만 인정하며, 세부내용은 첨부파일의 채용공고문을 참조",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-011",
+      "importance": 3,
+      "category": "자격",
+      "title": "응시자격: ※ 최종합격발표예정일('25.08.27) 이전 전역 예정자로서 전형절차별 응시 가능한 경우 지원 가능 → ※ 최종합격발표예정일('26.09.02) 이전 전역 예정자로서 전형절차별 응시 가능한 경우 지원 가능",
+      "change_type": "date",
+      "prev_value": "※ 최종합격발표예정일('25.08.27) 이전 전역 예정자로서 전형절차별 응시 가능한 경우 지원 가능",
+      "curr_value": "※ 최종합격발표예정일('26.09.02) 이전 전역 예정자로서 전형절차별 응시 가능한 경우 지원 가능",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-012",
+      "importance": 3,
+      "category": "자격",
+      "title": "응시자격: - 최종합격자 발표 후 임용예정일(’25.09.15)로부터 근무 가능한 자 → - 최종합격자 발표 후 임용예정일(’26.09.21)로부터 근무 가능한 자",
+      "change_type": "date",
+      "prev_value": "- 최종합격자 발표 후 임용예정일(’25.09.15)로부터 근무 가능한 자",
+      "curr_value": "- 최종합격자 발표 후 임용예정일(’26.09.21)로부터 근무 가능한 자",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    }
+  ],
+  "change_groups": [
+    {
+      "id": "group-stage1-004",
+      "category": "전형",
+      "member_ids": [
+        "stage1-004",
+        "stage1-005",
+        "stage1-006",
+        "stage1-007",
+        "stage1-008",
+        "stage1-009"
+      ],
+      "shared_terms": [
+        "합격대상",
+        "합격",
+        "평가점수",
+        "채용예정인원이",
+        "채용예정인원",
+        "예정인원이"
+      ]
+    }
+  ],
+  "notice_info": {
+    "period": {
+      "start": "2026.06.05",
+      "end": "2026.06.20"
+    },
+    "rules": [
+      {
+        "topic": "병역",
+        "text": "최종합격발표예정일('26.09.02) 이전 전역 예정자로서 전형절차별 응시 가능한 경우 지원 가능"
+      },
+      {
+        "topic": "학력",
+        "text": "학력, 전공, 연령, 성별 제한없음(단, 임용예정일 현재 공사 정년인 60세 이상인 자는 지원불가)"
+      },
+      {
+        "topic": "학력",
+        "text": "고졸인재 : 최종학력이 ‘고등학교 졸업’인 자 또는 ’27.2월 고교 졸업예정자(현재 고3), 대학 중퇴자 및 재학·휴학자"
+      },
+      {
+        "topic": "학력",
+        "text": "전문대 및 4년제 대학 졸업자 또는 졸업예정자 지원 불가"
+      },
+      {
+        "topic": "학력",
+        "text": "ㆍ졸업 가능 학점을 모두 이수하였거나, 졸업 가능 학점의 이수가 가능한 학기를 재학 중인 자는 졸업예정자에 해당"
+      },
+      {
+        "topic": "학력",
+        "text": "ㆍ대졸자 및 대학졸업예정자가 입사 후 적발될 경우 합격 취소 및 해임 처리"
+      },
+      {
+        "topic": "기타",
+        "text": "최종합격자 발표 후 임용예정일(’26.09.21)로부터 근무 가능한 자"
+      }
+    ],
+    "submissions": [],
+    "benefits": [
+      {
+        "section": "",
+        "name": "ㅇ 취업지원(보훈)대상자",
+        "benefit": "전형별 만점의 5, 10%",
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "ㅇ 장애인",
+        "benefit": "전형별 만점의 5% (중증장애 10%)",
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "ㅇ 기초생활수급자",
+        "benefit": "전형별 만점의 5%",
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "ㅇ 북한이탈주민",
+        "benefit": "전형별 만점의 5%",
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "ㅇ 다문화가정의 자녀",
+        "benefit": "전형별 만점의 5%",
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "ㅇ 자립준비청년",
+        "benefit": "전형별 만점의 5%",
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "ㅇ 체험형인턴 수료자",
+        "benefit": "필기전형 만점의 2% (우수수료 5%, 성실수료 3%)",
+        "notes": [
+          "우대가점 2개 이상 보유 시 최상위 가점 1개만 인정하며, 세부내용은 첨부파일의 채용공고문을 참조"
+        ],
+        "change": "same",
+        "prev_benefit": null
+      }
+    ]
+  },
+  "units": [],
+  "competition": {
+    "published": true,
+    "prev": null,
+    "curr": null,
+    "note": "API에 인원 정보가 있으나 경쟁률 수기 확인 필요",
+    "checked_at": null
+  },
+  "requirements": {
+    "tracks": [
+      "사무",
+      "기계",
+      "전기",
+      "기타",
+      "토목"
+    ],
+    "regions": [
+      "경기",
+      "경남",
+      "대구",
+      "서울",
+      "세종",
+      "전남",
+      "충북"
+    ],
+    "certificates": [],
+    "majors": [],
+    "manual_review_conditions": [],
+    "units": [
+      {
+        "name": "일반_비수도권 지역인재 할당제 적용 외_사무(사무)",
+        "track": "사무",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "일반_비수도권 지역인재 할당제 적용 외_기술(기계)",
+        "track": "기계",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "일반_비수도권 지역인재 할당제 적용 외_기술(전기)",
+        "track": "전기",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "일반_비수도권 지역인재 할당제 적용 외_기술(전자)",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "일반_비수도권 지역인재 할당제 적용 외_기술(토목)",
+        "track": "토목",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "일반_비수도권 지역인재 할당제 적용 외_기술(화공)",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "일반_비수도권 지역인재 할당제 적용_사무(사무)",
+        "track": "사무",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "일반_비수도권 지역인재 할당제 적용_기술(기계)",
+        "track": "기계",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "일반_비수도권 지역인재 할당제 적용_기술(전기)",
+        "track": "전기",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "일반_비수도권 지역인재 할당제 적용_기술(전자)",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "일반_비수도권 지역인재 할당제 적용_기술(토목)",
+        "track": "토목",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "일반_비수도권 지역인재 할당제 적용_기술(화공)",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "사회형평_보훈_사무(사무)",
+        "track": "사무",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "사회형평_보훈_기술(기계)",
+        "track": "기계",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "사회형평_보훈_기술(전기)",
+        "track": "전기",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "사회형평_장애_사무(사무)",
+        "track": "사무",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "사회형평_장애_기술(기계)",
+        "track": "기계",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "사회형평_장애_기술(전기)",
+        "track": "전기",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "고졸인재_비수도권 지역인재 할당제 적용 외_사무(사무)",
+        "track": "사무",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "고졸인재_비수도권 지역인재 할당제 적용 외_기술(기계)",
+        "track": "기계",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "고졸인재_비수도권 지역인재 할당제 적용 외_기술(전기)",
+        "track": "전기",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "고졸인재_비수도권 지역인재 할당제 적용 외_기술(전자)",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "고졸인재_비수도권 지역인재 할당제 적용_사무(사무)",
+        "track": "사무",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "고졸인재_비수도권 지역인재 할당제 적용_기술(기계)",
+        "track": "기계",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "고졸인재_비수도권 지역인재 할당제 적용_기술(전기)",
+        "track": "전기",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "고졸인재_비수도권 지역인재 할당제 적용_기술(전자)",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      }
+    ],
+    "common_checks": [],
+    "region_note": null,
+    "bonus_rule": null,
+    "reviewed": null
+  },
+  "tier": "auto",
+  "category": "시장형"
+}

@@ -1,0 +1,155 @@
+{
+  "resultCode": 200,
+  "resultMsg": "성공했습니다.",
+  "result": {
+    "recrutPblntSn": 295337,
+    "pblntInstCd": "C1364",
+    "pbadmsStdInstCd": "B554644",
+    "instNm": "한국광해광업공단",
+    "ncsCdLst": "R600005,R600011,R600014,R600015,R600019,R600023",
+    "ncsCdNmLst": "법률.경찰.소방.교도.국방,경비.청소,건설,기계,전기.전자,환경.에너지.안전",
+    "hireTypeLst": "R1010,R1030",
+    "hireTypeNmLst": "정규직,무기계약직",
+    "workRgnLst": "R3010,R3018",
+    "workRgnNmLst": "서울,강원",
+    "recrutSe": "R2010",
+    "recrutSeNm": "신입",
+    "prefCondCn": "장애인, 취업지원대상자, 자립준비청년, 저소득층, 북한이탈주민, 경력단절여성",
+    "recrutNope": 6,
+    "pbancBgngYmd": "20251119",
+    "pbancEndYmd": "20251203",
+    "recrutPbancTtl": "2025년도 한국광해광업공단 무기계약직(공무직) 추가 채용 공고",
+    "srcUrl": " http://komir.saramin.co.kr",
+    "replmprYn": "N",
+    "aplyQlfcCn": "ㅇ 공개경쟁(시설관리(기사), 미화)\r\n - 2026.1.1.자 임용이 가능한 자\r\n - (시설관리(기사)) 임용일 기준 공단 정년에 따라 만 60세 미만인 자\r\n - (미화) 임용일 기준 공단 정년에 따라 만 65세 미만인 자\r\n - 성별무관, 학력무관, 전공무관\r\n\r\nㅇ 제한경쟁(자격제한, 시설관리(기계))\r\n - 2026.1.1.자 임용이 가능한 자\r\n - (시설관리(기계)) 임용일 기준 공단 정년에 따라 만 60세 미만인 자\r\n - 성별무관, 학력무관, 전공무관\r\n - 「기계설비법」에 따른 기계설비유지관리자 중급 이상 자격을 취득한 자\r\n\r\nㅇ 제한경쟁(장애인, 미화)\r\n - 2026.1.1.자 임용이 가능한 자\r\n - (미화) 임용일 기준 공단 정년에 따라 만 65세 미만인 자\r\n - 성별무관, 학력무관, 전공무관\r\n - 「장애인고용법」에서 정하는 장애인의 기준에 해당하는 자",
+    "disqlfcRsn": "1. 피성년후견인 또는 피한정후견인\r\n2. 파산선고를 받고 복권되지 아니한 자\r\n3. 금고 이상의 실형을 선고받고 그 집행이 종료되거나 집행을 받지 아니하기로 확정된 후 5년이 경과하지 아니한 자\r\n4. 금고 이상의 형을 선고받고 그 집행유예 기간이 끝난 날부터 2년을 경과하지 아니한 자\r\n5. 금고 이상의 형의 선고유예를 받은 경우에 그 선고유예기간 중에 있는 자\r\n6. 법원의 판결 또는 다른 법률에 의하여 자격이 상실 또는 정지된 자\r\n7.「성폭력범죄의 처벌 등에 관한 특례법」 제2조, 「정보통신망 이용 촉진 및 정보보호 등에 관한 법률」 제74조제1항제2호 및 제3호,「스토킹범죄의 처벌등에 관한법률」 제2조제2호에 규정된 죄를 범한 사람으로서 100만원 이상의 벌금형을 선고받고 그 형이 확정된 후 3년이 지나지 아니한 자\r\n7의2. 직무와 관련하여 「형법」 제355조 및 제356조에 규정된 죄를 범한 자로서 300만원 이상의 벌금형을 선고받고 그 형이 확정된 후 2년이 지나지 아니한 자\r\n8. 미성년자에 대하여 「성폭력범죄의 처벌 등에 관한 특례법」 제2조에 따른 성폭력범죄 또는 「아동ㆍ청소년의 성보호에 관한 법률」 제2조제2호에 따른 아동ㆍ청소년대상 성범죄를 범한 자로서 다음 각 목의 어느 하나에 해당하는 날부터 20년이 지나지 아니한 자\r\n가. 금고 이상의 실형을 선고받고 그 집행이 끝나거나(집행이 끝난 것으로 보는 경우를 포함한다) 집행이 면제된 날\r\n나. 금고 이상의 형의 집행유예를 선고받고 그 집행유예가 확정된 날\r\n다. 벌금 이하의 형을 선고받고 그 형이 확정된 날\r\n라. 치료감호를 선고받고 그 집행이 끝나거나 집행이 면제된 날\r\n마. 징계로 파면처분 또는 해임처분을 받은 날\r\n9. 징계로 면직 처분을 받은 때부터 5년이 지나지 아니한 자\r\n10.「병역법」 제76조에서 정한 병역의무 불이행자\r\n11. 입사제출서류에 허위사실이 발견된 자\r\n12. 공공기관에서 부정한 방법으로 채용된 사실이 적발되어 채용이 취소된 날부터 5년이 지나지 아니한 자\r\n13.「부패방지 및 국민권익위원회의 설치와 운영에 관한법률」제82조에 따른 비위면직자 등의 취업제한 적용을 받는 자\r\n14. 본인 또는 본인과 밀접한 관계가 있는 타인이 채용에 관한 부당한 청탁, 압력 또는 재산상의 이익제공 등의 부정행위를 하여 합격한 사람",
+    "scrnprcdrMthdExpln": "1. 전형 절차/방법\r\n ㅇ 서류전형(5배수 선발) → 인·적성검사(적·부 심사) 및 최종 면접전형 → 제출서류 진위여부 확인 등 → 최종 합격\r\n   *인(적)성검사는 온라인(최종 면접 현장 시행)으로 검사하며, 미화 직종의 경우 적성 검사 미실시 \r\n \r\n2. 전형 일정\r\n ㅇ 공고기간 : 2025.11.19. 00시 ~ 2025.12.3. 10시\r\n ㅇ 원서접수 : 2025.11.27. 10시 ~ 2025.12.3. 10시\r\n ㅇ 서류전형 합격자 발표 : 2025.12.9. 10시 예정\r\n ㅇ 인(적)성 검사 및 최종 면접 : 2025.12.15.\r\n ㅇ 최종합격자 발표 : 2025.12.24. 18시 예정\r\n ㅇ 임용일 : 2026.1.1.",
+    "prefCn": "ㅇ 공통가점\r\n - 장애인(심하지 않은 장애) : 5점\r\n - 중증장애인(심한 장애) : 10점\r\n - 취업지원대상자 : 5점~10점\r\n\r\nㅇ 서류전형가점\r\n - 자립준비청년 : 3점\r\n - 저소득층 : 3점\r\n - 북한이탈주민 : 3점\r\n - 경력단절여성 : 3점",
+    "acbgCondLst": "R7010",
+    "acbgCondNmLst": "학력무관",
+    "nonatchRsn": null,
+    "ongoingYn": null,
+    "decimalDay": -351,
+    "files": [
+      {
+        "recrutAtchFileNo": 3020613,
+        "sortNo": 2,
+        "atchFileNm": "2025년도 한국광해광업공단 무기계약직(공무직) 채용 공고문.pdf",
+        "atchFileType": "A",
+        "url": "https://opendata.alio.go.kr/recruit/downloadAtchFile?recrutAtchFileNo=3020613"
+      },
+      {
+        "recrutAtchFileNo": 3020614,
+        "sortNo": 3,
+        "atchFileNm": "[붙임11] 입사지원서의 자기소개서 작성항목.hwp",
+        "atchFileType": "B",
+        "url": "https://opendata.alio.go.kr/recruit/downloadAtchFile?recrutAtchFileNo=3020614"
+      },
+      {
+        "recrutAtchFileNo": 3020615,
+        "sortNo": 4,
+        "atchFileNm": "직무기술서_공무직.zip",
+        "atchFileType": "C",
+        "url": "https://opendata.alio.go.kr/recruit/downloadAtchFile?recrutAtchFileNo=3020615"
+      }
+    ],
+    "steps": [
+      {
+        "recrutStepSn": 1149372,
+        "recrutPblntSn": 295337,
+        "recrutPbancTtl": "공개경쟁(미화)",
+        "recrutNope": 10,
+        "aplyNope": 10,
+        "cmpttRt": null,
+        "rsnOcrnYmd": "20251209",
+        "sortNo": 0,
+        "minStepSn": 1149372,
+        "maxStepSn": 1149373
+      },
+      {
+        "recrutStepSn": 1149373,
+        "recrutPblntSn": 295337,
+        "recrutPbancTtl": "공개경쟁(미화)",
+        "recrutNope": 2,
+        "aplyNope": 6,
+        "cmpttRt": 5.0,
+        "rsnOcrnYmd": "20251224",
+        "sortNo": 0,
+        "minStepSn": 1149372,
+        "maxStepSn": 1149373
+      },
+      {
+        "recrutStepSn": 1149374,
+        "recrutPblntSn": 295337,
+        "recrutPbancTtl": "공개경쟁(시설관리_기사)",
+        "recrutNope": 1,
+        "aplyNope": 1,
+        "cmpttRt": null,
+        "rsnOcrnYmd": "20251209",
+        "sortNo": 1,
+        "minStepSn": 1149374,
+        "maxStepSn": 1149375
+      },
+      {
+        "recrutStepSn": 1149375,
+        "recrutPblntSn": 295337,
+        "recrutPbancTtl": "공개경쟁(시설관리_기사)",
+        "recrutNope": 1,
+        "aplyNope": 1,
+        "cmpttRt": 1.0,
+        "rsnOcrnYmd": "20251224",
+        "sortNo": 1,
+        "minStepSn": 1149374,
+        "maxStepSn": 1149375
+      },
+      {
+        "recrutStepSn": 1149376,
+        "recrutPblntSn": 295337,
+        "recrutPbancTtl": "제한경쟁(시설관리_기계)",
+        "recrutNope": 0,
+        "aplyNope": 0,
+        "cmpttRt": null,
+        "rsnOcrnYmd": "20251209",
+        "sortNo": 2,
+        "minStepSn": 1149376,
+        "maxStepSn": 1149377
+      },
+      {
+        "recrutStepSn": 1149377,
+        "recrutPblntSn": 295337,
+        "recrutPbancTtl": "제한경쟁(시설관리_기계)",
+        "recrutNope": 0,
+        "aplyNope": 0,
+        "cmpttRt": 0.0,
+        "rsnOcrnYmd": "20251224",
+        "sortNo": 2,
+        "minStepSn": 1149376,
+        "maxStepSn": 1149377
+      },
+      {
+        "recrutStepSn": 1149378,
+        "recrutPblntSn": 295337,
+        "recrutPbancTtl": "제한경쟁(미화)",
+        "recrutNope": 2,
+        "aplyNope": 3,
+        "cmpttRt": null,
+        "rsnOcrnYmd": "20251209",
+        "sortNo": 3,
+        "minStepSn": 1149378,
+        "maxStepSn": 1149379
+      },
+      {
+        "recrutStepSn": 1149379,
+        "recrutPblntSn": 295337,
+        "recrutPbancTtl": "제한경쟁(미화)",
+        "recrutNope": 1,
+        "aplyNope": 2,
+        "cmpttRt": 3.0,
+        "rsnOcrnYmd": "20251224",
+        "sortNo": 3,
+        "minStepSn": 1149378,
+        "maxStepSn": 1149379
+      }
+    ]
+  }
+}

@@ -1,0 +1,1220 @@
+{
+  "schema_version": "1.0.0",
+  "pair_id": "c0043-290754-304839",
+  "pair_name": "한국남부발전 · 한국남부발전(주) 2026년 하반기 신입사원 및 별정직 채용공고",
+  "institution": "한국남부발전",
+  "checked_at": "2026-11-19",
+  "prev": {
+    "sn": "290754",
+    "title": "한국남부발전(주) 2025년 하반기 신입사원 및 별정직 채용공고",
+    "period": {
+      "start": "20250911",
+      "end": "20250926"
+    },
+    "pdf_path": "data/pdf/290754.pdf",
+    "source_url": "https://opendata.alio.go.kr/recruit/downloadAtchFile?recrutAtchFileNo=2988155"
+  },
+  "curr": {
+    "sn": "304839",
+    "title": "한국남부발전(주) 2026년 하반기 신입사원 및 별정직 채용공고",
+    "period": {
+      "start": "20260911",
+      "end": "20260928"
+    },
+    "pdf_path": "data/pdf/304839.pdf",
+    "source_url": "https://opendata.alio.go.kr/recruit/downloadAtchFile?recrutAtchFileNo=3074287"
+  },
+  "tracks": [
+    "전체"
+  ],
+  "changes": [
+    {
+      "id": "stage1-001",
+      "importance": 1,
+      "category": "인원",
+      "title": "채용인원: 94 → 76",
+      "change_type": "number",
+      "prev_value": 94,
+      "curr_value": 76,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-002",
+      "importance": 2,
+      "category": "직무분야(NCS)",
+      "title": "직무분야(NCS) 목록 변경",
+      "change_type": "list",
+      "prev_value": [
+        "보건.의료",
+        "운전.운송"
+      ],
+      "curr_value": [
+        "음식서비스",
+        "건설"
+      ],
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-003",
+      "importance": 2,
+      "category": "학력조건",
+      "title": "학력조건 목록 변경",
+      "change_type": "list",
+      "prev_value": [],
+      "curr_value": [
+        "고졸"
+      ],
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-004",
+      "importance": 2,
+      "category": "모집단위",
+      "title": "모집단위 목록 변경",
+      "change_type": "list",
+      "prev_value": [
+        "별정직(기술담당원)",
+        "별정직(보건관리원(세종))",
+        "별정직(보건관리원(하동))",
+        "신입사원(고졸수준-지역전문(기계))",
+        "신입사원(고졸수준-지역전문(전기))",
+        "신입사원(대졸수준-보훈(사무(상경)))",
+        "신입사원(대졸수준-일반(ICT))",
+        "신입사원(대졸수준-일반(사무(상경)))",
+        "신입사원(대졸수준-장애(사무(상경)))"
+      ],
+      "curr_value": [
+        "별정직(기술담당원(신인천))",
+        "별정직(보건관리원(안동))",
+        "별정직(후생담당원(삼척))",
+        "별정직(후생담당원(신인천))",
+        "신입사원(고졸수준-(기계))",
+        "신입사원(고졸수준-(전기))",
+        "신입사원(대졸수준-보훈(ICT))",
+        "신입사원(대졸수준-보훈(건축))",
+        "신입사원(대졸수준-일반(건축))",
+        "신입사원(대졸수준-일반(사무))",
+        "신입사원(대졸수준-일반(토목))",
+        "신입사원(대졸수준-장애(사무))"
+      ],
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-005",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법: ○ 면접전형 : 보훈>장애>직무능력평가>인성평가 등급 > 전공기초 고득점순 → ○ 면접전형 : 보훈>장애>직무능력평가>인성평가 등급 > 전공기초 고득점",
+      "change_type": "text",
+      "prev_value": "○ 면접전형 : 보훈>장애>직무능력평가>인성평가 등급 > 전공기초 고득점순",
+      "curr_value": "○ 면접전형 : 보훈>장애>직무능력평가>인성평가 등급 > 전공기초 고득점",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-006",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 추가: ※ 각종 자격 및 경력 요건 구비시점 : 공고 마감일 기준",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": "※ 각종 자격 및 경력 요건 구비시점 : 공고 마감일 기준",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-007",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격: □ 신입사원(고졸수준-지역전문(삼척)) → □ 신입사원(고졸수준)",
+      "change_type": "text",
+      "prev_value": "□ 신입사원(고졸수준-지역전문(삼척))",
+      "curr_value": "□ 신입사원(고졸수준)",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-008",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격: □ 별정직(보건관리원) → 3) 보건관리원",
+      "change_type": "text",
+      "prev_value": "□ 별정직(보건관리원)",
+      "curr_value": "3) 보건관리원",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-009",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격: ○ 당사 인사관리규정 제10조의 결격사유에 해당하지 않는 자 → - 회사 인사관리규정 제10조의 결격사유에 해당하지 않는 자",
+      "change_type": "text",
+      "prev_value": "○ 당사 인사관리규정 제10조의 결격사유에 해당하지 않는 자",
+      "curr_value": "- 회사 인사관리규정 제10조의 결격사유에 해당하지 않는 자",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-010",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 삭제: ○ 관련 자격 및 경력 보유자",
+      "change_type": "removed",
+      "prev_value": "○ 관련 자격 및 경력 보유자",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-011",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 추가: □ 별정직",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": "□ 별정직",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-012",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 추가: ○ 공통자격",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": "○ 공통자격",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-013",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 추가: ※ 각종 자격 및 경력 요건 구비시점 : 공고마감일 기준",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": "※ 각종 자격 및 경력 요건 구비시점 : 공고마감일 기준",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-014",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 추가: ○ 모집단위별",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": "○ 모집단위별",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-015",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 추가: 1) 기술담당원(자재관리원)",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": "1) 기술담당원(자재관리원)",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-016",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 추가: - 지원 모집단위 근무지역 출퇴근 가능자",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": "- 지원 모집단위 근무지역 출퇴근 가능자",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-017",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 추가: - 지게차 운전기능사 자격증 및 건설기계조종사 면허증 소지자",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": "- 지게차 운전기능사 자격증 및 건설기계조종사 면허증 소지자",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-018",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 추가: 2) 후생담당원(취사원)",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": "2) 후생담당원(취사원)",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-019",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 추가: - 조리사 면허증 소지자",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": "- 조리사 면허증 소지자",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-020",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 삭제: - 병원급 의료기관 3년 이상 근무경력 보유자",
+      "change_type": "removed",
+      "prev_value": "- 병원급 의료기관 3년 이상 근무경력 보유자",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-021",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 삭제: - 지원 모집단위 근무지역(세종,하동) 출퇴근 가능자",
+      "change_type": "removed",
+      "prev_value": "- 지원 모집단위 근무지역(세종,하동) 출퇴근 가능자",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-022",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 삭제: - 산업전문간호사, 응급구조사, 산업위생관리기사 자격증 중 1개 이상 보유자(우대)",
+      "change_type": "removed",
+      "prev_value": "- 산업전문간호사, 응급구조사, 산업위생관리기사 자격증 중 1개 이상 보유자(우대)",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-023",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 삭제: □ 별정직(기술담당원)",
+      "change_type": "removed",
+      "prev_value": "□ 별정직(기술담당원)",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-024",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 삭제: ○ 연령, 학력, 어학 : 제한없음",
+      "change_type": "removed",
+      "prev_value": "○ 연령, 학력, 어학 : 제한없음",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-025",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 삭제: - 단, 연령의 경우 회사 정년(만 60세) 미만인 자",
+      "change_type": "removed",
+      "prev_value": "- 단, 연령의 경우 회사 정년(만 60세) 미만인 자",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-026",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 삭제: ○ 병역 : 병역법 제76조에서 정한 병역의무 불이행자에 해당하지 않는 자(현역의 경우 최종합격자 발표일 이전에 전역 가능한 자)",
+      "change_type": "removed",
+      "prev_value": "○ 병역 : 병역법 제76조에서 정한 병역의무 불이행자에 해당하지 않는 자(현역의 경우 최종합격자 발표일 이전에 전역 가능한 자)",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-027",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 삭제: ○ 당사 인사관리규정 제10조의 결격사유에 해당하지 않는 자",
+      "change_type": "removed",
+      "prev_value": "○ 당사 인사관리규정 제10조의 결격사유에 해당하지 않는 자",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-028",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 삭제: ○ 채용 결정 직후 즉시 근무가 가능한 자",
+      "change_type": "removed",
+      "prev_value": "○ 채용 결정 직후 즉시 근무가 가능한 자",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-029",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 삭제: ○ 관련 자격 보유자",
+      "change_type": "removed",
+      "prev_value": "○ 관련 자격 보유자",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-030",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 삭제: - 지게차 운전기능사 자격증 및 건설기계조종사 면허증 소지자",
+      "change_type": "removed",
+      "prev_value": "- 지게차 운전기능사 자격증 및 건설기계조종사 면허증 소지자",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-031",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 삭제: - 제1종 운전면허 소지자",
+      "change_type": "removed",
+      "prev_value": "- 제1종 운전면허 소지자",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-032",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 삭제: - 지원 모집단위 근무지역(부산) 출퇴근 가능자",
+      "change_type": "removed",
+      "prev_value": "- 지원 모집단위 근무지역(부산) 출퇴근 가능자",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-033",
+      "importance": 2,
+      "category": "결격사유",
+      "title": "결격사유: 3. 금고(禁錮) 이상의 형을 받고 그 집행이 종료되거나 집행을 받지 아니하기로 확정된 후 5년을 경과하지 아니한 자 → 3. 금고(禁錮) 이상의 실형을 선고받고 그 집행이 끝나거나(집행이 끝난 것으로 보는 경우를 포함한다) 집행이 면제된 날부터 5년이 지나지 아니한 자",
+      "change_type": "text",
+      "prev_value": "3. 금고(禁錮) 이상의 형을 받고 그 집행이 종료되거나 집행을 받지 아니하기로 확정된 후 5년을 경과하지 아니한 자",
+      "curr_value": "3. 금고(禁錮) 이상의 실형을 선고받고 그 집행이 끝나거나(집행이 끝난 것으로 보는 경우를 포함한다) 집행이 면제된 날부터 5년이 지나지 아니한 자",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-034",
+      "importance": 2,
+      "category": "결격사유",
+      "title": "결격사유: 4. 금고(禁錮) 이상의 형을 받고 그 집행유예기간이 만료된 날로부터 2년을 경과하지 아니한 자 → 4. 금고(禁錮) 이상의 형의 집행유예를 선고받고 그 유예기간이 끝난 날로부터 2년을 경과하지 아니한 자",
+      "change_type": "text",
+      "prev_value": "4. 금고(禁錮) 이상의 형을 받고 그 집행유예기간이 만료된 날로부터 2년을 경과하지 아니한 자",
+      "curr_value": "4. 금고(禁錮) 이상의 형의 집행유예를 선고받고 그 유예기간이 끝난 날로부터 2년을 경과하지 아니한 자",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-035",
+      "importance": 2,
+      "category": "결격사유",
+      "title": "결격사유: 6. 징계(懲戒)에 의하여 해임의 처분을 받은 때로부터 5년을 경과하지 아니한 자 → 6. 징계(懲戒)에 의하여 해임 또는 파면의 처분을 받은 때로부터 5년을 경과하지 아니한 자",
+      "change_type": "text",
+      "prev_value": "6. 징계(懲戒)에 의하여 해임의 처분을 받은 때로부터 5년을 경과하지 아니한 자",
+      "curr_value": "6. 징계(懲戒)에 의하여 해임 또는 파면의 처분을 받은 때로부터 5년을 경과하지 아니한 자",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-036",
+      "importance": 2,
+      "category": "결격사유",
+      "title": "결격사유 삭제: 8. 불량한 소행의 사실이 있는 자(신원조회 결과 특이사항이 발견된 자 등) 또는 비위로 인한 면직사실이 있는 자",
+      "change_type": "removed",
+      "prev_value": "8. 불량한 소행의 사실이 있는 자(신원조회 결과 특이사항이 발견된 자 등) 또는 비위로 인한 면직사실이 있는 자",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-037",
+      "importance": 2,
+      "category": "결격사유",
+      "title": "결격사유 삭제: 9. 병역기피의 사실이 있는 자",
+      "change_type": "removed",
+      "prev_value": "9. 병역기피의 사실이 있는 자",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-038",
+      "importance": 2,
+      "category": "결격사유",
+      "title": "결격사유 추가: 8. 공무원 또는 공공기관의 운영에 관한 법률에서 정한 공공기관의 임직원으로 재직 중 직무와 관련하여 형법 제355조(횡령, 배임) 및 제356조(업무상의 횡령과 배임)에 규정된 죄를 범한 자로서 100만원 이상의 벌금형을 선고받고 그 형이 확정된 후 2년이 지나지 아니한 자",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": "8. 공무원 또는 공공기관의 운영에 관한 법률에서 정한 공공기관의 임직원으로 재직 중 직무와 관련하여 형법 제355조(횡령, 배임) 및 제356조(업무상의 횡령과 배임)에 규정된 죄를 범한 자로서 100만원 이상의 벌금형을 선고받고 그 형이 확정된 후 2년이 지나지 아니한 자",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-039",
+      "importance": 2,
+      "category": "결격사유",
+      "title": "결격사유 추가: 9. 병역법 제76조에서 정한 병역의무 불이행자",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": "9. 병역법 제76조에서 정한 병역의무 불이행자",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-040",
+      "importance": 2,
+      "category": "결격사유",
+      "title": "결격사유: 가. 「성폭력범죄의 처벌 등에 관한 특례법」 제2조에 따른 성폭력범죄 → 가. 「성폭력범죄의 처벌 등에 관한 특례법」 제2조에 따른 성폭력",
+      "change_type": "text",
+      "prev_value": "가. 「성폭력범죄의 처벌 등에 관한 특례법」 제2조에 따른 성폭력범죄",
+      "curr_value": "가. 「성폭력범죄의 처벌 등에 관한 특례법」 제2조에 따른 성폭력",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-041",
+      "importance": 2,
+      "category": "결격사유",
+      "title": "결격사유 삭제: 16. 전직 근무기관에서 징계에 의하여 해임처분을 받은 날로부터 3년 또는 파면처분을 받은 날로부터 5년이 경과되지 아니한 자",
+      "change_type": "removed",
+      "prev_value": "16. 전직 근무기관에서 징계에 의하여 해임처분을 받은 날로부터 3년 또는 파면처분을 받은 날로부터 5년이 경과되지 아니한 자",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-042",
+      "importance": 2,
+      "category": "가점",
+      "title": "우대사항: ○ 북한이탈주민, 다문화가족, 자립준비청년 : 서류 및 필기전형 배점의 5% 가산점 부여 → ○ 북한이탈주민, 다문화가족, 자립준비청년 : 필기전형 배점의 5% 가산점 부여",
+      "change_type": "text",
+      "prev_value": "○ 북한이탈주민, 다문화가족, 자립준비청년 : 서류 및 필기전형 배점의 5% 가산점 부여",
+      "curr_value": "○ 북한이탈주민, 다문화가족, 자립준비청년 : 필기전형 배점의 5% 가산점 부여",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-043",
+      "importance": 2,
+      "category": "가점",
+      "title": "우대사항: ※ 서류전형 면제자인 등록장애인, 취업지원대상자 및 고급자격증 보유자도 면접전형 응시 대상자일 경우 다른 지원자들과 동일하게 자기소개서를 작성하여야 하며, 불성실 기재, 블라인드 위반 등 불합격 요건 성립시 면접전형 불합격 처리 → ※ 서류전형 면제자인 등록장애인, 취업지원대상자 및 고급자격증 보유자도 면접전형 응시 대상자일 경우 다른 지원자들과 동일하게 자기소개서를 작성하여야 하며, 불성실 기재, 블라인드 위반 등 서류전형 불합격 요건 성립시 면접전형 불합격 처리",
+      "change_type": "text",
+      "prev_value": "※ 서류전형 면제자인 등록장애인, 취업지원대상자 및 고급자격증 보유자도 면접전형 응시 대상자일 경우 다른 지원자들과 동일하게 자기소개서를 작성하여야 하며, 불성실 기재, 블라인드 위반 등 불합격 요건 성립시 면접전형 불합격 처리",
+      "curr_value": "※ 서류전형 면제자인 등록장애인, 취업지원대상자 및 고급자격증 보유자도 면접전형 응시 대상자일 경우 다른 지원자들과 동일하게 자기소개서를 작성하여야 하며, 불성실 기재, 블라인드 위반 등 서류전형 불합격 요건 성립시 면접전형 불합격 처리",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    }
+  ],
+  "change_groups": [
+    {
+      "id": "group-stage1-006",
+      "category": "자격",
+      "member_ids": [
+        "stage1-006",
+        "stage1-013"
+      ],
+      "shared_terms": [
+        "구비시점",
+        "각종",
+        "요건",
+        "자격"
+      ]
+    },
+    {
+      "id": "group-stage1-008",
+      "category": "자격",
+      "member_ids": [
+        "stage1-008",
+        "stage1-011",
+        "stage1-015",
+        "stage1-023"
+      ],
+      "shared_terms": [
+        "별정직",
+        "기술담당원"
+      ]
+    },
+    {
+      "id": "group-stage1-010",
+      "category": "자격",
+      "member_ids": [
+        "stage1-010",
+        "stage1-017",
+        "stage1-019",
+        "stage1-020",
+        "stage1-022",
+        "stage1-029",
+        "stage1-030",
+        "stage1-031"
+      ],
+      "shared_terms": [
+        "보유자",
+        "자격",
+        "면허증",
+        "소지자",
+        "자격증",
+        "건설기계조종사"
+      ]
+    },
+    {
+      "id": "group-stage1-016",
+      "category": "자격",
+      "member_ids": [
+        "stage1-016",
+        "stage1-021",
+        "stage1-032"
+      ],
+      "shared_terms": [
+        "근무지역",
+        "모집단위",
+        "가능자",
+        "출퇴근"
+      ]
+    },
+    {
+      "id": "group-stage1-026",
+      "category": "자격",
+      "member_ids": [
+        "stage1-026",
+        "stage1-027",
+        "stage1-028"
+      ],
+      "shared_terms": [
+        "해당하지",
+        "않는",
+        "가능한"
+      ]
+    },
+    {
+      "id": "group-stage1-033",
+      "category": "결격사유",
+      "member_ids": [
+        "stage1-033",
+        "stage1-034",
+        "stage1-038",
+        "stage1-041"
+      ],
+      "shared_terms": [
+        "선고받고",
+        "끝난",
+        "받고",
+        "형을",
+        "지나지",
+        "확정된"
+      ]
+    },
+    {
+      "id": "group-stage1-036",
+      "category": "결격사유",
+      "member_ids": [
+        "stage1-036",
+        "stage1-037"
+      ],
+      "shared_terms": [
+        "사실이"
+      ]
+    }
+  ],
+  "notice_info": {
+    "period": {
+      "start": "2026.09.11",
+      "end": "2026.09.28"
+    },
+    "rules": [
+      {
+        "topic": "병역",
+        "text": "병역 : 병역법 제76조에서 정한 병역의무 불이행자에 해당하지 않는 자(현역의 경우 최종합격자 발표일 이전에 전역 가능한 자)"
+      },
+      {
+        "topic": "학력",
+        "text": "최종학력이 ‘고등학교 졸업 또는 졸업예정’인 자"
+      },
+      {
+        "topic": "학력",
+        "text": "전문대·대학 졸업자 또는 졸업예정자(최종학기를 이수·등록한 자) 지원불가"
+      },
+      {
+        "topic": "학력",
+        "text": "고졸 학력만 제시하여 합격된 전문대·대학 졸업자 및 졸업예정자가 사후 적발된 경우에는 합격취소 및 해임"
+      },
+      {
+        "topic": "연령",
+        "text": "단, 연령의 경우 회사 정년(만 60세) 미만인 자"
+      }
+    ],
+    "submissions": [
+      "5단계(적부판정 및 최종합격) : 신체검사, 비위면직자 및 신원조사, 제출서류 진위여부 확인 후 최종합격 처리"
+    ],
+    "benefits": [
+      {
+        "section": "",
+        "name": "채용목표제",
+        "benefit": null,
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "대졸수준(일반) 기계,전기 직군은 ‘이공계인재 양성평등 채용목표제’ 적용대상",
+        "benefit": null,
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "대졸수준(일반) 사무",
+        "benefit": null,
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "기계",
+        "benefit": null,
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "전기",
+        "benefit": null,
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "화학 직군은 ‘본사 이전지역 채용목표제’ 적용대상",
+        "benefit": null,
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "면제 및 가점부여",
+        "benefit": null,
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "신입사원",
+        "name": "등록장애인",
+        "benefit": "서류면제, 필기 및 면접 배점의 10% 가산점 부여",
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "신입사원",
+        "name": "취업지원대상자",
+        "benefit": "서류면제, 필기 및 면접은 법률상 요건에 따라 배점의 10% 또는 5% 가산점 적용하되, 가점적용 예외사항 등은 관련 법령에 의해 적용",
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "신입사원",
+        "name": "저소득층",
+        "benefit": "서류 및 필기전형 배점의 5% 가산점 부여",
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "신입사원",
+        "name": "발전소주변지역 주민 또는 자녀",
+        "benefit": "서류 및 필기전형 배점의 10% 가산점 부여",
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "신입사원",
+        "name": "북한이탈주민, 다문화가족, 자립준비청년",
+        "benefit": "서류 및 필기전형 배점의 5% 가산점 부여",
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "신입사원",
+        "name": "시간선택제 근로자",
+        "benefit": "서류전형 배점의 10% 가산점 부여",
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "신입사원",
+        "name": "체험형인턴 (우수)수료자",
+        "benefit": "서류전형 배점의 5% 가산점 부여 (우수수료자의 경우 필기전형 득점의 5% 가점 추가 부여)",
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "신입사원",
+        "name": "고급자격증 보유자",
+        "benefit": "서류전형 면제, 필기전형 배점의 10% 부여",
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "신입사원",
+        "name": "별정직",
+        "benefit": null,
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "신입사원",
+        "name": "등록장애인",
+        "benefit": "서류면제, 필기 및 면접 배점의 10% 가산점 부여",
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "신입사원",
+        "name": "취업지원대상자",
+        "benefit": "서류면제, 필기 및 면접은 법률상 요건에 따라 배점의 10% 또는 5% 가산점 적용하되, 가점적용 예외사항 등은 관련 법령에 의해 적용",
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "신입사원",
+        "name": "저소득층",
+        "benefit": "서류 및 필기전형 배점의 5% 가산점 부여",
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "신입사원",
+        "name": "발전소주변지역 주민 또는 자녀",
+        "benefit": "서류 및 필기전형 배점의 10% 가산점 부여",
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "신입사원",
+        "name": "북한이탈주민, 다문화가족, 자립준비청년",
+        "benefit": "필기전형 배점의 5% 가산점 부여",
+        "notes": [],
+        "change": "changed",
+        "prev_benefit": "서류 및 필기전형 배점의 5% 가산점 부여"
+      },
+      {
+        "section": "신입사원",
+        "name": "시간선택제 근로자",
+        "benefit": "서류전형 배점의 10% 가산점 부여",
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "신입사원",
+        "name": "경력단절여성",
+        "benefit": "서류전형 배점의 5% 가산점 부여",
+        "notes": [
+          "전형별 가산점은 10% 한도 내 중복 인정",
+          "서류전형 면제 및 서류전형 가점부여에 해당하는 인원들은 당초 전형별 합격예정인원을 초과하여 추가 합격 처리 가능",
+          "서류전형 면제자인 등록장애인, 취업지원대상자 및 고급자격증 보유자도 면접전형 응시 대상자일 경우 다른 지원자들과 동일하게 자기소개서를 작성하여야 하며, 불성실 기재, 블라인드 위반 등 서류전형 불합격 요건 성립시 면접전형 불합격 처리",
+          "취업지원대상자 가점은 당사 「채용업무관리세칙」 별표6-1 ‘취업지원 대상자 가점부여 가이드라인’에 따라 적용"
+        ],
+        "change": "same",
+        "prev_benefit": null
+      }
+    ]
+  },
+  "units": [],
+  "competition": {
+    "published": false,
+    "prev": null,
+    "curr": null,
+    "note": "기관 미공시",
+    "checked_at": null
+  },
+  "requirements": {
+    "tracks": [
+      "사무",
+      "기계",
+      "전기",
+      "화학",
+      "토목",
+      "건축",
+      "ICT",
+      "기타"
+    ],
+    "regions": [
+      "강원",
+      "경남",
+      "경북",
+      "부산",
+      "세종",
+      "인천",
+      "제주"
+    ],
+    "certificates": [],
+    "majors": [],
+    "manual_review_conditions": [],
+    "units": [
+      {
+        "name": "신입사원(대졸수준-일반(사무))",
+        "track": "사무",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "신입사원(대졸수준-일반(기계))",
+        "track": "기계",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "신입사원(대졸수준-일반(전기))",
+        "track": "전기",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "신입사원(대졸수준-일반(화학))",
+        "track": "화학",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "신입사원(대졸수준-일반(토목))",
+        "track": "토목",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "신입사원(대졸수준-일반(건축))",
+        "track": "건축",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "신입사원(대졸수준-장애(사무))",
+        "track": "사무",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "신입사원(대졸수준-장애(기계))",
+        "track": "기계",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "신입사원(대졸수준-장애(전기))",
+        "track": "전기",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "신입사원(대졸수준-보훈(ICT))",
+        "track": "ICT",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "신입사원(대졸수준-보훈(기계))",
+        "track": "기계",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "신입사원(대졸수준-보훈(전기))",
+        "track": "전기",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "신입사원(대졸수준-보훈(화학))",
+        "track": "화학",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "신입사원(대졸수준-보훈(건축))",
+        "track": "건축",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "신입사원(고졸수준-(기계))",
+        "track": "기계",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "신입사원(고졸수준-(전기))",
+        "track": "전기",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "별정직(기술담당원(신인천))",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "별정직(후생담당원(신인천))",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "별정직(후생담당원(삼척))",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "별정직(보건관리원(안동))",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      }
+    ],
+    "common_checks": [],
+    "region_note": null,
+    "bonus_rule": null,
+    "reviewed": null
+  },
+  "tier": "auto",
+  "category": "시장형"
+}

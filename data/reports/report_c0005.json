@@ -1,0 +1,717 @@
+{
+  "schema_version": "1.0.0",
+  "pair_id": "c0005-287586-301322",
+  "pair_name": "강원랜드 · ㈜강원랜드 2026년 1차 신입직 채용 공고",
+  "institution": "강원랜드",
+  "checked_at": "2026-11-19",
+  "prev": {
+    "sn": "287586",
+    "title": "㈜강원랜드 2025년 상반기 신입직 채용 공고",
+    "period": {
+      "start": "20250624",
+      "end": "20250709"
+    },
+    "pdf_path": "data/pdf/287586.pdf",
+    "source_url": "https://opendata.alio.go.kr/recruit/downloadAtchFile?recrutAtchFileNo=2971933"
+  },
+  "curr": {
+    "sn": "301322",
+    "title": "㈜강원랜드 2026년 1차 신입직 채용 공고",
+    "period": {
+      "start": "20260604",
+      "end": "20260619"
+    },
+    "pdf_path": "data/pdf/301322.pdf",
+    "source_url": "https://opendata.alio.go.kr/recruit/downloadAtchFile?recrutAtchFileNo=3053919"
+  },
+  "tracks": [
+    "전체"
+  ],
+  "changes": [
+    {
+      "id": "stage1-001",
+      "importance": 1,
+      "category": "인원",
+      "title": "채용인원: 110 → 75",
+      "change_type": "number",
+      "prev_value": 110,
+      "curr_value": 75,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-023",
+      "importance": 1,
+      "category": "가점",
+      "title": "우대사항: 취업지원대상자_전형별 5% ~ 10%, 장애인_전형별 10%, 저소득층_전형별 5%, 한부모가족_전형별 5%, 북한이탈주민_전형별 5%, 다문화가족_전형별 5%, 자립준비청년_전형별 5%, 외국어우수자_필기전형 3% ~ 7%, 체험형인턴 우수수료자_필기전형 3% → 취업지원대상자_전형별 5% ~ 10%, 장애인_전형별 10%, 저소득층_전형별 5%, 한부모가족_전형별 5%, 북한이탈주민_전형별 5%, 다문화가족_전형별 5%, 자립준비청년_전형별 5%, 외국어우수자_필기전형 3% ~ 7%, 체험형인턴 수료자_필기전형 1% ~ 3%",
+      "change_type": "number",
+      "prev_value": "취업지원대상자_전형별 5% ~ 10%, 장애인_전형별 10%, 저소득층_전형별 5%, 한부모가족_전형별 5%, 북한이탈주민_전형별 5%, 다문화가족_전형별 5%, 자립준비청년_전형별 5%, 외국어우수자_필기전형 3% ~ 7%, 체험형인턴 우수수료자_필기전형 3%",
+      "curr_value": "취업지원대상자_전형별 5% ~ 10%, 장애인_전형별 10%, 저소득층_전형별 5%, 한부모가족_전형별 5%, 북한이탈주민_전형별 5%, 다문화가족_전형별 5%, 자립준비청년_전형별 5%, 외국어우수자_필기전형 3% ~ 7%, 체험형인턴 수료자_필기전형 1% ~ 3%",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-002",
+      "importance": 2,
+      "category": "직무분야(NCS)",
+      "title": "직무분야(NCS) 목록 변경",
+      "change_type": "list",
+      "prev_value": [
+        "정보통신",
+        "환경.에너지.안전"
+      ],
+      "curr_value": [
+        "경영.회계.사무",
+        "문화.예술.디자인.방송",
+        "기계"
+      ],
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-003",
+      "importance": 2,
+      "category": "모집단위",
+      "title": "모집단위 목록 변경",
+      "change_type": "list",
+      "prev_value": [
+        "IT(정보개발)",
+        "IT(정보지원)",
+        "간호사",
+        "객실/식음서비스",
+        "객실/식음서비스_고졸",
+        "객실/식음서비스_다문화가족",
+        "객실/식음서비스_저소득층",
+        "객실/식음서비스_폐광지역인재",
+        "조리_폐광지역인재",
+        "카지노 딜러",
+        "카지노 딜러_경력단절여성",
+        "카지노 딜러_다문화가족",
+        "카지노 딜러_자립준비청년",
+        "카지노 딜러_저소득층",
+        "카지노 딜러_폐광지역인재"
+      ],
+      "curr_value": [
+        "객실",
+        "객실_고졸",
+        "객실_석탄산업전환지역인재",
+        "기계",
+        "미디어콘텐츠제작",
+        "시각디자인",
+        "식음",
+        "식음_다문화가족",
+        "식음_석탄산업전환지역인재",
+        "응급구조사",
+        "조리_석탄산업전환지역인재",
+        "카지노딜러",
+        "카지노딜러_경력단절여성",
+        "카지노딜러_석탄산업전환지역인재",
+        "카지노딜러_자립준비청년",
+        "카지노딜러_저소득층"
+      ],
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-004",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법: 1. 채용 공고 및 지원서 접수: ’25. 6. 24.(화) 16시 ~ ’25. 7. 9.(수) 16시 → 1. 채용 공고 및 지원서 접수: ’26. 6. 4.(목) 16시 ~ ’26. 6. 19.(금) 16시",
+      "change_type": "text",
+      "prev_value": "1. 채용 공고 및 지원서 접수: ’25. 6. 24.(화) 16시 ~ ’25. 7. 9.(수) 16시",
+      "curr_value": "1. 채용 공고 및 지원서 접수: ’26. 6. 4.(목) 16시 ~ ’26. 6. 19.(금) 16시",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-005",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법: 2. 서류전형 결과 발표: ’25. 7. 15.(화) 예정 → 2. 서류전형 결과 발표: ’26. 6. 26.(금) 예정",
+      "change_type": "text",
+      "prev_value": "2. 서류전형 결과 발표: ’25. 7. 15.(화) 예정",
+      "curr_value": "2. 서류전형 결과 발표: ’26. 6. 26.(금) 예정",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-006",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법 삭제: - 블라인드 위반, 지원서 불성실 작성자 불합격 처리",
+      "change_type": "removed",
+      "prev_value": "- 블라인드 위반, 지원서 불성실 작성자 불합격 처리",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-007",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법: - 카지노딜러_보훈은 서류전형 면제 → - 카지노딜러_보훈, 카지노딜러_자립준비청년 분야 지원자는 서류전형 면제",
+      "change_type": "text",
+      "prev_value": "- 카지노딜러_보훈은 서류전형 면제",
+      "curr_value": "- 카지노딜러_보훈, 카지노딜러_자립준비청년 분야 지원자는 서류전형 면제",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-008",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법: 3. 필기전형: ’25. 7. 20.(일) 예정 → 3. 필기전형: ’26. 7. 4.(토) 예정",
+      "change_type": "text",
+      "prev_value": "3. 필기전형: ’25. 7. 20.(일) 예정",
+      "curr_value": "3. 필기전형: ’26. 7. 4.(토) 예정",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-009",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법 삭제: - 인성검사 적·부 심사: 최하위 등급 불합격",
+      "change_type": "removed",
+      "prev_value": "- 인성검사 적·부 심사: 최하위 등급 불합격",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-011",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법: 4. 면접전형(장소: 하이원리조트): ’25. 8. 4.(월) ~ ’25. 8. 14.(목) 예정 → 5. 면접전형(장소: 하이원리조트): ’26. 7. 20.(월) ~ ’26. 7. 31.(금) 예정",
+      "change_type": "text",
+      "prev_value": "4. 면접전형(장소: 하이원리조트): ’25. 8. 4.(월) ~ ’25. 8. 14.(목) 예정",
+      "curr_value": "5. 면접전형(장소: 하이원리조트): ’26. 7. 20.(월) ~ ’26. 7. 31.(금) 예정",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-012",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법 추가: 4. 면접전형 사전절차: ’26. 7. 10.(금) ~ ’26. 7. 13.(월) 예정",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": "4. 면접전형 사전절차: ’26. 7. 10.(금) ~ ’26. 7. 13.(월) 예정",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-013",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법 추가: - 기한 내 사전답변서 제출 및 직무·조직적응성 검사 응시",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": "- 기한 내 사전답변서 제출 및 직무·조직적응성 검사 응시",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-014",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법 추가: - 미제출 및 미응시, 중도포기, 미완료자 불합격 처리",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": "- 미제출 및 미응시, 중도포기, 미완료자 불합격 처리",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-015",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법: - 결과 발표: ’25. 8. 22.(금) 예정 → - 결과 발표: ’26. 8. 10.(월) 예정",
+      "change_type": "text",
+      "prev_value": "- 결과 발표: ’25. 8. 22.(금) 예정",
+      "curr_value": "- 결과 발표: ’26. 8. 10.(월) 예정",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-016",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법: 5. 채용신체검사 및 성범죄경력조회: ’25. 8. 22.(금) ~ ’25. 8. 29.(금) 예정 → 6. 채용신체검사 및 성범죄경력조회: ’26. 8. 10.(월) ~ ’26. 8. 18.(화) 예정",
+      "change_type": "text",
+      "prev_value": "5. 채용신체검사 및 성범죄경력조회: ’25. 8. 22.(금) ~ ’25. 8. 29.(금) 예정",
+      "curr_value": "6. 채용신체검사 및 성범죄경력조회: ’26. 8. 10.(월) ~ ’26. 8. 18.(화) 예정",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-017",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법 추가: ※ 인턴기간 평가 및 정규직 전환",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": "※ 인턴기간 평가 및 정규직 전환",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-018",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법 추가: - 지원분야와 관계없이 공통교육(입사일로부터 약 4개월) 실시",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": "- 지원분야와 관계없이 공통교육(입사일로부터 약 4개월) 실시",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-019",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법 추가: - 인턴기간 평가결과에 따라 정규직 전환(평가결과 71점 미만자 정규직 전환에서 제외)",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": "- 인턴기간 평가결과에 따라 정규직 전환(평가결과 71점 미만자 정규직 전환에서 제외)",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-022",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격: - 근무지: 강원특별자치도 정선군 하이원리조트 등 → - 근무지: 강원특별자치도 정선군 하이원리조트",
+      "change_type": "text",
+      "prev_value": "- 근무지: 강원특별자치도 정선군 하이원리조트 등",
+      "curr_value": "- 근무지: 강원특별자치도 정선군 하이원리조트",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-010",
+      "importance": 3,
+      "category": "전형",
+      "title": "전형방법: - 결과 발표: ’25. 7. 25.(금) 예정 → - 결과 발표: ’26. 7. 10.(금) 예정",
+      "change_type": "date",
+      "prev_value": "- 결과 발표: ’25. 7. 25.(금) 예정",
+      "curr_value": "- 결과 발표: ’26. 7. 10.(금) 예정",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-020",
+      "importance": 3,
+      "category": "자격",
+      "title": "응시자격: - 병역필 또는 면제자(‘25. 9. 8. 이전 전역 가능한 자 포함) → - 병역필 또는 면제자(‘26. 8. 20. 이전 전역 가능한 자 포함)",
+      "change_type": "date",
+      "prev_value": "- 병역필 또는 면제자(‘25. 9. 8. 이전 전역 가능한 자 포함)",
+      "curr_value": "- 병역필 또는 면제자(‘26. 8. 20. 이전 전역 가능한 자 포함)",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-021",
+      "importance": 3,
+      "category": "자격",
+      "title": "응시자격: ※ 관광진흥법 제28조에 의거 카지노 딜러 분야에 한하여 ‘25. 9. 8. 기준 청소년(청소년 보호법상 만 19세 미만)에 해당하는 경우 지원 불가 → ※ 관광진흥법 제28조에 의거 카지노 딜러 분야에 한하여 ‘26. 8. 31. 기준 청소년(청소년 보호법상 만 19세 미만)에 해당하는 경우 지원 불가",
+      "change_type": "date",
+      "prev_value": "※ 관광진흥법 제28조에 의거 카지노 딜러 분야에 한하여 ‘25. 9. 8. 기준 청소년(청소년 보호법상 만 19세 미만)에 해당하는 경우 지원 불가",
+      "curr_value": "※ 관광진흥법 제28조에 의거 카지노 딜러 분야에 한하여 ‘26. 8. 31. 기준 청소년(청소년 보호법상 만 19세 미만)에 해당하는 경우 지원 불가",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    }
+  ],
+  "change_groups": [
+    {
+      "id": "group-stage1-006",
+      "category": "전형",
+      "member_ids": [
+        "stage1-006",
+        "stage1-009",
+        "stage1-014"
+      ],
+      "shared_terms": [
+        "불합격",
+        "처리"
+      ]
+    },
+    {
+      "id": "group-stage1-017",
+      "category": "전형",
+      "member_ids": [
+        "stage1-017",
+        "stage1-019"
+      ],
+      "shared_terms": [
+        "인턴기간",
+        "정규직",
+        "전환"
+      ]
+    }
+  ],
+  "notice_info": {
+    "period": {
+      "start": "2026.06.04",
+      "end": "2026.06.19"
+    },
+    "rules": [
+      {
+        "topic": "병역",
+        "text": "병역필 또는 면제자(‘26. 8. 20. 이전 전역 가능한 자 포함)"
+      },
+      {
+        "topic": "학력",
+        "text": "연령, 학력(신입직) 제한 없음(단, 강원랜드 정년에 의거 만 60세 미만인 자)"
+      },
+      {
+        "topic": "연령",
+        "text": "관광진흥법 제28조에 의거 카지노 딜러 분야에 한하여 ‘26. 8. 31. 기준 청소년(청소년 보호법상 만 19세 미만)에 해당하는 경우 지원 불가"
+      },
+      {
+        "topic": "기타",
+        "text": "결과 발표: ’26. 7. 10.(금) 예정"
+      }
+    ],
+    "submissions": [
+      "경력기재 시 추후 증빙 가능한 경력만을 기재하여야 하며, 증빙 불가 시 허위사실 기재로 간주하여 합격을 취소할 수 있으며, 향후 5년간 입사지원이 불가할 수 있으니 이점 각별히 유념하시고 자격요건 충족 여부를 사전에 필히 확인하여 주시기 바랍니다.",
+      "기한 내 사전답변서 제출 및 직무·조직적응성 검사 응시",
+      "미제출 및 미응시, 중도포기, 미완료자 불합격 처리"
+    ],
+    "benefits": [
+      {
+        "section": "",
+        "name": "취업지원대상자_전형별 5% ~ 10%",
+        "benefit": null,
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "장애인_전형별 10%",
+        "benefit": null,
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "저소득층_전형별 5%",
+        "benefit": null,
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "한부모가족_전형별 5%",
+        "benefit": null,
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "북한이탈주민_전형별 5%",
+        "benefit": null,
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "다문화가족_전형별 5%",
+        "benefit": null,
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "자립준비청년_전형별 5%",
+        "benefit": null,
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "외국어우수자_필기전형 3% ~ 7%",
+        "benefit": null,
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "체험형인턴 수료자_필기전형 1% ~ 3%",
+        "benefit": null,
+        "notes": [],
+        "change": "new",
+        "prev_benefit": null
+      }
+    ]
+  },
+  "units": [],
+  "competition": {
+    "published": true,
+    "prev": null,
+    "curr": null,
+    "note": "API에 인원 정보가 있으나 경쟁률 수기 확인 필요",
+    "checked_at": null
+  },
+  "requirements": {
+    "tracks": [
+      "ICT",
+      "기타",
+      "기계"
+    ],
+    "regions": [
+      "강원"
+    ],
+    "certificates": [],
+    "majors": [],
+    "manual_review_conditions": [],
+    "units": [
+      {
+        "name": "IT(정보보안)",
+        "track": "ICT",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "시각디자인",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "미디어콘텐츠제작",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "기계",
+        "track": "기계",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "응급구조사",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "카지노딜러_일반",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "카지노딜러_석탄산업전환지역인재",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "카지노딜러_보훈",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "카지노딜러_저소득층",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "카지노딜러_자립준비청년",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "카지노딜러_경력단절여성",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "객실_일반",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "객실_석탄산업전환지역인재",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "객실_고졸",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "식음_일반",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "식음_석탄산업전환지역인재",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "식음_다문화가족",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "조리_일반",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "조리_석탄산업전환지역인재",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "조리_고졸",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      }
+    ],
+    "common_checks": [],
+    "region_note": null,
+    "bonus_rule": null,
+    "reviewed": null
+  },
+  "tier": "auto",
+  "category": "시장형"
+}

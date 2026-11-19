@@ -29,3 +29,6 @@ tmp/
 
 # Local model/API scratch outputs
 stage2/usage.json
+
+# API 목록 원본 캐시 (tools/collect_institutions.py --reuse-lists 용, 다시 받을 수 있음)
+data/api/list_*.json

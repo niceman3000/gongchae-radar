@@ -7,7 +7,7 @@
       "name": "강원랜드",
       "category": "시장형",
       "aliases": [],
-      "pblntInstCd": null,
+      "pblntInstCd": "C0005",
       "tier": "auto",
       "core_pair_id": null
     },
@@ -15,7 +15,7 @@
       "name": "인천국제공항공사",
       "category": "시장형",
       "aliases": [],
-      "pblntInstCd": null,
+      "pblntInstCd": "C0105",
       "tier": "auto",
       "core_pair_id": null
     },
@@ -23,7 +23,7 @@
       "name": "한국가스공사",
       "category": "시장형",
       "aliases": [],
-      "pblntInstCd": null,
+      "pblntInstCd": "C0147",
       "tier": "auto",
       "core_pair_id": null
     },
@@ -31,7 +31,7 @@
       "name": "한국공항공사",
       "category": "시장형",
       "aliases": [],
-      "pblntInstCd": null,
+      "pblntInstCd": "C0157",
       "tier": "auto",
       "core_pair_id": null
     },
@@ -39,7 +39,7 @@
       "name": "한국남동발전",
       "category": "시장형",
       "aliases": [],
-      "pblntInstCd": null,
+      "pblntInstCd": "C0042",
       "tier": "auto",
       "core_pair_id": null
     },
@@ -47,7 +47,7 @@
       "name": "한국남부발전",
       "category": "시장형",
       "aliases": [],
-      "pblntInstCd": null,
+      "pblntInstCd": "C0043",
       "tier": "auto",
       "core_pair_id": null
     },
@@ -55,7 +55,7 @@
       "name": "한국도로공사",
       "category": "시장형",
       "aliases": [],
-      "pblntInstCd": null,
+      "pblntInstCd": "C0183",
       "tier": "auto",
       "core_pair_id": null
     },
@@ -63,7 +63,7 @@
       "name": "한국동서발전",
       "category": "시장형",
       "aliases": [],
-      "pblntInstCd": null,
+      "pblntInstCd": "C0066",
       "tier": "auto",
       "core_pair_id": null
     },
@@ -71,7 +71,7 @@
       "name": "한국서부발전",
       "category": "시장형",
       "aliases": [],
-      "pblntInstCd": null,
+      "pblntInstCd": "C0082",
       "tier": "auto",
       "core_pair_id": null
     },
@@ -79,7 +79,7 @@
       "name": "한국석유공사",
       "category": "시장형",
       "aliases": [],
-      "pblntInstCd": null,
+      "pblntInstCd": "C0214",
       "tier": "auto",
       "core_pair_id": null
     },
@@ -111,7 +111,7 @@
       "name": "한국지역난방공사",
       "category": "시장형",
       "aliases": [],
-      "pblntInstCd": null,
+      "pblntInstCd": "C0261",
       "tier": "auto",
       "core_pair_id": null
     },
@@ -119,7 +119,7 @@
       "name": "한국가스기술공사",
       "category": "준시장형",
       "aliases": [],
-      "pblntInstCd": null,
+      "pblntInstCd": "C0125",
       "tier": "auto",
       "core_pair_id": null
     },
@@ -129,7 +129,7 @@
       "aliases": [
         "GKL"
       ],
-      "pblntInstCd": null,
+      "pblntInstCd": "C0357",
       "tier": "auto",
       "core_pair_id": null
     },
@@ -137,7 +137,7 @@
       "name": "제주국제자유도시개발센터",
       "category": "준시장형",
       "aliases": [],
-      "pblntInstCd": null,
+      "pblntInstCd": "C0121",
       "tier": "auto",
       "core_pair_id": null
     },
@@ -149,7 +149,7 @@
         "(주)에스알",
         "주식회사 에스알"
       ],
-      "pblntInstCd": null,
+      "pblntInstCd": "C1044",
       "tier": "auto",
       "core_pair_id": null
     },
@@ -157,7 +157,7 @@
       "name": "주택도시보증공사",
       "category": "준시장형",
       "aliases": [],
-      "pblntInstCd": null,
+      "pblntInstCd": "C0061",
       "tier": "auto",
       "core_pair_id": null
     },
@@ -165,7 +165,7 @@
       "name": "한국광해광업공단",
       "category": "준시장형",
       "aliases": [],
-      "pblntInstCd": null,
+      "pblntInstCd": "C1364",
       "tier": "auto",
       "core_pair_id": null
     },
@@ -173,7 +173,7 @@
       "name": "한국마사회",
       "category": "준시장형",
       "aliases": [],
-      "pblntInstCd": null,
+      "pblntInstCd": "C0185",
       "tier": "auto",
       "core_pair_id": null
     },
@@ -181,7 +181,7 @@
       "name": "한국부동산원",
       "category": "준시장형",
       "aliases": [],
-      "pblntInstCd": null,
+      "pblntInstCd": "C0150",
       "tier": "auto",
       "core_pair_id": null
     },
@@ -189,7 +189,7 @@
       "name": "한국수자원공사",
       "category": "준시장형",
       "aliases": [],
-      "pblntInstCd": null,
+      "pblntInstCd": "C0221",
       "tier": "auto",
       "core_pair_id": null
     },
@@ -197,7 +197,7 @@
       "name": "한국전력기술",
       "category": "준시장형",
       "aliases": [],
-      "pblntInstCd": null,
+      "pblntInstCd": "C0248",
       "tier": "auto",
       "core_pair_id": null
     },
@@ -205,7 +205,7 @@
       "name": "한국조폐공사",
       "category": "준시장형",
       "aliases": [],
-      "pblntInstCd": null,
+      "pblntInstCd": "C0257",
       "tier": "auto",
       "core_pair_id": null
     },
@@ -215,7 +215,7 @@
       "aliases": [
         "코레일"
       ],
-      "pblntInstCd": null,
+      "pblntInstCd": "C0268",
       "tier": "auto",
       "core_pair_id": null
     },
@@ -225,7 +225,7 @@
       "aliases": [
         "LH"
       ],
-      "pblntInstCd": null,
+      "pblntInstCd": "C0396",
       "tier": "auto",
       "core_pair_id": null
     },
@@ -235,7 +235,7 @@
       "aliases": [
         "한전케이디엔"
       ],
-      "pblntInstCd": null,
+      "pblntInstCd": "C0306",
       "tier": "auto",
       "core_pair_id": null
     },
@@ -245,7 +245,7 @@
       "aliases": [
         "한전케이피에스"
       ],
-      "pblntInstCd": null,
+      "pblntInstCd": "C0305",
       "tier": "auto",
       "core_pair_id": null
     },
@@ -253,7 +253,7 @@
       "name": "해양환경공단",
       "category": "준시장형",
       "aliases": [],
-      "pblntInstCd": null,
+      "pblntInstCd": "C0533",
       "tier": "auto",
       "core_pair_id": null
     }

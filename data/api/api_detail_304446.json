@@ -1,0 +1,128 @@
+{
+  "resultCode": 200,
+  "resultMsg": "성공했습니다.",
+  "result": {
+    "recrutPblntSn": 304446,
+    "pblntInstCd": "C0257",
+    "pbadmsStdInstCd": "B190001",
+    "instNm": "한국조폐공사",
+    "ncsCdLst": "R600015,R600017,R600024",
+    "ncsCdNmLst": "기계,화학,농림어업",
+    "hireTypeLst": "R1040",
+    "hireTypeNmLst": "비정규직",
+    "workRgnLst": "R3019",
+    "workRgnNmLst": "충남",
+    "recrutSe": "R2010",
+    "recrutSeNm": "신입",
+    "prefCondCn": "취업지원대상자, 국민기초생활수급자 등 * 상세내용은 첨부파일을 참조하여 주시기 바랍니다.",
+    "recrutNope": 3,
+    "pbancBgngYmd": "20260902",
+    "pbancEndYmd": "20260916",
+    "recrutPbancTtl": "2026년도 제 2차 한국조폐공사 제지본부 기간제근로자 채용공고",
+    "srcUrl": "https://www.komsco.com/kor/88/recruitment/203?pageIndex=1&searchCondition=&searchKeyword=",
+    "replmprYn": "Y",
+    "aplyQlfcCn": "ㅇ학력, 연령, 성별 제한 없음. 단, 「기간제근로자 관리 규정」 제 23조 1항 3호에 따라 만 70세 이상은 지원 불가\r\nㅇ임용 즉시 업무종사가 가능하고, 제지본부(충남 부여) 출퇴근 가능지역 거주자(대전지역 출퇴근 버스 운행)\r\n  - 학업, 이직 절차, 군 전역 등을 이유로 임용시기 조정 불가\r\nㅇ공사 「인사관리규정」 제10조(채용결격사유)에 해당하지 않는 사람 \r\nㅇ2개 이상 전형 및 채용분야 중복지원 불가\r\nㅇ지원 불가능한 이력사항 발견 시 합격 취소 또는 임용 후에도 직권면직\r\n* 상세내용은 첨부파일을 참조하여 주시기 바랍니다.",
+    "disqlfcRsn": "① 「국가공무원법」 제33조 각 호의 어느 하나에 해당하는 사람\r\n② 「병역법」 제76조제1항에서 규정한 병역의무 불이행자\r\n③ 부정한 방법으로 채용되어 그 채용이 취소된 경우 취소된 날부터 5년이 지나지 아니한 사람\r\n④ 「부패방지 및 국민권익위원회의 설치와 운영에 관한 법률」 제82조에서 규정한 비위면직자 등의 취업제한 사유에 해당하는 사람\r\n* 상세내용은 첨부파일을 참조하여 주시기 바랍니다.",
+    "scrnprcdrMthdExpln": "ㅇ1차 전형(서류심사) : 3배수\r\n  - 직무관련 경력(30점), 직무관련 자격(30점), 직무관련 교육(10점), 자기소개서(30점)\r\nㅇ2차 전형(블라인드 면접평가) : 1배수\r\n  - 블라인드 면접 평가(100점)\r\n* 상세내용은 첨부파일을 참조하여 주시기 바랍니다.",
+    "prefCn": "ㅇ취업지원대상자 : 만점의 5%, 10% 가점\r\n  - 「국가유공자 등 예우 및 지원에 관한 법률」에 따른 취업지원대상자의 경우, 동법 제31조에 따른 가점 부여 기준 적용\r\n  - 각 전형별 동점자 발생 시 우선 선발\r\nㅇ국민기초생활보장 수급자 : 만점의 5% 가점\r\n  - 「국민기초생활 보장법」에 따른 국민기초생활보장 수급자만 해당\r\n* 상세내용은 첨부파일을 참조하여 주시기 바랍니다.",
+    "acbgCondLst": "R7010",
+    "acbgCondNmLst": "학력무관",
+    "nonatchRsn": null,
+    "ongoingYn": null,
+    "decimalDay": -64,
+    "files": [
+      {
+        "recrutAtchFileNo": 3072309,
+        "sortNo": 1,
+        "atchFileNm": "(공고문)2026년도 제지본부 기간제근로자 채용공고(붙임포함).pdf",
+        "atchFileType": "A",
+        "url": "https://opendata.alio.go.kr/recruit/downloadAtchFile?recrutAtchFileNo=3072309"
+      },
+      {
+        "recrutAtchFileNo": 3072310,
+        "sortNo": 2,
+        "atchFileNm": "(붙임3) 제출서류안내(서식포함).pdf",
+        "atchFileType": "B",
+        "url": "https://opendata.alio.go.kr/recruit/downloadAtchFile?recrutAtchFileNo=3072310"
+      },
+      {
+        "recrutAtchFileNo": 3072311,
+        "sortNo": 3,
+        "atchFileNm": "(붙임1) 직무기술서.pdf",
+        "atchFileType": "C",
+        "url": "https://opendata.alio.go.kr/recruit/downloadAtchFile?recrutAtchFileNo=3072311"
+      },
+      {
+        "recrutAtchFileNo": 3072312,
+        "sortNo": 4,
+        "atchFileNm": "(붙임4) 1차 전형 직무경력 인정기준 및 재직증명서 양식.pdf",
+        "atchFileType": "Z",
+        "url": "https://opendata.alio.go.kr/recruit/downloadAtchFile?recrutAtchFileNo=3072312"
+      },
+      {
+        "recrutAtchFileNo": 3072313,
+        "sortNo": 5,
+        "atchFileNm": "(붙임7) 입사(임용)지원 포기서 양식.pdf",
+        "atchFileType": "Z",
+        "url": "https://opendata.alio.go.kr/recruit/downloadAtchFile?recrutAtchFileNo=3072313"
+      },
+      {
+        "recrutAtchFileNo": 3072314,
+        "sortNo": 6,
+        "atchFileNm": "(붙임9) 채용서류 반환 청구서 양식.pdf",
+        "atchFileType": "Z",
+        "url": "https://opendata.alio.go.kr/recruit/downloadAtchFile?recrutAtchFileNo=3072314"
+      }
+    ],
+    "steps": [
+      {
+        "recrutStepSn": 1262873,
+        "recrutPblntSn": 304446,
+        "recrutPbancTtl": "품질관리",
+        "recrutNope": null,
+        "aplyNope": null,
+        "cmpttRt": null,
+        "rsnOcrnYmd": null,
+        "sortNo": 0,
+        "minStepSn": 1262873,
+        "maxStepSn": 1262874
+      },
+      {
+        "recrutStepSn": 1262874,
+        "recrutPblntSn": 304446,
+        "recrutPbancTtl": "품질관리",
+        "recrutNope": null,
+        "aplyNope": null,
+        "cmpttRt": 0.0,
+        "rsnOcrnYmd": null,
+        "sortNo": 0,
+        "minStepSn": 1262873,
+        "maxStepSn": 1262874
+      },
+      {
+        "recrutStepSn": 1262875,
+        "recrutPblntSn": 304446,
+        "recrutPbancTtl": "생산담당",
+        "recrutNope": null,
+        "aplyNope": null,
+        "cmpttRt": null,
+        "rsnOcrnYmd": null,
+        "sortNo": 1,
+        "minStepSn": 1262875,
+        "maxStepSn": 1262876
+      },
+      {
+        "recrutStepSn": 1262876,
+        "recrutPblntSn": 304446,
+        "recrutPbancTtl": "생산담당",
+        "recrutNope": null,
+        "aplyNope": null,
+        "cmpttRt": 0.0,
+        "rsnOcrnYmd": null,
+        "sortNo": 1,
+        "minStepSn": 1262875,
+        "maxStepSn": 1262876
+      }
+    ]
+  }
+}

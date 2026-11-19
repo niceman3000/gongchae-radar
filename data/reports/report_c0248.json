@@ -1,0 +1,437 @@
+{
+  "schema_version": "1.0.0",
+  "pair_id": "c0248-290013-304717",
+  "pair_name": "한국전력기술 · 2026년도 하반기 정규직(신입사원) 채용공고",
+  "institution": "한국전력기술",
+  "checked_at": "2026-11-19",
+  "prev": {
+    "sn": "290013",
+    "title": "2025년도 하반기 정규직(대졸수준) 채용공고",
+    "period": {
+      "start": "20250825",
+      "end": "20250909"
+    },
+    "pdf_path": "data/pdf/290013.pdf",
+    "source_url": "https://opendata.alio.go.kr/recruit/downloadAtchFile?recrutAtchFileNo=2984411"
+  },
+  "curr": {
+    "sn": "304717",
+    "title": "2026년도 하반기 정규직(신입사원) 채용공고",
+    "period": {
+      "start": "20260907",
+      "end": "20260922"
+    },
+    "pdf_path": "data/pdf/304717.pdf",
+    "source_url": "https://opendata.alio.go.kr/recruit/downloadAtchFile?recrutAtchFileNo=3073619"
+  },
+  "tracks": [
+    "전체"
+  ],
+  "changes": [
+    {
+      "id": "stage1-001",
+      "importance": 1,
+      "category": "인원",
+      "title": "채용인원: 46 → 109",
+      "change_type": "number",
+      "prev_value": 46,
+      "curr_value": 109,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-002",
+      "importance": 2,
+      "category": "직무분야(NCS)",
+      "title": "직무분야(NCS) 목록 변경",
+      "change_type": "list",
+      "prev_value": [
+        "재료",
+        "연구"
+      ],
+      "curr_value": [
+        "문화.예술.디자인.방송"
+      ],
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-003",
+      "importance": 2,
+      "category": "학력조건",
+      "title": "학력조건 목록 변경",
+      "change_type": "list",
+      "prev_value": [],
+      "curr_value": [
+        "고졸"
+      ],
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-004",
+      "importance": 2,
+      "category": "모집단위",
+      "title": "모집단위 목록 변경",
+      "change_type": "list",
+      "prev_value": [
+        "건축",
+        "계측",
+        "기계",
+        "신소재(금속)",
+        "안전",
+        "원자력",
+        "전기",
+        "전산",
+        "토목",
+        "품질/산업공학"
+      ],
+      "curr_value": [
+        "건축(대졸수준)",
+        "계측(대졸수준)",
+        "기계(대졸수준)",
+        "기술/연구",
+        "기술/연구(보훈제한경쟁)",
+        "기술/연구(보훈특별고용)",
+        "문헌정보(대졸수준)",
+        "사무(고졸)",
+        "사무(대졸수준)",
+        "사무(보훈특별고용)",
+        "산업공학(대졸수준)",
+        "원자력(대졸수준)",
+        "인간공학(대졸수준)",
+        "전기(대졸수준)",
+        "전산(대졸수준)",
+        "지질(대졸수준)",
+        "토목(대졸수준)",
+        "화공(대졸수준)"
+      ],
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-005",
+      "importance": 2,
+      "category": "모집단위",
+      "title": "모집단위 세분화 추가: ['사무(장애인)']",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": [
+        "사무(장애인)"
+      ],
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-006",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법 삭제: - 채용인원 10명 초과 분야 : (서류) 20배수 / (필기) 3배수 / (최종) 1배수",
+      "change_type": "removed",
+      "prev_value": "- 채용인원 10명 초과 분야 : (서류) 20배수 / (필기) 3배수 / (최종) 1배수",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-007",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법 추가: * 보훈, 장애인 채용의 경우 응시자격 충족자 전원 서류전형 합격",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": "* 보훈, 장애인 채용의 경우 응시자격 충족자 전원 서류전형 합격",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-008",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격: - 회사 인사규정 제9조 결격사유에 해당하지 않는 자(첨부 공고문 참조) → - 회사 인사규정 제8조 결격사유에 해당하지 않는 자(첨부 공고문 참조)",
+      "change_type": "text",
+      "prev_value": "- 회사 인사규정 제9조 결격사유에 해당하지 않는 자(첨부 공고문 참조)",
+      "curr_value": "- 회사 인사규정 제8조 결격사유에 해당하지 않는 자(첨부 공고문 참조)",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-009",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격: - 현재 군 복무 중인 경우, 접수 마감일 이전 전역이 가능한 자 → - 현재 군 복무 중인 경우, 면접전형 시작일 이전 전역이 가능한 자",
+      "change_type": "text",
+      "prev_value": "- 현재 군 복무 중인 경우, 접수 마감일 이전 전역이 가능한 자",
+      "curr_value": "- 현재 군 복무 중인 경우, 면접전형 시작일 이전 전역이 가능한 자",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-010",
+      "importance": 2,
+      "category": "결격사유",
+      "title": "결격사유: 1. 회사 인사규정 제9조(결격사유)에 해당하는 자 → 1. 회사 인사규정 제8조(결격사유)에 해당하는 자",
+      "change_type": "text",
+      "prev_value": "1. 회사 인사규정 제9조(결격사유)에 해당하는 자",
+      "curr_value": "1. 회사 인사규정 제8조(결격사유)에 해당하는 자",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-011",
+      "importance": 2,
+      "category": "가점",
+      "title": "우대사항: 1. 사회형평적 인재(취업지원대상자, 장애인, 기초생활수급자, 자립준비청년(보호종료아동), 북한이탈주민, 다문화가족, 경력단절여성) → 1. 사회형평 인재(취업지원대상자, 장애인, 기초생활수급자, 자립준비청년(보호종료아동), 북한이탈주민, 다문화가족)",
+      "change_type": "text",
+      "prev_value": "1. 사회형평적 인재(취업지원대상자, 장애인, 기초생활수급자, 자립준비청년(보호종료아동), 북한이탈주민, 다문화가족, 경력단절여성)",
+      "curr_value": "1. 사회형평 인재(취업지원대상자, 장애인, 기초생활수급자, 자립준비청년(보호종료아동), 북한이탈주민, 다문화가족)",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    }
+  ],
+  "change_groups": [],
+  "notice_info": {
+    "period": {
+      "start": "2026.09.07",
+      "end": "2026.09.22"
+    },
+    "rules": [
+      {
+        "topic": "연령",
+        "text": "입사 예정일에 근무가 가능한 자로, 회사 정년(만60세)에 도달하지 아니한 자"
+      }
+    ],
+    "submissions": [],
+    "benefits": [
+      {
+        "section": "",
+        "name": "사회형평 인재(취업지원대상자, 장애인, 기초생활수급자, 자립준비청년(보호종료아동), 북한이탈주민, 다문화가족)",
+        "benefit": null,
+        "notes": [],
+        "change": "new",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "당사 체험형 인턴 수료자 중 우수인턴 선정자",
+        "benefit": null,
+        "notes": [
+          "채용분야별 우대 대상 및 우대사항 관련 상세 내용 : 채용공고 참조"
+        ],
+        "change": "same",
+        "prev_benefit": null
+      }
+    ]
+  },
+  "units": [],
+  "competition": {
+    "published": false,
+    "prev": null,
+    "curr": null,
+    "note": "기관 미공시",
+    "checked_at": null
+  },
+  "requirements": {
+    "tracks": [
+      "사무",
+      "기계",
+      "전기",
+      "토목",
+      "기타",
+      "원자력",
+      "건축",
+      "ICT"
+    ],
+    "regions": [
+      "경북"
+    ],
+    "certificates": [],
+    "majors": [],
+    "manual_review_conditions": [],
+    "units": [
+      {
+        "name": "사무(대졸수준)",
+        "track": "사무",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "기계(대졸수준)",
+        "track": "기계",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "전기(대졸수준)",
+        "track": "전기",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "토목(대졸수준)",
+        "track": "토목",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "계측(대졸수준)",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "원자력(대졸수준)",
+        "track": "원자력",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "산업공학(대졸수준)",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "건축(대졸수준)",
+        "track": "건축",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "전산(대졸수준)",
+        "track": "ICT",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "문헌정보(대졸수준)",
+        "track": "ICT",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "화공(대졸수준)",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "인간공학(대졸수준)",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "지질(대졸수준)",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "사무(고졸)",
+        "track": "사무",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "사무(보훈특별고용)",
+        "track": "사무",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "기술/연구(보훈특별고용)",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "기술/연구(보훈제한경쟁)",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "사무(장애인)",
+        "track": "사무",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "기술/연구(장애인)",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      }
+    ],
+    "common_checks": [],
+    "region_note": null,
+    "bonus_rule": null,
+    "reviewed": null
+  },
+  "tier": "auto",
+  "category": "준시장형"
+}

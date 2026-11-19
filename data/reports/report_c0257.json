@@ -1,0 +1,1176 @@
+{
+  "schema_version": "1.0.0",
+  "pair_id": "c0257-292640-305144",
+  "pair_name": "한국조폐공사 · 2027년도 한국조폐공사 신입직원(채용형인턴) 채용공고",
+  "institution": "한국조폐공사",
+  "checked_at": "2026-11-19",
+  "prev": {
+    "sn": "292640",
+    "title": "2026년도 한국조폐공사 신입직원(채용형인턴) 채용공고",
+    "period": {
+      "start": "20251105",
+      "end": "20251119"
+    },
+    "pdf_path": "data/pdf/292640.pdf",
+    "source_url": "https://opendata.alio.go.kr/recruit/downloadAtchFile?recrutAtchFileNo=3004949"
+  },
+  "curr": {
+    "sn": "305144",
+    "title": "2027년도 한국조폐공사 신입직원(채용형인턴) 채용공고",
+    "period": {
+      "start": "20260918",
+      "end": "20261002"
+    },
+    "pdf_path": "data/pdf/305144.pdf",
+    "source_url": "https://opendata.alio.go.kr/recruit/downloadAtchFile?recrutAtchFileNo=3075993"
+  },
+  "tracks": [
+    "전체"
+  ],
+  "changes": [
+    {
+      "id": "stage1-001",
+      "importance": 1,
+      "category": "인원",
+      "title": "채용인원: 52 → 57",
+      "change_type": "number",
+      "prev_value": 52,
+      "curr_value": 57,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-003",
+      "importance": 1,
+      "category": "전형",
+      "title": "전형방법: - 일반·사회형평·ICT전형(25배수) : 직무자격(60점), 영어성적(40점) → * 행정사무, 행정기술, 기계기술, ICT(장애, 보훈 포함) : 직무자격(60점), 영어성적(40점)",
+      "change_type": "number",
+      "prev_value": "- 일반·사회형평·ICT전형(25배수) : 직무자격(60점), 영어성적(40점)",
+      "curr_value": "* 행정사무, 행정기술, 기계기술, ICT(장애, 보훈 포함) : 직무자격(60점), 영어성적(40점)",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-007",
+      "importance": 1,
+      "category": "전형",
+      "title": "전형방법: - 고졸전형(25배수) : 내신성적(50점), 직무자격(30점), 영어성적(20점) → * 전자기술(고졸) : 내신성적(50점), 직무자격(30점), 영어성적(20점)",
+      "change_type": "number",
+      "prev_value": "- 고졸전형(25배수) : 내신성적(50점), 직무자격(30점), 영어성적(20점)",
+      "curr_value": "* 전자기술(고졸) : 내신성적(50점), 직무자격(30점), 영어성적(20점)",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-009",
+      "importance": 1,
+      "category": "전형",
+      "title": "전형방법: - 일반·사회형평·ICT전형(3배수) : 직무수행능력평가(40점), 직업기초능력평가(60점) → * 행정사무, 행정기술, 기계기술, ICT(장애, 보훈 포함) : 직무수행능력평가(40점), 직업공통능력평가(60점)",
+      "change_type": "number",
+      "prev_value": "- 일반·사회형평·ICT전형(3배수) : 직무수행능력평가(40점), 직업기초능력평가(60점)",
+      "curr_value": "* 행정사무, 행정기술, 기계기술, ICT(장애, 보훈 포함) : 직무수행능력평가(40점), 직업공통능력평가(60점)",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-013",
+      "importance": 1,
+      "category": "전형",
+      "title": "전형방법: - 고졸전형(3배수) : 직업기초능력평가(100점) → * 전자기술(고졸) : 직업공통능력평가(100점)",
+      "change_type": "number",
+      "prev_value": "- 고졸전형(3배수) : 직업기초능력평가(100점)",
+      "curr_value": "* 전자기술(고졸) : 직업공통능력평가(100점)",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-015",
+      "importance": 1,
+      "category": "전형",
+      "title": "전형방법: - 일반·사회형평·고졸전형(1배수) : 직무역량(40점) 및 조직적합성(60점) 면접평가 → * 화공 및 디자인 : 직무역량(40점) 및 조직적합성(60점) 면접평가",
+      "change_type": "number",
+      "prev_value": "- 일반·사회형평·고졸전형(1배수) : 직무역량(40점) 및 조직적합성(60점) 면접평가",
+      "curr_value": "* 화공 및 디자인 : 직무역량(40점) 및 조직적합성(60점) 면접평가",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-016",
+      "importance": 1,
+      "category": "전형",
+      "title": "전형방법: - ICT전형(1배수) : 발표평가(40점), 조직적합성 면접평가(60점) → * ICT : 발표평가(40점), 조직적합성(60점) 면접평가",
+      "change_type": "number",
+      "prev_value": "- ICT전형(1배수) : 발표평가(40점), 조직적합성 면접평가(60점)",
+      "curr_value": "* ICT : 발표평가(40점), 조직적합성(60점) 면접평가",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-002",
+      "importance": 2,
+      "category": "모집단위",
+      "title": "모집단위 목록 변경",
+      "change_type": "list",
+      "prev_value": [
+        "ICT전형(ICT)",
+        "R&D전형(전임연구(디자인))",
+        "R&D전형(전임연구(화공))",
+        "고졸전형(전자기술)",
+        "사회형평전형(기계기술(보훈))",
+        "사회형평전형(행정사무(장애))",
+        "일반전형(기계기술)",
+        "일반전형(행정기술)",
+        "일반전형(행정사무)"
+      ],
+      "curr_value": [
+        "ICT",
+        "기계기술",
+        "디자인(조각)",
+        "전자기술(고졸)",
+        "행정기술",
+        "행정사무",
+        "화공"
+      ],
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-004",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법: - R&D전형(6배수) → - 연구분야(6배수)",
+      "change_type": "text",
+      "prev_value": "- R&D전형(6배수)",
+      "curr_value": "- 연구분야(6배수)",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-005",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법: * 전임연구(화공) : 논문평가(70점), 학위(30점) → * 화공 : 논문평가(70점), 학위평가(30점)",
+      "change_type": "text",
+      "prev_value": "* 전임연구(화공) : 논문평가(70점), 학위(30점)",
+      "curr_value": "* 화공 : 논문평가(70점), 학위평가(30점)",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-006",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법: * 전임연구(디자인) : 포트폴리오평가(70점), 수상실적(30점) → * 디자인 : 포트폴리오평가(70점), 직무자격(30점)",
+      "change_type": "text",
+      "prev_value": "* 전임연구(디자인) : 포트폴리오평가(70점), 수상실적(30점)",
+      "curr_value": "* 디자인 : 포트폴리오평가(70점), 직무자격(30점)",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-008",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법 추가: - 일반분야(25배수)",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": "- 일반분야(25배수)",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-010",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법: - R&D전형(3배수) → - 일반분야(3배수)",
+      "change_type": "text",
+      "prev_value": "- R&D전형(3배수)",
+      "curr_value": "- 일반분야(3배수)",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-011",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법: * 전임연구(화공) : 발표평가(100점) → * 화공 : 논문발표평가(100점)",
+      "change_type": "text",
+      "prev_value": "* 전임연구(화공) : 발표평가(100점)",
+      "curr_value": "* 화공 : 논문발표평가(100점)",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-012",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법: * 전임연구(디자인) : 실기평가(100점) → * 디자인 : 실기평가(100점)",
+      "change_type": "text",
+      "prev_value": "* 전임연구(디자인) : 실기평가(100점)",
+      "curr_value": "* 디자인 : 실기평가(100점)",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-014",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법 추가: - 연구분야(3배수)",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": "- 연구분야(3배수)",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-017",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법 삭제: - R&D전형(1배수) : 직무역량 및 조직적합성 면접평가(100점)",
+      "change_type": "removed",
+      "prev_value": "- R&D전형(1배수) : 직무역량 및 조직적합성 면접평가(100점)",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-018",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법 추가: - 일반분야(1배수)",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": "- 일반분야(1배수)",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-019",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법 추가: * 행정사무, 행정기술, 기계기술, 전자기술(장애, 보훈, 고졸 포함) : 직무역량(40점) 및 조직적합성(60점) 면접평가",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": "* 행정사무, 행정기술, 기계기술, 전자기술(장애, 보훈, 고졸 포함) : 직무역량(40점) 및 조직적합성(60점) 면접평가",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-020",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법 추가: - 연구분야(1배수)",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": "- 연구분야(1배수)",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-021",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 삭제: ㅇ기본요건",
+      "change_type": "removed",
+      "prev_value": "ㅇ기본요건",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-022",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 추가: ㅇ공통 지원자격",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": "ㅇ공통 지원자격",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-023",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 추가: - 공사 「인사관리 규정」 제10조의 채용 결격사유에 해당하지 않는 사람(붙임2)",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": "- 공사 「인사관리 규정」 제10조의 채용 결격사유에 해당하지 않는 사람(붙임2)",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-024",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 삭제: - 공사 「인사관리 규정」 제10조의 채용결격사유(붙임2)에 해당하지 않는 사람",
+      "change_type": "removed",
+      "prev_value": "- 공사 「인사관리 규정」 제10조의 채용결격사유(붙임2)에 해당하지 않는 사람",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-025",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 삭제: - 2개 이상 전형 및 채용분야 중복지원 불가",
+      "change_type": "removed",
+      "prev_value": "- 2개 이상 전형 및 채용분야 중복지원 불가",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-026",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 삭제: ㅇ일반·ICT전형",
+      "change_type": "removed",
+      "prev_value": "ㅇ일반·ICT전형",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-027",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 삭제: - 학력, 전공 제한 없음",
+      "change_type": "removed",
+      "prev_value": "- 학력, 전공 제한 없음",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-028",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 삭제: ㅇ사회형평전형",
+      "change_type": "removed",
+      "prev_value": "ㅇ사회형평전형",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-029",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 추가: ※ 모집단위별 중복지원 불가",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": "※ 모집단위별 중복지원 불가",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-030",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 추가: ㅇ일반분야",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": "ㅇ일반분야",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-031",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 추가: - 행정사무·행정기술·기계기술·ICT : 학력 및 전공 제한 없음",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": "- 행정사무·행정기술·기계기술·ICT : 학력 및 전공 제한 없음",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-032",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격: - 기계기술(보훈) : 학력, 전공 제한 없음, 「국가유공자 등 예우 및 지원에 관한 법률」 및 보훈관련법령 등에 따른 취업지원대상자 → - 기계기술(보훈) : 학력, 전공 제한 없음, 「국가유공자 등 예우 및 지원에 관한 법률」 및 보훈관계법령 등에 따른 취업지원대상자",
+      "change_type": "text",
+      "prev_value": "- 기계기술(보훈) : 학력, 전공 제한 없음, 「국가유공자 등 예우 및 지원에 관한 법률」 및 보훈관련법령 등에 따른 취업지원대상자",
+      "curr_value": "- 기계기술(보훈) : 학력, 전공 제한 없음, 「국가유공자 등 예우 및 지원에 관한 법률」 및 보훈관계법령 등에 따른 취업지원대상자",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-033",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 삭제: ㅇR&D전형",
+      "change_type": "removed",
+      "prev_value": "ㅇR&D전형",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-034",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격: - 전임연구(화공) : 해당분야 석사 이상 학위 소지자 → - 화공 : 해당분야 석사 이상 학위 소지자",
+      "change_type": "text",
+      "prev_value": "- 전임연구(화공) : 해당분야 석사 이상 학위 소지자",
+      "curr_value": "- 화공 : 해당분야 석사 이상 학위 소지자",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-035",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격: - 전임연구(디자인) : 해당분야 학사 이상 학위 소지자 → - 디자인(조각) : 해당분야 학사 이상 학위 소지자",
+      "change_type": "text",
+      "prev_value": "- 전임연구(디자인) : 해당분야 학사 이상 학위 소지자",
+      "curr_value": "- 디자인(조각) : 해당분야 학사 이상 학위 소지자",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-036",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 삭제: ㅇ고졸전형",
+      "change_type": "removed",
+      "prev_value": "ㅇ고졸전형",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-037",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격: - 전공 제한 없음, 최종학력 고졸자('26년 2월 졸업예정자 포함) → - 전자기술(고졸) : 전공 제한 없음, 최종학력 고졸자('27년 2월 졸업예정자 포함)",
+      "change_type": "text",
+      "prev_value": "- 전공 제한 없음, 최종학력 고졸자('26년 2월 졸업예정자 포함)",
+      "curr_value": "- 전자기술(고졸) : 전공 제한 없음, 최종학력 고졸자('27년 2월 졸업예정자 포함)",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-038",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 추가: - 행정기술(장애) : 학력, 전공 제한 없음, 「장애인고용촉진 및 직업재활법」에 따른 장애인",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": "- 행정기술(장애) : 학력, 전공 제한 없음, 「장애인고용촉진 및 직업재활법」에 따른 장애인",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-039",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 추가: ㅇ연구분야",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": "ㅇ연구분야",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-040",
+      "importance": 2,
+      "category": "결격사유",
+      "title": "결격사유: 1. 「국가공무원법」 제33조 각 호의 어느 하나에 해당하는 사람 → ㅇ 「국가공무원법」 제33조 각 호의 어느 하나에 해당하는 사람",
+      "change_type": "text",
+      "prev_value": "1. 「국가공무원법」 제33조 각 호의 어느 하나에 해당하는 사람",
+      "curr_value": "ㅇ 「국가공무원법」 제33조 각 호의 어느 하나에 해당하는 사람",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-041",
+      "importance": 2,
+      "category": "결격사유",
+      "title": "결격사유: 2. 「병역법」 제76조제1항에 따른 병역의무 불이행자 → ㅇ 「병역법」 제76조제1항에 따른 병역의무 불이행자",
+      "change_type": "text",
+      "prev_value": "2. 「병역법」 제76조제1항에 따른 병역의무 불이행자",
+      "curr_value": "ㅇ 「병역법」 제76조제1항에 따른 병역의무 불이행자",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-042",
+      "importance": 2,
+      "category": "결격사유",
+      "title": "결격사유: 3. 부정한 방법으로 채용되어 그 채용이 취소된 경우 취소된 날부터 5년이 지나지 아니한 사람 → ㅇ 부정한 방법으로 채용되어 그 채용이 취소된 경우 취소된 날부터 5년이 지나지 아니한 사람",
+      "change_type": "text",
+      "prev_value": "3. 부정한 방법으로 채용되어 그 채용이 취소된 경우 취소된 날부터 5년이 지나지 아니한 사람",
+      "curr_value": "ㅇ 부정한 방법으로 채용되어 그 채용이 취소된 경우 취소된 날부터 5년이 지나지 아니한 사람",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-043",
+      "importance": 2,
+      "category": "결격사유",
+      "title": "결격사유: 4. 「부패방지 및 국민권익위원회 설치와 운영에 관한 법률」 제82조에 따른 비위면직자 등의 취업제한 사유에 해당하는 사람 → ㅇ 「부패방지 및 국민권익위원회 설치와 운영에 관한 법률」 제82조에 따른 비위면직자 등의 취업제한 사유에 해당하는 사람",
+      "change_type": "text",
+      "prev_value": "4. 「부패방지 및 국민권익위원회 설치와 운영에 관한 법률」 제82조에 따른 비위면직자 등의 취업제한 사유에 해당하는 사람",
+      "curr_value": "ㅇ 「부패방지 및 국민권익위원회 설치와 운영에 관한 법률」 제82조에 따른 비위면직자 등의 취업제한 사유에 해당하는 사람",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-044",
+      "importance": 2,
+      "category": "가점",
+      "title": "우대사항 추가: ㅇ 한국조폐공사 사회형평적 체험형인턴 수료자 : 만점의 3% 가점(공통, 1·2차 전형)",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": "ㅇ 한국조폐공사 사회형평적 체험형인턴 수료자 : 만점의 3% 가점(공통, 1·2차 전형)",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-045",
+      "importance": 2,
+      "category": "가점",
+      "title": "우대사항: ㅇ 공인 제2외국어 성적보유자 : 만점의 1% 가점(일반전형 행정사무, 사회형평전형 행정사무(장애), 1차 전형) → ㅇ 공인 제2외국어 성적보유자 : 만점의 1% 가점(행정사무, 행정사무(장애), 1차 전형)",
+      "change_type": "text",
+      "prev_value": "ㅇ 공인 제2외국어 성적보유자 : 만점의 1% 가점(일반전형 행정사무, 사회형평전형 행정사무(장애), 1차 전형)",
+      "curr_value": "ㅇ 공인 제2외국어 성적보유자 : 만점의 1% 가점(행정사무, 행정사무(장애), 1차 전형)",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-046",
+      "importance": 2,
+      "category": "가점",
+      "title": "우대사항 삭제: ㅇ 한국조폐공사 사회형평적 체험형인턴 수료자 : 만점의 3% 가점(공통 1·2차 전형)",
+      "change_type": "removed",
+      "prev_value": "ㅇ 한국조폐공사 사회형평적 체험형인턴 수료자 : 만점의 3% 가점(공통 1·2차 전형)",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-047",
+      "importance": 2,
+      "category": "가점",
+      "title": "우대사항: ㅇ 전문자격증 보유자 : 만점의 5% 가점(일반·사회형평·ICT전형, 1·2차 전형) → ㅇ 전문자격증 보유자 : 만점의 5% 가점(전자기술, 화공, 디자인 제외 전 모집단위, 1·2차 전형)",
+      "change_type": "text",
+      "prev_value": "ㅇ 전문자격증 보유자 : 만점의 5% 가점(일반·사회형평·ICT전형, 1·2차 전형)",
+      "curr_value": "ㅇ 전문자격증 보유자 : 만점의 5% 가점(전자기술, 화공, 디자인 제외 전 모집단위, 1·2차 전형)",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-048",
+      "importance": 2,
+      "category": "가점",
+      "title": "우대사항: ㅇ 지역인재 채용목표제(일반전형 중 기계기술, ICT전형의 매 전형) → ㅇ 이전 지역인재 채용목표제(기계기술, ICT, 전자기술의 매 전형)",
+      "change_type": "text",
+      "prev_value": "ㅇ 지역인재 채용목표제(일반전형 중 기계기술, ICT전형의 매 전형)",
+      "curr_value": "ㅇ 이전 지역인재 채용목표제(기계기술, ICT, 전자기술의 매 전형)",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-049",
+      "importance": 2,
+      "category": "가점",
+      "title": "우대사항: ㅇ 비수도권 지역균형인재 채용목표제(일반·사회형평전형, ICT전형의 매 전형) → ㅇ 비수도권 지역균형인재 채용목표제(전자기술 제외 전 모집단위의 매 전형)",
+      "change_type": "text",
+      "prev_value": "ㅇ 비수도권 지역균형인재 채용목표제(일반·사회형평전형, ICT전형의 매 전형)",
+      "curr_value": "ㅇ 비수도권 지역균형인재 채용목표제(전자기술 제외 전 모집단위의 매 전형)",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-050",
+      "importance": 2,
+      "category": "가점",
+      "title": "우대사항: ㅇ 양성평등 채용목표제(일반전형, ICT전형의 3차 전형) → ㅇ 양성평등 채용목표제(기계기술, ICT, 전자기술의 3차 전형)",
+      "change_type": "text",
+      "prev_value": "ㅇ 양성평등 채용목표제(일반전형, ICT전형의 3차 전형)",
+      "curr_value": "ㅇ 양성평등 채용목표제(기계기술, ICT, 전자기술의 3차 전형)",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    }
+  ],
+  "change_groups": [
+    {
+      "id": "group-stage1-003",
+      "category": "전형",
+      "member_ids": [
+        "stage1-003",
+        "stage1-007",
+        "stage1-009",
+        "stage1-013",
+        "stage1-015",
+        "stage1-016",
+        "stage1-004",
+        "stage1-008",
+        "stage1-010",
+        "stage1-014",
+        "stage1-017",
+        "stage1-018",
+        "stage1-019",
+        "stage1-020"
+      ],
+      "shared_terms": [
+        "ICT전형",
+        "기계기술",
+        "사회형평",
+        "행정기술",
+        "행정사무",
+        "ICT"
+      ]
+    },
+    {
+      "id": "group-stage1-005",
+      "category": "전형",
+      "member_ids": [
+        "stage1-005",
+        "stage1-006",
+        "stage1-011",
+        "stage1-012"
+      ],
+      "shared_terms": [
+        "전임연구"
+      ]
+    },
+    {
+      "id": "group-stage1-023",
+      "category": "자격",
+      "member_ids": [
+        "stage1-023",
+        "stage1-024"
+      ],
+      "shared_terms": [
+        "인사관리",
+        "해당하지",
+        "공사",
+        "규정",
+        "붙임",
+        "사람"
+      ]
+    },
+    {
+      "id": "group-stage1-025",
+      "category": "자격",
+      "member_ids": [
+        "stage1-025",
+        "stage1-029"
+      ],
+      "shared_terms": [
+        "중복지원"
+      ]
+    },
+    {
+      "id": "group-stage1-027",
+      "category": "자격",
+      "member_ids": [
+        "stage1-027",
+        "stage1-031",
+        "stage1-038"
+      ],
+      "shared_terms": [
+        "없음",
+        "전공",
+        "제한",
+        "학력",
+        "행정기술"
+      ]
+    },
+    {
+      "id": "group-stage1-034",
+      "category": "자격",
+      "member_ids": [
+        "stage1-034",
+        "stage1-035"
+      ],
+      "shared_terms": [
+        "전임연구"
+      ]
+    },
+    {
+      "id": "group-stage1-044",
+      "category": "가점",
+      "member_ids": [
+        "stage1-044",
+        "stage1-046"
+      ],
+      "shared_terms": [
+        "한국조폐공사",
+        "사회형평적",
+        "체험형인턴",
+        "수료자",
+        "가점",
+        "공통"
+      ]
+    },
+    {
+      "id": "group-stage1-045",
+      "category": "가점",
+      "member_ids": [
+        "stage1-045",
+        "stage1-047",
+        "stage1-048",
+        "stage1-049",
+        "stage1-050"
+      ],
+      "shared_terms": [
+        "일반전형",
+        "사회형평전형",
+        "ICT전형",
+        "전자기술",
+        "모집단위",
+        "ICT"
+      ]
+    }
+  ],
+  "notice_info": {
+    "period": {
+      "start": "2026.09.18",
+      "end": "2026.10.02"
+    },
+    "rules": [
+      {
+        "topic": "학력",
+        "text": "전자기술(고졸) : 전공 제한 없음, 최종학력 고졸자('27년 2월 졸업예정자 포함)"
+      },
+      {
+        "topic": "연령",
+        "text": "성별, 연령 제한 없음. 단, 공사 정년(60세) 이상자는 지원 불가"
+      }
+    ],
+    "submissions": [],
+    "benefits": [
+      {
+        "section": "",
+        "name": "ㅇ 취업지원대상자",
+        "benefit": "만점의 5%, 10% 가점(공통, 매 전형)",
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "ㅇ 장애인",
+        "benefit": "만점의 5% 가점(공통, 매 전형)",
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "ㅇ 한국조폐공사 사회형평적 체험형인턴 수료자",
+        "benefit": "만점의 3% 가점(공통, 1·2차 전형)",
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "ㅇ 국민기초생활보장 수급자",
+        "benefit": "만점의 3% 가점(공통, 1차 전형)",
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "ㅇ 의사상자",
+        "benefit": "만점의 3% 가점(공통, 1차 전형)",
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "ㅇ 한부모가족",
+        "benefit": "만점의 3% 가점(공통, 1차 전형)",
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "ㅇ 북한이탈주민",
+        "benefit": "만점의 3% 가점(공통, 1차 전형)",
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "ㅇ 자립준비청년(보호종료아동)",
+        "benefit": "만점의 3% 가점(공통, 1차 전형)",
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "ㅇ 다문화가족 자녀",
+        "benefit": "만점의 3% 가점(공통, 1차 전형)",
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "ㅇ 한국사능력검정 1급 자격소지자",
+        "benefit": "만점의 1% 가점(공통, 1차 전형)",
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "ㅇ 전문자격증 보유자",
+        "benefit": "만점의 5% 가점(전자기술, 화공, 디자인 제외 전 모집단위, 1·2차 전형)",
+        "notes": [],
+        "change": "changed",
+        "prev_benefit": "만점의 5% 가점(일반·사회형평·ICT전형, 1·2차 전형)"
+      },
+      {
+        "section": "",
+        "name": "ㅇ 공인 제2외국어 성적보유자",
+        "benefit": "만점의 1% 가점(행정사무, 행정사무(장애), 1차 전형)",
+        "notes": [],
+        "change": "changed",
+        "prev_benefit": "만점의 1% 가점(일반전형 행정사무, 사회형평전형 행정사무(장애), 1차 전형)"
+      },
+      {
+        "section": "",
+        "name": "ㅇ 이전 지역인재 채용목표제(기계기술, ICT, 전자기술의 매 전형)",
+        "benefit": null,
+        "notes": [],
+        "change": "new",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "ㅇ 비수도권 지역균형인재 채용목표제(전자기술 제외 전 모집단위의 매 전형)",
+        "benefit": null,
+        "notes": [],
+        "change": "new",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "ㅇ 양성평등 채용목표제(기계기술, ICT, 전자기술의 3차 전형)",
+        "benefit": null,
+        "notes": [
+          "상세내용은 첨부파일을 참조하여 주시기 바랍니다."
+        ],
+        "change": "new",
+        "prev_benefit": null
+      }
+    ]
+  },
+  "units": [],
+  "competition": {
+    "published": false,
+    "prev": null,
+    "curr": null,
+    "note": "기관 미공시",
+    "checked_at": null
+  },
+  "requirements": {
+    "tracks": [
+      "사무",
+      "기계",
+      "ICT",
+      "기타"
+    ],
+    "regions": [
+      "경북",
+      "대전",
+      "서울",
+      "충남"
+    ],
+    "certificates": [],
+    "majors": [],
+    "manual_review_conditions": [],
+    "units": [
+      {
+        "name": "행정사무",
+        "track": "사무",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "행정기술",
+        "track": "사무",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "기계기술",
+        "track": "기계",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "ICT",
+        "track": "ICT",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "행정사무(장애)",
+        "track": "사무",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "행정기술(장애)",
+        "track": "사무",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "기계기술(보훈)",
+        "track": "기계",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "전자기술(고졸)",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "화공",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "디자인(조각)",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      }
+    ],
+    "common_checks": [],
+    "region_note": null,
+    "bonus_rule": null,
+    "reviewed": null
+  },
+  "tier": "auto",
+  "category": "준시장형"
+}

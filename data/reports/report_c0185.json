@@ -1,0 +1,1300 @@
+{
+  "schema_version": "1.0.0",
+  "pair_id": "c0185-291259-293232",
+  "pair_name": "한국마사회 · 2026년도 한국마사회 일반직(5급, 6급) 신입사원 채용 공고",
+  "institution": "한국마사회",
+  "checked_at": "2026-11-19",
+  "prev": {
+    "sn": "291259",
+    "title": "2025년도 한국마사회 일반직(5급, 6급) 신입사원 채용 공고 ",
+    "period": {
+      "start": "20250120",
+      "end": "20250203"
+    },
+    "pdf_path": "data/pdf/291259.pdf",
+    "source_url": "https://opendata.alio.go.kr/recruit/downloadAtchFile?recrutAtchFileNo=2990764"
+  },
+  "curr": {
+    "sn": "293232",
+    "title": "2026년도 한국마사회 일반직(5급, 6급) 신입사원 채용 공고",
+    "period": {
+      "start": "20251124",
+      "end": "20251208"
+    },
+    "pdf_path": "data/pdf/293232.pdf",
+    "source_url": "https://opendata.alio.go.kr/recruit/downloadAtchFile?recrutAtchFileNo=3008718"
+  },
+  "tracks": [
+    "전체"
+  ],
+  "changes": [
+    {
+      "id": "stage1-001",
+      "importance": 1,
+      "category": "인원",
+      "title": "채용인원: 60 → 65",
+      "change_type": "number",
+      "prev_value": 60,
+      "curr_value": 65,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-005",
+      "importance": 1,
+      "category": "전형",
+      "title": "전형방법: -50배수, 입사지원서 적격심사(20점), 가점평가(20점의 N% 합계) → -50배수, 입사지원서 적격심사(100점), 가점평가(100점의 N% 합계)",
+      "change_type": "number",
+      "prev_value": "-50배수, 입사지원서 적격심사(20점), 가점평가(20점의 N% 합계)",
+      "curr_value": "-50배수, 입사지원서 적격심사(100점), 가점평가(100점의 N% 합계)",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-012",
+      "importance": 1,
+      "category": "전형",
+      "title": "전형방법: -기본역량 및 조직적합성 평가(50점) → -기본역량 및 조직적합성 평가(100점)",
+      "change_type": "number",
+      "prev_value": "-기본역량 및 조직적합성 평가(50점)",
+      "curr_value": "-기본역량 및 조직적합성 평가(100점)",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-053",
+      "importance": 1,
+      "category": "가점",
+      "title": "우대사항: -장애인 등록자 : 서류, 필기, 면접 각 10%가점 → -장애인 등록자 : 서류, 필기, 면접 각 5%(경증) 또는 10%(중증) 가점",
+      "change_type": "number",
+      "prev_value": "-장애인 등록자 : 서류, 필기, 면접 각 10%가점",
+      "curr_value": "-장애인 등록자 : 서류, 필기, 면접 각 5%(경증) 또는 10%(중증) 가점",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-002",
+      "importance": 2,
+      "category": "직무분야(NCS)",
+      "title": "직무분야(NCS) 목록 변경",
+      "change_type": "list",
+      "prev_value": [],
+      "curr_value": [
+        "기계"
+      ],
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-003",
+      "importance": 2,
+      "category": "모집단위",
+      "title": "모집단위 목록 변경",
+      "change_type": "list",
+      "prev_value": [
+        "경영지원",
+        "경영지원(지역인재)",
+        "기승조교 및 말관리(지역인재)",
+        "장제",
+        "조경",
+        "판매마케팅",
+        "판매마케팅(지역인재)"
+      ],
+      "curr_value": [
+        "CG",
+        "기승조교 및 말관리",
+        "방송기술(지역인재)",
+        "산업안전보건관리",
+        "산업안전보건관리(지역인재)",
+        "시스템개발(지역인재)",
+        "아나운서(지역인재)",
+        "유전자",
+        "일반행정",
+        "일반행정(사회형평)",
+        "일반행정(지역인재)",
+        "통신(지역인재)",
+        "환경"
+      ],
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-004",
+      "importance": 2,
+      "category": "모집단위",
+      "title": "모집단위 세분화 추가: ['건축(보훈)', '시스템개발(보훈)', '토목(보훈)']",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": [
+        "건축(보훈)",
+        "시스템개발(보훈)",
+        "토목(보훈)"
+      ],
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-006",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법: * 수의(수의), 승마(승마교관), 축산(장제) 직무는 자격요건 충족 시 전원 합격처리 → * 수의(수의), 승마(승마교관) 직무는 자격요건 충족 시 전원 합격처리",
+      "change_type": "text",
+      "prev_value": "* 수의(수의), 승마(승마교관), 축산(장제) 직무는 자격요건 충족 시 전원 합격처리",
+      "curr_value": "* 수의(수의), 승마(승마교관) 직무는 자격요건 충족 시 전원 합격처리",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-007",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법: * 수의(수의), 승마(승마교관), 축산(기승조교 및 말관리, 장제), 출발(출발)은 ? 직업기초능력평가만 시행 → * 수의(수의), 승마(승마교관), 축산(기승조교 및 말관리), 출발(출발)은 직업기초능력평가만 시행",
+      "change_type": "text",
+      "prev_value": "* 수의(수의), 승마(승마교관), 축산(기승조교 및 말관리, 장제), 출발(출발)은 ? 직업기초능력평가만 시행",
+      "curr_value": "* 수의(수의), 승마(승마교관), 축산(기승조교 및 말관리), 출발(출발)은 직업기초능력평가만 시행",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-008",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법 삭제: -검사 결과는 최종면접 참고자료로 활용",
+      "change_type": "removed",
+      "prev_value": "-검사 결과는 최종면접 참고자료로 활용",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-009",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법: * 축산(기승조교 및 말관리, 장제), 출발(출발)은 직무수행능력을 실기평가로 실시 → * 방송(아나운서, CG), 축산(기승조교 및 말관리), 출발(출발)은 직무수행능력을 실기평가로 실시",
+      "change_type": "text",
+      "prev_value": "* 축산(기승조교 및 말관리, 장제), 출발(출발)은 직무수행능력을 실기평가로 실시",
+      "curr_value": "* 방송(아나운서, CG), 축산(기승조교 및 말관리), 출발(출발)은 직무수행능력을 실기평가로 실시",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-010",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법 추가: <AI 역량검사>",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": "<AI 역량검사>",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-011",
+      "importance": 2,
+      "category": "전형",
+      "title": "전형방법 추가: -1차 면접시험 합격자 대상 사전 온라인 AI 역량검사 시행",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": "-1차 면접시험 합격자 대상 사전 온라인 AI 역량검사 시행",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-013",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 추가: * 복무 중인 경우 ’26.2.27.까지 전역 가능한 자",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": "* 복무 중인 경우 ’26.2.27.까지 전역 가능한 자",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-015",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격: (1) 일반행정(경영지원) : 자격제한 없음 → (1) 일반행정 : 자격제한 없음",
+      "change_type": "text",
+      "prev_value": "(1) 일반행정(경영지원) : 자격제한 없음",
+      "curr_value": "(1) 일반행정 : 자격제한 없음",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-016",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격: (2) 일반행정(경영지원 장애인) : 장애인 등록자 → (2) 일반행정(장애인) : 장애인 등록자",
+      "change_type": "text",
+      "prev_value": "(2) 일반행정(경영지원 장애인) : 장애인 등록자",
+      "curr_value": "(2) 일반행정(장애인) : 장애인 등록자",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-017",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격: (3) 일반행정(경영지원 보훈) : 취업지원(보훈)대상자 → (3) 일반행정(보훈) : 취업지원(보훈)대상자",
+      "change_type": "text",
+      "prev_value": "(3) 일반행정(경영지원 보훈) : 취업지원(보훈)대상자",
+      "curr_value": "(3) 일반행정(보훈) : 취업지원(보훈)대상자",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-018",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격: (4) 일반행정(경영지원 지역인재) : 비수도권 지역인재에 해당하는 자 → (4) 일반행정(지역인재) : 비수도권 지역인재에 해당하는 자",
+      "change_type": "text",
+      "prev_value": "(4) 일반행정(경영지원 지역인재) : 비수도권 지역인재에 해당하는 자",
+      "curr_value": "(4) 일반행정(지역인재) : 비수도권 지역인재에 해당하는 자",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-019",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 삭제: (5) 일반행정(판매마케팅) : 자격제한 없음",
+      "change_type": "removed",
+      "prev_value": "(5) 일반행정(판매마케팅) : 자격제한 없음",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-020",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 삭제: (6) 일반행정(판매마케팅 보훈) : 취업지원(보훈)대상자",
+      "change_type": "removed",
+      "prev_value": "(6) 일반행정(판매마케팅 보훈) : 취업지원(보훈)대상자",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-021",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격: (7) 일반행정(판매마케팅 지역인재) : 비수도권 지역인재에 해당하는 자 → (7) 일반행정(산업안전보건관리 지역인재) : 산업안전기사 및 건설안전기사 자격증 소지자이면서 비수도권 지역인재에 해당하는 자",
+      "change_type": "text",
+      "prev_value": "(7) 일반행정(판매마케팅 지역인재) : 비수도권 지역인재에 해당하는 자",
+      "curr_value": "(7) 일반행정(산업안전보건관리 지역인재) : 산업안전기사 및 건설안전기사 자격증 소지자이면서 비수도권 지역인재에 해당하는 자",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-022",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 추가: (5) 일반행정(사회형평) : 농어업인 자녀, 국민기초생활수급자, 북한이탈주민, 다문화가족, 다자녀부모, 경력단절(보유)여성, 자립준비청년, 한부모가정, 의사상자에 해당하는 자",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": "(5) 일반행정(사회형평) : 농어업인 자녀, 국민기초생활수급자, 북한이탈주민, 다문화가족, 다자녀부모, 경력단절(보유)여성, 자립준비청년, 한부모가정, 의사상자에 해당하는 자",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-023",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 추가: (6) 일반행정(산업안전보건관리) : 산업안전기사 및 건설안전기사 자격증 소지자",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": "(6) 일반행정(산업안전보건관리) : 산업안전기사 및 건설안전기사 자격증 소지자",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-024",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 삭제: (10) 수의(수의) : 수의사 면허 소지자",
+      "change_type": "removed",
+      "prev_value": "(10) 수의(수의) : 수의사 면허 소지자",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-025",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 추가: (10) 수의(수의) : 수의사 면허 소지자 또는 제70회 수의사 국가시험(’26.1.16. 시행예정) 응시 예정자",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": "(10) 수의(수의) : 수의사 면허 소지자 또는 제70회 수의사 국가시험(’26.1.16. 시행예정) 응시 예정자",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-026",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격: (12) 축산(말생산육성) : 자격제한 없음 → (13) 축산(말생산육성) : 자격제한 없음",
+      "change_type": "text",
+      "prev_value": "(12) 축산(말생산육성) : 자격제한 없음",
+      "curr_value": "(13) 축산(말생산육성) : 자격제한 없음",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-027",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격: (13) 시설(건축) : 건축기사 자격증 소지자 → (14) 시설(건축) : 건축기사 자격증 소지자",
+      "change_type": "text",
+      "prev_value": "(13) 시설(건축) : 건축기사 자격증 소지자",
+      "curr_value": "(14) 시설(건축) : 건축기사 자격증 소지자",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-028",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격: (14) 시설(토목) : 토목기사 자격증 소지자 → (16) 시설(토목) : 토목기사 자격증 소지자",
+      "change_type": "text",
+      "prev_value": "(14) 시설(토목) : 토목기사 자격증 소지자",
+      "curr_value": "(16) 시설(토목) : 토목기사 자격증 소지자",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-029",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격: (15) 시설(기계) : 일반기계기사 또는 건축설비기사 또는 공조냉동기계기사 자격증 소지자 → (18) 시설(기계) : 일반기계기사 또는 건축설비기사 또는 공조냉동기계기사 자격증 소지자",
+      "change_type": "text",
+      "prev_value": "(15) 시설(기계) : 일반기계기사 또는 건축설비기사 또는 공조냉동기계기사 자격증 소지자",
+      "curr_value": "(18) 시설(기계) : 일반기계기사 또는 건축설비기사 또는 공조냉동기계기사 자격증 소지자",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-030",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격: (16) 시설(전기) : 전기기사 자격증 소지자 → (19) 시설(전기) : 전기기사 자격증 소지자",
+      "change_type": "text",
+      "prev_value": "(16) 시설(전기) : 전기기사 자격증 소지자",
+      "curr_value": "(19) 시설(전기) : 전기기사 자격증 소지자",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-031",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격: (17) 시설(통신) : 정보통신기사 또는 무선설비기사 자격증 소지자 → (20) 시설(통신) : 정보통신기사 또는 무선설비기사 자격증 소지자",
+      "change_type": "text",
+      "prev_value": "(17) 시설(통신) : 정보통신기사 또는 무선설비기사 자격증 소지자",
+      "curr_value": "(20) 시설(통신) : 정보통신기사 또는 무선설비기사 자격증 소지자",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-032",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격: (18) 시설(조경) : 조경기사 자격증 소지자 → (22) 시설(환경) : 수질환경기사 또는 대기환경기사 자격증 소지자",
+      "change_type": "text",
+      "prev_value": "(18) 시설(조경) : 조경기사 자격증 소지자",
+      "curr_value": "(22) 시설(환경) : 수질환경기사 또는 대기환경기사 자격증 소지자",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-033",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격: (19) 전산(시스템개발) : 자격제한 없음 → (23) 전산(시스템개발) : 자격제한 없음",
+      "change_type": "text",
+      "prev_value": "(19) 전산(시스템개발) : 자격제한 없음",
+      "curr_value": "(23) 전산(시스템개발) : 자격제한 없음",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-034",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격: (20) 전산(시스템운영) : 자격제한 없음 → (26) 전산(시스템운영) : 자격제한 없음",
+      "change_type": "text",
+      "prev_value": "(20) 전산(시스템운영) : 자격제한 없음",
+      "curr_value": "(26) 전산(시스템운영) : 자격제한 없음",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-035",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격: (21) 전산(시스템운영 장애인) : 장애인 등록자 → (25) 전산(시스템개발 지역인재) : 비수도권 지역인재에 해당하는 자",
+      "change_type": "text",
+      "prev_value": "(21) 전산(시스템운영 장애인) : 장애인 등록자",
+      "curr_value": "(25) 전산(시스템개발 지역인재) : 비수도권 지역인재에 해당하는 자",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-036",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격: (22) 전산(정보보안) : 자격제한 없음 → (27) 전산(정보보안) : 자격제한 없음",
+      "change_type": "text",
+      "prev_value": "(22) 전산(정보보안) : 자격제한 없음",
+      "curr_value": "(27) 전산(정보보안) : 자격제한 없음",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-037",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격: (23) 방송(방송기술) : 자격제한 없음 → (30) 방송(방송기술) : 자격제한 없음",
+      "change_type": "text",
+      "prev_value": "(23) 방송(방송기술) : 자격제한 없음",
+      "curr_value": "(30) 방송(방송기술) : 자격제한 없음",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-038",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격: (24) 승마(승마교관) : 전문스포츠지도사(승마), 생활스포츠지도사(승마), 말조련사(농림부), 재활승마지도사(농림부), 승마지도사(마사회) 중 1개 이상 자격증 소지자 이면서, 전국규모대회 장애물비월(대한승마협회-B Class 이상) 경기에서 3회 이상 입상경력이 있는 사람(일반승마 분야) → (32) 승마(승마교관) : 전문스포츠지도사(승마), 생활스포츠지도사(승마), 말조련사(농식품부), 재활승마지도사(농식품부), 승마지도사(마사회) 중 1개 이상 자격증 소지자 이면서, 전국규모대회 장애물비월(대한승마협회-B Class 이상) 경기에서 3회 이상 입상경력이 있는 사람(일반승마 분야)",
+      "change_type": "text",
+      "prev_value": "(24) 승마(승마교관) : 전문스포츠지도사(승마), 생활스포츠지도사(승마), 말조련사(농림부), 재활승마지도사(농림부), 승마지도사(마사회) 중 1개 이상 자격증 소지자 이면서, 전국규모대회 장애물비월(대한승마협회-B Class 이상) 경기에서 3회 이상 입상경력이 있는 사람(일반승마 분야)",
+      "curr_value": "(32) 승마(승마교관) : 전문스포츠지도사(승마), 생활스포츠지도사(승마), 말조련사(농식품부), 재활승마지도사(농식품부), 승마지도사(마사회) 중 1개 이상 자격증 소지자 이면서, 전국규모대회 장애물비월(대한승마협회-B Class 이상) 경기에서 3회 이상 입상경력이 있는 사람(일반승마 분야)",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-039",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 추가: (12) 수의(유전자) : 자격제한 없음",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": "(12) 수의(유전자) : 자격제한 없음",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-040",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 추가: (15) 시설(건축 보훈) : 건축기사 자격증 소지자이면서 취업지원(보훈)대상자",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": "(15) 시설(건축 보훈) : 건축기사 자격증 소지자이면서 취업지원(보훈)대상자",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-041",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 추가: (17) 시설(토목 보훈) : 토목기사 자격증 소지자이면서 취업지원(보훈)대상자",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": "(17) 시설(토목 보훈) : 토목기사 자격증 소지자이면서 취업지원(보훈)대상자",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-042",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 추가: (21) 시설(통신 지역인재) : 정보통신기사 또는 무선설비기사 자격증 소지자이면서 비수도권 지역인재에 해당하는 자",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": "(21) 시설(통신 지역인재) : 정보통신기사 또는 무선설비기사 자격증 소지자이면서 비수도권 지역인재에 해당하는 자",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-043",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 추가: (24) 전산(시스템개발 보훈) : 취업지원(보훈)대상자",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": "(24) 전산(시스템개발 보훈) : 취업지원(보훈)대상자",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-044",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 추가: (28) 방송(아나운서) : 비수도권 지역인재에 해당하는 자",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": "(28) 방송(아나운서) : 비수도권 지역인재에 해당하는 자",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-045",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 추가: (29) 방송(CG) : 자격제한 없음",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": "(29) 방송(CG) : 자격제한 없음",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-046",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 추가: (31) 방송(방송기술 지역인재) : 비수도권 지역인재에 해당하는 자",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": "(31) 방송(방송기술 지역인재) : 비수도권 지역인재에 해당하는 자",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-047",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격: (25) 축산(기승조교 및 말관리) : 말조련사(농림부) 또는 재활승마지도사(농림부) 또는 생활스포츠지도사(승마) 또는 전문스포츠지도사(승마) 자격증 소지자이면서 비수도권 지역인재에 해당하는 자 → (33) 축산(기승조교 및 말관리) : 말조련사(농식품부) 또는 재활승마지도사(농식품부) 또는 생활스포츠지도사(승마) 또는 전문스포츠지도사(승마) 자격증 소지자",
+      "change_type": "text",
+      "prev_value": "(25) 축산(기승조교 및 말관리) : 말조련사(농림부) 또는 재활승마지도사(농림부) 또는 생활스포츠지도사(승마) 또는 전문스포츠지도사(승마) 자격증 소지자이면서 비수도권 지역인재에 해당하는 자",
+      "curr_value": "(33) 축산(기승조교 및 말관리) : 말조련사(농식품부) 또는 재활승마지도사(농식품부) 또는 생활스포츠지도사(승마) 또는 전문스포츠지도사(승마) 자격증 소지자",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-048",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 삭제: (26) 축산(장제) : 장제사 자격증 소지자",
+      "change_type": "removed",
+      "prev_value": "(26) 축산(장제) : 장제사 자격증 소지자",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-049",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격: (27) 출발(출발) : 자격제한 없음 → (34) 출발(출발) : 자격제한 없음",
+      "change_type": "text",
+      "prev_value": "(27) 출발(출발) : 자격제한 없음",
+      "curr_value": "(34) 출발(출발) : 자격제한 없음",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-050",
+      "importance": 2,
+      "category": "자격",
+      "title": "응시자격 삭제: *기타 자세한 사항은 채용공고문 참조",
+      "change_type": "removed",
+      "prev_value": "*기타 자세한 사항은 채용공고문 참조",
+      "curr_value": null,
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-051",
+      "importance": 2,
+      "category": "결격사유",
+      "title": "결격사유: 15. 미성년자에 대한 다음 각 목의 어느 하나에 해당하는 죄를 저질러 파면ㆍ해임?면직되거나 형 또는 치료감호를 선고받아 그 형 또는 치료감호가 확정된 사람(집행유예를 선고받은 후 그 집행유예기간이 경과한 사람을 포함한다) → 15. 미성년자에 대한 다음 각 목의 어느 하나에 해당하는 죄를 저질러 파면ㆍ해임ㆍ면직되거나 형 또는 치료감호를 선고받아 그 형 또는 치료감호가 확정된 사람(집행유예를 선고받은 후 그 집행유예기간이 경과한 사람을 포함한다)",
+      "change_type": "text",
+      "prev_value": "15. 미성년자에 대한 다음 각 목의 어느 하나에 해당하는 죄를 저질러 파면ㆍ해임?면직되거나 형 또는 치료감호를 선고받아 그 형 또는 치료감호가 확정된 사람(집행유예를 선고받은 후 그 집행유예기간이 경과한 사람을 포함한다)",
+      "curr_value": "15. 미성년자에 대한 다음 각 목의 어느 하나에 해당하는 죄를 저질러 파면ㆍ해임ㆍ면직되거나 형 또는 치료감호를 선고받아 그 형 또는 치료감호가 확정된 사람(집행유예를 선고받은 후 그 집행유예기간이 경과한 사람을 포함한다)",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-052",
+      "importance": 2,
+      "category": "결격사유",
+      "title": "결격사유 추가: 16. 본회 재직기간 중 직무와 관련하여 「형법」제355조 및 제356조에 규정된 죄를 범한자로서 300만원 이상의 벌금형을 선고받고 그 형이 확정된 후 2년이 지나지 아니한 자",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": "16. 본회 재직기간 중 직무와 관련하여 「형법」제355조 및 제356조에 규정된 죄를 범한자로서 300만원 이상의 벌금형을 선고받고 그 형이 확정된 후 2년이 지나지 아니한 자",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-054",
+      "importance": 2,
+      "category": "가점",
+      "title": "우대사항: -농어업인 자녀, 국민기초생활수급자, 북한이탈주민, 다문화가족, 다자녀부모, 경력단절여성, 자립준비청년 : 서류 5% 가점 → -농어업인 자녀, 국민기초생활수급자, 북한이탈주민, 다문화가족, 다자녀부모, 경력단절여성, 자립준비청년, 한부모가정 : 서류 5% 가점",
+      "change_type": "text",
+      "prev_value": "-농어업인 자녀, 국민기초생활수급자, 북한이탈주민, 다문화가족, 다자녀부모, 경력단절여성, 자립준비청년 : 서류 5% 가점",
+      "curr_value": "-농어업인 자녀, 국민기초생활수급자, 북한이탈주민, 다문화가족, 다자녀부모, 경력단절여성, 자립준비청년, 한부모가정 : 서류 5% 가점",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-055",
+      "importance": 2,
+      "category": "가점",
+      "title": "우대사항 추가: -의사상자 : 서류 5% 또는 3% 가점",
+      "change_type": "added",
+      "prev_value": null,
+      "curr_value": "-의사상자 : 서류 5% 또는 3% 가점",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-056",
+      "importance": 2,
+      "category": "가점",
+      "title": "우대사항: ※기타 직무역량 및 경력·경험 관련 자세한 우대내용은 채용공고문 참조 → ※ 기타 직무역량, 공통역량 및 경력·경험 관련 자세한 우대내용은 채용공고문 참조",
+      "change_type": "text",
+      "prev_value": "※기타 직무역량 및 경력·경험 관련 자세한 우대내용은 채용공고문 참조",
+      "curr_value": "※ 기타 직무역량, 공통역량 및 경력·경험 관련 자세한 우대내용은 채용공고문 참조",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    },
+    {
+      "id": "stage1-014",
+      "importance": 3,
+      "category": "자격",
+      "title": "응시자격: * 「인사규정」 개정 발생 시 임용예정일(’25.3.30.) 기준 「인사규정」을 기준으로 함 → * 「인사규정」 개정 발생 시 임용예정일(’26.2.28.) 기준 「인사규정」을 기준으로 함",
+      "change_type": "date",
+      "prev_value": "* 「인사규정」 개정 발생 시 임용예정일(’25.3.30.) 기준 「인사규정」을 기준으로 함",
+      "curr_value": "* 「인사규정」 개정 발생 시 임용예정일(’26.2.28.) 기준 「인사규정」을 기준으로 함",
+      "source": "stage1",
+      "ai_label": null,
+      "confidence": "not_applicable",
+      "status": "review_required",
+      "affected_units": [],
+      "evidence": []
+    }
+  ],
+  "change_groups": [
+    {
+      "id": "group-stage1-003",
+      "category": "모집단위",
+      "member_ids": [
+        "stage1-003",
+        "stage1-004"
+      ],
+      "shared_terms": [
+        "시스템개발"
+      ]
+    },
+    {
+      "id": "group-stage1-010",
+      "category": "전형",
+      "member_ids": [
+        "stage1-010",
+        "stage1-011"
+      ],
+      "shared_terms": [
+        "역량검사",
+        "AI"
+      ]
+    },
+    {
+      "id": "group-stage1-015",
+      "category": "자격",
+      "member_ids": [
+        "stage1-015",
+        "stage1-016",
+        "stage1-017",
+        "stage1-018"
+      ],
+      "shared_terms": [
+        "경영지원"
+      ]
+    },
+    {
+      "id": "group-stage1-019",
+      "category": "자격",
+      "member_ids": [
+        "stage1-019",
+        "stage1-020",
+        "stage1-021",
+        "stage1-022",
+        "stage1-023",
+        "stage1-024",
+        "stage1-025",
+        "stage1-035",
+        "stage1-038",
+        "stage1-039",
+        "stage1-040",
+        "stage1-041",
+        "stage1-042",
+        "stage1-043",
+        "stage1-044",
+        "stage1-045",
+        "stage1-046",
+        "stage1-047",
+        "stage1-048"
+      ],
+      "shared_terms": [
+        "판매마케팅",
+        "일반행정",
+        "자격제한",
+        "없음",
+        "취업지원",
+        "보훈"
+      ]
+    }
+  ],
+  "notice_info": {
+    "period": {
+      "start": "2025.11.24",
+      "end": "2025.12.08"
+    },
+    "rules": [
+      {
+        "topic": "병역",
+        "text": "복무 중인 경우 ’26.2.27.까지 전역 가능한 자"
+      },
+      {
+        "topic": "기타",
+        "text": "「인사규정」 개정 발생 시 임용예정일(’26.2.28.) 기준 「인사규정」을 기준으로 함"
+      }
+    ],
+    "submissions": [],
+    "benefits": [
+      {
+        "section": "<사회형평 채용 관련 우대사항>",
+        "name": "취업지원(보훈)대상자",
+        "benefit": "서류, 필기, 면접 각 5% 또는 10% 가점",
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "<사회형평 채용 관련 우대사항>",
+        "name": "장애인 등록자",
+        "benefit": "서류, 필기, 면접 각 5%(경증) 또는 10%(중증) 가점",
+        "notes": [],
+        "change": "changed",
+        "prev_benefit": "서류, 필기, 면접 각 10%가점"
+      },
+      {
+        "section": "<사회형평 채용 관련 우대사항>",
+        "name": "농어업인 자녀, 국민기초생활수급자, 북한이탈주민, 다문화가족, 다자녀부모, 경력단절여성, 자립준비청년, 한부모가정 : 서류 5% 가점",
+        "benefit": "의사상자: 서류 5% 또는 3% 가점 / 양성평등: 필기 채용목표제(30%) 시행, 사무직 한정 / 비수도권 지역인재: 필기 채용목표제(35%) 시행, 사무직 한정 / 고졸자: 필기 채용목표제(50%) 시행, 고졸적합직무 한정",
+        "notes": [
+          "기타 직무역량, 공통역량 및 경력·경험 관련 자세한 우대내용은 채용공고문 참조"
+        ],
+        "change": "new",
+        "prev_benefit": null
+      }
+    ]
+  },
+  "units": [],
+  "competition": {
+    "published": true,
+    "prev": null,
+    "curr": null,
+    "note": "API에 인원 정보가 있으나 경쟁률 수기 확인 필요",
+    "checked_at": null
+  },
+  "requirements": {
+    "tracks": [
+      "사무",
+      "기타",
+      "건축",
+      "토목",
+      "기계",
+      "전기",
+      "ICT",
+      "화학"
+    ],
+    "regions": [
+      "경기",
+      "경남",
+      "경북",
+      "광주",
+      "대구",
+      "부산",
+      "서울",
+      "세종",
+      "울산",
+      "인천",
+      "전북",
+      "제주",
+      "충남"
+    ],
+    "certificates": [],
+    "majors": [],
+    "manual_review_conditions": [],
+    "units": [
+      {
+        "name": "일반행정",
+        "track": "사무",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "일반행정(장애인)",
+        "track": "사무",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "일반행정(보훈)",
+        "track": "사무",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "일반행정(지역인재)",
+        "track": "사무",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "일반행정(사회형평)",
+        "track": "사무",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "산업안전보건관리",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "산업안전보건관리(지역인재)",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "재무회계관리",
+        "track": "사무",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "법무",
+        "track": "사무",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "수의",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "도핑",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "유전자",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "말생산육성",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "건축",
+        "track": "건축",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "건축(보훈)",
+        "track": "건축",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "토목",
+        "track": "토목",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "토목(보훈)",
+        "track": "토목",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "기계",
+        "track": "기계",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "전기",
+        "track": "전기",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "통신",
+        "track": "ICT",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "통신(지역인재)",
+        "track": "ICT",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "환경",
+        "track": "화학",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "시스템개발",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "시스템개발(보훈)",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "시스템개발(지역인재)",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "시스템운영",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "정보보안",
+        "track": "ICT",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "아나운서(지역인재)",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "CG",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "방송기술",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "방송기술(지역인재)",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "승마교관",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "기승조교 및 말관리",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "출발",
+        "track": "기타",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      }
+    ],
+    "common_checks": [],
+    "region_note": null,
+    "bonus_rule": null,
+    "reviewed": null
+  },
+  "tier": "auto",
+  "category": "준시장형"
+}

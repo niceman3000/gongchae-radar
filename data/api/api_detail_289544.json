@@ -1,0 +1,162 @@
+{
+  "resultCode": 200,
+  "resultMsg": "성공했습니다.",
+  "result": {
+    "recrutPblntSn": 289544,
+    "pblntInstCd": "C0268",
+    "pbadmsStdInstCd": "B551457",
+    "instNm": "한국철도공사",
+    "ncsCdLst": "R600025",
+    "ncsCdNmLst": "연구",
+    "hireTypeLst": "R1040",
+    "hireTypeNmLst": "비정규직",
+    "workRgnLst": "R3012",
+    "workRgnNmLst": "대전",
+    "recrutSe": "R2030",
+    "recrutSeNm": "신입+경력",
+    "prefCondCn": "ㅇ「국가유공자 등 예우 및 지원에 관한 법률」등에 의한 취업지원대상자 ㅇ자세한 사항은 공고문 참조",
+    "recrutNope": 4,
+    "pbancBgngYmd": "20250813",
+    "pbancEndYmd": "20250827",
+    "recrutPbancTtl": "한국철도공사 철도연구원 위촉연구원 채용공고",
+    "srcUrl": "\thttp://info.korail.com",
+    "replmprYn": "N",
+    "aplyQlfcCn": " ㅇ 자격요건 : 다음 중 어느 하나를 만족하는 사람\r\n     [원급]\r\n       · 이공계열 학사학위 이상 취득\r\n       · 이공계열 전문학사학위 취득 후 관련분야 2년 이상 경력\r\n      ㅇ 세부 응시자격은 공고문 참조 ",
+    "disqlfcRsn": "1. 피성년후견인 또는 피한정후견인 \r\n2. 파산자로서 복권되지 않은 자 \r\n3. 금고이상의 형을 받고 그 집행이 종료되거나 집행을 받지 않기로 확정된 후 5년이 지나지 않은 자\r\n4. 금고이상의 형을 받고 그 집행의 유예기간이 완료된 날부터 2년이 지나지 않은 자 \r\n5. 금고이상의 형의 선고를 유예 받은 경우에 그 선고유예 기간 중에 있는 자 \r\n6. 법원의 판결 또는 다른 법률에 따라 자격이 상실 또는 정지된 자 \r\n7. 징계로 해임처분을 받은 때부터 3년이 지나지 않은 자(국가공무원법 제78조에 따라 해임된 자를 포함한다.) \r\n8. 징계로 파면의 처분을 받은 때부터 5년이 지나지 않은 자(국가공무원법 제78조에 따라 파면된 자를 포함한다.) \r\n9. 「부패방지 및 국민권익위원회의 설치와 운영에 관한 법률」제82조에 따른 비위면직자 등의 취업제한 일부터 5년이 지나지 않은 자 \r\n10. 공공기관에 부정한 방법으로 채용된 사실이 적발되어 채용이 취소된 날부터 5년이 지나지 않은 자\r\n11. 「성폭력범죄의 처벌 등에 관한 특례법」제2조에 규정된 죄를 범한 자로서 100만원 이상의 벌금형을 선고받고 그 형이 확정된 후 3년이 지나지 않은 자\r\n가.「성폭력범죄의 처벌 등에 관한 특례법」제2조에 따른 성폭력 범죄 \r\n나.「정보통신망 이용촉진 및 정보보호 등에 관한 법률」제74조제1항제2호 및 제3호에 규정된 죄 \r\n다.「스토킹범죄의 처벌 등에 관한 법률」제2조제2호에 따른 스토킹 범죄 \r\n12. 미성년자에 대하여 다음 각 목의 어느 하나에 해당하는 죄를 저질러 파면·해임되거나 형 또는 치료감호를 선고받아 그 형 또는 치료감호가 확정된 자(집행유예를 선고 받은 후 그 집행유예기간이 경과한 자를 포함한다)\r\n가. 「성폭력범죄의 처벌 등에 관한 특례법」제2조에 따른 성폭력범죄 \r\n나. 「아동·청소년의 성보호에 관한 법률」제2조제2호에 따른 아동·청소년대상 성범죄 \r\n\r\n ※ 채용시험에 있어서 제1항 각 호의 어느 하나에 해당하는 자는 응시할 수 없으며, 그 해당여부는 입사지원서 접수마감일로 한다.",
+    "scrnprcdrMthdExpln": "ㅁ 채용절차 및 방법\r\n  ㅇ1차(서류전형): 제출서류 검증을 통해 합격자 선정\r\n  ㅇ2차(면접전형): 면접심사 고득점 순으로 최종합격자 선발\r\n    ※ 자세한 사항은 첨부파일 공고문 참조",
+    "prefCn": "ㅇ「국가유공자 등 예우 및 지원에 관한 법률」등에 의한 취업지원대상자 \r\nㅇ자세한 사항은 공고문 참조 ",
+    "acbgCondLst": "R7040,R7050,R7060,R7070",
+    "acbgCondNmLst": "대졸(2~3년),대졸(4년),석사,박사",
+    "nonatchRsn": null,
+    "ongoingYn": null,
+    "decimalDay": -449,
+    "files": [
+      {
+        "recrutAtchFileNo": 2982006,
+        "sortNo": 4,
+        "atchFileNm": "[채용공고문] 2025년 제2차 위촉연구원 채용공고(안).hwp",
+        "atchFileType": "A",
+        "url": "https://opendata.alio.go.kr/recruit/downloadAtchFile?recrutAtchFileNo=2982006"
+      },
+      {
+        "recrutAtchFileNo": 2982007,
+        "sortNo": 5,
+        "atchFileNm": "입사지원서.hwp",
+        "atchFileType": "B",
+        "url": "https://opendata.alio.go.kr/recruit/downloadAtchFile?recrutAtchFileNo=2982007"
+      },
+      {
+        "recrutAtchFileNo": 2982008,
+        "sortNo": 6,
+        "atchFileNm": "직무기술서(2025년 2차).hwp",
+        "atchFileType": "C",
+        "url": "https://opendata.alio.go.kr/recruit/downloadAtchFile?recrutAtchFileNo=2982008"
+      },
+      {
+        "recrutAtchFileNo": 2982009,
+        "sortNo": 7,
+        "atchFileNm": "채용공고문 붙임자료.zip",
+        "atchFileType": "Z",
+        "url": "https://opendata.alio.go.kr/recruit/downloadAtchFile?recrutAtchFileNo=2982009"
+      }
+    ],
+    "steps": [
+      {
+        "recrutStepSn": 1086152,
+        "recrutPblntSn": 289544,
+        "recrutPbancTtl": "연구직_수소전기동차 실증",
+        "recrutNope": null,
+        "aplyNope": null,
+        "cmpttRt": null,
+        "rsnOcrnYmd": null,
+        "sortNo": 0,
+        "minStepSn": 1086152,
+        "maxStepSn": 1086153
+      },
+      {
+        "recrutStepSn": 1086153,
+        "recrutPblntSn": 289544,
+        "recrutPbancTtl": "연구직_수소전기동차 실증",
+        "recrutNope": null,
+        "aplyNope": null,
+        "cmpttRt": 0.0,
+        "rsnOcrnYmd": null,
+        "sortNo": 0,
+        "minStepSn": 1086152,
+        "maxStepSn": 1086153
+      },
+      {
+        "recrutStepSn": 1086154,
+        "recrutPblntSn": 289544,
+        "recrutPbancTtl": "연구직_대심도 처도시설 고위험 재난대응 통합관리 시스템 개발 및 검증",
+        "recrutNope": null,
+        "aplyNope": null,
+        "cmpttRt": null,
+        "rsnOcrnYmd": null,
+        "sortNo": 1,
+        "minStepSn": 1086154,
+        "maxStepSn": 1086155
+      },
+      {
+        "recrutStepSn": 1086155,
+        "recrutPblntSn": 289544,
+        "recrutPbancTtl": "연구직_대심도 처도시설 고위험 재난대응 통합관리 시스템 개발 및 검증",
+        "recrutNope": null,
+        "aplyNope": null,
+        "cmpttRt": 0.0,
+        "rsnOcrnYmd": null,
+        "sortNo": 1,
+        "minStepSn": 1086154,
+        "maxStepSn": 1086155
+      },
+      {
+        "recrutStepSn": 1086156,
+        "recrutPblntSn": 289544,
+        "recrutPbancTtl": "연구직_데이터 기반 철도시스템 안전평가 예측 기술개발",
+        "recrutNope": null,
+        "aplyNope": null,
+        "cmpttRt": null,
+        "rsnOcrnYmd": null,
+        "sortNo": 2,
+        "minStepSn": 1086156,
+        "maxStepSn": 1086157
+      },
+      {
+        "recrutStepSn": 1086157,
+        "recrutPblntSn": 289544,
+        "recrutPbancTtl": "연구직_데이터 기반 철도시스템 안전평가 예측 기술개발",
+        "recrutNope": null,
+        "aplyNope": null,
+        "cmpttRt": 0.0,
+        "rsnOcrnYmd": null,
+        "sortNo": 2,
+        "minStepSn": 1086156,
+        "maxStepSn": 1086157
+      },
+      {
+        "recrutStepSn": 1086158,
+        "recrutPblntSn": 289544,
+        "recrutPbancTtl": "연구직_철도종사자의 인적오류 분석 평가 예방 기술개발",
+        "recrutNope": null,
+        "aplyNope": null,
+        "cmpttRt": null,
+        "rsnOcrnYmd": null,
+        "sortNo": 3,
+        "minStepSn": 1086158,
+        "maxStepSn": 1086159
+      },
+      {
+        "recrutStepSn": 1086159,
+        "recrutPblntSn": 289544,
+        "recrutPbancTtl": "연구직_철도종사자의 인적오류 분석 평가 예방 기술개발",
+        "recrutNope": null,
+        "aplyNope": null,
+        "cmpttRt": 0.0,
+        "rsnOcrnYmd": null,
+        "sortNo": 3,
+        "minStepSn": 1086158,
+        "maxStepSn": 1086159
+      }
+    ]
+  }
+}

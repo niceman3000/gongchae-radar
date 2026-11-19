@@ -1,0 +1,193 @@
+{
+  "resultCode": 200,
+  "resultMsg": "성공했습니다.",
+  "result": {
+    "recrutPblntSn": 296725,
+    "pblntInstCd": "C0533",
+    "pbadmsStdInstCd": "B553931",
+    "instNm": "해양환경공단",
+    "ncsCdLst": "R600002,R600017,R600023",
+    "ncsCdNmLst": "경영.회계.사무,화학,환경.에너지.안전",
+    "hireTypeLst": "R1040",
+    "hireTypeNmLst": "비정규직",
+    "workRgnLst": "R3010,R3014,R3024,R3021",
+    "workRgnNmLst": "서울,부산,전북,경북",
+    "recrutSe": "R2030",
+    "recrutSeNm": "신입+경력",
+    "prefCondCn": "취업지원대상자, 장애인, 저소득층, 북한이탈주민, 다문화가족, 자립준비청년, 공단 근무경력자",
+    "recrutNope": 10,
+    "pbancBgngYmd": "20260107",
+    "pbancEndYmd": "20260121",
+    "recrutPbancTtl": "2026년 해양환경공단 업무지원직(기간제 근로자) 채용 공고",
+    "srcUrl": "https://koem.fairyhr.com/",
+    "replmprYn": "N",
+    "aplyQlfcCn": "1. 공통 자격요건\r\n- 성별: 무관\r\n- 병역: 무관, 단 병역법 제76조에서 정한 병역의무 불이행 사실이 없는 자\r\n- 연령: 입사지원서 마감일(시간) 기준 60세 미만인 자\r\n- 기타: 공단 인사규정 제28조 결격사유에 대항하지 않는 자\r\n2. 채용분야별 응시자격\r\n- 해양환경교육: 학사 학위(학과, 전공 무관) 이상 취득자. '26년 전기 졸업예정자(학사) 포함\r\n- 일반행정(해양환경): 학사 학위(학과, 전공 무관) 이상 취득자. '26년 전기 졸업예정자(학사) 포함\r\n- 일반행정(화학): 학사 학위 이상 취득자로서, 관련 전공을 이수한 것으로 인정되는 자. '26년 전기 졸업예정자(학사) 포함\r\n  * (관련전공) 화학, 화학공학 등 관련학과 및 이와 동등한 것으로 심사위원이 인정하는 전공\r\n- 해양수질 조사 및 분석: : 학사 학위 이상 취득자로서, 관련 전공을 이수한 것으로 인정되는 자. '26년 전기 졸업예정자(학사) 포함\r\n    * (관련전공) 해양학, 환경공학, 화학 등 관련학과 및 이와 동등한 것으로 심사위원이 인정하는 전공\r\n- 해양생태계 조사 및 분석: : 학사 학위 이상 취득자로서, 관련 전공을 이수한 것으로 인정되는 자. '26년 전기 졸업예정자(학사) 포함\r\n    * (관련전공) 해양학, 환경공학, 화학 등 관련학과 및 이와 동등한 것으로 심사위원이 인정하는 전공\r\n ※ '26년 전기 졸업예정자(학사): '26년 전기에 졸업하는 자('26년 3월 이전에 졸업하는 자)로, 정해진 기한 내 졸업예정증명서 또는 학위수여예정증명서 제출이 가능하여야 함. 입사지원서 마감일(시간) 이내 기준으로, 4학년 1학기에 해당하거나 '26년 후기 졸업예정자는 미해당",
+    "disqlfcRsn": "1. 피성년후견인\r\n2. 파산선고를 받고 복권되지 아니한 자\r\n3. 금고 이상의 실형을 선고받고 그 집행이 끝나거나(집행이 끝난 것으로 보는 경우를 포함한다) 집행이 면제된 날부터 5년이 지나지 아니한 자\r\n4. 금고 이상의 형의 집행유예를 선고받고 그 유예기간이 끝난 날부터 2년이 지나지 아니한 자\r\n5. 금고 이상의 형의 선고유예를 받은 경우에 그 선고유예 기간 중에 있는 자\r\n6. 법원의 판결 또는 다른 법률에 따라 자격이 상실되거나 정지된 자\r\n7. 직무와 관련하여 형법 제355조(배임 및 횡령) 및 제356조(업무상의 횡령과 배임)에 규정된 죄를 범한 자로서 300만원 이상의 벌금형을 선고받고 그 형이 확정된 후 2년이 지나지 아니한 자\r\n8. 다음 각 목의 어느 하나에 해당하는 죄를 범한 사람으로서 100만원 이상의 벌금형을 선고받고 그 형이 확정된 후 3년이 지나지 아니한 사람\r\n가. 성폭력범죄의 처벌 등에 관한 특례법 제2조에 따른 성폭력범죄\r\n나. 정보통신망 이용촉진 및 정보보호 등에 관한 법률 제74조제1항제2호 및 제3호에 규정된 죄\r\n다. 스토킹범죄의 처벌 등에 관한 법률 제2조제2호에 따른 스토킹범죄\r\n9. 미성년대상 성범죄자(영구 결격)\r\n10. 전직 근무기관으로부터 “해임”처분을 받은 날로부터 3년, “파면”처분을 받은 날로부터 5년이 경과하지 아니한 자\r\n11. 부패방지 및 국민권익위원회의 설치와 운영에 관한 법률 제82조에 따른 비위면직자 등의 취업제한 적용을 받는 비위면직자",
+    "scrnprcdrMthdExpln": "1. 전형절차: 채용공고 및 지원서 접수, 서류전형(1차전형), 면접전형(2차전형), 최종합격자 임용\r\n2. 전형단계별 선발예정 배수\r\n- 서류전형: 채용 예정 인원의 5배수를 면접전형 대상자로 선발\r\n- 면접전형: 채용 예정 인원의 3배수를 예비합격자로 선발\r\n- 최종합격자 선발\r\n3. 평가방법\r\n- 서류전형: 적격심사(블라인드 작성 방식 위배 여부, 불성실 여부 등 적격심사) 및 정성평가(적격자를 대상으로 입사지원서 상 자기소개서 평가)\r\n- 면접전형: 대면면접(多 대 一), 채용분야별 직무수행에 필요한 전문성 및 적격성, 태도 등 검정",
+    "prefCn": "- 취업지원대상자: 「국가유공자 등 예우 및 지원에 관한 법률」 등 관계 법률에 따른 취업지원대상자, 서류, 면접전형에서 만점의 5% 또는 10%\r\n- 장애인: 「장애인 고용촉진 및 직업재활법」 제2조 제1항 및 제2항에 의한 장애인, 서류, 면접전형에서 만점의 5% 또는 10%\r\n- 저소득층: 「공무원임용시행령」 제2조에 의한 저소득층(국민기초생활보장법, 한부모가족지원법), 서류, 면접전형에서 만점의 3%\r\n- 북한이탈주민: 「북한이탈주민의 보호 및 정착지원에 관한 법률」 제2조에 의한 북한이탈주민, 서류, 면접전형에서 만점의 3%\r\n- 다문화가족: 「다문화가족지원법」 제2조에 의한 다문화가족, 서류, 면접전형에서 만점의 3%\r\n- 자립준비청년: 자립준비청년(보호종료아동)에 해당되어, 자립수당 수급자 확인서 발급이 가능한 자, 서류, 면접전형에서 만점의 3%\r\n- 해양환경공단 근무경력자: 공단 채용 절차를 통해 입사하여 일정기간 근무한 이력이 있는 자(대상: 일반정규직, 공무직, 업무지원직, 청년인턴), 서류, 면접전형에서 만점의 1~3%",
+    "acbgCondLst": "R7040,R7050,R7060,R7070",
+    "acbgCondNmLst": "대졸(2~3년),대졸(4년),석사,박사",
+    "nonatchRsn": null,
+    "ongoingYn": null,
+    "decimalDay": -302,
+    "files": [
+      {
+        "recrutAtchFileNo": 3027774,
+        "sortNo": 3,
+        "atchFileNm": "채용공고문(2026년_해양환경공단_업무지원직_채용).pdf",
+        "atchFileType": "A",
+        "url": "https://opendata.alio.go.kr/recruit/downloadAtchFile?recrutAtchFileNo=3027774"
+      },
+      {
+        "recrutAtchFileNo": 3027775,
+        "sortNo": 4,
+        "atchFileNm": "(양식)업무지원직 입사지원서.pdf",
+        "atchFileType": "B",
+        "url": "https://opendata.alio.go.kr/recruit/downloadAtchFile?recrutAtchFileNo=3027775"
+      },
+      {
+        "recrutAtchFileNo": 3027776,
+        "sortNo": 5,
+        "atchFileNm": "채용분야별_직무_설명자료.zip",
+        "atchFileType": "C",
+        "url": "https://opendata.alio.go.kr/recruit/downloadAtchFile?recrutAtchFileNo=3027776"
+      },
+      {
+        "recrutAtchFileNo": 3027777,
+        "sortNo": 6,
+        "atchFileNm": "응시자_참고자료.zip",
+        "atchFileType": "Z",
+        "url": "https://opendata.alio.go.kr/recruit/downloadAtchFile?recrutAtchFileNo=3027777"
+      },
+      {
+        "recrutAtchFileNo": 3027778,
+        "sortNo": 7,
+        "atchFileNm": "별지서식.zip",
+        "atchFileType": "Z",
+        "url": "https://opendata.alio.go.kr/recruit/downloadAtchFile?recrutAtchFileNo=3027778"
+      }
+    ],
+    "steps": [
+      {
+        "recrutStepSn": 1164968,
+        "recrutPblntSn": 296725,
+        "recrutPbancTtl": "해양환경교육",
+        "recrutNope": 19,
+        "aplyNope": 53,
+        "cmpttRt": null,
+        "rsnOcrnYmd": "20260128",
+        "sortNo": 0,
+        "minStepSn": 1164968,
+        "maxStepSn": 1164969
+      },
+      {
+        "recrutStepSn": 1164969,
+        "recrutPblntSn": 296725,
+        "recrutPbancTtl": "해양환경교육",
+        "recrutNope": null,
+        "aplyNope": null,
+        "cmpttRt": 0.0,
+        "rsnOcrnYmd": null,
+        "sortNo": 0,
+        "minStepSn": 1164968,
+        "maxStepSn": 1164969
+      },
+      {
+        "recrutStepSn": 1164970,
+        "recrutPblntSn": 296725,
+        "recrutPbancTtl": "일반행정(해양환경)",
+        "recrutNope": 5,
+        "aplyNope": 21,
+        "cmpttRt": null,
+        "rsnOcrnYmd": "20260128",
+        "sortNo": 1,
+        "minStepSn": 1164970,
+        "maxStepSn": 1164971
+      },
+      {
+        "recrutStepSn": 1164971,
+        "recrutPblntSn": 296725,
+        "recrutPbancTtl": "일반행정(해양환경)",
+        "recrutNope": null,
+        "aplyNope": null,
+        "cmpttRt": 0.0,
+        "rsnOcrnYmd": null,
+        "sortNo": 1,
+        "minStepSn": 1164970,
+        "maxStepSn": 1164971
+      },
+      {
+        "recrutStepSn": 1164972,
+        "recrutPblntSn": 296725,
+        "recrutPbancTtl": "일반행정(화학)",
+        "recrutNope": 4,
+        "aplyNope": 4,
+        "cmpttRt": null,
+        "rsnOcrnYmd": "20260128",
+        "sortNo": 2,
+        "minStepSn": 1164972,
+        "maxStepSn": 1164973
+      },
+      {
+        "recrutStepSn": 1164973,
+        "recrutPblntSn": 296725,
+        "recrutPbancTtl": "일반행정(화학)",
+        "recrutNope": null,
+        "aplyNope": null,
+        "cmpttRt": 0.0,
+        "rsnOcrnYmd": null,
+        "sortNo": 2,
+        "minStepSn": 1164972,
+        "maxStepSn": 1164973
+      },
+      {
+        "recrutStepSn": 1164974,
+        "recrutPblntSn": 296725,
+        "recrutPbancTtl": "해양수질 조사분석",
+        "recrutNope": 10,
+        "aplyNope": 27,
+        "cmpttRt": null,
+        "rsnOcrnYmd": "20260128",
+        "sortNo": 3,
+        "minStepSn": 1164974,
+        "maxStepSn": 1164975
+      },
+      {
+        "recrutStepSn": 1164975,
+        "recrutPblntSn": 296725,
+        "recrutPbancTtl": "해양수질 조사분석",
+        "recrutNope": null,
+        "aplyNope": null,
+        "cmpttRt": 0.0,
+        "rsnOcrnYmd": null,
+        "sortNo": 3,
+        "minStepSn": 1164974,
+        "maxStepSn": 1164975
+      },
+      {
+        "recrutStepSn": 1164976,
+        "recrutPblntSn": 296725,
+        "recrutPbancTtl": "해양생태계 조사분석",
+        "recrutNope": 10,
+        "aplyNope": 22,
+        "cmpttRt": null,
+        "rsnOcrnYmd": "20260128",
+        "sortNo": 4,
+        "minStepSn": 1164976,
+        "maxStepSn": 1164977
+      },
+      {
+        "recrutStepSn": 1164977,
+        "recrutPblntSn": 296725,
+        "recrutPbancTtl": "해양생태계 조사분석",
+        "recrutNope": null,
+        "aplyNope": null,
+        "cmpttRt": 0.0,
+        "rsnOcrnYmd": null,
+        "sortNo": 4,
+        "minStepSn": 1164976,
+        "maxStepSn": 1164977
+      }
+    ]
+  }
+}

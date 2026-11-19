@@ -4,7 +4,7 @@
 
 입력: config/auto_pairs.json (tools/collect_institutions.py가 만듦), data/api, data/pdf
 출력: data/reports/report_<기관코드>.json   (tier=auto, category=시장형/준시장형)
-      stage2/bundle_<공고번호>.json        (PDF가 있을 때 쪽별 텍스트, 없을 때만 새로 만듦)
+      stage2/bundle_<공고번호>.json        (PDF가 있을 때 쪽별 텍스트, 없거나 PDF가 더 새로우면 새로 만듦)
       results/stage1_auto.json             (1단계 비교 결과 모음)
 
 실행 (프로젝트 최상위 폴더)
@@ -30,11 +30,12 @@ from src.report_builder import build_report, load_api_item, validate_report  # n
 
 
 def _bundle_text(root: Path, sn: str, pdf: Path, log=print) -> dict | None:
-    """PDF가 있으면 쪽별 텍스트 묶음을 만들어(없을 때만) 돌려준다."""
+    """PDF가 있으면 쪽별 텍스트 묶음을 만들어 돌려준다.
+    묶음이 없거나 PDF가 묶음보다 새 파일이면(다시 받은 PDF) 새로 읽는다. PDF가 없으면 옛 묶음도 쓰지 않는다."""
     bundle = root / "stage2" / f"bundle_{sn}.json"
-    if not bundle.exists():
-        if not pdf.exists():
-            return None
+    if not pdf.exists():
+        return None
+    if not bundle.exists() or pdf.stat().st_mtime > bundle.stat().st_mtime:
         try:
             data = build_bundle.build(str(pdf))
         except Exception as exc:  # noqa: BLE001 - 깨진 PDF는 건너뛰고 기록

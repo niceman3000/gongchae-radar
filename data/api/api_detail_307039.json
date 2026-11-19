@@ -1,0 +1,95 @@
+{
+  "resultCode": 200,
+  "resultMsg": "성공했습니다.",
+  "result": {
+    "recrutPblntSn": 307039,
+    "pblntInstCd": "C0082",
+    "pbadmsStdInstCd": "B552522",
+    "instNm": "한국서부발전(주)",
+    "ncsCdLst": "R600013",
+    "ncsCdNmLst": "음식서비스",
+    "hireTypeLst": "R1040",
+    "hireTypeNmLst": "비정규직",
+    "workRgnLst": "R3024",
+    "workRgnNmLst": "전북",
+    "recrutSe": "R2030",
+    "recrutSeNm": "신입+경력",
+    "prefCondCn": "장애인 등 ※ 상세내용 붙임1의 채용공고문 참조",
+    "recrutNope": 1,
+    "pbancBgngYmd": "20261117",
+    "pbancEndYmd": "20261202",
+    "recrutPbancTtl": "한국서부발전(주) 군산발전본부 후생담당원(기간제근로자) 모집공고",
+    "srcUrl": "https://recruit.incruit.com/iwest/",
+    "replmprYn": "N",
+    "aplyQlfcCn": "- 만 55세 이상 고령자(학력, 성별 제한 없음)\r\n- 식품위생법 제40조 및 동법 시행규칙 제29조에 의한 건강 진단결과 이상이 없는 자(공고 마감일 기준 진단일 1년 이내)\r\n- (남자의 경우)병역 의무를 필하였거나 면제된 자\r\n- 당사 인사관리규정 제10조의 결격사유가 없는 자\r\n- 합격 후 명시기한 내 근무가 가능한 자",
+    "disqlfcRsn": "당사 인사관리규정 제10조의 결격사유가 없는 자\r\n※ 상세내용 붙임1의 채용공고문 참조",
+    "scrnprcdrMthdExpln": "* 지원서 접수\r\n- 접수기간: 2026. 11. 17.(화) 09:00 ∼ 2026. 12. 02.(수) 14:00\r\n- 접수방법: 인터넷 접수\r\n* 전형방법\r\n- 1차: 서류 전형\r\n- 2차: 면접 전형\r\n- 최종: 합격자 발표(신원조회 및 신체검사 후)\r\n※ 상세내용 붙임1의 채용공고문 참조",
+    "prefCn": "* 장애인: 면접 전형 만점의 10%\r\n※ 상세내용 붙임1의 채용공고문 참조",
+    "acbgCondLst": "R7010",
+    "acbgCondNmLst": "학력무관",
+    "nonatchRsn": null,
+    "ongoingYn": null,
+    "decimalDay": 13,
+    "files": [
+      {
+        "recrutAtchFileNo": 3087427,
+        "sortNo": 4,
+        "atchFileNm": "붙임1. 채용공고문.hwp",
+        "atchFileType": "A",
+        "url": "https://opendata.alio.go.kr/recruit/downloadAtchFile?recrutAtchFileNo=3087427"
+      },
+      {
+        "recrutAtchFileNo": 3087428,
+        "sortNo": 5,
+        "atchFileNm": "붙임1. 채용공고문.hwp",
+        "atchFileType": "B",
+        "url": "https://opendata.alio.go.kr/recruit/downloadAtchFile?recrutAtchFileNo=3087428"
+      },
+      {
+        "recrutAtchFileNo": 3087429,
+        "sortNo": 6,
+        "atchFileNm": "붙임2. 직무기술서.hwp",
+        "atchFileType": "C",
+        "url": "https://opendata.alio.go.kr/recruit/downloadAtchFile?recrutAtchFileNo=3087429"
+      }
+    ],
+    "steps": [
+      {
+        "recrutStepSn": 1297494,
+        "recrutPblntSn": 307039,
+        "recrutPbancTtl": "후생담당원(기간제근로자)",
+        "recrutNope": null,
+        "aplyNope": null,
+        "cmpttRt": null,
+        "rsnOcrnYmd": null,
+        "sortNo": 0,
+        "minStepSn": 1297494,
+        "maxStepSn": 1297496
+      },
+      {
+        "recrutStepSn": 1297495,
+        "recrutPblntSn": 307039,
+        "recrutPbancTtl": "후생담당원(기간제근로자)",
+        "recrutNope": null,
+        "aplyNope": null,
+        "cmpttRt": null,
+        "rsnOcrnYmd": null,
+        "sortNo": 0,
+        "minStepSn": 1297494,
+        "maxStepSn": 1297496
+      },
+      {
+        "recrutStepSn": 1297496,
+        "recrutPblntSn": 307039,
+        "recrutPbancTtl": "후생담당원(기간제근로자)",
+        "recrutNope": null,
+        "aplyNope": null,
+        "cmpttRt": 0.0,
+        "rsnOcrnYmd": null,
+        "sortNo": 0,
+        "minStepSn": 1297494,
+        "maxStepSn": 1297496
+      }
+    ]
+  }
+}

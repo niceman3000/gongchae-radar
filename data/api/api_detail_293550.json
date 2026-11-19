@@ -1,0 +1,131 @@
+{
+  "resultCode": 200,
+  "resultMsg": "성공했습니다.",
+  "result": {
+    "recrutPblntSn": 293550,
+    "pblntInstCd": "C0183",
+    "pbadmsStdInstCd": "B500004",
+    "instNm": "한국도로공사",
+    "ncsCdLst": "R600015",
+    "ncsCdNmLst": "기계",
+    "hireTypeLst": "R1040",
+    "hireTypeNmLst": "비정규직",
+    "workRgnLst": "R3019,R3024",
+    "workRgnNmLst": "충남,전북",
+    "recrutSe": "R2030",
+    "recrutSeNm": "신입+경력",
+    "prefCondCn": "취업지원 대상자, 관련자격증 소지자 우대",
+    "recrutNope": 6,
+    "pbancBgngYmd": "20251202",
+    "pbancEndYmd": "20251209",
+    "recrutPbancTtl": "한국도로공사 전북본부 관내 지사(무주, 논산, 진안) 제설 기간제근로자(정비원) 추가 채용",
+    "srcUrl": "https://www.ex.co.kr",
+    "replmprYn": "N",
+    "aplyQlfcCn": "o 연령, 성별, 학력 제한 없음\r\no 우리공사 기간제근로자관리예규 제6조의1 제2항의 결격사유가 없는 자(공고문 참고)\r\n* 타공공기관에서 부정한 방법으로 채용된 사실이 적발되어 채용이 취소된 자는 응시 불가\r\no 해당 직무와 관련된 교육과정(학교 교육, 직업훈련 등)을 수료하거나 해당분야 3개월 이상 경험 소지자\r\n* 출신학교 대학교 졸업여부 등 학력관련정보 기입금지\r\no 채용일(2025년 12월 18일 예정)로부터 근무 가능자",
+    "disqlfcRsn": "o 법령 등에 따라 실시한 건강진단 등에서 채용 예정 분야의 업무 수행이 어렵다고 판정된 자\r\no 제13조의 고용금지 질병에 걸린 자\r\no 사무실 근무자의 경우\r\n- 금고 이상의 형을 받고 그 집행이 종료되거나 그 집행을 받지 아니하기로 확정된 후 5년이 경과되지 아니한 자\r\n- 금고 이상의 형을 받고 그 집행유예의 기간이 완료된 날로부터 2년이 경과 되지 아니한 자\r\n- 금고 이상의 형의 선고유예를 받은 경우에 그 선고유예 기간 중에 있는 자\r\no 부패방지 및 국민권익위원회의 설치와 운영에 관한 법률 제82조에 따른 비위면직자 등의 취업제한 적용을 받는 자\r\no 「성폭력범죄의 처벌 등에 관한 특례법」제2조에 규정된 죄를 범한 자로서 100만원 이상의 벌금형을 선고받고 그 형이 확정된 후 3년이 지나지 아니한 자\r\no 미성년자에 대한 다음 각 목의 어느 하나에 해당하는 죄를 저질러 파면ㆍ해임되거나 형 또는 치료감호를 선고받아 그 형 또는 치료감호가 확정된 자(집행유예를 선고받은 후 그 집행유예기간이 경과한 자를 포함한다)\r\n가. 「성폭력범죄의 처벌 등에 관한 특례법」제2조에 따른 성폭력범죄\r\n나. 「아동ㆍ청소년의 성보호에 관한 법률」제2조 제2호에 따른 아동ㆍ청소년대상 성범죄\r\no 그 밖에 공사의 근로자로서 적합하지 않다고 판단되는 자",
+    "scrnprcdrMthdExpln": "o 서류전형 : 서류심사(자격증, 역량기술서) 결과 고득점자 순으로 최종선발인원의 5배수 이내(동점자 전원 선발)\r\n※ 서류전형 세부기준 등 기타 자세한 사항은 첨부파일의 채용공고문 참조\r\no 면접전형 : 집단면접\r\no 최종발표 : 서류전형, 면접전형 합계 고득점자 순\r\n- 동점자 처리 : ① 취업지원대상자 ② 면접전형 ③ 서류전형",
+    "prefCn": "o 직무관련 자격증 서류전형 반영 등 자세한 내용은 첨부파일 참조\r\no 취업지원대상자 법정가점 부여(각 전형별 만점의 5%, 10%)\r\n* 모집단위별 채용인원이 3인 이하인 경우 미부여\r\n** 전형별 만점의 40%미만 득점 시 가점 미부여",
+    "acbgCondLst": "R7010",
+    "acbgCondNmLst": "학력무관",
+    "nonatchRsn": null,
+    "ongoingYn": null,
+    "decimalDay": -345,
+    "files": [
+      {
+        "recrutAtchFileNo": 3010506,
+        "sortNo": 3,
+        "atchFileNm": "2025년 전북본부 관내지사 제설 기간제근로자(정비원) 추가 채용공고.hwp",
+        "atchFileType": "A",
+        "url": "https://opendata.alio.go.kr/recruit/downloadAtchFile?recrutAtchFileNo=3010506"
+      },
+      {
+        "recrutAtchFileNo": 3010507,
+        "sortNo": 4,
+        "atchFileNm": "[공시] 입사지원서 및 역량기술서_정비원.hwp",
+        "atchFileType": "B",
+        "url": "https://opendata.alio.go.kr/recruit/downloadAtchFile?recrutAtchFileNo=3010507"
+      },
+      {
+        "recrutAtchFileNo": 3010508,
+        "sortNo": 5,
+        "atchFileNm": "[공시] 직무기술서_정비원.hwp",
+        "atchFileType": "C",
+        "url": "https://opendata.alio.go.kr/recruit/downloadAtchFile?recrutAtchFileNo=3010508"
+      }
+    ],
+    "steps": [
+      {
+        "recrutStepSn": 1133458,
+        "recrutPblntSn": 293550,
+        "recrutPbancTtl": "제설 기간제근로자(정비원)_무주지사(2명)",
+        "recrutNope": null,
+        "aplyNope": null,
+        "cmpttRt": null,
+        "rsnOcrnYmd": null,
+        "sortNo": 0,
+        "minStepSn": 1133458,
+        "maxStepSn": 1133459
+      },
+      {
+        "recrutStepSn": 1133459,
+        "recrutPblntSn": 293550,
+        "recrutPbancTtl": "제설 기간제근로자(정비원)_무주지사(2명)",
+        "recrutNope": null,
+        "aplyNope": null,
+        "cmpttRt": 0.0,
+        "rsnOcrnYmd": null,
+        "sortNo": 0,
+        "minStepSn": 1133458,
+        "maxStepSn": 1133459
+      },
+      {
+        "recrutStepSn": 1133460,
+        "recrutPblntSn": 293550,
+        "recrutPbancTtl": "제설 기간제근로자(정비원)_논산지사(2명)",
+        "recrutNope": null,
+        "aplyNope": null,
+        "cmpttRt": null,
+        "rsnOcrnYmd": null,
+        "sortNo": 1,
+        "minStepSn": 1133460,
+        "maxStepSn": 1133461
+      },
+      {
+        "recrutStepSn": 1133461,
+        "recrutPblntSn": 293550,
+        "recrutPbancTtl": "제설 기간제근로자(정비원)_논산지사(2명)",
+        "recrutNope": null,
+        "aplyNope": null,
+        "cmpttRt": 0.0,
+        "rsnOcrnYmd": null,
+        "sortNo": 1,
+        "minStepSn": 1133460,
+        "maxStepSn": 1133461
+      },
+      {
+        "recrutStepSn": 1133462,
+        "recrutPblntSn": 293550,
+        "recrutPbancTtl": "제설 기간제근로자(정비원)_진안지사(2명)",
+        "recrutNope": null,
+        "aplyNope": null,
+        "cmpttRt": null,
+        "rsnOcrnYmd": null,
+        "sortNo": 2,
+        "minStepSn": 1133462,
+        "maxStepSn": 1133463
+      },
+      {
+        "recrutStepSn": 1133463,
+        "recrutPblntSn": 293550,
+        "recrutPbancTtl": "제설 기간제근로자(정비원)_진안지사(2명)",
+        "recrutNope": null,
+        "aplyNope": null,
+        "cmpttRt": 0.0,
+        "rsnOcrnYmd": null,
+        "sortNo": 2,
+        "minStepSn": 1133462,
+        "maxStepSn": 1133463
+      }
+    ]
+  }
+}
