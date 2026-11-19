@@ -1,0 +1,190 @@
+공채레이더 작업일지
+2026-11-18 (Claude 작업분)
+
+[프로젝트 위치]
+C:\Users\승욱이\Documents\Codex\2026-11-14\x20\gongchae-radar
+
+[오늘 한 일]
+1. 같은 변경이 여러 문장에 나뉘어 잡힌 후보를 코드 규칙으로 묶는 기능 추가 (AI 호출 0회).
+   - 규칙: 같은 카테고리 안에서, 실제로 바뀐 낱말 중
+     3글자 이상 핵심어를 1개 이상 공유하거나 2글자 핵심어를 2개 이상 공유하면 같은 묶음.
+   - '경우', '적용', '전형', '신입', '대졸수준'처럼 어디에나 나오는 낱말은 제외.
+   - 변경점 id(stage1-004 등)는 그대로 둠. 사람이 확인한 근거 파일 연결이 깨지지 않음.
+2. 묶음 결과
+   - 한전: 청년청렴 Auditor 가점 신설(017) + 적용연도(018)
+   - 한수원: 자기소개서 관련 3건(004·005·006), 체험형인턴 우수인턴 2건(012·013)
+   - 중부발전: 보훈·장애 처리(005·006), 최종합격자→입사일 기준(011·012),
+     학력·외국어 줄 합침(013·014), 전문자격증 안내 삭제(021·022)
+3. 한수원 자기소개서 PDF 확인
+   - 2025 6쪽: 입사지원서에 자기소개서 포함, 사전평가에서 적부 판정
+   - 2026 6쪽: "자기소개서는 입사지원 시 작성하지 않고 ... 면접전형 대상자에 한하여 작성"
+   - 2026 11~12쪽: 면접 대상자만 9.28~10.1 자기소개서 제출
+   - 결론: 폐지가 아니라 제출 시점 변경. 카드 제목을 이렇게 씀.
+   - 상태는 아직 '확인 필요' (쪽수·인용 기록은 한수원 원문 대조 때)
+4. 화면: 묶음은 카드 한 장, 안에 문구별 빨강·초록 비교를 차례로 표시.
+   확정/확인필요 건수도 카드 장수로 셈 → 한전 확정 13건이 화면에서는 12장.
+5. 전체 자동 테스트 43개 통과 (묶기 테스트 7개 추가).
+6. Streamlit 실행용 run_streamlit.bat 추가 (더블클릭 실행).
+
+[바뀐 파일]
+- 새 파일: src\change_groups.py, tests\unit\test_change_groups.py, run_streamlit.bat
+- 수정: src\report_builder.py (change_groups 생성), src\evidence.py (묶음 검사),
+  src\schemas\report.schema.json (change_groups 항목),
+  app\ui_components.py (묶음 카드), app\pages\report.py (카드 단위 표시·건수),
+  tests\integration\test_streamlit_flow.py (13건→12건, 한수원 묶음 제목)
+- 재생성: data\reports\report_kepco.json, report_khnp.json, report_komipo.json
+  (기존 내용 그대로 + change_groups만 추가, checked_at 유지)
+
+[현재 주의사항]
+- 묶음은 화면 표시용 판단이다. 확정은 여전히 각 후보의 원문 근거로만 함.
+- 묶음 카드는 안에 든 후보가 모두 '원문 확인'일 때만 '원문 확인'으로 표시.
+- 묶음 제목·설명은 app\ui_components.py의 GROUP_COPY에 직접 씀. 없으면 자동 제목.
+- 중부발전 021·022(전문자격증 안내 삭제)는 느슨한 묶음일 수 있음. 원문 대조 때 확인.
+
+[오후 추가 작업]
+7. 같은 뜻인데 변경으로 뜨던 문구 제외 (src\diff_stage1.py SAME_MEANING 표)
+   - '현역의 경우' = '병역대상자는' (한수원 병역)
+   - '당사 규정은' = '당사 정년은' (한수원 연령)
+   - 숫자가 다르면 표에 있어도 제외하지 않음. 새 표현은 공고·판정 이유를 주석으로 남기고 추가.
+   - 한수원 후보 13건 → 11건. results\stage1_result.json 재생성.
+   - 주의: 1단계 id는 순서 번호라 앞 후보가 빠지면 뒤 id가 당겨짐.
+     한수원 우수인턴 묶음 group-stage1-012 → group-stage1-010 (GROUP_COPY도 수정함).
+     한수원 근거 파일(khnp_evidence.json)을 만들 때는 새 id 기준으로 작성할 것.
+8. '체험형인턴 우수인턴'은 같은 뜻 아님 (PDF 확인)
+   - 2026 7쪽: 우수인턴 필기 가점 5점, 확정일부터 3년간 1회, 2025년도 제2차 이후 인턴
+   - 2026 8쪽: 경진대회 성적우수자 가점은 2025년도 제1차 이전 인턴만
+   - 카드 제목: '우대 대상 추가: 체험형인턴 우수인턴 (필기 가점 5점)'
+9. '이번 공고 한눈에 보기' 칸 추가 (src\notice_info.py → 리포트 notice_info)
+   - 접수기간 / 기준일·유효기간(어학성적·병역·학력·연령·가점·재직) / 제출·입력할 것 /
+     우대사항과 혜택 표 (작년에 없던 항목·혜택 바뀜·작년과 같음 표시)
+   - 날짜만 바뀐 후보(어학성적 응시일 기준 등)는 변경 카드에서 빼고 여기서 이번 공고 기준으로만 보여줌
+   - 한전 확정 카드 12장 → 11장 (009 어학성적 응시일이 이 칸으로 이동)
+   - 한수원 우대사항은 API에 혜택 내용이 없어 '공고문 가점표 참고'로 표시 (PDF 가점표 추출은 다음 과제)
+10. 변경 카드 제목 규칙 (src\notice_text.py describe_change)
+   - 나열 문구: '우대 대상 추가: 체험형인턴 우수인턴'
+   - '대상: 내용' 문구: '당사 채용형 인턴 수료자 혜택 변경: 5% → 10%' + '2026 혜택: …'
+   - 짧게 바뀐 문구: '우대사항 문구: ‘발명특허대전’ → ‘발명기술혁신대전’'
+   - 사람이 쓴 문구(CHANGE_COPY·GROUP_COPY)가 있으면 그게 먼저
+11. 우대사항 나열 카드 정리
+   - '이 줄이 무슨 목록인지'를 먼저 설명: 예) '사회형평, 보훈특별 전형에서 가점을 받는 대상 목록'
+   - 긴 문장 빨강·초록 대신 '새로 들어감 / 목록에서 빠짐'만 보여주고 나머지는 접어 둠
+   - 묶음 안의 각 문구 이름도 '일반전형 가점 대상 목록'처럼 표시
+12. 전체 자동 테스트 53개 통과.
+   ※ 화면이 예전 그대로면 Streamlit 창을 닫고 run_streamlit.bat을 다시 실행할 것
+     (켜진 상태에서는 바뀐 코드 파일을 다시 불러오지 않을 때가 있음)
+
+[오후 바뀐 파일]
+- 새 파일: src\notice_text.py, src\notice_info.py, tests\unit\test_notice_text.py
+- 수정: src\diff_stage1.py, src\change_groups.py(날짜 후보는 묶지 않음), src\report_builder.py,
+  src\schemas\report.schema.json(notice_info), app\ui_components.py, app\pages\report.py,
+  tests\unit\test_diff_stage1.py, tests\integration\test_streamlit_flow.py
+- 재생성: results\stage1_result.json, data\reports\report_*.json
+
+[커밋 제안 (오전 작업 포함)]
+git add src tests app data/reports results/stage1_result.json run_streamlit.bat STATUS.md WORKLOG_2026-11-18.txt
+git commit -m "변경 후보 묶기, 같은 뜻 표현 제외, 이번 공고 한눈에 보기, 카드 제목 규칙"
+
+[저녁 작업: 4단계 조건 입력 → 맞춤 공고 (tasks T015, T019~T024)]
+13. 화면 3개를 상단 메뉴로 연결 (streamlit_app.py, st.navigation)
+   ① 내 조건 입력 (app\pages\conditions.py): 직렬·지역(여러 개)·자격증(직접 입력 가능)만 받음, 개인정보 입력 0개
+      '예시 조건으로 채우기' 버튼: 전기 · 부산·울산 · 전기기사
+   ② 맞춤 공고 (app\pages\matches.py): 공고별 지원 가능/애매/지원 불가, 판단 이유, 직접 확인할 것,
+      내 자격증 가점, 공통 확인(외국어), 작년 대비 대표 변경 1건, 모집단위별 판정, 판정 근거(쪽수·인용)
+   ③ 공고 비교 (기존 화면): 맞춤 공고에서 '변경점 보기'를 누르면 그 공고로 열림
+14. 판정 코드 (src\eligibility.py, src\certificates.py) - AI 없음
+   - 명시 필수조건 불충족 → 지원 불가 / 확정 불가·데이터 없음 → 애매 / 데이터 부족을 지원 가능으로 보지 않음
+   - 외국어·병역처럼 입력받지 않은 조건은 상태에 넣지 않고 '공통 확인'으로 표시
+   - 보훈·장애·사회형평 모집단위는 대상자만 지원 가능해 판정에서 빼고 안내
+   - 지역모집(지역주민 확인)·한빛ENG·고졸수준은 '별도 조건'으로 애매 처리
+   - 자격증은 '종목+등급'으로 해석 (전기기사 = 전기·기사). '산업기사 이상' 같은 조건도 판정
+   - 가점은 같은 종목 상위 등급 1개만 (전기기사+전기산업기사 → 전기기사)
+15. 전기 직렬 지원 조건 정리 파일 (evaluation\ground_truth\{kepco,khnp,komipo}_requirements.json)
+   - 한전: 11쪽 지원가능 자격증·학과, 3쪽 비전공자 요건, 19쪽 배전/송변전 자격가점(전기기사 10점), 4쪽 TOEIC 700
+   - 한수원: 3쪽 '관련학과 또는 관련 산업기사 이상', 25쪽 붙임5 전기전자 자격증, 28~29쪽 가점(기사 5점·산업기사 3점·기술사 10점)
+   - 중부발전: 2쪽 전공 제한 없음·근무지역(희망과 무관하게 배치), 23쪽 직군별 자격증(전기 10점, 산업기사 5점)
+   - 인용 37개 모두 PDF 쪽 텍스트와 코드 대조 통과. 사람 재확인 필요(reviewer 칸에 표시)
+   - 전기 외 직렬은 아직 정리 안 됨 → 결과 '애매' + '직접 확인' 안내
+16. PDF 쪽별 텍스트 묶음 추가 (stage2\bundle_288681·302968·287235·302314.json)
+   - src\build_bundle.py: 겹친 글자 제거(dedupe_chars), 널 문자(\x00) 공백 처리.
+     한전 304551로 기존 결과와 같음을 확인
+17. 대표 시나리오 결과 (전기 · 부산·울산 · 전기기사)
+   - 조건에 맞는 공고 2건: 한수원 지원 가능(가점 5점), 한전 지원 가능(배전·송변전 10점)
+   - 희망 지역 근무지 없는 공고 1건: 중부발전 지원 가능(전공 제한 없음, 가점 10점)
+18. 화면 버그 수정: '1~10점 … 28~29쪽'처럼 물결표 두 개가 취소선으로 보이던 문제 (md_text)
+19. 전체 자동 테스트 68개 통과. tasks.md 21/40 (52.5%)
+   ※ 여기서도 확인: Streamlit을 켠 채로 코드가 바뀌면 예전 모듈을 계속 써서 ImportError가 남.
+     코드가 바뀐 뒤에는 반드시 Streamlit 창을 닫고 다시 실행.
+
+[저녁 커밋 제안]
+git add src app tests streamlit_app.py data/reports results/stage1_result.json stage2 evaluation/ground_truth specs/001-recruitment-radar-mvp/tasks.md run_streamlit.bat STATUS.md WORKLOG_2026-11-18.txt
+git commit -m "조건 입력·맞춤 공고·지원 상태 판정 (P2)"
+
+[저녁 추가: 전 직렬 지원 조건 + Streamlit 자동 반영]
+20. Streamlit을 껐다 켜지 않아도 되게 수정
+   - 원인 실험 결과: 기본 설정에서는 코드가 바뀌어도 오른쪽 위 'Rerun'을 눌러야만 반영되고,
+     F5 새로고침으로는 예전 코드 그대로. 화면이 닫혀 있을 때 바뀌면 다시 열어도 예전 코드.
+   - 새 파일 .streamlit\config.toml: runOnSave = true → 열린 화면은 파일이 바뀌는 즉시 자동 갱신
+   - streamlit_app.py: 실행할 때마다 app·src 모듈을 새로 읽음 → 닫혀 있던 화면도 새 코드
+   - 실제 앱으로 두 경우 모두 확인. 이 설정이 들어간 뒤 처음 한 번만 Streamlit 재실행 필요
+21. '수자원' 등 전기 외 직렬이 '애매/직접 확인'으로만 나오던 문제 해결
+   - 원인: 지원 자격 정리 파일에 전기 직렬만 있었음
+   - 추가: 한전 사무·ICT·토목(11·19쪽), 한수원 사무·기계·원자력·화학·수자원·토목·건축·통신
+     (4쪽 붙임4 학과, 25쪽 붙임5 자격증, 28~29쪽 가점), 중부발전 기계(2·23쪽)
+   - 한수원 전산은 보훈·사회형평 특별전형에만 있어 제외
+   - 인용 119개 모두 PDF 쪽 텍스트와 코드 대조 통과
+   - 예) 수자원 + 수자원개발기사 → 한수원 지원 가능 / 자격증 없음 → 애매(관련학과 확인)
+         사무 → 한전·한수원 지원 가능(전공 제한 없음) / ICT + 정보처리기사 → 한전 지원 가능(+10점)
+   - 입력 화면 자격증 목록에 토목·건축·수자원·원자력·화학·ICT 자격증 추가
+22. 전체 자동 테스트 70개 통과 (전 직렬 정리 여부 검사 테스트 추가)
+
+[저녁 추가 커밋 제안]
+git add .streamlit/config.toml streamlit_app.py src/certificates.py evaluation/ground_truth data/reports tests STATUS.md WORKLOG_2026-11-18.txt
+git commit -m "전 직렬 지원 조건 정리, Streamlit 자동 반영"
+
+[저녁 추가: 공기업 30곳 확장 계획 (인수인계)]
+23. 소개서 초안 v9 기준 최종 범위 = 잡알리오 공기업 30곳 (시장형 14 + 준시장형 16).
+   기존 spec/plan은 '3쌍 고정, 자동 확장 제외'였음 → tasks.md에 Phase 4.5(T041~T046) 추가.
+   - 핵심 3곳(verified): 지금처럼 원문 대조·자격증 판정
+   - 나머지 27곳(auto): API 자동 수집·전년 짝짓기·자동 비교, '자동 비교 · 원문 미검증' 표시
+24. config\institutions.json 작성 (T041 완료): 30곳 이름·유형·별칭·기관코드(한전 C0247만 확인)·tier
+25. 남은 일정표(스프레드시트): https://claude.ai/artifact/ARFbcAPJDwg9SFfzMZ5tDS
+26. STATUS.md에 '지금 해야 하는 일(순서대로)'와 'Claude·Codex 번갈아 작업할 때' 규칙 정리
+   - 다음 작업: T042 30곳 수집 스크립트 (실행은 팀 PC, JOB_API_KEY 필요. Claude 환경은 정부 API 접속 불가)
+   - tasks.md 진행률 22/46
+
+[30곳 계획 커밋 제안]
+git add config/institutions.json specs/001-recruitment-radar-mvp/tasks.md STATUS.md WORKLOG_2026-11-18.txt
+git commit -m "공기업 30곳 확장 계획과 명단 추가"
+
+[저녁 추가: 30곳 수집 코드 초안 (완료로 치지 않음, 11-19 실제 API로 시작)]
+27. tools\collect_institutions.py (T042, 실행은 팀 PC)
+   - 기관코드 찾기: 목록 API를 최신 공고부터 넘기며 기관 이름·별칭으로 찾고 config\institutions.json에 저장
+   - 공고 고르기: 최근 약 2년, 신입 + 정규직만 (인턴·경력·기간제 제외)
+   - 짝짓기: 가장 최근 공고 = 올해, 그보다 300~430일 앞선 공고 중 제목(연도·차수 숫자 제거)이 가장 비슷한 것 = 작년
+     (없으면 200~560일로 넓혀 다시, 그래도 없으면 '약 1년 전 비교 공고 없음'으로 기록)
+   - 상세 JSON·공고문 PDF 저장, HWP면 건너뛰고 pdf_notes에 기록
+   - 결과: config\auto_pairs.json, data\api\collect_log.json. 인증키는 어디에도 안 남음 (테스트로 확인)
+28. tools\build_auto_reports.py (T043): auto_pairs로 1단계 비교 → PDF 쪽 텍스트 묶음 → 리포트(tier=auto, category)
+   - 리포트에 tier(verified/auto)·category(시장형/준시장형) 추가, 핵심 3곳은 verified·시장형
+   - API에 모집단위가 없는 공고는 직무분야(NCS)로 직렬 추정(판정은 '애매')
+   - 직렬 이름 규칙 보강: 행정·경영·회계 → 사무, IT·정보 → ICT, 환경 → 화학
+29. 화면 (T044): app\report_data.py
+   - 리포트 30개를 파일이 바뀔 때만 다시 읽음(캐시), 정렬: 원문 검증 → 시장형 → 준시장형 → 이름
+   - 자동 공고: 맞춤 공고 카드·비교 화면에 '자동 비교 · 원문 미검증' 배지, 선택 상자에 [시장형]/[준시장형]
+   - 조건 입력 화면에 '미리 모아 둔 공기업 공고 n곳: 원문 검증 3곳 + 자동 비교 n곳'
+   - 맞춤 공고 맨 아래 '공고를 모으지 못한 기관 n곳'과 사유
+   - 테스트용 리포트 폴더 지정: 환경변수 GONGCHAE_REPORT_DIR (평소엔 쓰지 않음)
+30. 가짜 API 테스트는 만들었다가 삭제함 (사용자 결정: 실제 API 데이터로 시작해서 그때 테스트).
+   → PC에서 tests\unit\test_collect_institutions.py 파일을 지워야 함 (Claude는 PC 파일 삭제 불가)
+31. tasks.md 22/46. T042·T043·T044·T046 모두 미완료로 둠 (코드 초안만 있음). 전체 테스트 70개 통과
+32. API 확인: https://www.data.go.kr/data/15125273/openapi.do (지금 쓰는 API와 같음, 팀 키 재사용 가능)
+   - 개발계정 하루 1,000회 제한 → 수집 스크립트 기본 호출 상한 900회, 기관코드 찾기 최대 150쪽 (예상 약 300회)
+   - 수집 코드는 실제 API 호출 코드. 가짜 응답은 테스트에만 사용 (Claude 환경은 data.go.kr 접속 불가)
+
+[오늘 전체 커밋 (11-19 시작 전에, tests\unit\test_collect_institutions.py 지운 뒤)]
+git add -A
+git status   (← .streamlit/secrets.toml 이 목록에 없는지 확인. .gitignore로 빠져 있어야 정상)
+git commit -m "11-18: 변경 묶기·한눈에 보기·조건 입력·맞춤 공고·전 직렬 조건·30곳 수집 코드 초안"
+
+[다음 할 일]
+STATUS.md의 '지금 해야 하는 일 (순서대로)' 표를 따른다. 첫 작업은 팀 PC에서 30곳 수집 실행 (STATUS.md '30곳 수집 실행 방법').

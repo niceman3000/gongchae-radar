@@ -12,6 +12,7 @@
   date     날짜만 바뀜 (어학 유효기간 등 매년 갱신)  -> 통상 갱신, 낮은 우선순위
   rename   행정구역 등 명칭만 바뀜                   -> 표현 변경
   expression 쉼표·괄호·'단,'만 달라 의미가 같음      -> 코드에서 제외
+             SAME_MEANING 표에 등록한 같은 뜻 표현만 다름 -> 코드에서 제외
   text     그 밖의 문구 변경                         -> 2단계 AI가 실질/표현 분류
 """
 import difflib
@@ -39,6 +40,14 @@ ALIASES = [
     (re.compile(r"광주\s*,\s*전남"), "전남광주"),
     (re.compile(r"광주전남"), "전남광주"),
 ]
+# 사람이 원문을 보고 '같은 뜻'으로 판정한 표현. 양쪽을 같은 말로 바꾼 뒤 비교한다.
+# 새 항목을 넣을 때는 실제로 나온 공고와 판정 이유를 주석으로 남긴다.
+SAME_MEANING = [
+    # 한수원 2025→2026 병역: '현역의 경우, … 전역 가능한 자 포함' → '병역대상자는 … 전역 가능한 자 포함'
+    (re.compile(r"현역의\s*경우\s*,?\s*|병역대상자는\s*"), "병역대상자는 "),
+    # 한수원 2025→2026 연령: '당사 규정은 만 60세' → '당사 정년은 만 60세'
+    (re.compile(r"당사\s*(?:규정|정년)은"), "당사 정년은"),
+]
 NUM_UNIT = re.compile(r"\d+(?:\.\d+)?\s*(?:배수|점|명|%|개월)")
 DATE = re.compile(r"'?\d{2}\.\s*\d{1,2}\.\s*\d{1,2}\.?|\d{4}\.\s*\d{1,2}\.\s*\d{1,2}\.?"
                   r"|'?\d{2,4}년(?:도)?(?:\s*\d{1,2}월)?(?:\s*\d{1,2}일)?")
@@ -62,6 +71,12 @@ def expression_canon(s):
 def content_numbers(s):
     """표현 필터가 숫자·날짜 변경을 삼키지 않도록 모든 숫자를 보존한다."""
     return [value.replace(",", "") for value in CONTENT_NUMBER.findall(s or "")]
+
+
+def same_meaning_canon(s):
+    for pattern, replacement in SAME_MEANING:
+        s = pattern.sub(replacement, s)
+    return expression_canon(s)
 
 
 def load_item(path):
@@ -93,6 +108,8 @@ def classify_pair(a, b):
     if canon(a) == canon(b):
         return "format", {}
     if content_numbers(a) == content_numbers(b) and expression_canon(a) == expression_canon(b):
+        return "expression", {}
+    if content_numbers(a) == content_numbers(b) and same_meaning_canon(a) == same_meaning_canon(b):
         return "expression", {}
     a_n, ha = norm_alias(a)
     b_n, hb = norm_alias(b)
@@ -236,7 +253,7 @@ def to_markdown(name, r):
              f"올해 {'있음' if r['competition_in_api']['curr'] else '없음'}",
              f"- 띄어쓰기·문장부호만 다른 줄 {r['format_only_lines']}개는 제외", ""]
     if r.get("expression_only_lines"):
-        lines.insert(-1, f"- 쉼표·괄호·'단,'만 달라 의미가 같은 줄 {r['expression_only_lines']}개는 제외")
+        lines.insert(-1, f"- 쉼표·괄호·'단,'·같은 뜻 표현만 달라 의미가 같은 줄 {r['expression_only_lines']}개는 제외")
     for c in sorted(r["changes"], key=lambda c: PRIORITY.get(c["type"], 9)):
         tag = LABEL.get(c["type"], c["type"])
         if c["type"] == "list":

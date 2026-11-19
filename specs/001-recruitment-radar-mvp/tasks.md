@@ -70,7 +70,7 @@
 ### Implementation
 
 - [X] T014 [US1] Owner=DEV `src/report_builder.py`에 stage1 변경 후보, stage2 추출값·문구 분류, 공고 메타데이터를 report v1 계약으로 합치는 CLI를 구현해 T010을 통과시킨다.
-- [ ] T015 [US1] Owner=DEV `config/demo_pairs.json`의 3쌍을 처리해 `data/reports/report_kepco.json`, `data/reports/report_khnp.json`, `data/reports/report_komipo.json`을 생성하고 T011~T013의 원문 검증 결과를 반영한다.
+- [X] T015 [US1] Owner=DEV `config/demo_pairs.json`의 3쌍을 처리해 `data/reports/report_kepco.json`, `data/reports/report_khnp.json`, `data/reports/report_komipo.json`을 생성하고 T011~T013의 원문 검증 결과를 반영한다. (2026-11-18 리포트 3개 재생성, change_groups·notice_info·requirements 포함)
 - [ ] T016 [US1] Owner=DEV 리포트 3개의 JSON Schema·Evidence 의미 검증을 `tests/contract/test_report_schema.py`에서 통과시키고 불일치를 `evaluation/test-log.md`에 기록한다.
 - [X] T017 [P] [US1] Owner=DEV 상태 배지와 쪽수·인용 근거 카드를 `app/ui_components.py`에 만들고 중요도순 변경 목록과 모집단위별 인원을 `app/pages/report.py`에 구현한다.
 - [X] T018 [US1] Owner=DEV 고정 한전 리포트로 상세 화면을 여는 AppTest를 `tests/integration/test_streamlit_flow.py`에 추가해 예외 0건과 근거 표시를 확인한다.
@@ -88,16 +88,39 @@
 
 ### Tests and Implementation
 
-- [ ] T019 [P] [US2] Owner=DEV 필수조건 충족, 명시적 불충족, 데이터 부족, 수동 전공 확인 사례의 실패 테스트를 `tests/unit/test_eligibility.py`에 먼저 작성한다.
-- [ ] T020 [US2] Owner=DEV `src/eligibility.py`에 UserCondition과 RequirementSet의 결정적 판정 및 근거 반환을 구현해 T019를 통과시킨다.
-- [ ] T021 [P] [US2] Owner=DEV 이름·연락처 없이 직렬·지역·자격증만 받는 입력 화면을 `app/pages/conditions.py`에 구현한다.
-- [ ] T022 [US2] Owner=DEV 조건과 관련된 공고 카드, 상태, 판단 이유, 대표 변경 1건을 `app/pages/matches.py`에 구현한다.
-- [ ] T023 [US2] Owner=DEV `streamlit_app.py`에 `st.Page`·`st.navigation` 라우팅과 세션 상태 초기화를 구현하고 입력→목록→리포트 이동을 연결한다.
-- [ ] T024 [US2] Owner=DEV 대표 조건의 입력→목록→리포트 흐름과 개인정보 입력 0개를 `tests/integration/test_streamlit_flow.py`에서 AppTest로 검증한다.
+- [X] T019 [P] [US2] Owner=DEV 필수조건 충족, 명시적 불충족, 데이터 부족, 수동 전공 확인 사례의 실패 테스트를 `tests/unit/test_eligibility.py`에 먼저 작성한다. (2026-11-18 tests/unit/test_eligibility.py 13개)
+- [X] T020 [US2] Owner=DEV `src/eligibility.py`에 UserCondition과 RequirementSet의 결정적 판정 및 근거 반환을 구현해 T019를 통과시킨다. (2026-11-18 src/eligibility.py, src/certificates.py. 전기 직렬 조건은 evaluation/ground_truth/*_requirements.json에서 PDF 쪽수·인용으로 검증)
+- [X] T021 [P] [US2] Owner=DEV 이름·연락처 없이 직렬·지역·자격증만 받는 입력 화면을 `app/pages/conditions.py`에 구현한다. (2026-11-18)
+- [X] T022 [US2] Owner=DEV 조건과 관련된 공고 카드, 상태, 판단 이유, 대표 변경 1건을 `app/pages/matches.py`에 구현한다. (2026-11-18)
+- [X] T023 [US2] Owner=DEV `streamlit_app.py`에 `st.Page`·`st.navigation` 라우팅과 세션 상태 초기화를 구현하고 입력→목록→리포트 이동을 연결한다. (2026-11-18 st.navigation(position=top))
+- [X] T024 [US2] Owner=DEV 대표 조건의 입력→목록→리포트 흐름과 개인정보 입력 0개를 `tests/integration/test_streamlit_flow.py`에서 AppTest로 검증한다. (2026-11-18)
 - [ ] T025 [P] [US2] Owner=DATA-QA1 코드를 수정하지 않고 앱을 처음부터 사용해 한수원 결과의 이해하기 어려운 표현·잘못된 상태·막힌 동선을 `evaluation/usability-khnp.md`에 화면명과 재현 순서로 기록한다.
 - [ ] T026 [P] [US2] Owner=DATA-QA2 코드를 수정하지 않고 앱을 처음부터 사용해 중부발전 결과의 이해하기 어려운 표현·잘못된 상태·막힌 동선을 `evaluation/usability-komipo.md`에 화면명과 재현 순서로 기록한다.
 
 **Checkpoint**: 세 명 모두 설명 없이 대표 조건으로 관련 공고와 변경점에 도달할 수 있다.
+
+---
+
+## Phase 4.5: 공기업 30곳 확장 (2026-11-18 추가, 목표 2026-11-20)
+
+**배경**: 해커톤 소개서 초안 v9는 잡알리오 공기업 30곳(시장형 14 + 준시장형 16)의 공고를 수집해
+사용자가 조건으로 찾게 하는 서비스를 약속했다. plan.md는 '3쌍 고정, 자동 확장 제외'였으므로 이 단계로 범위를 넓힌다.
+
+**구성 (2단계 품질)**:
+- 핵심 3곳(한전·한수원·중부발전) = `tier: verified`: 지금처럼 PDF 원문 대조, 자격증 판정, 확정 변경점
+- 나머지 27곳 = `tier: auto`: API 자동 수집·전년 공고 자동 짝짓기·자동 비교. 화면에 '자동 비교 · 원문 미검증' 표시,
+  자격증 판정은 지원 자격 데이터가 생기기 전까지 '애매(공고문 확인)'
+
+**제약**: Claude 작업 환경은 정부 API(apis.data.go.kr)에 접속할 수 없다. 수집은 팀 PC에서 `JOB_API_KEY`로 실행한다.
+
+- [X] T041 Owner=DEV `config/institutions.json`에 30곳 명단(이름·유형·별칭·기관코드·tier·핵심 pair_id)을 작성한다. (2026-11-18 Claude)
+- [ ] T042 Owner=DEV `tools/collect_institutions.py`를 만든다. ① 목록 API(`/recruitment/list`, numOfRows=100)를 넘겨 가며 `instNm`이 이름·별칭과 같은 공고에서 `pblntInstCd`를 찾아 `config/institutions.json`에 채운다(호출 수 상한과 진행 상황 출력). ② 기관마다 `pblntInstCd`로 최근 2년 공고를 받아 `recrutSeNm`=신입, `hireTypeNmLst`에 정규직이 든 것만 남긴다. ③ 접수 시작일이 가장 늦은 공고를 올해(curr)로, 그보다 300~430일 앞선 공고 중 제목(연도·차수 숫자 제거 후)이 가장 비슷한 것을 작년(prev)으로 짝짓는다. 짝이 없으면 curr만 저장하고 사유를 남긴다. ④ 두 공고를 `tools/fetch_notice.py`와 같은 방식으로 상세 JSON·공고문 PDF 저장(HWP면 건너뛰고 기록). ⑤ `config/auto_pairs.json`을 `config/demo_pairs.json`과 같은 형식 + `tier`, `category`, `skip_reason`으로 쓴다. 인증키는 출력·파일에 남기지 않는다. (코드 초안 tools/collect_institutions.py 있음. 2026-11-19 실제 API로 실행·확인부터 시작)
+- [ ] T043 Owner=DEV `tools/build_auto_reports.py`를 만든다. `config/auto_pairs.json`의 각 쌍에 대해 `src/diff_stage1.compare`로 1단계 결과를 만들고, PDF가 있으면 `src/build_bundle.py`로 `stage2/bundle_<번호>.json`을 만든 뒤 `src/report_builder.build_report`로 `data/reports/report_<pair_id 앞부분>.json`을 쓴다. 리포트에 `tier`(verified/auto)와 `category`(시장형/준시장형)를 넣도록 `src/schemas/report.schema.json`에 선택 항목을 추가한다. 핵심 3곳은 기존 `config/demo_pairs.json` 경로를 그대로 쓴다. (2026-11-18 tools/build_auto_reports.py, 모집단위 없을 때 직무분야(NCS)로 직렬 추정) (코드 초안 tools/build_auto_reports.py 있음. 실제 수집 데이터로 확인 필요)
+- [ ] T044 [US1][US2] Owner=DEV 화면을 30곳에 맞춘다: 공고 비교 선택 상자를 유형별로 정렬하고 auto에 '자동 비교 · 원문 미검증' 배지, 맞춤 공고 카드에 같은 배지, 리포트 30개 읽기가 느리면 `st.cache_data`(파일 수정 시각을 키로) 적용. 짝 없는 기관은 '전년 비교 공고 없음'으로 표시한다. (화면 코드 초안 있음(app/report_data.py, 배지·정렬). 실제 수집 데이터로 확인 필요)
+- [ ] T045 Owner=DEV 유료 API(`src/ai_pipeline.py`)로 auto 기관 PDF에서 지원 가능 학과·자격증·가점을 뽑아 `evaluation/ground_truth/<prefix>_requirements.json`과 같은 형식(인용은 `src/evidence.check_evidence`로 원문 대조, 실패한 인용은 버림)으로 저장한다. 실행 전 쪽수·토큰으로 예상 비용을 계산해 사용자 승인을 받는다.
+- [ ] T046 Owner=DEV T042~T045 테스트: 짝짓기 규칙(연도 숫자 제거·기간 범위), auto 리포트 스키마 통과, 30곳 리포트가 있을 때 조건 입력→맞춤 공고 흐름 AppTest, 인증키 문자열이 저장 파일에 없음. (미착수. 가짜 API 테스트는 2026-11-18 삭제, 실제 수집 결과 기준으로 작성)
+
+**Checkpoint**: 조건을 넣으면 30곳 공고 중 관련 공고가 나오고, 핵심 3곳은 근거·자격 판정까지, 나머지는 자동 비교 표시와 함께 나온다.
 
 ---
 

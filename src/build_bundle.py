@@ -10,7 +10,7 @@ def table_text(tables):
     out = []
     for t in tables:
         for row in t:
-            cells = [re.sub(r"\s+", " ", c or "").strip() for c in row]
+            cells = [re.sub(r"[\s\x00]+", " ", c or "").strip() for c in row]
             if any(cells):
                 out.append("| " + " | ".join(cells) + " |")
         out.append("")
@@ -20,7 +20,11 @@ def build(pdf_path, max_pages=10):
     pages = []
     with pdfplumber.open(pdf_path) as pdf:
         for i, p in enumerate(pdf.pages, 1):
-            text = p.extract_text() or ""
+            # 굵은 글씨를 두 번 찍은 PDF(한수원)는 글자가 겹쳐 '한한국국'처럼 나온다. 겹친 글자를 지운다.
+            # 한전 304551로 확인한 결과 겹친 글자가 없는 PDF는 결과가 같다.
+            p = p.dedupe_chars()
+            # 일부 PDF(한수원)는 공백 자리에 널 문자(\x00)가 들어 있어 인용 대조가 실패한다.
+            text = (p.extract_text() or "").replace("\x00", " ")
             tables = p.extract_tables() or []
             score = sum(text.count(k) for k in KEYS) + 3 * len(tables)
             pages.append({"page": i, "score": score, "text": text,

@@ -36,13 +36,23 @@
       "type": "array",
       "items": {"$ref": "#/$defs/change"}
     },
+    "change_groups": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/change_group"}
+    },
+    "notice_info": {"$ref": "#/$defs/notice_info"},
     "units": {
       "type": "array",
       "items": {"$ref": "#/$defs/unit"}
     },
     "competition": {"$ref": "#/$defs/competition"},
     "requirements": {"$ref": "#/$defs/requirements"},
-    "visual_summary": {"$ref": "#/$defs/visual_summary"}
+    "visual_summary": {"$ref": "#/$defs/visual_summary"},
+    "tier": {
+      "description": "verified: 원문 대조까지 끝낸 핵심 공고, auto: API 자동 수집·자동 비교만 한 공고",
+      "enum": ["verified", "auto"]
+    },
+    "category": {"description": "공기업 유형 (시장형·준시장형)", "type": "string"}
   },
   "$defs": {
     "notice": {
@@ -118,6 +128,75 @@
         }
       }
     },
+    "change_group": {
+      "description": "같은 변경이 여러 문장에 나뉘어 잡힌 후보 묶음. 변경점 id는 그대로 두고 화면에서만 카드 한 장으로 보인다.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "category", "member_ids", "shared_terms"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "category": {"type": "string"},
+        "member_ids": {
+          "type": "array",
+          "minItems": 2,
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "shared_terms": {
+          "type": "array",
+          "items": {"type": "string"}
+        }
+      }
+    },
+    "notice_info": {
+      "description": "이번 공고에서 지원자가 챙길 것(접수기간·기준일·제출·우대사항). 작년과의 차이가 아니라 현재 공고 기준이다.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["period", "rules", "submissions", "benefits"],
+      "properties": {
+        "period": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["start", "end"],
+          "properties": {
+            "start": {"type": "string"},
+            "end": {"type": "string"}
+          }
+        },
+        "rules": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["topic", "text"],
+            "properties": {
+              "topic": {"type": "string", "minLength": 1},
+              "text": {"type": "string", "minLength": 1}
+            }
+          }
+        },
+        "submissions": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1}
+        },
+        "benefits": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["section", "name", "benefit", "notes", "change", "prev_benefit"],
+            "properties": {
+              "section": {"type": "string"},
+              "name": {"type": "string", "minLength": 1},
+              "benefit": {"type": ["string", "null"]},
+              "notes": {"type": "array", "items": {"type": "string"}},
+              "change": {"enum": ["new", "changed", "same"]},
+              "prev_benefit": {"type": ["string", "null"]}
+            }
+          }
+        }
+      }
+    },
     "region_headcount": {
       "type": "object",
       "additionalProperties": false,
@@ -159,6 +238,28 @@
         "name": {"type": "string", "minLength": 1},
         "kind": {"enum": ["required", "accepted", "bonus"]},
         "applicable_units": {"type": "array", "items": {"type": "string"}},
+        "evidence": {"type": "array", "items": {"$ref": "#/$defs/evidence"}},
+        "track": {"type": "string", "minLength": 1},
+        "points": {"type": "integer", "minimum": 0},
+        "unrestricted": {"type": "boolean"},
+        "match": {
+          "description": "자격증 인정 목록. names(이름 그대로) 또는 items×grades(종목×등급)",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "names": {"type": "array", "items": {"type": "string", "minLength": 1}},
+            "items": {"type": "array", "items": {"type": "string", "minLength": 1}},
+            "grades": {"type": "array", "items": {"enum": ["기능사", "산업기사", "기사", "기능장", "기술사"]}}
+          }
+        }
+      }
+    },
+    "requirement_note": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["text", "evidence"],
+      "properties": {
+        "text": {"type": "string", "minLength": 1},
         "evidence": {"type": "array", "items": {"$ref": "#/$defs/evidence"}}
       }
     },
@@ -171,7 +272,41 @@
         "regions": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
         "certificates": {"type": "array", "items": {"$ref": "#/$defs/requirement_item"}},
         "majors": {"type": "array", "items": {"$ref": "#/$defs/requirement_item"}},
-        "manual_review_conditions": {"type": "array", "items": {"type": "string"}}
+        "manual_review_conditions": {"type": "array", "items": {"type": "string"}},
+        "units": {
+          "description": "이번 공고 API의 모집단위와 직렬·구분. kind: general 일반, special 보훈·장애 등 대상자 전형, condition 별도 지원조건",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["name", "track", "kind", "note", "evidence"],
+            "properties": {
+              "name": {"type": "string", "minLength": 1},
+              "track": {"type": "string", "minLength": 1},
+              "kind": {"enum": ["general", "special", "condition"]},
+              "note": {"type": ["string", "null"]},
+              "evidence": {"type": "array", "items": {"$ref": "#/$defs/evidence"}}
+            }
+          }
+        },
+        "common_checks": {"type": "array", "items": {"$ref": "#/$defs/requirement_note"}},
+        "region_note": {"anyOf": [{"$ref": "#/$defs/requirement_note"}, {"type": "null"}]},
+        "bonus_rule": {"anyOf": [{"$ref": "#/$defs/requirement_note"}, {"type": "null"}]},
+        "reviewed": {
+          "anyOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["reviewed_at", "reviewer", "scope"],
+              "properties": {
+                "reviewed_at": {"type": "string"},
+                "reviewer": {"type": "string"},
+                "scope": {"type": "string"}
+              }
+            },
+            {"type": "null"}
+          ]
+        }
       }
     },
     "numeric_pair": {

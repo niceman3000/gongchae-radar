@@ -482,6 +482,194 @@
       "evidence": []
     }
   ],
+  "change_groups": [
+    {
+      "id": "group-stage1-017",
+      "category": "가점",
+      "member_ids": [
+        "stage1-017",
+        "stage1-018"
+      ],
+      "shared_terms": [
+        "우수활동자"
+      ]
+    }
+  ],
+  "notice_info": {
+    "period": {
+      "start": "2026.09.02",
+      "end": "2026.09.16"
+    },
+    "rules": [
+      {
+        "topic": "어학성적",
+        "text": "유효성적 : '24. 11. 28.부터 응시하고 접수 마감일까지 발표한 국내 정기시험 성적만 인정"
+      },
+      {
+        "topic": "어학성적",
+        "text": "(단, TOEIC, TOEIC-S, OPIc, TEPS, TEPS-S, JPT, HSK는 국가공무원 채용시스템에 등록된 어학성적에 한하여 유효기간을 시험의 실시연도 +5년까지 인정)"
+      },
+      {
+        "topic": "어학성적",
+        "text": "해외학위자도 국내 외국어 유효성적을 보유해야 지원 가능"
+      },
+      {
+        "topic": "연령",
+        "text": "연령 : 제한없음(단, 공사 정년(60세)에 도달한 자는 지원불가)"
+      },
+      {
+        "topic": "가점",
+        "text": "한전 시간선택제 근로자 : 1차전형 10% 가점(접수마감일 현재 재직직원)"
+      },
+      {
+        "topic": "재직",
+        "text": "지원서 접수마감일 현재 한전 4직급 직원으로 재직 중이지 않은 자(단, 상위 채용수준으로는 지원가능)"
+      }
+    ],
+    "submissions": [],
+    "benefits": [
+      {
+        "section": "",
+        "name": "취업지원대상자(국가유공자 등)",
+        "benefit": "1차전형 면제, 이후 단계별 5% 또는 10% 가점",
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "장애인(장애인 제한경쟁 제외)",
+        "benefit": "1차전형 면제, 이후 단계별 10% 가점",
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "고급자격증 보유자",
+        "benefit": "1차전형 면제, 2차전형 10% 가점",
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "한전 전기공학 장학생",
+        "benefit": "1차전형 면제 (배전,송변전 분야에 한함)",
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "비수도권 및 본사 이전지역인재",
+        "benefit": "비수도권: 1차전형 1% 가점 / 이전지역: 1차전형 3% 가점",
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "한전 장애인 인턴(장애인 제한경쟁에 한함)",
+        "benefit": "장애인 인턴 12개월 이상 근무자 단계별 5% 가점",
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "양성평등",
+        "benefit": "1차전형 합격자의 20% 선발",
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "한전 체험형인턴",
+        "benefit": "인턴근무 평가 성적에 따라 2차전형 3%~5% 가점",
+        "notes": [
+          "'24년 체험형인턴 수료자부터 적용, 이전 체험형인턴은 1차전형 3%~5% 가점"
+        ],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "기초생활수급자",
+        "benefit": "1차전형 면제",
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "한전 기간제 근로자",
+        "benefit": "6개월이상~1년미만 근무자: 1차전형 5% 가점 / 1년 이상 근무자: 1차전형 10% 가점",
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "한전 시간선택제 근로자",
+        "benefit": "1차전형 10% 가점(접수마감일 현재 재직직원)",
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "KEPCO 프렌즈 우수활동자(舊 대학생 서포터즈)",
+        "benefit": "1차전형 10% 가점",
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "(한전 대표주관)공공데이터활용 아이디어 경진대회/공모전 입상자",
+        "benefit": "대상: 1차전형 면제 / 최우수상: 1차전형 10% 가점",
+        "notes": [],
+        "change": "new",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "한전 발명기술혁신대전 입상자",
+        "benefit": "금상: 1차전형 면제 / 은상, 동상: 1차전형 10% 가점",
+        "notes": [],
+        "change": "new",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "한전 청년청렴 Auditor 우수활동자",
+        "benefit": "1차전형 10% 가점",
+        "notes": [
+          "'25년도 선정 우수활동자부터 적용"
+        ],
+        "change": "new",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "북한이탈주민, 다문화가족",
+        "benefit": "1차전형 5% 가점",
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      },
+      {
+        "section": "",
+        "name": "자립준비청년",
+        "benefit": "1차전형 면제",
+        "notes": [],
+        "change": "same",
+        "prev_benefit": null
+      }
+    ]
+  },
   "units": [],
   "competition": {
     "published": false,
@@ -492,12 +680,828 @@
   },
   "requirements": {
     "tracks": [
-      "전기"
+      "사무",
+      "전기",
+      "ICT",
+      "토목"
     ],
-    "regions": [],
-    "certificates": [],
-    "majors": [],
-    "manual_review_conditions": []
+    "regions": [
+      "강원",
+      "경기",
+      "경남",
+      "경북",
+      "대구",
+      "대전",
+      "부산",
+      "서울",
+      "세종",
+      "울산",
+      "인천",
+      "전남광주",
+      "전북",
+      "제주",
+      "충남",
+      "충북"
+    ],
+    "certificates": [
+      {
+        "name": "지원 가능 자격증(비전공자): 발송배전·전기안전·전기응용·건축전기설비 기술사, 전기·전기공사 기사, 전기기능장, 전기·전기공사 산업기사",
+        "kind": "accepted",
+        "applicable_units": [
+          "배전(일반)",
+          "송변전(일반)"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304551",
+            "page": 11,
+            "quote": "□ 지원가능 자격증 (비전공자 지원자격 요건)",
+            "verified": true
+          },
+          {
+            "side": "curr",
+            "notice_sn": "304551",
+            "page": 11,
+            "quote": "[기 사] 전기, 전기공사 [기능장] 전기",
+            "verified": true
+          },
+          {
+            "side": "curr",
+            "notice_sn": "304551",
+            "page": 11,
+            "quote": "[산업기사] 전기, 전기공사",
+            "verified": true
+          }
+        ],
+        "track": "전기",
+        "match": {
+          "names": [
+            "발송배전기술사",
+            "전기안전기술사",
+            "전기응용기술사",
+            "건축전기설비기술사",
+            "전기기사",
+            "전기공사기사",
+            "전기기능장",
+            "전기산업기사",
+            "전기공사산업기사"
+          ]
+        }
+      },
+      {
+        "name": "배전 자격가점 10점: 전기·전기공사·산업안전 기사, 전기기능장",
+        "kind": "bonus",
+        "applicable_units": [
+          "배전(일반)"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304551",
+            "page": 19,
+            "quote": "10점 [기 사] 전기, 전기공사, 산업안전 [기 능 장] 전기",
+            "verified": true
+          }
+        ],
+        "track": "전기",
+        "points": 10,
+        "match": {
+          "names": [
+            "전기기사",
+            "전기공사기사",
+            "산업안전기사",
+            "전기기능장"
+          ]
+        }
+      },
+      {
+        "name": "배전 자격가점 8점: 전자·품질경영·소방설비(전기)·신재생에너지발전설비(태양광) 기사, 전자기기기능장",
+        "kind": "bonus",
+        "applicable_units": [
+          "배전(일반)"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304551",
+            "page": 19,
+            "quote": "[기 사] 전자, 품질경영, 소방설비(전기), 신재생에너지 발전설비(태양광)",
+            "verified": true
+          }
+        ],
+        "track": "전기",
+        "points": 8,
+        "match": {
+          "names": [
+            "전자기사",
+            "품질경영기사",
+            "소방설비기사(전기)",
+            "신재생에너지발전설비기사(태양광)",
+            "전자기기기능장"
+          ]
+        }
+      },
+      {
+        "name": "배전 자격가점 5점: 전기·전기공사·산업안전 산업기사",
+        "kind": "bonus",
+        "applicable_units": [
+          "배전(일반)"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304551",
+            "page": 19,
+            "quote": "5점 [산업기사] 전기, 전기공사, 산업안전",
+            "verified": true
+          }
+        ],
+        "track": "전기",
+        "points": 5,
+        "match": {
+          "names": [
+            "전기산업기사",
+            "전기공사산업기사",
+            "산업안전산업기사"
+          ]
+        }
+      },
+      {
+        "name": "송변전 자격가점 10점: 전기·전기공사 기사, 전기기능장",
+        "kind": "bonus",
+        "applicable_units": [
+          "송변전(일반)"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304551",
+            "page": 19,
+            "quote": "10점 [기 사] 전기, 전기공사 [기 능 장] 전기",
+            "verified": true
+          }
+        ],
+        "track": "전기",
+        "points": 10,
+        "match": {
+          "names": [
+            "전기기사",
+            "전기공사기사",
+            "전기기능장"
+          ]
+        }
+      },
+      {
+        "name": "송변전 자격가점 8점: 전자·품질경영·산업안전·소방설비(전기)·신재생에너지발전설비(태양광) 기사, 전자기기기능장",
+        "kind": "bonus",
+        "applicable_units": [
+          "송변전(일반)"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304551",
+            "page": 19,
+            "quote": "[기 사] 전자, 품질경영, 산업안전, 소방설비(전기), 신재생에너지발전설비(태양광)",
+            "verified": true
+          }
+        ],
+        "track": "전기",
+        "points": 8,
+        "match": {
+          "names": [
+            "전자기사",
+            "품질경영기사",
+            "산업안전기사",
+            "소방설비기사(전기)",
+            "신재생에너지발전설비기사(태양광)",
+            "전자기기기능장"
+          ]
+        }
+      },
+      {
+        "name": "송변전 자격가점 5점: 전기·전기공사 산업기사",
+        "kind": "bonus",
+        "applicable_units": [
+          "송변전(일반)"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304551",
+            "page": 19,
+            "quote": "5점 [산업기사] 전기, 전기공사",
+            "verified": true
+          }
+        ],
+        "track": "전기",
+        "points": 5,
+        "match": {
+          "names": [
+            "전기산업기사",
+            "전기공사산업기사"
+          ]
+        }
+      },
+      {
+        "name": "지원 가능 자격증(비전공자): 정보통신·정보관리·컴퓨터시스템응용·전자응용 기술사, 정보통신·무선설비·전자·방송통신·정보처리·전파전자통신·컴퓨터시스템·정보보안·빅데이터분석 기사",
+        "kind": "accepted",
+        "applicable_units": [
+          "ICT"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304551",
+            "page": 11,
+            "quote": "[기술사] 정보통신, 정보관리, 컴퓨터시스템응용, 전자응용",
+            "verified": true
+          },
+          {
+            "side": "curr",
+            "notice_sn": "304551",
+            "page": 11,
+            "quote": "I C T [기 사] 정보통신, 무선설비, 전자, 방송통신, 정보처리, 전파전자통신,",
+            "verified": true
+          }
+        ],
+        "track": "ICT",
+        "match": {
+          "names": [
+            "정보통신기술사",
+            "정보관리기술사",
+            "컴퓨터시스템응용기술사",
+            "전자응용기술사"
+          ],
+          "items": [
+            "정보통신",
+            "무선설비",
+            "전자",
+            "방송통신",
+            "정보처리",
+            "전파전자통신",
+            "컴퓨터시스템",
+            "정보보안",
+            "빅데이터분석"
+          ],
+          "grades": [
+            "기사"
+          ]
+        }
+      },
+      {
+        "name": "ICT 자격가점 10점: 전자·무선설비·정보통신·컴퓨터시스템·정보처리·정보보안·빅데이터분석·방송통신·전파전자통신 기사, ADP·DAP·SQLP·COS Pro 1급·PCCP Lv3~5",
+        "kind": "bonus",
+        "applicable_units": [
+          "ICT"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304551",
+            "page": 19,
+            "quote": "[기 사] 전자, 무선설비, 정보통신, 컴퓨터시스템, 정보처리, 정보보안,",
+            "verified": true
+          },
+          {
+            "side": "curr",
+            "notice_sn": "304551",
+            "page": 19,
+            "quote": "[전문자격] ADP, DAP, SQLP, COS Pro 1급, PCCP Lv3~5",
+            "verified": true
+          }
+        ],
+        "track": "ICT",
+        "points": 10,
+        "match": {
+          "names": [
+            "ADP",
+            "DAP",
+            "SQLP",
+            "COS Pro 1급",
+            "PCCP Lv3",
+            "PCCP Lv4",
+            "PCCP Lv5"
+          ],
+          "items": [
+            "전자",
+            "무선설비",
+            "정보통신",
+            "컴퓨터시스템",
+            "정보처리",
+            "정보보안",
+            "빅데이터분석",
+            "방송통신",
+            "전파전자통신"
+          ],
+          "grades": [
+            "기사"
+          ]
+        }
+      },
+      {
+        "name": "ICT 자격가점 8점: 품질경영·산업안전 기사",
+        "kind": "bonus",
+        "applicable_units": [
+          "ICT"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304551",
+            "page": 19,
+            "quote": "8점 [기 사] 품질경영, 산업안전",
+            "verified": true
+          }
+        ],
+        "track": "ICT",
+        "points": 8,
+        "match": {
+          "items": [
+            "품질경영",
+            "산업안전"
+          ],
+          "grades": [
+            "기사"
+          ]
+        }
+      },
+      {
+        "name": "ICT 자격가점 5점: 전자·무선설비·정보통신·정보처리·전자계산기제어·정보보안·방송통신·빅데이터분석·전파전자통신 산업기사, ADsP·DAsP·SQLD·COS Pro 2급·PCCP Lv2",
+        "kind": "bonus",
+        "applicable_units": [
+          "ICT"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304551",
+            "page": 19,
+            "quote": "[산업기사] 전자, 무선설비, 정보통신, 정보처리, 전자계산기제어, 정보보안,",
+            "verified": true
+          },
+          {
+            "side": "curr",
+            "notice_sn": "304551",
+            "page": 19,
+            "quote": "[전문자격] ADsP, DAsP, SQLD, COS Pro 2급, PCCP Lv2",
+            "verified": true
+          }
+        ],
+        "track": "ICT",
+        "points": 5,
+        "match": {
+          "names": [
+            "ADsP",
+            "DAsP",
+            "SQLD",
+            "COS Pro 2급",
+            "PCCP Lv2"
+          ],
+          "items": [
+            "전자",
+            "무선설비",
+            "정보통신",
+            "정보처리",
+            "전자계산기제어",
+            "정보보안",
+            "방송통신",
+            "빅데이터분석",
+            "전파전자통신"
+          ],
+          "grades": [
+            "산업기사"
+          ]
+        }
+      },
+      {
+        "name": "ICT 자격가점 3점: 품질경영·산업안전 산업기사",
+        "kind": "bonus",
+        "applicable_units": [
+          "ICT"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304551",
+            "page": 19,
+            "quote": "3점 [산업기사] 품질경영, 산업안전",
+            "verified": true
+          }
+        ],
+        "track": "ICT",
+        "points": 3,
+        "match": {
+          "items": [
+            "품질경영",
+            "산업안전"
+          ],
+          "grades": [
+            "산업기사"
+          ]
+        }
+      },
+      {
+        "name": "지원 가능 자격증(비전공자): 토목시공·토질및기초·토목구조·도로및공항·상하수도·수자원개발·항만및해안·측량및지형공간정보·농어업토목 기술사, 토목·건설재료시험·측량및지형공간정보 기사",
+        "kind": "accepted",
+        "applicable_units": [
+          "토목"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304551",
+            "page": 11,
+            "quote": "[기술사] 토목시공, 토질및기초, 토목구조, 도로및공항, 상하수도,",
+            "verified": true
+          },
+          {
+            "side": "curr",
+            "notice_sn": "304551",
+            "page": 11,
+            "quote": "[기 사] 토목, 건설재료시험, 측량및지형공간정보",
+            "verified": true
+          }
+        ],
+        "track": "토목",
+        "match": {
+          "items": [
+            "토목시공",
+            "토질및기초",
+            "토목구조",
+            "도로및공항",
+            "상하수도",
+            "수자원개발",
+            "항만및해안",
+            "측량및지형공간정보",
+            "농어업토목"
+          ],
+          "grades": [
+            "기술사"
+          ],
+          "names": [
+            "토목기사",
+            "건설재료시험기사",
+            "측량및지형공간정보기사"
+          ]
+        }
+      },
+      {
+        "name": "토목 자격가점 10점: 토목·건설재료시험·측량및지형공간정보·산업안전·건설안전 기사",
+        "kind": "bonus",
+        "applicable_units": [
+          "토목"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304551",
+            "page": 19,
+            "quote": "10점 [기 사] 토목, 건설재료시험, 측량및지형공간정보, 산업안전, 건설안전",
+            "verified": true
+          }
+        ],
+        "track": "토목",
+        "points": 10,
+        "match": {
+          "items": [
+            "토목",
+            "건설재료시험",
+            "측량및지형공간정보",
+            "산업안전",
+            "건설안전"
+          ],
+          "grades": [
+            "기사"
+          ]
+        }
+      },
+      {
+        "name": "토목 자격가점 8점: 조경·도시계획·건축·콘크리트·품질경영 기사",
+        "kind": "bonus",
+        "applicable_units": [
+          "토목"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304551",
+            "page": 19,
+            "quote": "8점 [기 사] 조경, 도시계획, 건축, 콘크리트, 품질경영",
+            "verified": true
+          }
+        ],
+        "track": "토목",
+        "points": 8,
+        "match": {
+          "items": [
+            "조경",
+            "도시계획",
+            "건축",
+            "콘크리트",
+            "품질경영"
+          ],
+          "grades": [
+            "기사"
+          ]
+        }
+      },
+      {
+        "name": "토목 자격가점 5점: 토목·건설재료시험·측량및지형공간정보·산업안전·건설안전 산업기사",
+        "kind": "bonus",
+        "applicable_units": [
+          "토목"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304551",
+            "page": 19,
+            "quote": "5점 [산업기사] 토목, 건설재료시험, 측량및지형공간정보, 산업안전, 건설안전",
+            "verified": true
+          }
+        ],
+        "track": "토목",
+        "points": 5,
+        "match": {
+          "items": [
+            "토목",
+            "건설재료시험",
+            "측량및지형공간정보",
+            "산업안전",
+            "건설안전"
+          ],
+          "grades": [
+            "산업기사"
+          ]
+        }
+      },
+      {
+        "name": "토목 자격가점 3점: 조경·도시계획·건축·콘크리트·품질경영 산업기사",
+        "kind": "bonus",
+        "applicable_units": [
+          "토목"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304551",
+            "page": 19,
+            "quote": "3점 [산업기사] 조경, 도시계획, 건축, 콘크리트, 품질경영",
+            "verified": true
+          }
+        ],
+        "track": "토목",
+        "points": 3,
+        "match": {
+          "items": [
+            "조경",
+            "도시계획",
+            "건축",
+            "콘크리트",
+            "품질경영"
+          ],
+          "grades": [
+            "산업기사"
+          ]
+        }
+      }
+    ],
+    "majors": [
+      {
+        "name": "전기(공학), 전자·전기공학, 전기제어공학 및 관련학과 전공자 (4년제 대학 졸업자 또는 졸업예정자)",
+        "kind": "accepted",
+        "applicable_units": [
+          "배전(일반)",
+          "송변전(일반)"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304551",
+            "page": 3,
+            "quote": "□ 다만, 기술 분야 지원시 관련 분야 자격증 미보유자는 해당 분야 전공자",
+            "verified": true
+          },
+          {
+            "side": "curr",
+            "notice_sn": "304551",
+            "page": 11,
+            "quote": "배 전 전기(공학), 전자·전기공학, 전기제어공학 및 관련학과*",
+            "verified": true
+          }
+        ],
+        "track": "전기"
+      },
+      {
+        "name": "사무: 전공 제한 없음",
+        "kind": "accepted",
+        "applicable_units": [
+          "사무(일반)"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304551",
+            "page": 11,
+            "quote": "사 무 전공제한 없음",
+            "verified": true
+          }
+        ],
+        "track": "사무",
+        "unrestricted": true
+      },
+      {
+        "name": "정보통신공학, 컴퓨터, 소프트웨어, 전자공학 및 관련학과 전공자 (4년제 대학 졸업자 또는 졸업예정자)",
+        "kind": "accepted",
+        "applicable_units": [
+          "ICT"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304551",
+            "page": 3,
+            "quote": "□ 다만, 기술 분야 지원시 관련 분야 자격증 미보유자는 해당 분야 전공자",
+            "verified": true
+          },
+          {
+            "side": "curr",
+            "notice_sn": "304551",
+            "page": 11,
+            "quote": "I C T 정보통신공학, 컴퓨터, 소프트웨어, 전자공학 및 관련학과",
+            "verified": true
+          }
+        ],
+        "track": "ICT"
+      },
+      {
+        "name": "토목공학, 토목환경공학, 해양토목공학, 농업토목공학 및 관련학과 전공자 (4년제 대학 졸업자 또는 졸업예정자)",
+        "kind": "accepted",
+        "applicable_units": [
+          "토목"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304551",
+            "page": 3,
+            "quote": "□ 다만, 기술 분야 지원시 관련 분야 자격증 미보유자는 해당 분야 전공자",
+            "verified": true
+          },
+          {
+            "side": "curr",
+            "notice_sn": "304551",
+            "page": 11,
+            "quote": "토 목 토목공학, 토목환경공학, 해양토목공학, 농업토목공학및관련학과",
+            "verified": true
+          }
+        ],
+        "track": "토목"
+      }
+    ],
+    "manual_review_conditions": [],
+    "units": [
+      {
+        "name": "사무(일반)",
+        "track": "사무",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "사무(장애인)",
+        "track": "사무",
+        "kind": "special",
+        "note": "장애인 전형은 「장애인고용법」상 장애인만 지원할 수 있습니다.",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304551",
+            "page": 3,
+            "quote": "○ 장애인 전형은 「장애인고용법」에서 정한 장애인만 지원 가능",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "name": "사무(보훈)",
+        "track": "사무",
+        "kind": "special",
+        "note": "보훈 전형은 「국가유공자법」상 취업지원대상자만 지원할 수 있습니다.",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304551",
+            "page": 3,
+            "quote": "○ 보훈 전형은 「국가유공자법」에서 정한 취업지원대상자만 지원가능",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "name": "배전(일반)",
+        "track": "전기",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "배전(보훈)",
+        "track": "전기",
+        "kind": "special",
+        "note": "보훈 전형은 「국가유공자법」상 취업지원대상자만 지원할 수 있습니다.",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304551",
+            "page": 3,
+            "quote": "○ 보훈 전형은 「국가유공자법」에서 정한 취업지원대상자만 지원가능",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "name": "송변전(일반)",
+        "track": "전기",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "송변전(보훈)",
+        "track": "전기",
+        "kind": "special",
+        "note": "보훈 전형은 「국가유공자법」상 취업지원대상자만 지원할 수 있습니다.",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304551",
+            "page": 3,
+            "quote": "○ 보훈 전형은 「국가유공자법」에서 정한 취업지원대상자만 지원가능",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "name": "ICT",
+        "track": "ICT",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      },
+      {
+        "name": "토목",
+        "track": "토목",
+        "kind": "general",
+        "note": null,
+        "evidence": []
+      }
+    ],
+    "common_checks": [
+      {
+        "text": "외국어: TOEIC 기준 700점 이상 (사무·기술 공통, 고급자격증 보유자는 면제)",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304551",
+            "page": 4,
+            "quote": "§ TOEIC 기준 : 700점 이상(사무‧기술 공통)",
+            "verified": true
+          }
+        ]
+      }
+    ],
+    "region_note": {
+      "text": "전국권(이전지역인재)을 뺀 모집단위는 최종학교 소재지·거주지와 관계없이 지원할 수 있습니다.",
+      "evidence": [
+        {
+          "side": "curr",
+          "notice_sn": "304551",
+          "page": 2,
+          "quote": "※ 전국권(이전지역인재) 外 다른 모집단위는 최종학교 소재지, 거주지 등 관계없이",
+          "verified": true
+        }
+      ]
+    },
+    "bonus_rule": {
+      "text": "자격가점은 최대 2개까지, 같은 종류는 상위 등급 1개만 인정 (예: 전기기사+전기산업기사 → 10점)",
+      "evidence": [
+        {
+          "side": "curr",
+          "notice_sn": "304551",
+          "page": 19,
+          "quote": "* 동일종류 자격증은 상위등급 자격증만 인정",
+          "verified": true
+        }
+      ]
+    },
+    "reviewed": {
+      "reviewed_at": "2026-11-18",
+      "reviewer": "Claude (2026 공고 PDF 304551 대조, 사람 재확인 필요)",
+      "scope": "사무·전기(배전·송변전)·ICT·토목"
+    }
   },
   "visual_summary": {
     "total_headcount": {
@@ -584,5 +1588,7 @@
         "curr": 50
       }
     ]
-  }
+  },
+  "tier": "verified",
+  "category": "시장형"
 }

@@ -9,11 +9,74 @@ from typing import Any, Mapping
 import pandas as pd
 import streamlit as st
 
-from app.ui_components import apply_styles, change_card
-from src.report_repository import ReportContractError, ReportRepository
+from app.ui_components import apply_styles, md_text, unit_card
+from src.change_groups import display_units
+from app.report_data import AUTO_BADGE, is_auto, load_reports
+from src.report_repository import ReportContractError
 
 
 ROOT = Path(__file__).resolve().parents[2]
+
+
+CHANGE_MARK = {"new": "작년에 없던 항목", "changed": "혜택 바뀜", "same": "작년과 같음"}
+
+
+def _units(report: Mapping[str, Any]) -> list[dict[str, Any]]:
+    """화면 카드 단위. 같은 변경을 나눠 잡은 후보는 한 장으로 센다.
+
+    날짜만 바뀐 후보(어학성적 인정 시작일 등)는 매년 바뀌는 값이라 카드에서 빼고
+    '이번 공고 한눈에 보기'에서 이번 공고 기준으로 보여준다.
+    """
+    changes = [change for change in report["changes"] if change.get("change_type") != "date"]
+    return display_units(changes, report.get("change_groups"))
+
+
+def _render_notice_info(report: Mapping[str, Any]) -> None:
+    info = report.get("notice_info")
+    if not info:
+        return
+
+    st.subheader("이번 공고 한눈에 보기")
+    st.caption("작년과 달라졌는지와 상관없이, 이번 공고에 지원할 때 챙길 기준을 모았습니다.")
+    period = info["period"]
+    st.markdown(f"**접수기간:** {period['start']} ~ {period['end']}")
+
+    rules = info.get("rules") or []
+    if rules:
+        st.markdown("#### 기준일·유효기간")
+        st.dataframe(
+            pd.DataFrame([{"구분": rule["topic"], "이번 공고 기준": rule["text"]} for rule in rules]),
+            hide_index=True,
+            use_container_width=True,
+        )
+
+    submissions = info.get("submissions") or []
+    if submissions:
+        st.markdown("#### 제출·입력해야 할 것")
+        for item in submissions:
+            st.markdown(f"- {md_text(item)}")
+
+    benefits = info.get("benefits") or []
+    if benefits:
+        new_count = sum(item["change"] == "new" for item in benefits)
+        changed_count = sum(item["change"] == "changed" for item in benefits)
+        badge = []
+        if new_count:
+            badge.append(f"작년에 없던 항목 {new_count}개")
+        if changed_count:
+            badge.append(f"혜택 바뀜 {changed_count}개")
+        title = f"우대사항과 혜택 {len(benefits)}개" + (f" · {', '.join(badge)}" if badge else "")
+        with st.expander(title):
+            rows = []
+            for item in benefits:
+                benefit = item["benefit"] or "공고문 가점표 참고 (API 문구에 혜택 없음)"
+                if item.get("notes"):
+                    benefit += " ※ " + " ※ ".join(item["notes"])
+                row = {"대상": item["name"], "혜택": benefit, "작년 대비": CHANGE_MARK[item["change"]]}
+                if any(entry["section"] for entry in benefits):
+                    row = {"구분": item["section"] or "-", **row}
+                rows.append(row)
+            st.dataframe(pd.DataFrame(rows), hide_index=True, use_container_width=True)
 
 
 def _render_header(report: Mapping[str, Any]) -> None:
@@ -23,6 +86,14 @@ def _render_header(report: Mapping[str, Any]) -> None:
         f'<div class="radar-title">{institution} 채용공고 비교</div>',
         unsafe_allow_html=True,
     )
+    if is_auto(report):
+        st.markdown(
+            f'<span class="status-badge status-review_required">{AUTO_BADGE}</span>',
+            unsafe_allow_html=True,
+        )
+        st.caption(
+            "정부 채용정보 API 문구를 코드로 자동 비교한 공고입니다. PDF 원문 대조 전이라 모든 변경점은 '확인 필요' 후보입니다."
+        )
     st.markdown(
         '<div class="radar-subtitle">현재 지원할 공고와 전년도 공고에서 달라진 내용을 확인합니다.</div>',
         unsafe_allow_html=True,
@@ -44,8 +115,9 @@ def _render_header(report: Mapping[str, Any]) -> None:
                 f"공고번호 {report['prev']['sn']} · 접수 {report['prev']['period']['start']} ~ {report['prev']['period']['end']}"
             )
 
-    confirmed = sum(item["status"] == "confirmed" for item in report["changes"])
-    review = sum(item["status"] == "review_required" for item in report["changes"])
+    units = _units(report)
+    confirmed = sum(item["status"] == "confirmed" for item in units)
+    review = sum(item["status"] == "review_required" for item in units)
     first, second, third = st.columns(3)
     first.metric("확인된 변경사항", f"{confirmed}건")
     second.metric("추가 확인 필요", f"{review}건")
@@ -235,20 +307,27 @@ def render_report(report: Mapping[str, Any]) -> None:
             "아래 후보는 확정된 변경사항으로 사용하면 안 됩니다."
         )
     _render_ai_usage()
+    _render_notice_info(report)
     _render_visual_summary(report)
 
     st.subheader("무엇이 바뀌었나")
     show_review = st.toggle("확인 필요한 후보도 함께 보기", value=False)
     visible = [
-        item
-        for item in report["changes"]
-        if item["status"] == "confirmed" or show_review
+        unit
+        for unit in _units(report)
+        if unit["status"] == "confirmed" or show_review
     ]
-    st.caption(f"현재 {len(visible)}건 표시 · 중요도 높은 순")
+    grouped = sum(unit["kind"] == "group" for unit in visible)
+    dated = sum(change.get("change_type") == "date" for change in report["changes"])
+    st.caption(
+        f"현재 {len(visible)}건 표시 · 중요도 높은 순"
+        + (f" · 같은 변경을 나눠 잡은 후보 {grouped}묶음은 한 장으로 표시" if grouped else "")
+        + (f" · 날짜만 바뀐 {dated}건은 ‘이번 공고 한눈에 보기’에 정리" if dated else "")
+    )
 
     titles = {"prev": report["prev"]["title"], "curr": report["curr"]["title"]}
-    for change in visible:
-        change_card(change, titles, str(report["pair_id"]))
+    for unit in visible:
+        unit_card(unit, titles, str(report["pair_id"]), report.get("notice_info"))
 
     if not visible:
         st.warning("표시할 확정 변경점이 없습니다.")
@@ -257,22 +336,29 @@ def render_report(report: Mapping[str, Any]) -> None:
 
 
 def _report_option_label(report: Mapping[str, Any]) -> str:
-    confirmed = sum(item["status"] == "confirmed" for item in report["changes"])
-    review = sum(item["status"] == "review_required" for item in report["changes"])
-    status = f"원문 확인 {confirmed}건" if confirmed else f"원문 대조 중 · 후보 {review}건"
-    return f'{report["institution"]} · {report["pair_name"]} · {status}'
+    units = _units(report)
+    confirmed = sum(item["status"] == "confirmed" for item in units)
+    review = sum(item["status"] == "review_required" for item in units)
+    if is_auto(report):
+        status = f"{AUTO_BADGE} · 후보 {review}건"
+    else:
+        status = f"원문 확인 {confirmed}건" if confirmed else f"원문 대조 중 · 후보 {review}건"
+    category = f"[{report['category']}] " if report.get("category") else ""
+    return f'{category}{report["institution"]} · {report["pair_name"]} · {status}'
 
 
 def render_report_page(pair_id: str = "kepco-2025-2026-h2") -> None:
-    repository = ReportRepository()
     try:
-        reports = repository.list_reports()
+        reports, _ = load_reports()
         if not reports:
             raise KeyError("표시할 리포트가 없습니다.")
 
         reports_by_id = {report["pair_id"]: report for report in reports}
+        pair_id = st.session_state.get("selected_pair_id") or pair_id
         default_index = list(reports_by_id).index(pair_id) if pair_id in reports_by_id else 0
         apply_styles()
+        if st.session_state.get("user_condition"):
+            st.page_link("app/pages/matches.py", label="맞춤 공고 목록으로 돌아가기", icon="🔎")
         selected_pair_id = st.selectbox(
             "지원할 기업과 비교 공고 선택",
             options=list(reports_by_id),
@@ -286,3 +372,7 @@ def render_report_page(pair_id: str = "kepco-2025-2026-h2") -> None:
         st.error(f"리포트를 열 수 없습니다: {exc}")
         return
     render_report(report)
+
+
+if __name__ == "__main__":
+    render_report_page()

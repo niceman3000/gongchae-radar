@@ -10,6 +10,8 @@ from typing import Any, Mapping
 
 import streamlit as st
 
+from src.notice_text import describe_change, is_list_like, item_diff, list_section
+
 
 STATUS_LABELS = {
     "confirmed": "원문 확인",
@@ -40,10 +42,40 @@ CHANGE_COPY = {
         "공고 전체 선발인원 증가: 139명 → 229명",
         "일반전형·보훈특별전형·사회형평전형을 모두 합친 공고 전체 기준입니다. 위 구성표에서 전형별 증감을 확인할 수 있습니다.",
     ),
-    ("khnp-2025-2026-round3", "stage1-004"): (
-        "사전평가 기준 변경: 일부 지원자는 전체 사전평가 면제",
-        "API 문구상 2025년에는 해당 지원자도 자기소개서 적부평가를 받았지만, 2026년에는 응시자격이 적격이면 1차 사전평가를 면제합니다. PDF 원문 확인이 남아 있습니다.",
+}
+
+# 여러 후보를 묶은 카드의 제목·설명. 키는 (pair_id, change_groups의 id).
+GROUP_COPY = {
+    ("kepco-2025-2026-h2", "group-stage1-017"): (
+        "청년청렴 Auditor 우수활동자 가점 신설",
+        "2025년도에 선정된 우수활동자부터 1차(서류)전형에서 10% 가점을 받을 수 있습니다.",
     ),
+    ("khnp-2025-2026-round3", "group-stage1-004"): (
+        "자기소개서 제출 시점 변경: 입사지원 시 → 면접 대상자만",
+        "2025년에는 모든 지원자가 입사지원 때 자기소개서를 내고, 사전평가 적부 판정을 통과해야 필기시험을 볼 수 있었습니다. "
+        "2026년에는 입사지원 때 자기소개서를 쓰지 않고, 인재상·조직적합도 검사 후 면접 대상자만 제출합니다. "
+        "지역모집·장애인·취업지원대상자 등은 응시자격만 맞으면 사전평가가 면제됩니다. "
+        "(PDF 6·12쪽 내용과 일치하지만 쪽수·인용 기록 전이라 확정하지 않았습니다.)",
+    ),
+    ("khnp-2025-2026-round3", "group-stage1-010"): (
+        "우대 대상 추가: 체험형인턴 우수인턴 (필기 가점 5점)",
+        "우대사항 칸은 가점을 받는 사람 목록입니다(일반전형·사회형평/보훈특별전형 두 목록). "
+        "두 목록 모두에 ‘체험형인턴 우수인턴’이 새로 들어갔습니다.\n\n"
+        "- **누구:** 한수원 체험형 청년인턴(2025년도 제2차 이후)을 마치고 우수인턴으로 뽑힌 사람\n"
+        "- **혜택:** 1차 전형(필기) 가점 5점, 우수인턴 확정일(수료일)부터 3년간 1회\n"
+        "- **기존 가점과 차이:** ‘경진대회 성적우수자’ 가점은 이제 2025년도 제1차 이전 인턴에게만 적용\n\n"
+        "PDF 7·8쪽 내용과 일치하지만 쪽수·인용 기록 전이라 확정하지 않았습니다.",
+    ),
+}
+
+MEMBER_LABELS = {
+    "text": "바뀐 문구",
+    "added": "새로 생긴 문구",
+    "removed": "사라진 문구",
+    "number": "바뀐 숫자",
+    "date": "바뀐 날짜",
+    "rename": "바뀐 명칭",
+    "list": "바뀐 목록",
 }
 
 LONG_TEXT_THRESHOLD = 90
@@ -96,6 +128,9 @@ def apply_styles() -> None:
             padding: .08rem .2rem; font-weight: 750;
         }
         .diff-ellipsis { color: #8791a2; padding: 0 .15rem; }
+        .status-eligible { color: #176b45; background: #ddf5e9; }
+        .status-ambiguous { color: #875800; background: #fff0c7; }
+        .status-ineligible { color: #9f2f2f; background: #ffe3e3; }
         </style>
         """,
         unsafe_allow_html=True,
@@ -109,6 +144,20 @@ def status_badge(status: str) -> None:
         f'<span class="status-badge status-{safe_status}">{escape(label)}</span>',
         unsafe_allow_html=True,
     )
+
+
+def md_text(value: Any) -> str:
+    """공고 문구를 마크다운에 넣을 때 '1~10점 … 28~29쪽'이 취소선이 되지 않게 물결표를 이스케이프한다."""
+    return str(value).replace("~", "\\~")
+
+
+ELIGIBILITY_LABELS = {"eligible": "지원 가능", "ambiguous": "애매", "ineligible": "지원 불가"}
+
+
+def eligibility_badge(status: str | None) -> None:
+    label = ELIGIBILITY_LABELS.get(status or "", "판정 없음")
+    safe = status if status in ELIGIBILITY_LABELS else "ambiguous"
+    st.markdown(f'<span class="status-badge status-{safe}">{escape(label)}</span>', unsafe_allow_html=True)
 
 
 def display_value(value: Any) -> str:
@@ -161,10 +210,16 @@ def diff_side_html(previous: str, current: str, side: str) -> str:
     return "".join(output)
 
 
-def concise_change_title(change: Mapping[str, Any], pair_id: str) -> tuple[str, str]:
+def concise_change_title(
+    change: Mapping[str, Any], pair_id: str, notice_info: Mapping[str, Any] | None = None
+) -> tuple[str, str]:
     curated = CHANGE_COPY.get((pair_id, str(change.get("id"))))
     if curated:
         return curated
+
+    described = describe_change(change, notice_info)
+    if described:
+        return described
 
     raw_title = str(change["title"])
     if len(raw_title) <= 80:
@@ -215,8 +270,64 @@ def evidence_card(item: Mapping[str, Any], titles: Mapping[str, str]) -> None:
     )
 
 
-def change_card(change: Mapping[str, Any], titles: Mapping[str, str], pair_id: str) -> None:
-    plain_title, impact = concise_change_title(change, pair_id)
+def _chips(items: list[str], kind: str) -> str:
+    css = "diff-added" if kind == "added" else "diff-removed"
+    return " ".join(f'<span class="{css}">{escape(item)}</span>' for item in items)
+
+
+def _render_list_diff(previous: str, current: str) -> None:
+    """쉼표로 늘어놓은 목록은 긴 문장 대신 생긴 항목·빠진 항목만 보여준다."""
+    removed, added, same = item_diff(previous, current)
+    if added:
+        st.markdown(f"**새로 들어감:** {_chips(added, 'added')}", unsafe_allow_html=True)
+    if removed:
+        st.markdown(f"**목록에서 빠짐:** {_chips(removed, 'removed')}", unsafe_allow_html=True)
+    with st.expander(f"그대로인 항목 {same}개와 원문 전체"):
+        old, new = st.columns(2)
+        with old:
+            _value_box("2025 전체 문구", previous)
+        with new:
+            _value_box("2026 전체 문구", current)
+
+
+def _render_values(change: Mapping[str, Any]) -> None:
+    previous = change.get("prev_value")
+    current = change.get("curr_value")
+    if change.get("change_type") == "text" and is_list_like(previous) and is_list_like(current):
+        _render_list_diff(previous, current)
+        return
+    if (
+        isinstance(previous, str)
+        and isinstance(current, str)
+        and max(len(previous), len(current)) >= LONG_TEXT_THRESHOLD
+    ):
+        _render_long_text_diff(previous, current)
+    else:
+        before, after = st.columns(2)
+        with before:
+            _value_box("2025", previous)
+        with after:
+            _value_box("2026", current)
+
+
+def _render_evidence(evidence: list[Mapping[str, Any]], titles: Mapping[str, str]) -> None:
+    if evidence:
+        with st.expander(f"공식 공고 근거 {len(evidence)}개"):
+            for index, item in enumerate(evidence):
+                evidence_card(item, titles)
+                if index < len(evidence) - 1:
+                    st.divider()
+    else:
+        st.caption("원문 근거를 대조 중인 후보입니다.")
+
+
+def change_card(
+    change: Mapping[str, Any],
+    titles: Mapping[str, str],
+    pair_id: str,
+    notice_info: Mapping[str, Any] | None = None,
+) -> None:
+    plain_title, impact = concise_change_title(change, pair_id, notice_info)
     with st.container(border=True):
         left, right = st.columns([4, 1])
         with left:
@@ -225,31 +336,82 @@ def change_card(change: Mapping[str, Any], titles: Mapping[str, str], pair_id: s
                 unsafe_allow_html=True,
             )
             st.caption(f'{change["category"]} · 중요도 {change["importance"]}')
-            st.markdown(f"**지원자에게 의미:** {impact}")
+            st.markdown(f"**지원자에게 의미:** {md_text(impact)}")
         with right:
             status_badge(str(change["status"]))
 
-        previous = change.get("prev_value")
-        current = change.get("curr_value")
-        if (
-            isinstance(previous, str)
-            and isinstance(current, str)
-            and max(len(previous), len(current)) >= LONG_TEXT_THRESHOLD
-        ):
-            _render_long_text_diff(previous, current)
-        else:
-            before, after = st.columns(2)
-            with before:
-                _value_box("2025", previous)
-            with after:
-                _value_box("2026", current)
+        _render_values(change)
+        _render_evidence(list(change.get("evidence") or []), titles)
 
-        evidence = list(change.get("evidence") or [])
-        if evidence:
-            with st.expander(f"공식 공고 근거 {len(evidence)}개"):
-                for index, item in enumerate(evidence):
-                    evidence_card(item, titles)
-                    if index < len(evidence) - 1:
-                        st.divider()
-        else:
-            st.caption("원문 근거를 대조 중인 후보입니다.")
+
+def group_title(
+    unit: Mapping[str, Any], pair_id: str, notice_info: Mapping[str, Any] | None = None
+) -> tuple[str, str]:
+    group = unit["group"]
+    curated = GROUP_COPY.get((pair_id, str(group["id"])))
+    if curated:
+        return curated
+    described = [describe_change(change, notice_info) for change in unit["changes"]]
+    first = next((item[0] for item in described if item), None)
+    if first:
+        return (
+            f'{first} 외 {len(unit["changes"]) - 1}건',
+            "같은 변경이 공고 여러 곳에 나뉘어 잡혀 한 장으로 묶었습니다. 아래 문구별 차이를 함께 확인하세요.",
+        )
+    terms = ", ".join(group.get("shared_terms") or [])
+    return (
+        f'{unit["category"]} 관련 변경 {len(unit["changes"])}건' + (f" · {terms}" if terms else ""),
+        "같은 변경이 공고 여러 곳에 나뉘어 잡혀 한 장으로 묶었습니다. 아래 문구별 차이를 함께 확인하세요.",
+    )
+
+
+def _member_label(change: Mapping[str, Any], notice_info: Mapping[str, Any] | None) -> str:
+    section = list_section(change.get("curr_value"), notice_info)
+    if section and str(change.get("category")) == "가점":
+        where = section if "전형" in section else f"{section} 전형"
+        return f"{where} 가점 대상 목록"
+    return MEMBER_LABELS.get(str(change.get("change_type")), "바뀐 내용")
+
+
+def group_card(
+    unit: Mapping[str, Any],
+    titles: Mapping[str, str],
+    pair_id: str,
+    notice_info: Mapping[str, Any] | None = None,
+) -> None:
+    """여러 문장에 나뉘어 잡힌 같은 변경을 카드 한 장으로 보여준다."""
+    plain_title, impact = group_title(unit, pair_id, notice_info)
+    members = list(unit["changes"])
+    with st.container(border=True):
+        left, right = st.columns([4, 1])
+        with left:
+            st.markdown(
+                f'<div class="change-title">{escape(plain_title)}</div>',
+                unsafe_allow_html=True,
+            )
+            st.caption(
+                f'{unit["category"]} · 중요도 {unit["importance"]} · 관련 문구 {len(members)}개를 묶음'
+            )
+            st.markdown(f"**지원자에게 의미:** {md_text(impact)}")
+        with right:
+            status_badge(str(unit["status"]))
+
+        for index, change in enumerate(members, 1):
+            label = _member_label(change, notice_info)
+            st.markdown(f"**{index}. {label}**")
+            _render_values(change)
+
+        evidence = [item for change in members for item in change.get("evidence") or []]
+        _render_evidence(evidence, titles)
+
+
+def unit_card(
+    unit: Mapping[str, Any],
+    titles: Mapping[str, str],
+    pair_id: str,
+    notice_info: Mapping[str, Any] | None = None,
+) -> None:
+    if unit["kind"] == "group":
+        group_card(unit, titles, pair_id, notice_info)
+    else:
+        change_card(unit["changes"][0], titles, pair_id, notice_info)

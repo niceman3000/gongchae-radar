@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import os
 from pathlib import Path
 from typing import Any
 
@@ -13,6 +14,11 @@ from src.evidence import validate_report_semantics
 
 ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_REPORT_DIR = ROOT / "data" / "reports"
+
+
+def report_dir() -> Path:
+    """리포트 폴더. 테스트·시연용으로 다른 폴더를 쓸 때만 GONGCHAE_REPORT_DIR을 지정한다."""
+    return Path(os.environ.get("GONGCHAE_REPORT_DIR") or DEFAULT_REPORT_DIR)
 DEFAULT_SCHEMA_PATH = ROOT / "src" / "schemas" / "report.schema.json"
 
 
@@ -23,10 +29,10 @@ class ReportContractError(ValueError):
 class ReportRepository:
     def __init__(
         self,
-        report_dir: Path | str = DEFAULT_REPORT_DIR,
+        report_dir: Path | str | None = None,
         schema_path: Path | str = DEFAULT_SCHEMA_PATH,
     ) -> None:
-        self.report_dir = Path(report_dir)
+        self.report_dir = Path(report_dir) if report_dir else globals()["report_dir"]()
         self.schema_path = Path(schema_path)
         schema = json.loads(self.schema_path.read_text(encoding="utf-8"))
         self.validator = Draft202012Validator(schema, format_checker=FormatChecker())

@@ -12,9 +12,13 @@ from typing import Any, Iterable, Mapping
 from jsonschema import Draft202012Validator, FormatChecker
 
 try:
+    from src.change_groups import find_change_groups
     from src.evidence import can_confirm_change, validate_report_semantics, verify_evidence
+    from src.notice_info import build_notice_info
 except ModuleNotFoundError:  # `python src/report_builder.py` 직접 실행 지원
+    from change_groups import find_change_groups
     from evidence import can_confirm_change, validate_report_semantics, verify_evidence
+    from notice_info import build_notice_info
 
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -369,6 +373,135 @@ def _requirements(
     }
 
 
+TRACK_PATTERNS = [
+    ("전기", re.compile(r"전기|배전|송변전")),
+    ("기계", re.compile(r"기계")),
+    ("사무", re.compile(r"사무|행정|경영|회계|법무")),
+    ("ICT", re.compile(r"ICT|통신|전산|IT|정보")),
+    ("토목", re.compile(r"토목")),
+    ("건축", re.compile(r"건축")),
+    ("원자력", re.compile(r"원자력")),
+    ("화학", re.compile(r"화학|환경")),
+    ("수자원", re.compile(r"수자원")),
+]
+# 모집단위가 API에 없을 때 직무분야(NCS) 이름으로 직렬을 추정한다.
+NCS_TRACKS = [
+    ("사무", re.compile(r"경영|회계|사무|금융|보험")),
+    ("전기", re.compile(r"전기")),
+    ("기계", re.compile(r"기계")),
+    ("ICT", re.compile(r"정보통신")),
+    ("토목", re.compile(r"건설")),
+    ("화학", re.compile(r"화학|환경")),
+]
+
+
+def unit_track(name: str) -> str:
+    """모집단위 이름 → 직렬. '원전발전-전기전자' → 전기, '배전(일반)' → 전기"""
+    for track, pattern in TRACK_PATTERNS:
+        if pattern.search(name or ""):
+            return track
+    return "기타"
+
+
+def _verified(raw: Iterable[Mapping[str, Any]] | None, all_text: Mapping[str, str] | None, sn: str) -> list[dict[str, Any]]:
+    """사람이 고른 인용을 원문 쪽 텍스트와 다시 대조한다. 원문 텍스트가 없으면 verified=False."""
+    output = []
+    for item in raw or []:
+        candidate = {
+            "side": item.get("side", "curr"),
+            "notice_sn": sn,
+            "page": item.get("page"),
+            "quote": str(item.get("quote") or "")[:300],
+        }
+        output.append(verify_evidence(candidate, all_text or {}) if all_text else {**candidate, "verified": False})
+    return output
+
+
+def _reviewed_requirements(
+    curr_api: Mapping[str, Any],
+    reviewed: Mapping[str, Any] | None,
+    curr_all_text: Mapping[str, str] | None,
+    curr_sn: str,
+) -> dict[str, Any]:
+    """API(모집단위·근무지역)와 evaluation/ground_truth/{기관}_requirements.json을 합친 판정용 조건."""
+    reviewed = reviewed or {}
+    notes = reviewed.get("unit_notes") or []
+    units = []
+    for name in dict.fromkeys(step.get("recrutPbancTtl") for step in curr_api.get("steps") or []):
+        if not name:
+            continue
+        note = next((item for item in notes if item.get("pattern") and item["pattern"] in name), None)
+        units.append(
+            {
+                "name": str(name),
+                "track": unit_track(str(name)),
+                "kind": str((note or {}).get("kind") or "general"),
+                "note": (note or {}).get("text"),
+                "evidence": _verified((note or {}).get("evidence"), curr_all_text, curr_sn),
+            }
+        )
+
+    if not units:
+        # 모집단위 행이 없는 공고: 직무분야(NCS)로 직렬만 추정한다 (판정은 '애매'로 남는다).
+        note = "API에 모집단위 정보가 없어 직무분야(NCS)로 직렬을 추정했습니다. 실제 모집단위는 공고문에서 확인하세요."
+        for ncs in str(curr_api.get("ncsCdNmLst") or "").split(","):
+            track = next((name for name, pattern in NCS_TRACKS if pattern.search(ncs)), None)
+            if track and track not in {unit["track"] for unit in units}:
+                units.append({"name": f"{track} (직무분야 추정)", "track": track, "kind": "condition",
+                              "note": note, "evidence": []})
+
+    certificates, majors = [], []
+    for item in reviewed.get("items") or []:
+        converted = {
+            "name": str(item["name"]),
+            "kind": "accepted" if item.get("kind") == "major" else str(item.get("kind")),
+            "applicable_units": list(item.get("applicable_units") or []),
+            "evidence": _verified(item.get("evidence"), curr_all_text, curr_sn),
+        }
+        for key in ("track", "points", "match", "unrestricted"):
+            if key in item:
+                converted[key] = item[key]
+        (majors if item.get("kind") == "major" else certificates).append(converted)
+
+    def note_block(raw: Mapping[str, Any] | None) -> dict[str, Any] | None:
+        if not raw:
+            return None
+        return {"text": str(raw["text"]), "evidence": _verified(raw.get("evidence"), curr_all_text, curr_sn)}
+
+    regions = [value.strip() for value in str(curr_api.get("workRgnNmLst") or "").split(",") if value.strip()]
+    return {
+        "regions": regions,
+        "units": units,
+        "certificates": certificates,
+        "majors": majors,
+        "common_checks": [note_block(item) for item in reviewed.get("common_checks") or []],
+        "region_note": note_block(reviewed.get("region_note")),
+        "bonus_rule": note_block(reviewed.get("bonus_rule")),
+        "reviewed": (
+            {
+                "reviewed_at": str(reviewed.get("reviewed_at") or ""),
+                "reviewer": str(reviewed.get("reviewer") or ""),
+                "scope": str(reviewed.get("scope") or ""),
+            }
+            if reviewed
+            else None
+        ),
+    }
+
+
+def _merge_requirements(stage2: dict[str, Any], reviewed: dict[str, Any]) -> dict[str, Any]:
+    """2단계 AI 추출값(있으면)을 유지하고, API·사람 검토 값을 더한다."""
+    merged = dict(stage2)
+    unit_tracks = [unit["track"] for unit in reviewed["units"]]
+    merged["tracks"] = list(dict.fromkeys(unit_tracks or stage2["tracks"]))
+    merged["regions"] = sorted(set(stage2["regions"]) | set(reviewed["regions"]))
+    merged["certificates"] = stage2["certificates"] + reviewed["certificates"]
+    merged["majors"] = stage2["majors"] + reviewed["majors"]
+    for key in ("units", "common_checks", "region_note", "bonus_rule", "reviewed"):
+        merged[key] = reviewed[key]
+    return merged
+
+
 def build_report(
     config: Mapping[str, Any],
     stage1: Mapping[str, Any],
@@ -382,6 +515,7 @@ def build_report(
     visual_summary: Mapping[str, Any] | None = None,
     prev_all_text: Mapping[str, str] | None = None,
     curr_all_text: Mapping[str, str] | None = None,
+    reviewed_requirements: Mapping[str, Any] | None = None,
     checked_at: str | None = None,
 ) -> dict[str, Any]:
     prev_sn, curr_sn = str(config["prev_sn"]), str(config["curr_sn"])
@@ -410,6 +544,8 @@ def build_report(
         "curr": _notice_ref(curr_api, curr_sn, str(config["curr_pdf"])),
         "tracks": tracks,
         "changes": changes,
+        "change_groups": find_change_groups(changes),
+        "notice_info": build_notice_info(prev_api, curr_api, changes),
         "units": units,
         "competition": {
             "published": published,
@@ -418,10 +554,16 @@ def build_report(
             "note": "API에 인원 정보가 있으나 경쟁률 수기 확인 필요" if published else "기관 미공시",
             "checked_at": None,
         },
-        "requirements": _requirements(curr_extract, curr_sn, tracks),
+        "requirements": _merge_requirements(
+            _requirements(curr_extract, curr_sn, tracks),
+            _reviewed_requirements(curr_api, reviewed_requirements, curr_all_text, curr_sn),
+        ),
     }
     if visual_summary is not None:
         report["visual_summary"] = dict(visual_summary)
+    report["tier"] = str(config.get("tier") or "verified")
+    if config.get("category"):
+        report["category"] = str(config["category"])
     return report
 
 
@@ -479,6 +621,7 @@ def build_from_files(
         if classifications is None and prefix == "kepco":
             classifications = _optional_json(ROOT / "stage2" / "text_class.json")
         reviewed = _optional_json(DEFAULT_REVIEW_DIR / f"{prefix}_evidence.json")
+        reviewed_requirements = _optional_json(DEFAULT_REVIEW_DIR / f"{prefix}_requirements.json")
         visual_summary = _optional_json(DEFAULT_REVIEW_DIR / f"{prefix}_summary.json")
 
         report = build_report(
@@ -490,6 +633,7 @@ def build_from_files(
             curr_extract=curr_extract,
             text_classifications=classifications,
             reviewed_evidence=reviewed,
+            reviewed_requirements=reviewed_requirements,
             visual_summary=visual_summary,
             prev_all_text=_bundle_text(ROOT / "stage2" / f"bundle_{prev_sn}.json"),
             curr_all_text=_bundle_text(ROOT / "stage2" / f"bundle_{curr_sn}.json"),

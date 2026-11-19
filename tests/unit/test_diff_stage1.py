@@ -47,3 +47,19 @@ def test_compare_counts_expression_change_without_showing_it():
 
     assert result["changes"] == []
     assert result["expression_only_lines"] == 1
+
+
+def test_registered_same_meaning_phrases_are_expression_only():
+    military_prev = "- 병역법 제76조에 따라 병역의무 불이행자에 해당하지 않는 자(현역의 경우, 2차 전형 면접 시작일 전일까지 전역 가능한 자 포함)"
+    military_curr = "- 병역법 제76조에 따라 병역의무 불이행자에 해당하지 않는 자(병역대상자는 2차 전형 면접 시작일 전일까지 전역 가능한 자 포함)"
+    age_prev = "다. 연령 : 제한없음(단, 당사 규정은 만 60세임)"
+    age_curr = "다. 연령 : 제한없음(단, 당사 정년은 만 60세임)"
+
+    assert classify_pair(military_prev, military_curr)[0] == "expression"
+    assert classify_pair(age_prev, age_curr)[0] == "expression"
+
+
+def test_same_meaning_table_does_not_hide_number_change():
+    kind, _ = classify_pair("연령 : 제한없음(단, 당사 규정은 만 60세임)", "연령 : 제한없음(단, 당사 정년은 만 65세임)")
+
+    assert kind != "expression"

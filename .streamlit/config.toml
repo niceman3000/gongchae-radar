@@ -1,0 +1,4 @@
+# 코드 파일이 바뀌면 열린 화면을 자동으로 다시 실행한다.
+# (Claude·Codex가 번갈아 수정해도 Streamlit을 껐다 켤 필요 없음)
+[server]
+runOnSave = true

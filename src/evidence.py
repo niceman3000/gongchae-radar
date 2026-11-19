@@ -84,4 +84,14 @@ def validate_report_semantics(report: Mapping[str, Any]) -> list[str]:
         if change.get("status") == "confirmed" and not can_confirm_change(change):
             errors.append(f"{change_id}: confirmed에 필요한 양쪽 검증 근거가 없습니다.")
 
+    grouped: set[str] = set()
+    for group in report.get("change_groups") or []:
+        group_id = str(group.get("id") or "group")
+        for member in group.get("member_ids") or []:
+            if member not in seen_ids:
+                errors.append(f"{group_id}: 없는 변경점 {member}을 묶었습니다.")
+            elif member in grouped:
+                errors.append(f"{group_id}: {member}이 다른 묶음에도 들어 있습니다.")
+            grouped.add(member)
+
     return errors

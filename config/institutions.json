@@ -1,0 +1,261 @@
+{
+  "schema_version": "1.0.0",
+  "source": "잡알리오 공기업 분류 (시장형 14 + 준시장형 16), 2026-11-18 사용자 제공",
+  "note": "pblntInstCd가 null인 기관은 tools/collect_institutions.py가 목록 API에서 instNm(또는 aliases)으로 찾아 채운다. tier=verified는 원문 대조까지 끝낸 핵심 3곳(config/demo_pairs.json 사용), auto는 자동 수집·비교만.",
+  "institutions": [
+    {
+      "name": "강원랜드",
+      "category": "시장형",
+      "aliases": [],
+      "pblntInstCd": null,
+      "tier": "auto",
+      "core_pair_id": null
+    },
+    {
+      "name": "인천국제공항공사",
+      "category": "시장형",
+      "aliases": [],
+      "pblntInstCd": null,
+      "tier": "auto",
+      "core_pair_id": null
+    },
+    {
+      "name": "한국가스공사",
+      "category": "시장형",
+      "aliases": [],
+      "pblntInstCd": null,
+      "tier": "auto",
+      "core_pair_id": null
+    },
+    {
+      "name": "한국공항공사",
+      "category": "시장형",
+      "aliases": [],
+      "pblntInstCd": null,
+      "tier": "auto",
+      "core_pair_id": null
+    },
+    {
+      "name": "한국남동발전",
+      "category": "시장형",
+      "aliases": [],
+      "pblntInstCd": null,
+      "tier": "auto",
+      "core_pair_id": null
+    },
+    {
+      "name": "한국남부발전",
+      "category": "시장형",
+      "aliases": [],
+      "pblntInstCd": null,
+      "tier": "auto",
+      "core_pair_id": null
+    },
+    {
+      "name": "한국도로공사",
+      "category": "시장형",
+      "aliases": [],
+      "pblntInstCd": null,
+      "tier": "auto",
+      "core_pair_id": null
+    },
+    {
+      "name": "한국동서발전",
+      "category": "시장형",
+      "aliases": [],
+      "pblntInstCd": null,
+      "tier": "auto",
+      "core_pair_id": null
+    },
+    {
+      "name": "한국서부발전",
+      "category": "시장형",
+      "aliases": [],
+      "pblntInstCd": null,
+      "tier": "auto",
+      "core_pair_id": null
+    },
+    {
+      "name": "한국석유공사",
+      "category": "시장형",
+      "aliases": [],
+      "pblntInstCd": null,
+      "tier": "auto",
+      "core_pair_id": null
+    },
+    {
+      "name": "한국수력원자력",
+      "category": "시장형",
+      "aliases": [],
+      "pblntInstCd": null,
+      "tier": "verified",
+      "core_pair_id": "khnp-2025-2026-round3"
+    },
+    {
+      "name": "한국전력공사",
+      "category": "시장형",
+      "aliases": [],
+      "pblntInstCd": "C0247",
+      "tier": "verified",
+      "core_pair_id": "kepco-2025-2026-h2"
+    },
+    {
+      "name": "한국중부발전",
+      "category": "시장형",
+      "aliases": [],
+      "pblntInstCd": null,
+      "tier": "verified",
+      "core_pair_id": "komipo-2025-2026-round2"
+    },
+    {
+      "name": "한국지역난방공사",
+      "category": "시장형",
+      "aliases": [],
+      "pblntInstCd": null,
+      "tier": "auto",
+      "core_pair_id": null
+    },
+    {
+      "name": "한국가스기술공사",
+      "category": "준시장형",
+      "aliases": [],
+      "pblntInstCd": null,
+      "tier": "auto",
+      "core_pair_id": null
+    },
+    {
+      "name": "그랜드코리아레저",
+      "category": "준시장형",
+      "aliases": [
+        "GKL"
+      ],
+      "pblntInstCd": null,
+      "tier": "auto",
+      "core_pair_id": null
+    },
+    {
+      "name": "제주국제자유도시개발센터",
+      "category": "준시장형",
+      "aliases": [],
+      "pblntInstCd": null,
+      "tier": "auto",
+      "core_pair_id": null
+    },
+    {
+      "name": "에스알",
+      "category": "준시장형",
+      "aliases": [
+        "SR",
+        "(주)에스알",
+        "주식회사 에스알"
+      ],
+      "pblntInstCd": null,
+      "tier": "auto",
+      "core_pair_id": null
+    },
+    {
+      "name": "주택도시보증공사",
+      "category": "준시장형",
+      "aliases": [],
+      "pblntInstCd": null,
+      "tier": "auto",
+      "core_pair_id": null
+    },
+    {
+      "name": "한국광해광업공단",
+      "category": "준시장형",
+      "aliases": [],
+      "pblntInstCd": null,
+      "tier": "auto",
+      "core_pair_id": null
+    },
+    {
+      "name": "한국마사회",
+      "category": "준시장형",
+      "aliases": [],
+      "pblntInstCd": null,
+      "tier": "auto",
+      "core_pair_id": null
+    },
+    {
+      "name": "한국부동산원",
+      "category": "준시장형",
+      "aliases": [],
+      "pblntInstCd": null,
+      "tier": "auto",
+      "core_pair_id": null
+    },
+    {
+      "name": "한국수자원공사",
+      "category": "준시장형",
+      "aliases": [],
+      "pblntInstCd": null,
+      "tier": "auto",
+      "core_pair_id": null
+    },
+    {
+      "name": "한국전력기술",
+      "category": "준시장형",
+      "aliases": [],
+      "pblntInstCd": null,
+      "tier": "auto",
+      "core_pair_id": null
+    },
+    {
+      "name": "한국조폐공사",
+      "category": "준시장형",
+      "aliases": [],
+      "pblntInstCd": null,
+      "tier": "auto",
+      "core_pair_id": null
+    },
+    {
+      "name": "한국철도공사",
+      "category": "준시장형",
+      "aliases": [
+        "코레일"
+      ],
+      "pblntInstCd": null,
+      "tier": "auto",
+      "core_pair_id": null
+    },
+    {
+      "name": "한국토지주택공사",
+      "category": "준시장형",
+      "aliases": [
+        "LH"
+      ],
+      "pblntInstCd": null,
+      "tier": "auto",
+      "core_pair_id": null
+    },
+    {
+      "name": "한전KDN",
+      "category": "준시장형",
+      "aliases": [
+        "한전케이디엔"
+      ],
+      "pblntInstCd": null,
+      "tier": "auto",
+      "core_pair_id": null
+    },
+    {
+      "name": "한전KPS",
+      "category": "준시장형",
+      "aliases": [
+        "한전케이피에스"
+      ],
+      "pblntInstCd": null,
+      "tier": "auto",
+      "core_pair_id": null
+    },
+    {
+      "name": "해양환경공단",
+      "category": "준시장형",
+      "aliases": [],
+      "pblntInstCd": null,
+      "tier": "auto",
+      "core_pair_id": null
+    }
+  ]
+}
