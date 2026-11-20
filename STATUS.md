@@ -1,7 +1,7 @@
 # 공채레이더 개발 현황
 
 **마지막 갱신**: 2026-11-20  
-**전체 진행률**: 39 / 49 작업 완료 (79.6%) — 11-20 T047(결과 PDF)·T048(그림 공고 옮기기) 추가·완료, 저녁에 T033~T036·T046 완료, GitHub 올림(배포 T037 진행 중)
+**전체 진행률**: 40 / 49 작업 완료 (81.6%) — 11-20 T047(결과 PDF)·T048(그림 공고 옮기기) 추가·완료, 저녁에 T033~T036·T046 완료, GitHub 올림, 배포 완료(T037) https://gongchae-radar.streamlit.app
 **현재 단계**: 공기업 27곳 수집 완료(6차, 27곳 짝) · 공고문 PDF 43개 확보(ZIP 7개 일반 신입 공고문 확인) · 자동 리포트 27개 생성 완료 · 30곳 화면 확인 완료(T044) · AI로 지원 자격·가점 추출 완료(T045, 19곳 + 핵심 3곳). 다음: 화면에서 판정 확인, 근거 질문(T027~T030). 자세한 기록: `docs/worklog/WORKLOG_2026-11-19.txt`
 **전처리 규칙 모음**: `docs/전처리_규칙.md` (규칙을 바꾸면 이 문서도 같이 고친다)
 **정확도 개선 기록**: `evaluation/정확도_개선_기록.md` (사람이 확인할 때 챙긴 것, 단계별 % 변화, 판정 기준 변경. 규칙을 바꾸면 채점 다시 하고 한 줄 추가)
@@ -40,7 +40,7 @@
 | 그림·스캔·한글 공고 옮기기 | 완료 (11-20) | `tools/ocr_notices.py`: 그림을 글자 없는 줄에서 잘라 Haiku 5.5가 그대로 옮겨 적음, HWP·글자 PDF 첨부는 AI 없이. 올해 7곳·작년 8곳, $0.27. 7곳 지원 자격 추출 0 → 2~44항목. 규칙 `docs/전처리_규칙.md` ⑫ |
 | 결과 PDF 받기 | 완료 (11-20) | ② 맞춤 공고 화면 '결과를 PDF로 받기': 조건·요약 표·공고별 판정·가점·근거 인용·원문 주소 (`src/result_pdf.py`, fpdf2 + Noto Sans KR 글꼴 `assets/fonts`, AI 호출 없음) |
 | 근거 질문 | 완료, PC에서 실제 답 확인 (11-19 22:26) | `src/qa_service.py` + `app/pages/qa.py` '공고문에 물어보기': 코드로 관련 원문을 고르고 없으면 AI 없이 '공고문에 명시 없음', 있으면 Sonnet 5.5가 그 안에서만 답(11-20부터, 생각 끔), 인용 원문 대조, 키 없으면 원문 발췌. 접속당 AI 질문 20회 |
-| 측정·배포 | 측정 완료, 배포 진행 (11-20) | 최종 측정 `evaluation/final-report.md`(`evaluation/evaluate.py --all`), 키 노출 0(`tools/check_secrets.py`), GitHub `niceman3000/gongchae-radar`, Streamlit Cloud 배포는 `docs/DEPLOYMENT.md` |
+| 측정·배포 | 완료 (11-20) | 최종 측정 `evaluation/final-report.md`(`evaluation/evaluate.py --all`), 키 노출 0(`tools/check_secrets.py`), GitHub `niceman3000/gongchae-radar`, 배포 https://gongchae-radar.streamlit.app (확인 기록 `docs/DEPLOYMENT.md`) |
 | 화면 디자인 | 정리 (11-20) | Pretendard·파랑 포인트·판정 3색(`.streamlit/config.toml`), 첫 화면 소개, 맞춤 공고 판정 막대 + 한 줄 요약·자세히 보기 |
 
 ## 현재 만들어진 결과물
@@ -72,7 +72,7 @@
 | 5-2 | ~~결과 PDF 받기~~ 완료 | T047 | DEV | 11-20 | - |
 | 5-3 | 22곳 새 지시문으로 다시 뽑기 (선택, 약 $3, 충전 필요할 수 있음) | T045 | DEV | 11-21 | 3곳 채점처럼 가점 재현율 개선 확인 |
 | 6 | ~~측정~~ 완료 (판정 96%, 질문 10/10, 변경점 72%, 핵심 숫자 47%) | T033~T034 | DEV | 11-20 | - |
-| 7 | 배포 (README·문서·키 점검 완료, GitHub 올림, Streamlit Cloud 남음) | T035~T037 | DEV | 11-20 | Streamlit Cloud 공개 주소를 `docs/DEPLOYMENT.md`에 기록 |
+| 7 | ~~배포~~ 완료 https://gongchae-radar.streamlit.app | T035~T037 | DEV | 11-20 | - |
 | 8 | 점검·동결 | T038~T040 | 전원 | 11-22 | 공개 주소 점검, 동결 커밋·태그 |
 | 병행 | 한수원·중부발전 PDF 원문 대조 | T012·T013 | DATA-QA1·2 | - | `evaluation/ground_truth/khnp.md`·`komipo.md` (변경점 id는 현재 리포트 기준) |
 | 병행 | 사용성 점검·예상 질문 | T025·T026·T031·T032 | DATA-QA1·2 | - | `evaluation/usability-*.md`, `evaluation/questions-*.md` |

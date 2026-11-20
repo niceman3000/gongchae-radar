@@ -2,6 +2,8 @@
 
 2026 대한민국 청년 CAREER FAIR AI 해커톤 (대한상공회의소) · 제출 마감 2026-11-23(월) 17:00
 
+**서비스 주소: https://gongchae-radar.streamlit.app** (로그인 없이 사용)
+
 > 지금 상태·진행률: [`STATUS.md`](STATUS.md) · 날짜별 작업일지: [`docs/worklog/`](docs/worklog/) · 첫날(11-16) 개발 가이드: [`docs/초기_개발가이드.md`](docs/초기_개발가이드.md)
 
 ## 무엇을 하나

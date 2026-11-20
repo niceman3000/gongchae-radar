@@ -67,7 +67,11 @@
      맞춤 공고 맨 위 판정 막대 + 공고마다 한 줄 요약(마감·최고 가점·이유) + 자세히 보기, 빨간 버튼·영어 문구·Deploy 버튼 정리
    - GitHub: niceman3000/gongchae-radar (Public). PC에 예전 계정(embeddedded) 로그인이 남아 403 → 주소에 아이디 붙이고 저장된 로그인 삭제
    - 정리: WORKLOG → docs\worklog\, GUIDE.md → docs\초기_개발가이드.md(11-16 기준 안내 추가), 같은 내용 PDF 삭제 (git mv로 기록 유지)
-   - 남음: Streamlit Cloud 배포(T037), 배포 후 확인, (선택) 22곳 재추출
+   - 배포 (T037): https://gongchae-radar.streamlit.app
+     · 문제 1: '공고 찾기'에서 멈춤 — 서버 Python 3.14 + PC 개발용 모듈 다시 읽기 장치 충돌 → 그 장치는 run_streamlit.bat(GONGCHAE_DEV=1)에서만
+     · 문제 2: 질문 'AI 꺼짐' — Secrets를 잘못 만든 다른 앱(gongchaeradar)에 넣음 → 진짜 앱에 넣음. 키 못 읽으면 이유가 화면에 나오게 함
+     · Claude가 로그인 없는 브라우저로 확인: 맞춤 공고 15건(가능 14·애매 1), PDF 버튼, 강원랜드 질문 AI 답 + 5·6쪽 인용
+   - 남음: (선택) 22곳 재추출, 팀원 T012·T013·T025·T026·T038·T039, 11-22 동결(T040)
 
 바뀐 파일 (11-20 오후)
    tools\ocr_notices.py(새), tools\extract_requirements.py, tools\build_auto_reports.py, src\eligibility.py, src\result_pdf.py(새),

@@ -154,7 +154,7 @@
 - [X] T034 Owner=DEV `evaluation/evaluate.py --all`과 전체 pytest를 실행해 실제 수치와 실패 원인을 `evaluation/final-report.md`에 기록하고 측정하지 않은 정확도·시간 절감 수치를 추가하지 않는다. (2026-11-20 완료: PC 실행 17:03, 판정 96%·질문 10/10·변경점 72%·핵심 숫자 47%·테스트 138 통과)
 - [X] T035 [P] Owner=DEV 로컬 실행·배포·키 설정·고정 데이터 장애 대응을 `README.md`에 갱신하고 사용 데이터·pdfplumber 라이선스·AI와 팀 역할을 `docs/SOURCES_AND_AI_USAGE.md`에 기록한다. (2026-11-20 완료: README 새로 씀, docs/SOURCES_AND_AI_USAGE.md, docs/DEPLOYMENT.md)
 - [X] T036 Owner=DEV 저장소 전체의 키 패턴과 `.streamlit/secrets.toml` 추적 여부를 확인하고 `python -m pytest -q` 및 `specs/001-recruitment-radar-mvp/quickstart.md` 전 절차를 통과시킨다. (2026-11-20 완료: tools/check_secrets.py 키 노출 0, secrets.toml 제외 확인. quickstart 전 절차는 동결 때 다시)
-- [ ] T037 Owner=DEV 팀 GitHub 저장소의 `streamlit_app.py`를 Streamlit Community Cloud에 배포하고 공개 URL과 배포 확인일을 `docs/DEPLOYMENT.md`에 기록한다.
+- [X] T037 Owner=DEV 팀 GitHub 저장소의 `streamlit_app.py`를 Streamlit Community Cloud에 배포하고 공개 URL과 배포 확인일을 `docs/DEPLOYMENT.md`에 기록한다. (2026-11-20 완료: https://gongchae-radar.streamlit.app, docs/DEPLOYMENT.md에 확인 결과·배포 때 생긴 문제 기록)
 - [ ] T038 [P] Owner=DATA-QA1 로그아웃 상태에서 공개 URL의 한수원 흐름과 질문 사례를 실행해 결과·화면 캡처·오류를 `evaluation/final-qa-khnp.md`에 기록한다.
 - [ ] T039 [P] Owner=DATA-QA2 로그아웃 상태에서 공개 URL의 중부발전 흐름과 질문 사례를 실행해 결과·화면 캡처·오류를 `evaluation/final-qa-komipo.md`에 기록한다.
 - [ ] T040 Owner=DEV T034·T038·T039의 치명 오류를 수정하고 전체 검증을 재실행한 뒤 2026-11-22 동결 커밋과 태그를 만들고 `docs/DEPLOYMENT.md`에 커밋·태그를 기록한다.
