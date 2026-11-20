@@ -118,7 +118,7 @@
 - [X] T043 Owner=DEV `tools/build_auto_reports.py`를 만든다. `config/auto_pairs.json`의 각 쌍에 대해 `src/diff_stage1.compare`로 1단계 결과를 만들고, PDF가 있으면 `src/build_bundle.py`로 `stage2/bundle_<번호>.json`을 만든 뒤 `src/report_builder.build_report`로 `data/reports/report_<pair_id 앞부분>.json`을 쓴다. 리포트에 `tier`(verified/auto)와 `category`(시장형/준시장형)를 넣도록 `src/schemas/report.schema.json`에 선택 항목을 추가한다. 핵심 3곳은 기존 `config/demo_pairs.json` 경로를 그대로 쓴다. (2026-11-18 tools/build_auto_reports.py, 모집단위 없을 때 직무분야(NCS)로 직렬 추정) (2026-11-19 완료: 실제 데이터로 리포트 27개, PDF 읽기 실패 0. PDF가 묶음보다 새로우면 묶음 다시 만듦)
 - [X] T044 [US1][US2] Owner=DEV 화면을 30곳에 맞춘다: 공고 비교 선택 상자를 유형별로 정렬하고 auto에 '자동 비교 · 원문 미검증' 배지, 맞춤 공고 카드에 같은 배지, 리포트 30개 읽기가 느리면 `st.cache_data`(파일 수정 시각을 키로) 적용. 짝 없는 기관은 '전년 비교 공고 없음'으로 표시한다. (2026-11-19 15:40 완료: 실제 30곳 리포트로 조건 입력 → 맞춤 공고 → 비교 화면, 자동 비교 배지 사용자 확인)
 - [X] T045 Owner=DEV 유료 API(`src/ai_pipeline.py`)로 auto 기관 PDF에서 지원 가능 학과·자격증·가점을 뽑아 `evaluation/ground_truth/<prefix>_requirements.json`과 같은 형식(인용은 `src/evidence.check_evidence`로 원문 대조, 실패한 인용은 버림)으로 저장한다. 실행 전 쪽수·토큰으로 예상 비용을 계산해 사용자 승인을 받는다. (2026-11-19 완료: tools/extract_requirements.py, Sonnet 5.5로 22곳 중 19곳 추출·저장(잘린 4곳은 앞부분 복구), 사용 약 $4.5. 빈 결과: 한전KDN(스캔 PDF)·마사회(표가 그림), 도로공사 1항목. 그림 공고문 5곳 미처리) (2026-11-20: 도로공사 붙임 이어 붙여 21항목, 그림 7곳은 T048로 추출)
-- [ ] T046 Owner=DEV T042~T045 테스트: 짝짓기 규칙(연도 숫자 제거·기간 범위), auto 리포트 스키마 통과, 30곳 리포트가 있을 때 조건 입력→맞춤 공고 흐름 AppTest, 인증키 문자열이 저장 파일에 없음. (미착수. 가짜 API 테스트는 2026-11-18 삭제, 실제 수집 결과 기준으로 작성)
+- [X] T046 Owner=DEV T042~T045 테스트: 짝짓기 규칙(연도 숫자 제거·기간 범위), auto 리포트 스키마 통과, 30곳 리포트가 있을 때 조건 입력→맞춤 공고 흐름 AppTest, 인증키 문자열이 저장 파일에 없음. (미착수. 가짜 API 테스트는 2026-11-18 삭제, 실제 수집 결과 기준으로 작성) (2026-11-20 완료: tests/unit/test_collect_and_reports.py 13개 — 제목 숫자 제거·1년 전 짝·제외 규칙, 30개 리포트 규격·지원 자격, 저장 파일 키 모양 없음. 조건→맞춤 공고 흐름은 test_streamlit_flow)
 - [X] T047 Owner=DEV (2026-11-20 추가·완료) ② 맞춤 공고 화면에 '결과를 PDF로 받기' 버튼: 내 조건, 요약 표(기관·공고·판정·내 가점), 공고마다 판단 이유·직접 확인할 것·가점·공통 확인·대표 변경·모집단위별 판정·근거 인용·공고 원문 주소. `src/result_pdf.py`(fpdf2, 글꼴 `assets/fonts/NotoSansKR-*.otf` OFL), 테스트 `tests/unit/test_result_pdf.py`, 화면 테스트에 버튼 확인 추가. AI 호출 없음
 - [X] T048 Owner=DEV (2026-11-20 추가·완료) 그림·스캔·한글 공고문을 글자로 옮겨 `stage2/bundle_<번호>.json`(source=ocr)으로 저장하고 지원 자격 추출·질문에 쓴다. `tools/ocr_notices.py`(무료 준비·비용 계산 → `--run`, `--rebundle`), Haiku 5.5 $0.27. 올해 7곳(공항공사·석유공사·인천공항·에스알·강원랜드·한전KDN·마사회) 지원 자격 추출 0 → 2~44항목(Sonnet 약 $0.94). 규칙 `docs/전처리_규칙.md` ⑫, 기록 `evaluation/정확도_개선_기록.md` 5-3
 
@@ -150,10 +150,10 @@
 
 **Purpose**: 측정 결과와 공개 URL을 확보하고 제출 상태를 동결한다.
 
-- [ ] T033 Owner=DEV 3개 정답지와 리포트의 인원·지역·필수자격·가점·전형 방식별 일치·누락·오류를 집계하는 `evaluation/evaluate.py`를 구현한다.
-- [ ] T034 Owner=DEV `evaluation/evaluate.py --all`과 전체 pytest를 실행해 실제 수치와 실패 원인을 `evaluation/final-report.md`에 기록하고 측정하지 않은 정확도·시간 절감 수치를 추가하지 않는다.
-- [ ] T035 [P] Owner=DEV 로컬 실행·배포·키 설정·고정 데이터 장애 대응을 `README.md`에 갱신하고 사용 데이터·pdfplumber 라이선스·AI와 팀 역할을 `docs/SOURCES_AND_AI_USAGE.md`에 기록한다.
-- [ ] T036 Owner=DEV 저장소 전체의 키 패턴과 `.streamlit/secrets.toml` 추적 여부를 확인하고 `python -m pytest -q` 및 `specs/001-recruitment-radar-mvp/quickstart.md` 전 절차를 통과시킨다.
+- [X] T033 Owner=DEV 3개 정답지와 리포트의 인원·지역·필수자격·가점·전형 방식별 일치·누락·오류를 집계하는 `evaluation/evaluate.py`를 구현한다. (2026-11-20 완료: evaluation/evaluate.py — 지원 자격·가점·판정, 한전 변경점, 핵심 숫자, 질문, 30곳 범위, 테스트. 정답지에 없는 지역·전형 방식 항목은 재지 않음)
+- [X] T034 Owner=DEV `evaluation/evaluate.py --all`과 전체 pytest를 실행해 실제 수치와 실패 원인을 `evaluation/final-report.md`에 기록하고 측정하지 않은 정확도·시간 절감 수치를 추가하지 않는다. (2026-11-20 완료: PC 실행 17:03, 판정 96%·질문 10/10·변경점 72%·핵심 숫자 47%·테스트 138 통과)
+- [X] T035 [P] Owner=DEV 로컬 실행·배포·키 설정·고정 데이터 장애 대응을 `README.md`에 갱신하고 사용 데이터·pdfplumber 라이선스·AI와 팀 역할을 `docs/SOURCES_AND_AI_USAGE.md`에 기록한다. (2026-11-20 완료: README 새로 씀, docs/SOURCES_AND_AI_USAGE.md, docs/DEPLOYMENT.md)
+- [X] T036 Owner=DEV 저장소 전체의 키 패턴과 `.streamlit/secrets.toml` 추적 여부를 확인하고 `python -m pytest -q` 및 `specs/001-recruitment-radar-mvp/quickstart.md` 전 절차를 통과시킨다. (2026-11-20 완료: tools/check_secrets.py 키 노출 0, secrets.toml 제외 확인. quickstart 전 절차는 동결 때 다시)
 - [ ] T037 Owner=DEV 팀 GitHub 저장소의 `streamlit_app.py`를 Streamlit Community Cloud에 배포하고 공개 URL과 배포 확인일을 `docs/DEPLOYMENT.md`에 기록한다.
 - [ ] T038 [P] Owner=DATA-QA1 로그아웃 상태에서 공개 URL의 한수원 흐름과 질문 사례를 실행해 결과·화면 캡처·오류를 `evaluation/final-qa-khnp.md`에 기록한다.
 - [ ] T039 [P] Owner=DATA-QA2 로그아웃 상태에서 공개 URL의 중부발전 흐름과 질문 사례를 실행해 결과·화면 캡처·오류를 `evaluation/final-qa-komipo.md`에 기록한다.

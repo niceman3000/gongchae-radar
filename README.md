@@ -2,7 +2,7 @@
 
 2026 대한민국 청년 CAREER FAIR AI 해커톤 (대한상공회의소) · 제출 마감 2026-11-23(월) 17:00
 
-> 지금 상태·진행률: [`STATUS.md`](STATUS.md) · 그날 작업: `WORKLOG_*.txt` · 처음 설정: [`GUIDE.md`](GUIDE.md)
+> 지금 상태·진행률: [`STATUS.md`](STATUS.md) · 날짜별 작업일지: [`docs/worklog/`](docs/worklog/) · 첫날(11-16) 개발 가이드: [`docs/초기_개발가이드.md`](docs/초기_개발가이드.md)
 
 ## 무엇을 하나
 

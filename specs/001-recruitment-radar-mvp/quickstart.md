@@ -24,7 +24,7 @@ Expected: Streamlit, pdfplumber, jsonschema, pytest가 오류 없이 설치된�
 
 ## 3. Build the frozen reports
 
-기존 `GUIDE.md`의 Step 3~5를 실행해 공고 쌍별 stage1·stage2 결과를 준비한 뒤 통합한다.
+기존 `docs/초기_개발가이드.md`(11-16 첫날 가이드)의 Step 3~5를 실행해 공고 쌍별 stage1·stage2 결과를 준비한 뒤 통합한다.
 
 ```powershell
 .\.venv\Scripts\python.exe src\report_builder.py --all-demo-pairs

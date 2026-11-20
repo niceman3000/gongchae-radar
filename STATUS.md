@@ -1,12 +1,12 @@
 # 공채레이더 개발 현황
 
 **마지막 갱신**: 2026-11-20  
-**전체 진행률**: 34 / 49 작업 완료 (69.4%) — 11-20 T047(결과 PDF)·T048(그림 공고 옮기기) 추가·완료
-**현재 단계**: 공기업 27곳 수집 완료(6차, 27곳 짝) · 공고문 PDF 43개 확보(ZIP 7개 일반 신입 공고문 확인) · 자동 리포트 27개 생성 완료 · 30곳 화면 확인 완료(T044) · AI로 지원 자격·가점 추출 완료(T045, 19곳 + 핵심 3곳). 다음: 화면에서 판정 확인, 근거 질문(T027~T030). 자세한 기록: `WORKLOG_2026-11-19.txt`
+**전체 진행률**: 39 / 49 작업 완료 (79.6%) — 11-20 T047(결과 PDF)·T048(그림 공고 옮기기) 추가·완료, 저녁에 T033~T036·T046 완료, GitHub 올림(배포 T037 진행 중)
+**현재 단계**: 공기업 27곳 수집 완료(6차, 27곳 짝) · 공고문 PDF 43개 확보(ZIP 7개 일반 신입 공고문 확인) · 자동 리포트 27개 생성 완료 · 30곳 화면 확인 완료(T044) · AI로 지원 자격·가점 추출 완료(T045, 19곳 + 핵심 3곳). 다음: 화면에서 판정 확인, 근거 질문(T027~T030). 자세한 기록: `docs/worklog/WORKLOG_2026-11-19.txt`
 **전처리 규칙 모음**: `docs/전처리_규칙.md` (규칙을 바꾸면 이 문서도 같이 고친다)
 **정확도 개선 기록**: `evaluation/정확도_개선_기록.md` (사람이 확인할 때 챙긴 것, 단계별 % 변화, 판정 기준 변경. 규칙을 바꾸면 채점 다시 하고 한 줄 추가)
 **현재 정확도**: 화면 판정 일치 96% (3곳 정답지, 11-20 판정 규칙 바꾼 뒤에도 같음), 가점 재현 75%·정밀 83% / 근거 질문 10/10 (한수원·중부발전 평가표, 11-20)
-**11-20 오후**: 그림·스캔 공고 7곳을 글자로 옮겨(Haiku $0.27) 지원 자격 추출(Sonnet) → 30곳 모두 지원 자격 있음. 결과 PDF 받기 버튼. 판정: 모집단위 필수 자격증 먼저. 자세한 기록: `WORKLOG_2026-11-20.txt`
+**11-20 오후**: 그림·스캔 공고 7곳을 글자로 옮겨(Haiku $0.27) 지원 자격 추출(Sonnet) → 30곳 모두 지원 자격 있음. 결과 PDF 받기 버튼. 판정: 모집단위 필수 자격증 먼저. 자세한 기록: `docs/worklog/WORKLOG_2026-11-20.txt`
 **현재 Git 브랜치**: `main`
 
 ## 지금 한 줄 상태
@@ -40,7 +40,8 @@
 | 그림·스캔·한글 공고 옮기기 | 완료 (11-20) | `tools/ocr_notices.py`: 그림을 글자 없는 줄에서 잘라 Haiku 5.5가 그대로 옮겨 적음, HWP·글자 PDF 첨부는 AI 없이. 올해 7곳·작년 8곳, $0.27. 7곳 지원 자격 추출 0 → 2~44항목. 규칙 `docs/전처리_규칙.md` ⑫ |
 | 결과 PDF 받기 | 완료 (11-20) | ② 맞춤 공고 화면 '결과를 PDF로 받기': 조건·요약 표·공고별 판정·가점·근거 인용·원문 주소 (`src/result_pdf.py`, fpdf2 + Noto Sans KR 글꼴 `assets/fonts`, AI 호출 없음) |
 | 근거 질문 | 완료, PC에서 실제 답 확인 (11-19 22:26) | `src/qa_service.py` + `app/pages/qa.py` '공고문에 물어보기': 코드로 관련 원문을 고르고 없으면 AI 없이 '공고문에 명시 없음', 있으면 Sonnet 5.5가 그 안에서만 답(11-20부터, 생각 끔), 인용 원문 대조, 키 없으면 원문 발췌. 접속당 AI 질문 20회 |
-| 측정·배포 | 대기 | 전체 기능 이후 |
+| 측정·배포 | 측정 완료, 배포 진행 (11-20) | 최종 측정 `evaluation/final-report.md`(`evaluation/evaluate.py --all`), 키 노출 0(`tools/check_secrets.py`), GitHub `niceman3000/gongchae-radar`, Streamlit Cloud 배포는 `docs/DEPLOYMENT.md` |
+| 화면 디자인 | 정리 (11-20) | Pretendard·파랑 포인트·판정 3색(`.streamlit/config.toml`), 첫 화면 소개, 맞춤 공고 판정 막대 + 한 줄 요약·자세히 보기 |
 
 ## 현재 만들어진 결과물
 
@@ -70,8 +71,8 @@
 | 5-1 | ~~그림 공고 7곳 글자로 옮기기 + 지원 자격 추출~~ 완료 | T048 | DEV | 11-20 | - |
 | 5-2 | ~~결과 PDF 받기~~ 완료 | T047 | DEV | 11-20 | - |
 | 5-3 | 22곳 새 지시문으로 다시 뽑기 (선택, 약 $3, 충전 필요할 수 있음) | T045 | DEV | 11-21 | 3곳 채점처럼 가점 재현율 개선 확인 |
-| 6 | 측정 | T033~T034 | DEV | 11-21 | 정답지 대비 수치 `evaluation/final-report.md` |
-| 7 | 배포 | T035~T037 | DEV | 11-21 | Streamlit Cloud 공개 주소, 키 노출 0 |
+| 6 | ~~측정~~ 완료 (판정 96%, 질문 10/10, 변경점 72%, 핵심 숫자 47%) | T033~T034 | DEV | 11-20 | - |
+| 7 | 배포 (README·문서·키 점검 완료, GitHub 올림, Streamlit Cloud 남음) | T035~T037 | DEV | 11-20 | Streamlit Cloud 공개 주소를 `docs/DEPLOYMENT.md`에 기록 |
 | 8 | 점검·동결 | T038~T040 | 전원 | 11-22 | 공개 주소 점검, 동결 커밋·태그 |
 | 병행 | 한수원·중부발전 PDF 원문 대조 | T012·T013 | DATA-QA1·2 | - | `evaluation/ground_truth/khnp.md`·`komipo.md` (변경점 id는 현재 리포트 기준) |
 | 병행 | 사용성 점검·예상 질문 | T025·T026·T031·T032 | DATA-QA1·2 | - | `evaluation/usability-*.md`, `evaluation/questions-*.md` |
@@ -97,11 +98,11 @@ $env:JOB_API_KEY = "data.go.kr 일반 인증키(Decoding)"
 
 ## Claude·Codex 번갈아 작업할 때
 
-- 시작할 때: 이 파일, 가장 최근 `WORKLOG_*.txt`, `git log -5`를 먼저 본다.
+- 시작할 때: 이 파일, 가장 최근 `docs/worklog/WORKLOG_*.txt`, `git log -5`를 먼저 본다.
 - 공고 고르기·비교·묶기·판정 같은 코드 규칙을 바꾸면 `docs/전처리_규칙.md`의 해당 칸과 '바뀐 기록'을 같이 고친다.
 - AI 지시문·정리 규칙·판정 규칙을 바꾸면 `tools/score_against_ground_truth.py`를 다시 돌리고 `evaluation/정확도_개선_기록.md` 표에 한 줄 추가한다.
 - 11-19부터 30곳 모두 같은 과정(코드 비교 + AI 추출)으로 화면에 보여준다. 핵심 3곳 원문 대조 결과(evaluation/ground_truth)는 채점용 정답지로만 쓴다.
-- 끝낼 때: 이 파일의 상태·진행률·테스트 수, 그날 `WORKLOG_*.txt`(한 일·바뀐 파일·주의사항·커밋 제안), `tasks.md` 체크를 갱신하고 커밋한다.
+- 끝낼 때: 이 파일의 상태·진행률·테스트 수, 그날 `docs/worklog/WORKLOG_*.txt`(한 일·바뀐 파일·주의사항·커밋 제안), `tasks.md` 체크를 갱신하고 커밋한다.
 - 확인 방법: `.\.venv\Scripts\python.exe -m pytest -q` 전체 통과, 화면은 `run_streamlit.bat` (코드 변경은 자동 반영).
 - 리포트 재생성: `python -c "from src.report_builder import build_from_files; build_from_files()"` (1단계 결과가 바뀌면 `results/stage1_result.json`을 `src/diff_stage1.compare`로 다시 만든 뒤). `checked_at`은 원문을 다시 확인한 날만 바꾼다.
 - 주의: 1단계 변경점 id(`stage1-NNN`)는 순서 번호라 후보가 빠지면 뒤 번호가 당겨진다. `evaluation/ground_truth/*_evidence.json`과 `app/ui_components.py`의 `CHANGE_COPY`·`GROUP_COPY` 키를 함께 확인한다.

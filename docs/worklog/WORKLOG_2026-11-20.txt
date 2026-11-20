@@ -56,6 +56,19 @@
    - 글꼴에 없는 기호는 비슷한 기호로 바꾸고 그래도 없으면 뺌, 옛 공고 주소(첫 화면으로 감)는 새 다운로드 주소로
    - 예시: 전기·부산울산·전기기사 → 15쪽 PDF
 
+8) 저녁 (16:50~): 설계 마무리 — "오늘 끝내자"
+   - 최종 측정 evaluation\evaluate.py (T033·T034, AI 호출 없음) → final-report.md (PC 17:03)
+     판정 96% · 가점 75%/83% · 한전 변경점 72% · 핵심 숫자 47%(직렬별 인원이 API에 없음, 그대로 기록) · 질문 10/10 · 30곳 모두 지원 자격 · 테스트 138
+   - 키 노출 점검 tools\check_secrets.py (T036) → 키 노출 0. 메모장으로 만든 secrets.toml도 이름 정확, .gitignore에 걸림 확인
+   - 테스트 T046 (수집 규칙·30개 리포트·키 모양) 13개
+   - README 새로 씀, docs\SOURCES_AND_AI_USAGE.md(데이터·라이선스·AI 역할), docs\DEPLOYMENT.md (T035)
+   - 질문 시험 실패: 시험이 창의 키만 지워서 PC secrets.toml 키로 실제 AI 호출(약 $0.015) → 시험 때 secrets 무시 설정
+   - 화면 디자인 (사용자: "밤티", 토스·취업앱 느낌 선택): Pretendard, 파랑 #2453E6 + 판정 3색, 첫 화면 소개 문장,
+     맞춤 공고 맨 위 판정 막대 + 공고마다 한 줄 요약(마감·최고 가점·이유) + 자세히 보기, 빨간 버튼·영어 문구·Deploy 버튼 정리
+   - GitHub: niceman3000/gongchae-radar (Public). PC에 예전 계정(embeddedded) 로그인이 남아 403 → 주소에 아이디 붙이고 저장된 로그인 삭제
+   - 정리: WORKLOG → docs\worklog\, GUIDE.md → docs\초기_개발가이드.md(11-16 기준 안내 추가), 같은 내용 PDF 삭제 (git mv로 기록 유지)
+   - 남음: Streamlit Cloud 배포(T037), 배포 후 확인, (선택) 22곳 재추출
+
 바뀐 파일 (11-20 오후)
    tools\ocr_notices.py(새), tools\extract_requirements.py, tools\build_auto_reports.py, src\eligibility.py, src\result_pdf.py(새),
    app\pages\matches.py, app\pages\qa.py, requirements.txt(fpdf2), assets\fonts\(새), tests(ocr 8·추출 쪽수 3·PDF 3·판정 3 추가),
