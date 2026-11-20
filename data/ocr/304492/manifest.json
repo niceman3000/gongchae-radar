@@ -1,0 +1,99 @@
+{
+  "sn": "304492",
+  "institution": "인천국제공항공사",
+  "side": "curr",
+  "reason": "공고문이 PDF가 아님(그림·한글·ZIP)",
+  "pages": [
+    {
+      "page": 1,
+      "from": "(2026 일반직 안전보안직 채용) 채용공고문.zip › ★ 2026 일반직 안전보안직 공고문.png",
+      "tiles": [
+        {
+          "file": "t001_1.png",
+          "width": 900,
+          "height": 942
+        },
+        {
+          "file": "t001_2.png",
+          "width": 900,
+          "height": 945
+        },
+        {
+          "file": "t001_3.png",
+          "width": 900,
+          "height": 947
+        },
+        {
+          "file": "t001_4.png",
+          "width": 900,
+          "height": 949
+        },
+        {
+          "file": "t001_5.png",
+          "width": 900,
+          "height": 933
+        },
+        {
+          "file": "t001_6.png",
+          "width": 900,
+          "height": 949
+        },
+        {
+          "file": "t001_7.png",
+          "width": 900,
+          "height": 945
+        },
+        {
+          "file": "t001_8.png",
+          "width": 900,
+          "height": 949
+        },
+        {
+          "file": "t001_9.png",
+          "width": 900,
+          "height": 949
+        },
+        {
+          "file": "t001_10.png",
+          "width": 900,
+          "height": 949
+        },
+        {
+          "file": "t001_11.png",
+          "width": 900,
+          "height": 941
+        },
+        {
+          "file": "t001_12.png",
+          "width": 900,
+          "height": 939
+        },
+        {
+          "file": "t001_13.png",
+          "width": 900,
+          "height": 935
+        },
+        {
+          "file": "t001_14.png",
+          "width": 900,
+          "height": 949
+        },
+        {
+          "file": "t001_15.png",
+          "width": 900,
+          "height": 935
+        },
+        {
+          "file": "t001_16.png",
+          "width": 900,
+          "height": 949
+        },
+        {
+          "file": "t001_17.png",
+          "width": 900,
+          "height": 278
+        }
+      ]
+    }
+  ]
+}

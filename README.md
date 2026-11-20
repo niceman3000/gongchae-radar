@@ -1,105 +1,103 @@
-# 공채레이더 (공기업 공채 변경점 AI 에이전트) — 개발 인수인계
+# 공채레이더 — 공기업 공채, 작년과 뭐가 달라졌고 나는 지원할 수 있나
 
-> **현재 어디까지 됐는지 보려면 [`STATUS.md`](STATUS.md)를 먼저 확인하세요.**
+2026 대한민국 청년 CAREER FAIR AI 해커톤 (대한상공회의소) · 제출 마감 2026-11-23(월) 17:00
 
-> **처음이면 GUIDE.md부터 읽으세요.** 시스템 설명, 키 발급, 따라 하기, 이번 주 할 일이 순서대로 있습니다.
+> 지금 상태·진행률: [`STATUS.md`](STATUS.md) · 그날 작업: `WORKLOG_*.txt` · 처음 설정: [`GUIDE.md`](GUIDE.md)
 
-2026 대한민국 청년 CAREER FAIR AI 해커톤 (대한상공회의소) / 팀장 정해근
-**제출 마감: 2026-11-23(월) 17:00** — 마감 후 기능·프롬프트·데이터 변경 불가 (본선 12/7까지 동일)
+## 무엇을 하나
 
-## 1. 한 줄 요약
-공기업 공채 공고를 공식 API로 모아, **작년 같은 공고와 무엇이 달라졌는지**(인원·서류 배수·배점·가점·지역별 인원)를
-쪽수 근거와 함께 보여 주는 서비스. 대표 사용자(가상): 부산 거주, 전기기사 보유, 공기업 전기직 지망.
+공기업 30곳의 신입 공채 공고를 **정부 공식 API**로 모아서
 
-## 2. 지금까지 된 것 / 안 된 것
+1. **작년 같은 공고와 비교**해 바뀐 점(인원·배수·배점·가점·자격)을 쪽수·원문 인용과 함께 보여 준다
+2. 사용자가 **직렬·지역·자격증**만 고르면 공고마다 **지원 가능 / 애매 / 지원 불가**와 내 자격증 **가점**을 알려 준다
+3. 공고문에 대해 물으면 **그 공고문 안에서만** 답한다 (없으면 "공고문에 명시 없음")
+4. 결과를 **PDF로 받을 수 있다**
 
-| 구분 | 상태 | 위치 |
-|---|---|---|
-| 데이터 소스 확정 (공식 오픈API) | ✅ 실측 완료 | `docs/API_FINDINGS.md`, `tools/` |
-| 시연용 공고 3쌍 (한전·한수원·중부발전, 작년/올해) | ✅ API 상세 + 공고문 PDF 확보 | `data/api`, `data/pdf` |
-| 1단계 비교 (코드만, AI 0회) | ✅ 3쌍 실행, PDF와 대조해 주요 항목 일치 | `src/diff_stage1.py`, `results/stage1_result.md` |
-| PDF → 관련 쪽 텍스트·표 묶음 | ✅ 한전 쌍 생성 (24쪽 중 10쪽만 사용) | `src/build_bundle.py`, `stage2/bundle_*.json` |
-| 한전 PDF 원문 검증 | ✅ 5개 영역 검토, 후보 18건 중 13건 확정 | `evaluation/ground_truth/kepco.md` |
-| 통합 리포트 | ✅ 3개 생성, 한전 원문 근거 반영 | `data/reports/` |
-| 사용자 화면 | 🟡 한전 상세 화면 완료, 조건·목록·질문은 대기 | `streamlit_app.py`, `app/` |
-| 배포 URL | ❌ 미착수 | — |
-| 정확도 측정 (정답지 대비, ChatGPT 비교) | ❌ 미착수 | — |
+이름·연락처 같은 개인정보는 받지 않는다. 합격 가능성·순위는 만들지 않는다.
 
-## 3. 구조
+## 화면 (4개)
+
+| 화면 | 하는 일 |
+|---|---|
+| ① 내 조건 입력 | 희망 직렬·근무 지역·보유 자격증 |
+| ② 맞춤 공고 | 30곳 중 관련 공고, 판정·판단 이유·가점·근거, **결과 PDF 받기** |
+| ③ 공고 비교 | 작년 대비 변경 후보, 이번 공고 한눈에 보기, 원문 인용 |
+| ④ 공고문에 물어보기 | 공고문 근거 안에서만 AI 답변 (AI가 생성한 답변 표시) |
+
+## 어떻게 만드나 (코드와 AI 역할)
 
 ```
-[공식 API 목록] --(기관코드·직렬 필터)--> [API 상세: 텍스트 칸 + 첨부 URL + 전형단계]
-        |                                           |
-        |                              공고문 PDF 다운로드 (files[].atchFileType == "A")
-        v                                           v
-  1단계 코드 비교 (diff_stage1.py)          build_bundle.py (pdfplumber, 본문+핵심 붙임 쪽만)
-  - 숫자/목록/문장 줄 비교                          |
-  - 표기·명칭·날짜만 바뀐 줄 걸러냄                  v
-        |                                   2단계 Claude 추출 (stage2.py, schema.json)
-        |                                   - 모집단위별 지역 인원, 가점표, 단계별 배점, 사전예고
-        |                                   - 모든 값에 page + quote → 코드로 원문 존재 검증
-        |                                   - 1단계 '문구 변경' 줄만 Haiku로 실질/표현 분류
-        v                                           v
-                 [변경점 리포트 DB] → 화면: 조건 입력 → 맞춤 목록 → 변경점 리포트 → 근거 질문(AI)
+정부 API (data.go.kr) ──▶ 공고 고르기·작년 짝짓기 ──▶ 공고문 받기 (PDF / 그림·스캔·한글)
+        [코드]                     [코드]                    [코드]
+                                                              │
+        ┌─────────────────────────────────────────────────────┤
+        ▼                                                     ▼
+작년 대비 비교·같은 변경 묶기 [코드]          공고문 글자 만들기: PDF는 코드, 그림·스캔은 AI(Haiku)가 그대로 옮겨 적음
+        │                                                     ▼
+        │                                  지원 자격·가점 정리: AI(Sonnet)가 정해진 칸을 채움
+        │                                  → 모든 칸에 쪽수+원문 인용, 코드가 원문에 진짜 있는지 대조, 없는 건 버림
+        ▼                                                     ▼
+   리포트 JSON 30개 (미리 만들어 저장) ◀──────────────────────────┘
+        │
+        ▼
+   화면: 판정 [코드] · 질문 답변 [코드가 원문을 고르고 AI(Sonnet)가 그 안에서만 답, 인용 대조]
 ```
 
-AI는 3곳에서만 쓴다: ① PDF 칸 채우기 ② 문구 변경 분류 ③ 사용자 질문 답변(저장된 근거로만).
-자격 판정·숫자 비교·경쟁률은 코드. 판정이 애매하면 기본값 '애매'.
+- 판정·숫자 비교·가점 계산은 **코드**. 확정할 수 없으면 기본값은 **애매**
+- 실시간 AI 호출은 질문 기능뿐 (접속당 20회). 나머지는 미리 계산해 저장
+- 규칙 전체: [`docs/전처리_규칙.md`](docs/전처리_규칙.md) · 정확도와 개선 과정: [`evaluation/정확도_개선_기록.md`](evaluation/정확도_개선_기록.md) · 최종 측정: [`evaluation/final-report.md`](evaluation/final-report.md)
 
-## 4. API 핵심 (재정경제부 공공기관 채용정보 조회서비스, data.go.kr)
-- 목록 `http://apis.data.go.kr/1051000/recruitment/list` — `serviceKey, resultType=json, pageNo, numOfRows, ongoingYn, pblntInstCd(기관코드)`
-- 상세 `.../recruitment/detail?sn=<공고번호>` — `files[]`(공고문 PDF URL), `steps[]`(모집단위별 단계)
-- 공고번호 `recrutPblntSn` = 잡알리오 `recruitview.do?idx=` 번호. 2018-01 이후 115,082건 조회됨.
-- 기관코드 예: 한국전력공사 `C0247`
-- 주의: `steps`의 응시/선발 인원은 **기관에 따라 비어 있음** (한전은 null, 중부발전 2026은 값 있음) → 화면에 "기관 미공시"
+## 정확도 (3곳 정답지 대비, 2026-11-20)
 
-## 5. 현재 화면 실행 방법
+| 지표 | 값 |
+|---|---|
+| 화면 판정 일치 (직렬 × 자격증 600조건) | 96% (578/600) |
+| 자격증 가점 재현율 · 정밀도 | 75% · 83% |
+| 근거 질문 (평가표 10문항) | 10/10 |
+| 작년 대비 변경 후보 정밀도 (한전 원문 대조) | 72% (13/18) |
 
-프로젝트 폴더에서 아래 명령을 실행하고 브라우저에서 `http://127.0.0.1:8501`을 엽니다.
+정답지는 한전·한수원·중부발전 3곳뿐이라 나머지 27곳은 직접 잰 값이 아니다.
+
+## 실행
 
 ```powershell
-.\.venv\Scripts\python.exe -m streamlit run streamlit_app.py
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+.\.venv\Scripts\python.exe -m streamlit run streamlit_app.py     # 또는 run_streamlit.bat
 ```
 
-처음 환경을 만드는 경우에는 **GUIDE.md 8장을 Step 0부터 순서대로** 따라 하세요.
+- 질문 기능에 AI 답을 쓰려면 `ANTHROPIC_API_KEY`가 필요하다. 없으면 관련 원문 발췌만 보여 주고 나머지 화면은 그대로 된다
+  - 로컬: 같은 PowerShell 창에서 `$env:ANTHROPIC_API_KEY = "키"` 후 실행, 또는 `.streamlit\secrets.toml` (Git에 안 올라감)
+  - 배포: Streamlit Community Cloud의 Secrets
+- 테스트: `.\.venv\Scripts\python.exe -m pytest -q`
+- 최종 측정: `.\.venv\Scripts\python.exe evaluation\evaluate.py --all` → `evaluation/final-report.md`
+- 키 노출 점검: `.\.venv\Scripts\python.exe tools\check_secrets.py`
+- 배포 방법: [`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md)
 
-### AI 구조화 파이프라인
-
-실제 호출 없이 준비상태를 확인합니다.
+## 데이터 다시 만들기 (필요할 때만)
 
 ```powershell
-.\.venv\Scripts\python.exe tools\run_ai_pipeline.py --check --pair kepco-2025-2026-h2
+$env:JOB_API_KEY = "data.go.kr 인증키"         # 공고 다시 모을 때만
+.\.venv\Scripts\python.exe tools\collect_institutions.py      # 30곳 공고 수집·짝짓기
+.\.venv\Scripts\python.exe tools\redownload_pdfs.py           # 공고문 PDF (키 불필요)
+.\.venv\Scripts\python.exe tools\ocr_notices.py               # 그림·스캔 공고: 비용 계산 → --run
+$env:ANTHROPIC_API_KEY = "키"
+.\.venv\Scripts\python.exe tools\extract_requirements.py      # 지원 자격 추출: 비용 계산 → --run
+.\.venv\Scripts\python.exe tools\build_auto_reports.py        # 리포트 30개
 ```
 
-API 키를 환경변수에 설정한 뒤 실행하면 PDF 구조화, 문구 분류, 인용 검증, 리포트 재생성을
-순서대로 수행합니다. 키와 모델 응답 원문은 Git에 저장하지 않습니다.
+AI 단계는 모두 **기본이 비용 계산만**이고 `--run`을 붙여야 돈이 든다. 비용 기록: `evaluation/ai_extracted/usage.json`, `data/ocr/usage.json`.
 
-```powershell
-$env:ANTHROPIC_API_KEY = "발급받은 키"
-.\.venv\Scripts\python.exe tools\run_ai_pipeline.py --pair kepco-2025-2026-h2
-```
+## 지킬 것
 
-AI가 제시한 인용문이 지정된 PDF 쪽에 실제로 존재하지 않으면 `verified=false`로 남으며 확정
-변경점으로 표시되지 않습니다.
+- API 키를 코드·Git·영상·발표자료에 넣지 않는다 (환경변수·Secrets만). 제출 전 `tools/check_secrets.py`
+- 실제 개인정보를 외부 AI에 보내지 않는다 (입력은 직렬·지역·자격증뿐)
+- 로그인 없이 접속 가능, 11/30(본선 시 12/7)까지 작동. Anthropic 콘솔에 월 사용 한도 설정
+- 사용한 데이터·오픈소스·AI 도구와 팀 역할: [`docs/SOURCES_AND_AI_USAGE.md`](docs/SOURCES_AND_AI_USAGE.md)
 
-## 6. 대회 규칙상 반드시 지킬 것
-- **API 키를 코드·깃·영상·발표자료에 넣지 말 것** (환경변수). data.go.kr 키는 노출 이력이 있어 재발급 예정.
-- **실제 개인정보를 외부 AI(API 포함)에 보내지 말 것** → 사용자 입력은 직렬·지역·자격증 같은 조건만, 이름·연락처 받지 않기. 시연은 가상 인물.
-- 프로토타입은 **로그인 없이 접속 가능**해야 하고 11/30(본선 시 12/7)까지 작동 → 변경점 리포트는 **미리 계산해 저장**, 실시간 AI 호출은 질문 기능만. Claude 콘솔에 사용 한도 설정.
-- 화면에 "AI가 생성한 답변" 표시 권장.
-- 오픈소스 라이선스: PyMuPDF(AGPL) 쓰지 말고 pdfplumber(MIT). 사용 오픈소스는 소개서 별첨에 기재.
-- 소스 저장소 제출 시 커밋 이력 유지, 마감 시점 태그.
-- AI 활용내역(3,000자)에 **개발에 쓴 AI 도구**(Claude 등)와 AI/팀 역할 구분을 써야 함 → 무엇을 AI로 생성했는지 기록해 둘 것.
+## 알려진 한계
 
-## 7. 남은 일 (우선순위)
-1. 한수원·중부발전 팀원 정답지를 통합 리포트에 반영
-2. 직렬·지역·자격증 조건 입력과 공고 목록 화면 연결
-3. 3개 기관 상세 화면 연결
-4. 정답지 대비 정확도 측정
-5. 근거 질문 기능 구현
-6. 로그인 없는 공개 URL 배포
-
-## 8. 알려진 문제
-- 일부 PDF(중부발전)는 일반 텍스트 추출 시 표 안 숫자가 빠짐 → pdfplumber 표 추출 사용
-- 모집단위 이름이 해마다 다름 ("배전" ↔ "배전(일반)") → `diff_stage1.unit_base()` 규칙으로 1차 매칭
-- `results/kepco_jeongiwon_2025_vs_2026.json`은 이전에 만든 **한전 전기원(기능직)** 정답지 초안. 대표 사용자와 대상이 달라 보조 사례로만 사용. AI가 만든 초안이므로 팀 원문 대조 전에는 정답지로 쓰지 말 것.
+- 그림·스캔 공고 7곳은 AI가 옮겨 적은 글자를 원문으로 쓴다 (옮길 때 생긴 오타는 인용 대조로 못 잡음, 화면에 안내)
+- 기관에 따라 API에 모집단위별 인원이 없다 (예: 한전) → 직렬별 인원 비교는 원문 확인 필요
+- 22곳은 지시문 개선 전에 지원 자격을 뽑았다 (다시 뽑으면 좋아질 수 있음, 약 $3)
+- 자세한 목록: `evaluation/정확도_개선_기록.md` 6절

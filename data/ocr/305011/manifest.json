@@ -1,0 +1,119 @@
+{
+  "sn": "305011",
+  "institution": "한국공항공사",
+  "side": "curr",
+  "reason": "공고문이 PDF가 아님(그림·한글·ZIP)",
+  "pages": [
+    {
+      "page": 1,
+      "from": "2026 하반기 신입사원 채용공고_5급갑_6급갑.jpg",
+      "tiles": [
+        {
+          "file": "t001_1.png",
+          "width": 1200,
+          "height": 723
+        },
+        {
+          "file": "t001_2.png",
+          "width": 1200,
+          "height": 902
+        },
+        {
+          "file": "t001_3.png",
+          "width": 1200,
+          "height": 949
+        },
+        {
+          "file": "t001_4.png",
+          "width": 1200,
+          "height": 925
+        },
+        {
+          "file": "t001_5.png",
+          "width": 1200,
+          "height": 949
+        },
+        {
+          "file": "t001_6.png",
+          "width": 1200,
+          "height": 949
+        },
+        {
+          "file": "t001_7.png",
+          "width": 1200,
+          "height": 914
+        },
+        {
+          "file": "t001_8.png",
+          "width": 1200,
+          "height": 716
+        },
+        {
+          "file": "t001_9.png",
+          "width": 1200,
+          "height": 720
+        },
+        {
+          "file": "t001_10.png",
+          "width": 1200,
+          "height": 901
+        },
+        {
+          "file": "t001_11.png",
+          "width": 1200,
+          "height": 949
+        },
+        {
+          "file": "t001_12.png",
+          "width": 1200,
+          "height": 949
+        },
+        {
+          "file": "t001_13.png",
+          "width": 1200,
+          "height": 949
+        },
+        {
+          "file": "t001_14.png",
+          "width": 1200,
+          "height": 919
+        },
+        {
+          "file": "t001_15.png",
+          "width": 1200,
+          "height": 929
+        },
+        {
+          "file": "t001_16.png",
+          "width": 1200,
+          "height": 949
+        },
+        {
+          "file": "t001_17.png",
+          "width": 1200,
+          "height": 947
+        },
+        {
+          "file": "t001_18.png",
+          "width": 1200,
+          "height": 949
+        },
+        {
+          "file": "t001_19.png",
+          "width": 1200,
+          "height": 925
+        },
+        {
+          "file": "t001_20.png",
+          "width": 1200,
+          "height": 933
+        },
+        {
+          "file": "t001_21.png",
+          "width": 1200,
+          "height": 400
+        }
+      ]
+    }
+  ]
+}

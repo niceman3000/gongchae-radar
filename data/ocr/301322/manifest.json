@@ -1,0 +1,110 @@
+{
+  "sn": "301322",
+  "institution": "강원랜드",
+  "side": "curr",
+  "reason": "공고문이 PDF가 아님(그림·한글·ZIP)",
+  "pages": [
+    {
+      "page": 1,
+      "from": "2026년 1차 신입직 채용_공고문.png",
+      "tiles": [
+        {
+          "file": "t001_1.png",
+          "width": 1184,
+          "height": 949
+        },
+        {
+          "file": "t001_2.png",
+          "width": 1184,
+          "height": 949
+        },
+        {
+          "file": "t001_3.png",
+          "width": 1184,
+          "height": 937
+        },
+        {
+          "file": "t001_4.png",
+          "width": 1184,
+          "height": 944
+        },
+        {
+          "file": "t001_5.png",
+          "width": 1184,
+          "height": 949
+        },
+        {
+          "file": "t001_6.png",
+          "width": 1184,
+          "height": 874
+        },
+        {
+          "file": "t001_7.png",
+          "width": 1184,
+          "height": 934
+        },
+        {
+          "file": "t001_8.png",
+          "width": 1184,
+          "height": 948
+        },
+        {
+          "file": "t001_9.png",
+          "width": 1184,
+          "height": 949
+        },
+        {
+          "file": "t001_10.png",
+          "width": 1184,
+          "height": 936
+        },
+        {
+          "file": "t001_11.png",
+          "width": 1184,
+          "height": 949
+        },
+        {
+          "file": "t001_12.png",
+          "width": 1184,
+          "height": 972
+        }
+      ]
+    },
+    {
+      "page": 2,
+      "from": "2026년 1차 신입직 채용_세부 전형 방법.png",
+      "tiles": [
+        {
+          "file": "t002_1.png",
+          "width": 1200,
+          "height": 937
+        },
+        {
+          "file": "t002_2.png",
+          "width": 1200,
+          "height": 949
+        },
+        {
+          "file": "t002_3.png",
+          "width": 1200,
+          "height": 941
+        },
+        {
+          "file": "t002_4.png",
+          "width": 1200,
+          "height": 949
+        },
+        {
+          "file": "t002_5.png",
+          "width": 1200,
+          "height": 931
+        },
+        {
+          "file": "t002_6.png",
+          "width": 1200,
+          "height": 717
+        }
+      ]
+    }
+  ]
+}

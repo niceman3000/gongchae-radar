@@ -562,8 +562,181 @@
     "regions": [
       "강원"
     ],
-    "certificates": [],
-    "majors": [],
+    "certificates": [
+      {
+        "name": "정보처리 또는 정보보안 산업기사 이상 국가기술자격증 보유",
+        "kind": "required",
+        "applicable_units": [
+          "IT(정보보안)"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "301322",
+            "page": 2,
+            "quote": "정보처리 또는 정보보안 산업기사 이상 국가기술자격증 보유자",
+            "verified": true
+          }
+        ],
+        "track": "ICT",
+        "match": {
+          "items": [
+            "정보처리",
+            "정보보안"
+          ],
+          "grades": [
+            "산업기사",
+            "기사",
+            "기술사"
+          ]
+        }
+      },
+      {
+        "name": "일반기계·건축설비·공조냉동기계 등 지정 종목 1개 이상의 산업기사 이상 국가기술자격증 보유",
+        "kind": "required",
+        "applicable_units": [
+          "기계"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "301322",
+            "page": 2,
+            "quote": "중 1개 이상의 산업기사 이상 국가기술자격증 보유자",
+            "verified": true
+          }
+        ],
+        "track": "기계",
+        "match": {
+          "items": [
+            "일반기계",
+            "건축설비",
+            "건설기계설비",
+            "공조냉동기계",
+            "설비보전",
+            "에너지관리",
+            "배관",
+            "정밀측정",
+            "신재생에너지발전설비(태양광)",
+            "자동화설비(메카트로닉스/생산자동화)"
+          ],
+          "grades": [
+            "산업기사",
+            "기사",
+            "기술사"
+          ]
+        }
+      },
+      {
+        "name": "1급 응급구조사 자격 보유",
+        "kind": "required",
+        "applicable_units": [
+          "응급구조사"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "301322",
+            "page": 2,
+            "quote": "1급 응급구조사 자격 보유자",
+            "verified": true
+          }
+        ],
+        "track": "기타",
+        "match": {
+          "names": [
+            "1급 응급구조사"
+          ]
+        }
+      },
+      {
+        "name": "조리(한식·중식·양식·일식·복어) 또는 제과·제빵 중 1개 이상의 기능사 이상 국가기술자격증 보유",
+        "kind": "required",
+        "applicable_units": [
+          "조리_일반",
+          "조리_석탄산업전환지역인재",
+          "조리_고졸"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "301322",
+            "page": 2,
+            "quote": "1개 이상의 기능사 이상 국가기술자격증 보유자",
+            "verified": true
+          }
+        ],
+        "track": "기타",
+        "match": {
+          "items": [
+            "한식조리",
+            "중식조리",
+            "양식조리",
+            "일식조리",
+            "복어조리",
+            "제과",
+            "제빵"
+          ],
+          "grades": [
+            "기능사",
+            "산업기사",
+            "기사",
+            "기능장",
+            "기술사"
+          ]
+        }
+      }
+    ],
+    "majors": [
+      {
+        "name": "전공·학력 제한 없음",
+        "kind": "accepted",
+        "applicable_units": [],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "301322",
+            "page": 3,
+            "quote": "연령, 학력 제한 없음(단, 강원랜드 정년에 의거 만 60세 미만인 자)",
+            "verified": true
+          }
+        ],
+        "track": "ICT",
+        "unrestricted": true
+      },
+      {
+        "name": "전공·학력 제한 없음",
+        "kind": "accepted",
+        "applicable_units": [],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "301322",
+            "page": 3,
+            "quote": "연령, 학력 제한 없음(단, 강원랜드 정년에 의거 만 60세 미만인 자)",
+            "verified": true
+          }
+        ],
+        "track": "기계",
+        "unrestricted": true
+      },
+      {
+        "name": "전공·학력 제한 없음 (고졸 모집단위만 별도 조건)",
+        "kind": "accepted",
+        "applicable_units": [],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "301322",
+            "page": 3,
+            "quote": "연령, 학력 제한 없음(단, 강원랜드 정년에 의거 만 60세 미만인 자)",
+            "verified": true
+          }
+        ],
+        "track": "기타",
+        "unrestricted": true
+      }
+    ],
     "manual_review_conditions": [],
     "units": [
       {
@@ -611,37 +784,53 @@
       {
         "name": "카지노딜러_석탄산업전환지역인재",
         "track": "기타",
-        "kind": "general",
-        "note": null,
+        "kind": "condition",
+        "note": "석탄산업전환지역(태백·삼척·정선·영월·보령·문경·화순) 소재 고교 졸업자, 본인 또는 부모의 10년 이상 거주자, 10년 이상 근로한 광산 근로자 및 그 자녀, 광산재해 순직자·장애등급 판정자 및 그 자녀 중 하나에 해당",
         "evidence": []
       },
       {
         "name": "카지노딜러_보훈",
         "track": "기타",
-        "kind": "general",
-        "note": null,
+        "kind": "special",
+        "note": "취업지원대상자 증명서를 발급받은 자만 지원 가능",
         "evidence": []
       },
       {
         "name": "카지노딜러_저소득층",
         "track": "기타",
-        "kind": "general",
-        "note": null,
+        "kind": "special",
+        "note": "국민기초생활수급자 증명서 또는 차상위계층 확인서를 발급받은 자만 지원 가능",
         "evidence": []
       },
       {
         "name": "카지노딜러_자립준비청년",
         "track": "기타",
-        "kind": "general",
-        "note": null,
-        "evidence": []
+        "kind": "special",
+        "note": "보호조치 종료·보호시설 퇴소자 중 만 34세 이하(제대군인은 연령 상한 적용)",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "301322",
+            "page": 3,
+            "quote": "만 34세 이하*인 자",
+            "verified": true
+          }
+        ]
       },
       {
         "name": "카지노딜러_경력단절여성",
         "track": "기타",
-        "kind": "general",
-        "note": null,
-        "evidence": []
+        "kind": "special",
+        "note": "결혼·임신·출산·육아·가족돌봄 등의 사유로 1년 이상 경제활동을 중단한 여성만 지원 가능",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "301322",
+            "page": 3,
+            "quote": "1년 이상 경제활동을 중단한 여성",
+            "verified": true
+          }
+        ]
       },
       {
         "name": "객실_일반",
@@ -653,16 +842,24 @@
       {
         "name": "객실_석탄산업전환지역인재",
         "track": "기타",
-        "kind": "general",
-        "note": null,
+        "kind": "condition",
+        "note": "석탄산업전환지역(태백·삼척·정선·영월·보령·문경·화순) 소재 고교 졸업자, 본인 또는 부모의 10년 이상 거주자, 10년 이상 근로한 광산 근로자 및 그 자녀, 광산재해 순직자·장애등급 판정자 및 그 자녀 중 하나에 해당",
         "evidence": []
       },
       {
         "name": "객실_고졸",
         "track": "기타",
-        "kind": "general",
-        "note": null,
-        "evidence": []
+        "kind": "special",
+        "note": "최종학력이 고등학교 졸업(예정)인 자(검정고시 합격자, 대학 중퇴·재학·휴학 중인 자 포함, 전문대·대학 졸업(예정)자는 지원 불가)",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "301322",
+            "page": 3,
+            "quote": "최종학력이 고등학교 졸업(예정)인 자",
+            "verified": true
+          }
+        ]
       },
       {
         "name": "식음_일반",
@@ -674,15 +871,15 @@
       {
         "name": "식음_석탄산업전환지역인재",
         "track": "기타",
-        "kind": "general",
-        "note": null,
+        "kind": "condition",
+        "note": "석탄산업전환지역(태백·삼척·정선·영월·보령·문경·화순) 소재 고교 졸업자, 본인 또는 부모의 10년 이상 거주자, 10년 이상 근로한 광산 근로자 및 그 자녀, 광산재해 순직자·장애등급 판정자 및 그 자녀 중 하나에 해당",
         "evidence": []
       },
       {
         "name": "식음_다문화가족",
         "track": "기타",
-        "kind": "general",
-        "note": null,
+        "kind": "special",
+        "note": "다문화가족 지원법 제2조에 해당하며 대한민국 국적 취득자(결혼이민자 포함) 또는 그 가족",
         "evidence": []
       },
       {
@@ -695,22 +892,117 @@
       {
         "name": "조리_석탄산업전환지역인재",
         "track": "기타",
-        "kind": "general",
-        "note": null,
+        "kind": "condition",
+        "note": "석탄산업전환지역(태백·삼척·정선·영월·보령·문경·화순) 소재 고교 졸업자, 본인 또는 부모의 10년 이상 거주자, 10년 이상 근로한 광산 근로자 및 그 자녀, 광산재해 순직자·장애등급 판정자 및 그 자녀 중 하나에 해당",
         "evidence": []
       },
       {
         "name": "조리_고졸",
         "track": "기타",
-        "kind": "general",
-        "note": null,
-        "evidence": []
+        "kind": "special",
+        "note": "최종학력이 고등학교 졸업(예정)인 자(검정고시 합격자, 대학 중퇴·재학·휴학 중인 자 포함, 전문대·대학 졸업(예정)자는 지원 불가)",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "301322",
+            "page": 3,
+            "quote": "최종학력이 고등학교 졸업(예정)인 자",
+            "verified": true
+          }
+        ]
       }
     ],
-    "common_checks": [],
-    "region_note": null,
-    "bonus_rule": null,
-    "reviewed": null
+    "common_checks": [
+      {
+        "text": "병역필 또는 면제자('26. 8. 20. 이전 전역 가능한 자 포함), 병역의무 불이행 사실 없는 자",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "301322",
+            "page": 3,
+            "quote": "병역필 또는 면제자('26. 8. 20. 이전 전역 가능한 자 포함)",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "text": "만 60세 미만(정년 기준)",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "301322",
+            "page": 3,
+            "quote": "연령, 학력 제한 없음(단, 강원랜드 정년에 의거 만 60세 미만인 자)",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "text": "채용분야 중복지원 불가, 즉시 근무 가능한 자, 채용 결격사유 없는 자",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "301322",
+            "page": 3,
+            "quote": "채용분야 중복지원은 불가함(중복지원 시 불합격 처리)",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "text": "카지노딜러 분야: 색맹·색약 지원 불가(안경·렌즈 등으로 교정 가능하면 지원 가능)",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "301322",
+            "page": 3,
+            "quote": "카지노 딜러 분야 지원자는 색맹, 색약 지원불가",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "text": "카지노딜러 분야: '26. 8. 31. 기준 만 19세 미만 청소년은 지원 불가",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "301322",
+            "page": 3,
+            "quote": "카지노 딜러 분야에 한하여 '26. 8. 31. 기준 청소년",
+            "verified": true
+          }
+        ]
+      }
+    ],
+    "region_note": {
+      "text": "근무지는 강원특별자치도 정선군 하이원리조트이며, 전환 후 지원 분야의 관련 부서로 배치 예정(변동 가능)",
+      "evidence": [
+        {
+          "side": "curr",
+          "notice_sn": "301322",
+          "page": 3,
+          "quote": "근무지: 강원특별자치도 정선군 하이원리조트",
+          "verified": true
+        }
+      ]
+    },
+    "bonus_rule": {
+      "text": "직무능력 우대는 필기전형 점수에 가산(외국어 3~7%, 체험형인턴 우수 3%·일반 1% 중 높은 쪽 부여). 어학성적은 가장 높은 1개만 인정. 필기점수 만점의 40% 미만이면 가산점 미적용. 직무능력 우대는 사회형평 우대와 합산 가능.",
+      "evidence": [
+        {
+          "side": "curr",
+          "notice_sn": "301322",
+          "page": 6,
+          "quote": "3. 직무능력 관련 우대사항 중복 시 합산 가능(사회형평 관련 우대사항 가점과 합산 가능)",
+          "verified": true
+        }
+      ]
+    },
+    "reviewed": {
+      "reviewed_at": "2026-11-20",
+      "reviewer": "AI 자동 추출(claude-sonnet-5-5), 인용 원문 대조 통과분만 · 사람 확인 전",
+      "scope": "IT(정보보안)·기계·응급구조사·조리(직무관련 자격요건), 시각디자인·미디어콘텐츠제작·카지노딜러·객실·식음은 자격증 요건 없음, 모든 분야 공통 우대(외국어·체험형인턴)"
+    }
   },
   "tier": "auto",
   "category": "시장형"

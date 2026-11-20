@@ -33,6 +33,10 @@ def _bundle_text(root: Path, sn: str, pdf: Path, log=print) -> dict | None:
     """PDF가 있으면 쪽별 텍스트 묶음을 만들어 돌려준다.
     묶음이 없거나 PDF가 묶음보다 새 파일이면(다시 받은 PDF) 새로 읽는다. PDF가 없으면 옛 묶음도 쓰지 않는다."""
     bundle = root / "stage2" / f"bundle_{sn}.json"
+    if bundle.exists():  # 11-20: 그림·스캔·한글 공고를 옮겨 적은 묶음(tools/ocr_notices.py)은 PDF로 다시 만들지 않는다
+        data = json.loads(bundle.read_text(encoding="utf-8"))
+        if data.get("source") in ("ocr", "hwp", "attach"):
+            return data.get("all_text")
     if not pdf.exists():
         return None
     if not bundle.exists() or pdf.stat().st_mtime > bundle.stat().st_mtime:

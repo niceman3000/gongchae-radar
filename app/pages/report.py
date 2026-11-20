@@ -79,9 +79,13 @@ def _render_notice_info(report: Mapping[str, Any]) -> None:
             st.dataframe(pd.DataFrame(rows), hide_index=True, use_container_width=True)
 
 
+def _ymd(value: Any) -> str:
+    text = str(value or "")
+    return f"{text[:4]}.{text[4:6]}.{text[6:]}" if len(text) == 8 and text.isdigit() else text
+
+
 def _render_header(report: Mapping[str, Any]) -> None:
     institution = escape(str(report["institution"]))
-    st.markdown('<div class="radar-eyebrow">공채레이더 · 전년도 공고 비교</div>', unsafe_allow_html=True)
     st.markdown(
         f'<div class="radar-title">{institution} 채용공고 비교</div>',
         unsafe_allow_html=True,
@@ -99,13 +103,13 @@ def _render_header(report: Mapping[str, Any]) -> None:
             st.markdown("**현재 지원 공고 (2026)**")
             st.write(report["curr"]["title"])
             st.caption(
-                f"공고번호 {report['curr']['sn']} · 접수 {report['curr']['period']['start']} ~ {report['curr']['period']['end']}"
+                f"공고번호 {report['curr']['sn']} · 접수 {_ymd(report['curr']['period']['start'])} ~ {_ymd(report['curr']['period']['end'])}"
             )
         with previous:
             st.markdown("**비교 기준 공고 (2025)**")
             st.write(report["prev"]["title"])
             st.caption(
-                f"공고번호 {report['prev']['sn']} · 접수 {report['prev']['period']['start']} ~ {report['prev']['period']['end']}"
+                f"공고번호 {report['prev']['sn']} · 접수 {_ymd(report['prev']['period']['start'])} ~ {_ymd(report['prev']['period']['end'])}"
             )
 
     units = _units(report)

@@ -30,6 +30,7 @@ import argparse
 from datetime import date
 import json
 import os
+import re
 from pathlib import Path
 import sys
 
@@ -94,8 +95,9 @@ def pair_inputs(pair: dict) -> tuple[dict, dict | None, list[str]]:
     """(올해 API 상세, 올해 PDF 글자 묶음 또는 None, 모집단위 이름 목록)"""
     curr = load_api_item(ROOT / pair["curr_api"])
     bundle_path = ROOT / "stage2" / f"bundle_{pair['curr_sn']}.json"
-    if not bundle_path.exists():  # 아직 글자 묶음이 없으면 PDF에서 만든다 (핵심 3곳 일부)
-        _bundle_text(ROOT, pair["curr_sn"], ROOT / pair["curr_pdf"], print)
+    # 글자 묶음이 없거나 PDF가 더 새것이면(다시 받은 PDF) 먼저 다시 만든다
+    # (11-20 도로공사: 붙임을 이어 붙인 37쪽 PDF 대신 옛 10쪽 묶음을 읽어 자격증 목록 없이 추출됨)
+    _bundle_text(ROOT, pair["curr_sn"], ROOT / pair["curr_pdf"], print)
     bundle = json.loads(bundle_path.read_text(encoding="utf-8")) if bundle_path.exists() else None
     units = [str(name) for name in dict.fromkeys(step.get("recrutPbancTtl") for step in curr.get("steps") or []) if name]
     return curr, bundle, units
@@ -165,8 +167,17 @@ def salvage_truncated(text: str) -> dict | None:
     return {"scope": scope, "items": items, "_partial": True}
 
 
-def checked_evidence(raw, all_text: dict) -> tuple[list[dict], int]:
-    """원문에 실제로 있는 인용만 남긴다. (남은 근거, 버린 개수)"""
+def _other_page(quote: str, all_text: dict) -> int | None:
+    """인용문이 들어 있는 쪽이 딱 하나면 그 쪽 번호"""
+    compact = re.sub(r"\s+", "", quote)
+    pages = [int(number) for number, text in all_text.items() if compact and compact in re.sub(r"\s+", "", text or "")]
+    return pages[0] if len(pages) == 1 else None
+
+
+def checked_evidence(raw, all_text: dict, fix_pages: bool = False) -> tuple[list[dict], int]:
+    """원문에 실제로 있는 인용만 남긴다. (남은 근거, 버린 개수)
+    fix_pages: 그림 공고(옮겨 적은 글자)에서는 AI가 쪽수를 틀리게 적는 일이 있어(11-20 석유공사),
+    인용문이 다른 한 쪽에만 있으면 그 쪽으로 고친다. 인용문 자체는 원문 대조를 통과해야 한다."""
     kept, dropped = [], 0
     for item in raw or []:
         if not isinstance(item, dict):
@@ -176,6 +187,11 @@ def checked_evidence(raw, all_text: dict) -> tuple[list[dict], int]:
         if isinstance(evidence["page"], str) and evidence["page"].isdigit():
             evidence["page"] = int(evidence["page"])
         ok, _ = check_evidence(evidence, all_text)
+        if not ok and fix_pages:
+            page = _other_page(evidence["quote"], all_text)
+            if page:
+                evidence["page"] = page
+                ok = True
         if ok:
             kept.append(evidence)
         else:
@@ -212,14 +228,14 @@ def names_to_items(match: dict, name: str) -> dict:
     return converted
 
 
-def clean_result(raw: dict, all_text: dict, units: list[str]) -> tuple[dict, dict]:
+def clean_result(raw: dict, all_text: dict, units: list[str], fix_pages: bool = False) -> tuple[dict, dict]:
     """AI 결과를 핵심 3곳 조건 파일과 같은 형식으로 다듬고 근거를 대조한다. (결과, 통계)"""
     stats = {"items_kept": 0, "items_dropped": 0, "quotes_kept": 0, "quotes_dropped": 0}
 
     def note(block):
         if not isinstance(block, dict) or not block.get("text"):
             return None
-        evidence, dropped = checked_evidence(block.get("evidence"), all_text)
+        evidence, dropped = checked_evidence(block.get("evidence"), all_text, fix_pages)
         stats["quotes_kept"] += len(evidence)
         stats["quotes_dropped"] += dropped
         return {"text": str(block["text"]), "evidence": evidence} if evidence else None
@@ -229,7 +245,7 @@ def clean_result(raw: dict, all_text: dict, units: list[str]) -> tuple[dict, dic
         if not isinstance(item, dict) or item.get("kind") not in KINDS or not item.get("name"):
             stats["items_dropped"] += 1
             continue
-        evidence, dropped = checked_evidence(item.get("evidence"), all_text)
+        evidence, dropped = checked_evidence(item.get("evidence"), all_text, fix_pages)
         stats["quotes_kept"] += len(evidence)
         stats["quotes_dropped"] += dropped
         if not evidence:
@@ -347,7 +363,7 @@ def main(argv: list[str] | None = None) -> None:
             except AiPipelineError as exc:
                 print(f"  {name}: {exc}")
                 continue
-            result, stats = clean_result(raw, bundle.get("all_text") or {}, units)
+            result, stats = clean_result(raw, bundle.get("all_text") or {}, units, bundle.get("source") == "ocr")
             save(out, pair, args.model, result)
             print(f"  {name}: (원본에서{', 잘린 답 앞부분만' if result['partial'] else ''}) 항목 {stats['items_kept']}개 저장 (버림 {stats['items_dropped']}) · "
                   f"인용 통과 {stats['quotes_kept']} / 버림 {stats['quotes_dropped']}")
@@ -393,7 +409,7 @@ def main(argv: list[str] | None = None) -> None:
         except AiPipelineError as exc:
             print(f"  {name}: {exc} → 저장 안 함 · ${spent:.3f} (원본: {RAW_DIR.name}/{prefix}.txt)")
             continue
-        result, stats = clean_result(raw, bundle.get("all_text") or {}, units)
+        result, stats = clean_result(raw, bundle.get("all_text") or {}, units, bundle.get("source") == "ocr")
         save(out, pair, args.model, result)
         if not result["items"]:
             print(f"  {name}: 주의 - 근거가 확인된 항목이 하나도 없음 (원본: {RAW_DIR.name}/{prefix}.txt)")

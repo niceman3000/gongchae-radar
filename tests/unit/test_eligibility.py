@@ -196,3 +196,39 @@ def test_water_resources_track_uses_khnp_attachment_lists():
     khnp = next(item for item in with_cert if item.pair_id == "khnp-2025-2026-round3")
     assert khnp.status == "eligible"
     assert next(item for item in without if item.pair_id == "khnp-2025-2026-round3").status == "ambiguous"
+
+
+def test_unit_required_certificate_beats_unrestricted_major():
+    """11-20 마사회: 공고 전체 '전공 제한 없음'이 있어도 전기 모집단위 필수 자격(전기기사)이 없으면 지원 불가."""
+    unrestricted = {**MAJOR, "name": "전공 제한 없음", "unrestricted": True}
+    required = {**ACCEPTED, "kind": "required", "name": "전기기사 소지자", "applicable_units": ["전기(일반)"],
+                "match": {"names": ["전기기사"]}}
+    report = _report({"majors": [unrestricted], "certificates": [required]})
+
+    assert evaluate(UserCondition("전기", "부산", ()), report).status == "ineligible"
+    result = evaluate(CONDITION, report)
+    assert result.status == "eligible"
+    assert any("필수 자격 충족" in reason for reason in result.reasons)
+
+
+def test_several_required_items_for_one_unit_are_alternatives():
+    """한전KPS·LH: '기술사 필수', '기사 필수'가 따로 적혀도 그중 하나만 있으면 된다."""
+    unit = ["전기(일반)"]
+    engineer = {**ACCEPTED, "kind": "required", "name": "기술사", "applicable_units": unit,
+                "match": {"items": ["발송배전"], "grades": ["기술사"]}}
+    technician = {**ACCEPTED, "kind": "required", "name": "기사", "applicable_units": unit,
+                  "match": {"items": ["전기"], "grades": ["기사"]}}
+    report = _report({"certificates": [engineer, technician]})
+
+    assert evaluate(CONDITION, report).status == "eligible"
+    assert evaluate(UserCondition("전기", "부산", ("정보처리기사",)), report).status == "ineligible"
+
+
+def test_notice_wide_required_item_does_not_override_unrestricted_major():
+    """석유공사 토익·가스기술공사 운전면허처럼 모집단위가 없는 필수 항목은 입력받지 않는 공통 조건이라 지원 불가로 만들지 않는다."""
+    unrestricted = {**MAJOR, "name": "전공 제한 없음", "unrestricted": True}
+    license_ = {**ACCEPTED, "kind": "required", "track": None, "name": "운전면허 2종 보통", "applicable_units": [],
+                "match": {"names": ["운전면허 2종 보통"]}}
+
+    result = evaluate(UserCondition("전기", "부산", ()), _report({"majors": [unrestricted], "certificates": [license_]}))
+    assert result.status == "eligible"

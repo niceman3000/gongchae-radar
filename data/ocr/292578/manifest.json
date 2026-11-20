@@ -1,0 +1,123 @@
+{
+  "sn": "292578",
+  "institution": "에스알",
+  "side": "curr",
+  "reason": "공고문이 PDF가 아님(그림·한글·ZIP)",
+  "pages": [
+    {
+      "page": 1,
+      "from": "25.11.04._2025년 일반직 채용 공고문(수정).png",
+      "tiles": [
+        {
+          "file": "t001_1.png",
+          "width": 1200,
+          "height": 949
+        },
+        {
+          "file": "t001_2.png",
+          "width": 1200,
+          "height": 922
+        },
+        {
+          "file": "t001_3.png",
+          "width": 1200,
+          "height": 949
+        },
+        {
+          "file": "t001_4.png",
+          "width": 1200,
+          "height": 949
+        },
+        {
+          "file": "t001_5.png",
+          "width": 1200,
+          "height": 949
+        },
+        {
+          "file": "t001_6.png",
+          "width": 1200,
+          "height": 883
+        },
+        {
+          "file": "t001_7.png",
+          "width": 1200,
+          "height": 939
+        },
+        {
+          "file": "t001_8.png",
+          "width": 1200,
+          "height": 946
+        },
+        {
+          "file": "t001_9.png",
+          "width": 1200,
+          "height": 941
+        },
+        {
+          "file": "t001_10.png",
+          "width": 1200,
+          "height": 930
+        },
+        {
+          "file": "t001_11.png",
+          "width": 1200,
+          "height": 1071
+        }
+      ]
+    },
+    {
+      "page": 2,
+      "from": "자격가점 및 비율.pdf",
+      "text_file": "text002.txt",
+      "kind": "pdf_text"
+    },
+    {
+      "page": 3,
+      "from": "자격가점 및 비율.pdf",
+      "text_file": "text003.txt",
+      "kind": "pdf_text"
+    },
+    {
+      "page": 4,
+      "from": "자격가점 및 비율.pdf",
+      "text_file": "text004.txt",
+      "kind": "pdf_text"
+    },
+    {
+      "page": 5,
+      "from": "자격가점 및 비율.pdf",
+      "text_file": "text005.txt",
+      "kind": "pdf_text"
+    },
+    {
+      "page": 6,
+      "from": "자격가점 및 비율.pdf",
+      "text_file": "text006.txt",
+      "kind": "pdf_text"
+    },
+    {
+      "page": 7,
+      "from": "자격가점 및 비율.pdf",
+      "text_file": "text007.txt",
+      "kind": "pdf_text"
+    },
+    {
+      "page": 8,
+      "from": "자격가점 및 비율.pdf",
+      "text_file": "text008.txt",
+      "kind": "pdf_text"
+    },
+    {
+      "page": 9,
+      "from": "자격가점 및 비율.pdf",
+      "text_file": "text009.txt",
+      "kind": "pdf_text"
+    },
+    {
+      "page": 10,
+      "from": "취업지원대상자 및 장애인 등록 우대 관련.pdf",
+      "text_file": "text010.txt",
+      "kind": "pdf_text"
+    }
+  ]
+}

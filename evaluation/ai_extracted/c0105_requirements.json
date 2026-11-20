@@ -1,0 +1,144 @@
+{
+  "pair_id": "c0105-291137-304492",
+  "reviewed_at": "2026-11-20",
+  "reviewer": "AI 자동 추출(claude-sonnet-5-5), 인용 원문 대조 통과분만 · 사람 확인 전",
+  "partial": false,
+  "scope": "일반직(사무·건축·기계·전기·전산·통신·토목·관제·장애·보훈) 및 안전보안직(보안검색감독자)",
+  "items": [
+    {
+      "kind": "major",
+      "name": "학력·전공·연령·성별·경력 제한 없음 (정년 이내)",
+      "evidence": [
+        {
+          "side": "curr",
+          "page": 3,
+          "quote": "학력, 전공, 연령, 성별, 경력 제한 없음"
+        }
+      ],
+      "applicable_units": [],
+      "unrestricted": true
+    },
+    {
+      "kind": "required",
+      "name": "[관제] 항공교통관제사 자격증 소지 + 항공영어구술능력증명 4등급 이상",
+      "evidence": [
+        {
+          "side": "curr",
+          "page": 3,
+          "quote": "[관제] 항공교통관제사 자격증 소지자로서 항공영어구술능력증명 4등급 이상인 자"
+        }
+      ],
+      "applicable_units": [
+        "관제"
+      ],
+      "track": "기타",
+      "match": {
+        "names": [
+          "항공교통관제사",
+          "항공영어구술능력증명 4등급"
+        ]
+      }
+    }
+  ],
+  "bonus_rule": {
+    "text": "구분이 다른 우대사항(6개 구분)은 가점 합산, 같은 구분 내에서는 가장 유리한 가점 1개만 인정. 우대자격증 대상 종목은 붙임1 참조",
+    "evidence": [
+      {
+        "side": "curr",
+        "page": 10,
+        "quote": "동일한 구분 내에서는 가장 유리한 가점 1개만 인정"
+      }
+    ]
+  },
+  "common_checks": [
+    {
+      "text": "[일반직] 공인어학성적: TOEIC 800 / TOEFL-IBT 91 / TEPS 309 / JPT 800 / HSK 5급 210점 이상 중 하나 (장애분야는 TOEIC 650 등 완화 기준)",
+      "evidence": [
+        {
+          "side": "curr",
+          "page": 3,
+          "quote": "(영어) TOEIC 800점 이상 또는 TOEFL-IBT 91점 이상 또는 TEPS 309점 이상"
+        }
+      ]
+    },
+    {
+      "text": "[안전보안직] 공인어학성적: TOEIC 600 / TOEFL-IBT 68 / TEPS 227 / JPT 600 / HSK 4급 210점 이상 중 하나",
+      "evidence": [
+        {
+          "side": "curr",
+          "page": 4,
+          "quote": "(영어) TOEIC 600점 이상 또는 TOEFL-IBT 68점 이상 또는 TEPS 227점 이상"
+        }
+      ]
+    },
+    {
+      "text": "공사 인사규정 제20조 임용 결격사유에 해당하지 않아야 함",
+      "evidence": [
+        {
+          "side": "curr",
+          "page": 3,
+          "quote": "공사 인사규정 제20조에 따른 임용 결격사유에 해당하지 않는 자"
+        }
+      ]
+    },
+    {
+      "text": "최종합격자 발표 이후 즉시 근무 가능해야 함",
+      "evidence": [
+        {
+          "side": "curr",
+          "page": 3,
+          "quote": "최종합격자 발표 이후 즉시 근무 가능한 자"
+        }
+      ]
+    },
+    {
+      "text": "모집분야 간·분야 내 중복지원 불가 (중복 시 탈락)",
+      "evidence": [
+        {
+          "side": "curr",
+          "page": 2,
+          "quote": "모집분야별 중복지원 절대 불가"
+        }
+      ]
+    }
+  ],
+  "region_note": null,
+  "unit_notes": [
+    {
+      "pattern": "보훈",
+      "kind": "special",
+      "text": "「국가유공자 등 예우 및 지원에 관한 법률」 등 보훈 관계 법령에 의한 취업지원대상자만 지원 가능",
+      "evidence": [
+        {
+          "side": "curr",
+          "page": 3,
+          "quote": "[보훈] 「국가유공자 등 예우 및 지원에 관한 법률」"
+        }
+      ]
+    },
+    {
+      "pattern": "장애",
+      "kind": "special",
+      "text": "「장애인 고용촉진 및 직업재활법」 제2조에 의한 장애인만 지원 가능 (어학성적 완화 기준 적용)",
+      "evidence": [
+        {
+          "side": "curr",
+          "page": 3,
+          "quote": "[장애] 「장애인 고용촉진 및 직업재활법」 제2조에 의한 장애인"
+        }
+      ]
+    },
+    {
+      "pattern": "보안검색감독자",
+      "kind": "condition",
+      "text": "만 18세 이상 대한민국 국적, 신체조건 충족, 2년 이상 보안검색 실무경험 필요 (안전보안직은 우대자격증 가점 없음)",
+      "evidence": [
+        {
+          "side": "curr",
+          "page": 4,
+          "quote": "2년 이상의 보안검색 실무경험이 있는 자"
+        }
+      ]
+    }
+  ]
+}

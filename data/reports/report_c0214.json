@@ -1359,8 +1359,261 @@
       "충남",
       "해외"
     ],
-    "certificates": [],
-    "majors": [],
+    "certificates": [
+      {
+        "name": "어학시험(영어) 기준점수 이상: 토익 700점 / 텝스 264점 / 토익스피킹 120점 / 오픽 IM2",
+        "kind": "required",
+        "applicable_units": [],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "303890",
+            "page": 8,
+            "quote": "어학시험(영어) 성적 보유자로 기준점수(등급) 이상인 자",
+            "verified": true
+          },
+          {
+            "side": "curr",
+            "notice_sn": "303890",
+            "page": 8,
+            "quote": "| 기준점수(등급) | 700점 | 264점 | 120점 | IM2 |",
+            "verified": true
+          }
+        ],
+        "match": {
+          "names": [
+            "토익 700점",
+            "텝스 264점",
+            "토익스피킹 120점",
+            "오픽 IM2"
+          ]
+        }
+      },
+      {
+        "name": "항해사(3급 이상) 또는 운항사(3급 이상) 면허 보유 (기술/항무 지원자격)",
+        "kind": "required",
+        "applicable_units": [
+          "기술/항무"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "303890",
+            "page": 9,
+            "quote": "① 면허: 항해사(3급 이상) 또는 운항사(3급 이상) 보유자",
+            "verified": true
+          }
+        ],
+        "track": "기타",
+        "match": {
+          "names": [
+            "항해사(3급 이상)",
+            "운항사(3급 이상)"
+          ]
+        }
+      },
+      {
+        "name": "공인회계사·공인노무사·변호사·세무사 보유 시 필기 가점 10%",
+        "kind": "bonus",
+        "applicable_units": [],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "303890",
+            "page": 38,
+            "quote": "・공인회계사, 공인노무사, 변호사, 세무사",
+            "verified": true
+          }
+        ],
+        "track": "사무",
+        "points": 10,
+        "unit": "%",
+        "match": {
+          "names": [
+            "공인회계사",
+            "공인노무사",
+            "변호사",
+            "세무사"
+          ]
+        }
+      },
+      {
+        "name": "CFA(level3)·FRM(GARP) 보유 시 필기 가점 7%",
+        "kind": "bonus",
+        "applicable_units": [],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "303890",
+            "page": 38,
+            "quote": "・CFA(level3), FRM(GARP)",
+            "verified": true
+          }
+        ],
+        "track": "사무",
+        "points": 7,
+        "unit": "%",
+        "match": {
+          "names": [
+            "CFA(level3)",
+            "FRM(GARP)"
+          ]
+        }
+      },
+      {
+        "name": "CFA(level2)·AICPA·관세사 보유 시 필기 가점 5%",
+        "kind": "bonus",
+        "applicable_units": [],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "303890",
+            "page": 38,
+            "quote": "・CFA(level2), AICPA, 관세사",
+            "verified": true
+          }
+        ],
+        "track": "사무",
+        "points": 5,
+        "unit": "%",
+        "match": {
+          "names": [
+            "CFA(level2)",
+            "AICPA",
+            "관세사"
+          ]
+        }
+      },
+      {
+        "name": "경영지도사(인적자원관리)·경영지도사(재무관리)·CIA 보유 시 필기 가점 3%",
+        "kind": "bonus",
+        "applicable_units": [],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "303890",
+            "page": 38,
+            "quote": "・경영지도사(인적자원관리), 경영지도사(재무관리), CIA",
+            "verified": true
+          }
+        ],
+        "track": "사무",
+        "points": 3,
+        "unit": "%",
+        "match": {
+          "names": [
+            "경영지도사(인적자원관리)",
+            "경영지도사(재무관리)",
+            "CIA"
+          ]
+        }
+      },
+      {
+        "name": "각 분야 국가기술자격 기술사 보유 시 필기 가점 10%",
+        "kind": "bonus",
+        "applicable_units": [],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "303890",
+            "page": 38,
+            "quote": "・각 분야 국가기술자격의 「기술사」",
+            "verified": true
+          }
+        ],
+        "track": "ICT",
+        "points": 10,
+        "unit": "%",
+        "match": {
+          "grades": [
+            "기술사"
+          ]
+        }
+      },
+      {
+        "name": "각 분야 국가기술자격 기술사 보유 시 필기 가점 10%",
+        "kind": "bonus",
+        "applicable_units": [],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "303890",
+            "page": 38,
+            "quote": "・각 분야 국가기술자격의 「기술사」",
+            "verified": true
+          }
+        ],
+        "track": "기계",
+        "points": 10,
+        "unit": "%",
+        "match": {
+          "grades": [
+            "기술사"
+          ]
+        }
+      },
+      {
+        "name": "각 분야 국가기술자격 기술사 보유 시 필기 가점 10%",
+        "kind": "bonus",
+        "applicable_units": [],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "303890",
+            "page": 38,
+            "quote": "・각 분야 국가기술자격의 「기술사」",
+            "verified": true
+          }
+        ],
+        "track": "전기",
+        "points": 10,
+        "unit": "%",
+        "match": {
+          "grades": [
+            "기술사"
+          ]
+        }
+      },
+      {
+        "name": "각 분야 국가기술자격 기술사 보유 시 필기 가점 10%",
+        "kind": "bonus",
+        "applicable_units": [],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "303890",
+            "page": 38,
+            "quote": "・각 분야 국가기술자격의 「기술사」",
+            "verified": true
+          }
+        ],
+        "track": "토목",
+        "points": 10,
+        "unit": "%",
+        "match": {
+          "grades": [
+            "기술사"
+          ]
+        }
+      }
+    ],
+    "majors": [
+      {
+        "name": "6급 대졸수준 전 모집분야 학력·전공 제한 없음",
+        "kind": "accepted",
+        "applicable_units": [],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "303890",
+            "page": 7,
+            "quote": "학력 | ・제한 없음",
+            "verified": true
+          }
+        ],
+        "unrestricted": true
+      }
+    ],
     "manual_review_conditions": [],
     "units": [
       {
@@ -1373,16 +1626,32 @@
       {
         "name": "사무/상경(장애)",
         "track": "사무",
-        "kind": "general",
-        "note": null,
-        "evidence": []
+        "kind": "special",
+        "note": "「장애인고용촉진 및 직업재활법」 및 같은 법 시행령에 따른 장애인만 지원 가능",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "303890",
+            "page": 8,
+            "quote": "| 장애 | • 「장애인고용촉진 및 직업재활법」 및 같은 법 시행령에 따른 장애인 |",
+            "verified": true
+          }
+        ]
       },
       {
         "name": "사무/상경(보훈)",
         "track": "사무",
-        "kind": "general",
-        "note": null,
-        "evidence": []
+        "kind": "special",
+        "note": "「국가유공자 등 예우 및 지원에 관한 법률」 등에 따른 취업지원대상자만 지원 가능",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "303890",
+            "page": 9,
+            "quote": "「보훈보상대상자 지원에 관한 법률」 제33조 등 관련 법률에 따른 취업지원대상자",
+            "verified": true
+          }
+        ]
       },
       {
         "name": "사무/법학",
@@ -1422,15 +1691,119 @@
       {
         "name": "기술/항무",
         "track": "기타",
-        "kind": "general",
-        "note": null,
-        "evidence": []
+        "kind": "condition",
+        "note": "항해사(3급 이상) 또는 운항사(3급 이상) 면허와 액체화물 운반선 항해사(3급 이상) 승선경력 2년 이상을 모두 갖춘 자",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "303890",
+            "page": 9,
+            "quote": "② 경력: 액체화물 운반선 항해사(3급 이상) 승선경력 2년 이상",
+            "verified": true
+          }
+        ]
       }
     ],
-    "common_checks": [],
-    "region_note": null,
-    "bonus_rule": null,
-    "reviewed": null
+    "common_checks": [
+      {
+        "text": "어학시험(영어) 기준점수 이상 (전문 자격증 보유자·보훈 취업지원대상자는 어학 요건 면제)",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "303890",
+            "page": 8,
+            "quote": "어학시험(영어) 성적 보유자로 기준점수(등급) 이상인 자",
+            "verified": true
+          },
+          {
+            "side": "curr",
+            "notice_sn": "303890",
+            "page": 8,
+            "quote": "「전문 자격증」 보유자와 「보훈」 취업지원대상자는 지원자격 중 「어학」요건을 면제함",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "text": "병역의 의무를 기피한 자는 제외하며, 복무 중인 자는 임용예정일부터 즉시 근무할 수 있어야 함",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "303890",
+            "page": 8,
+            "quote": "「병역의 의무를 기피한 자」는 제외하며,",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "text": "대한민국 국적 보유 및 인사규정상 결격사유 없음, 임용예정일부터 즉시 근무 가능",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "303890",
+            "page": 8,
+            "quote": "• 대한민국 국적을 보유한 자",
+            "verified": true
+          },
+          {
+            "side": "curr",
+            "notice_sn": "303890",
+            "page": 8,
+            "quote": "• 공사 「인사규정」 제9조의 결격사유에 해당하지 아니하는 자 붙임4",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "text": "연령 제한 없음(임용예정일 기준 정년 이내)",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "303890",
+            "page": 7,
+            "quote": "- 단, 임용예정일 기준 공사 「인사규정」에 따른 정년 이내인 자",
+            "verified": true
+          }
+        ]
+      }
+    ],
+    "region_note": {
+      "text": "근무지는 본사(울산) 및 전(순)지사이며, 입사지원 시 희망지역을 선택하나 인력운용 현황에 따라 희망 외 지역에 배치될 수 있음",
+      "evidence": [
+        {
+          "side": "curr",
+          "notice_sn": "303890",
+          "page": 3,
+          "quote": "- 입사지원 시, 「희망지역」 선택. 단, 공사 인력운용 현황에 따라 지원자 본인이 희망한 지역 외에 배치될 수 있음",
+          "verified": true
+        }
+      ]
+    },
+    "bonus_rule": {
+      "text": "전문 자격증 가점은 필기(2차)에 적용되며, 전문 자격증과 사회다양성 가점 내에서는 중복 인정 없이 유리한 1개만 인정. 보훈·장애인·전문 자격증·사회다양성 간에는 중복 인정.",
+      "evidence": [
+        {
+          "side": "curr",
+          "notice_sn": "303890",
+          "page": 39,
+          "quote": "- 「전문 자격증」과 「사회 다양성」 내에서는 중복으로 인정하지 않으며, 지원자에게 유리한 1개만 인정",
+          "verified": true
+        },
+        {
+          "side": "curr",
+          "notice_sn": "303890",
+          "page": 39,
+          "quote": "- 「보훈(취업지원대상자)」, 「장애인」, 「전문 자격증」, 「사회 다양성」 간 중복 인정",
+          "verified": true
+        }
+      ]
+    },
+    "reviewed": {
+      "reviewed_at": "2026-11-20",
+      "reviewer": "AI 자동 추출(claude-sonnet-5-5), 인용 원문 대조 통과분만 · 사람 확인 전",
+      "scope": "6급 대졸수준 직렬(사무·ICT·기계·전기·토목·기타(항무)) 지원자격 및 자격증 가점"
+    }
   },
   "tier": "auto",
   "category": "시장형"

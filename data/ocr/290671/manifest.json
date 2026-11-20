@@ -1,0 +1,79 @@
+{
+  "sn": "290671",
+  "institution": "한국공항공사",
+  "side": "prev",
+  "reason": "공고문이 PDF가 아님(그림·한글·ZIP)",
+  "pages": [
+    {
+      "page": 1,
+      "from": "한국공_25하_5급갑 일반 및 6급갑.png",
+      "tiles": [
+        {
+          "file": "t001_1.png",
+          "width": 1010,
+          "height": 949
+        },
+        {
+          "file": "t001_2.png",
+          "width": 1010,
+          "height": 949
+        },
+        {
+          "file": "t001_3.png",
+          "width": 1010,
+          "height": 949
+        },
+        {
+          "file": "t001_4.png",
+          "width": 1010,
+          "height": 949
+        },
+        {
+          "file": "t001_5.png",
+          "width": 1010,
+          "height": 949
+        },
+        {
+          "file": "t001_6.png",
+          "width": 1010,
+          "height": 949
+        },
+        {
+          "file": "t001_7.png",
+          "width": 1010,
+          "height": 936
+        },
+        {
+          "file": "t001_8.png",
+          "width": 1010,
+          "height": 949
+        },
+        {
+          "file": "t001_9.png",
+          "width": 1010,
+          "height": 949
+        },
+        {
+          "file": "t001_10.png",
+          "width": 1010,
+          "height": 939
+        },
+        {
+          "file": "t001_11.png",
+          "width": 1010,
+          "height": 949
+        },
+        {
+          "file": "t001_12.png",
+          "width": 1010,
+          "height": 938
+        },
+        {
+          "file": "t001_13.png",
+          "width": 1010,
+          "height": 518
+        }
+      ]
+    }
+  ]
+}

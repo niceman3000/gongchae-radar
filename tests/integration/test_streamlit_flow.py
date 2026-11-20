@@ -17,7 +17,6 @@ def test_kepco_report_opens_with_candidates_and_notice():
     app = _open_report_page()
 
     assert not app.exception
-    assert any("공채레이더" in item.value for item in app.markdown)
     assert any("한국전력공사 채용공고 비교" in item.value for item in app.markdown)
     assert any("지원 대상 기업: 한국전력공사" in item.value for item in app.markdown)
     assert any("현재 지원 공고 (2026)" in item.value for item in app.markdown)
@@ -83,6 +82,9 @@ def test_conditions_to_matches_to_report_flow_without_personal_data():
     assert "지원 가능" in text
     assert "전기기사: 배전(일반) 10점, 송변전(일반) 10점" in text  # 한전 (AI 추출, 정답지와 같은 값)
     assert "채용인원: 421 → 490" in text
+    # T047: 결과를 PDF로 받기 버튼
+    downloads = app.get("download_button")
+    assert len(downloads) == 1 and "PDF" in downloads[0].proto.label
 
     [button for button in app.button if button.key == "open-kepco-2025-2026-h2"][0].click().run()
     assert not app.exception
@@ -98,6 +100,7 @@ def _open_qa_page(pair_id="kepco-2025-2026-h2"):
 def test_qa_without_api_key_shows_original_excerpts(monkeypatch):
     """T030: 키 없이 실행하면 AI 답 대신 원문 발췌를 보여주고 다른 화면은 그대로 열린다."""
     monkeypatch.delenv("ANTHROPIC_API_KEY", raising=False)
+    monkeypatch.setenv("GONGCHAE_IGNORE_SECRETS", "1")  # PC의 .streamlit/secrets.toml 키도 쓰지 않게 (안 그러면 실제 AI 호출)
     app = _open_qa_page()
 
     assert not app.exception

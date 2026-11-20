@@ -51,8 +51,10 @@ SPLIT_WORDS = ("점수", "성적", "기준", "조건", "제한", "자격", "시�
 
 SYSTEM = f"""너는 공공기관 채용공고문 안내 도우미다. 아래 [공고문 발췌]에 적힌 내용만으로 답한다.
 규칙
-1. 발췌에 답이 없으면 추측하지 말고 status를 "not_found", answer를 "{NOT_FOUND}"로 한다.
-2. 답은 한국어 1~3문장. 숫자·날짜는 원문 그대로.
+1. 발췌에 질문과 관련된 내용이 전혀 없을 때만 status를 "not_found", answer를 "{NOT_FOUND}"로 한다.
+   일부만 확인되면 확인되는 만큼 답하고(status "answered"), 모자란 부분은 원문 표현대로 알려준다
+   (예: "기술직은 선발 분야 기사 자격증 등이 지원자격이며, 세부 목록은 공고문 붙임 2를 확인하세요").
+2. 답은 한국어 1~3문장. 숫자·날짜는 원문 그대로. 발췌에 없는 내용을 지어내지 않는다.
 3. evidence에는 답의 근거가 되는 원문 줄을 1~3개, 발췌에 적힌 그대로 복사한다 (40자 이내, 글자 바꾸지 말 것).
    side는 발췌 머리의 "올해 공고" → "curr", "작년 공고" → "prev", page는 쪽 번호.
 4. 합격 가능성·추천·개인 판단은 하지 않는다.
@@ -70,38 +72,44 @@ class GroundedAnswer:
     model_called: bool = False       # AI를 불렀는지 (비용·횟수 세기용)
 
 
-def _terms(question: str) -> list[tuple[str, set[str]]]:
-    """질문 → [(낱말, 2글자 조각들)] (조사·흔한 말 빼고, 동의어는 같은 낱말의 다른 표기로 추가)."""
-    words: list[str] = []
+def _terms(question: str) -> list[tuple[set[str], set[str]]]:
+    """질문 → 낱말 묶음 목록 [(같은 낱말로 보는 표기들, 원래 낱말의 2글자 조각)].
+    나눈 말(필기시험 → 필기, 시험)·바꿔 쓴 말(토익 → TOEIC)은 원래 낱말과 한 묶음으로 센다
+    (11-20 한수원 '필기시험 직업기초능력은 몇 문항이야?': 필기·시험이 따로 점수를 받아 정답 줄이 밀려남)."""
+    groups: list[tuple[set[str], set[str]]] = []
+    seen: set[str] = set()
     for word in re.findall(r"[가-힣A-Za-z0-9]+", question):
         for josa in JOSA:
             if len(word) > len(josa) + 1 and word.endswith(josa):
                 word = word[: -len(josa)]
                 break
-        if word in STOPWORDS or len(word) < 2:
+        if word in STOPWORDS or len(word) < 2 or word in seen:
             continue
-        words.append(word)
+        seen.add(word)
+        forms = {word}
         for key, values in SYNONYMS.items():  # 붙여 쓴 말 안에 있어도 (토익점수 → 토익)
             if key in word:
-                words.extend(values + ([key] if key != word else []))
+                forms.update(values + [key])
         for tail in SPLIT_WORDS:  # '토익점수' → '토익', '점수'
             if word.endswith(tail) and len(word) > len(tail) + 1:
-                words.extend([word[: -len(tail)], tail])
+                forms.update([word[: -len(tail)], tail])
                 break
         # 자격증 이름은 가점표에 '종목'과 '등급'이 칸으로 나뉘어 있으므로 둘로도 찾는다 (전기기사 → 전기, 기사)
         for grade in ("산업기사", "기능사", "기능장", "기술사", "기사"):
             if word.endswith(grade) and len(word) > len(grade) + 1:
-                words.extend([word[: -len(grade)], grade])
+                forms.update([word[: -len(grade)], grade])
                 break
-    return [(word.upper(), {word[i: i + 2].upper() for i in range(len(word) - 1)}) for word in dict.fromkeys(words)]
+        grams = {word[i: i + 2].upper() for i in range(len(word) - 1)}
+        groups.append(({form.upper() for form in forms}, grams))
+    return groups
 
 
-def _score(line: str, terms: list[tuple[str, set[str]]]) -> int:
-    """낱말마다: 그대로 있으면 2점, 2글자 조각이 절반 이상 있으면 1점."""
+def _score(line: str, terms: list[tuple[set[str], set[str]]]) -> int:
+    """낱말 묶음마다 최대 2점: 표기 중 하나가 그대로 있으면 2점, 원래 낱말의 2글자 조각이 절반 이상 있으면 1점."""
     text = re.sub(r"\s+", "", line).upper()
     score = 0
-    for word, grams in terms:
-        if word in text:
+    for forms, grams in terms:
+        if any(form in text for form in forms):
             score += 2
         elif len(grams) > 1 and sum(gram in text for gram in grams) * 2 >= len(grams):
             score += 1
@@ -206,7 +214,11 @@ def ask(question: str, *, curr_text: Mapping[str, str] | None, prev_text: Mappin
         if ok:
             evidence.append({**checked, "verified": True})
     if raw.get("status") != "answered" or not evidence:
-        note = "AI가 근거를 찾지 못함" if raw.get("status") != "answered" else "AI 인용이 원문에 없어 버림"
+        if raw.get("status") != "answered":
+            note = "AI가 발췌에서 답을 찾지 못함"
+        else:
+            quotes = " / ".join(str(item.get("quote")) for item in raw.get("evidence") or [] if isinstance(item, dict))[:150]
+            note = f"AI 인용이 원문에 없어 버림 (AI 답: {str(raw.get('answer'))[:60]} · 인용: {quotes})"
         return GroundedAnswer("not_found", NOT_FOUND, excerpts=passages, note=note, model_called=True)
     return GroundedAnswer("answered", str(raw.get("answer") or "").strip(), evidence=evidence,
                           ai_generated=True, excerpts=passages, model_called=True)

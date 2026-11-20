@@ -1,0 +1,14 @@
+{
+  "sn": "277985",
+  "institution": "에스알",
+  "side": "prev",
+  "reason": "공고문이 PDF가 아님(그림·한글·ZIP)",
+  "pages": [
+    {
+      "page": 1,
+      "from": "24.10.31._일반직 및 계약직 추가채용 공고.hwp",
+      "text_file": "text001.txt",
+      "kind": "hwp"
+    }
+  ]
+}

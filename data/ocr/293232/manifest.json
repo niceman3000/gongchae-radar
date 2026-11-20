@@ -1,0 +1,402 @@
+{
+  "sn": "293232",
+  "institution": "한국마사회",
+  "side": "curr",
+  "reason": "한국마사회 올해: 가점·자격 표가 그림",
+  "pages": [
+    {
+      "page": 1,
+      "from": "293232.pdf",
+      "tiles": [
+        {
+          "file": "t001_1.png",
+          "width": 1200,
+          "height": 926
+        },
+        {
+          "file": "t001_2.png",
+          "width": 1200,
+          "height": 772
+        }
+      ]
+    },
+    {
+      "page": 2,
+      "from": "293232.pdf",
+      "tiles": [
+        {
+          "file": "t002_1.png",
+          "width": 1200,
+          "height": 936
+        },
+        {
+          "file": "t002_2.png",
+          "width": 1200,
+          "height": 762
+        }
+      ]
+    },
+    {
+      "page": 3,
+      "from": "293232.pdf",
+      "tiles": [
+        {
+          "file": "t003_1.png",
+          "width": 1200,
+          "height": 923
+        },
+        {
+          "file": "t003_2.png",
+          "width": 1200,
+          "height": 775
+        }
+      ]
+    },
+    {
+      "page": 4,
+      "from": "293232.pdf",
+      "text_file": "text004.txt",
+      "kind": "pdf_text"
+    },
+    {
+      "page": 5,
+      "from": "293232.pdf",
+      "tiles": [
+        {
+          "file": "t005_1.png",
+          "width": 1200,
+          "height": 936
+        },
+        {
+          "file": "t005_2.png",
+          "width": 1200,
+          "height": 762
+        }
+      ]
+    },
+    {
+      "page": 6,
+      "from": "293232.pdf",
+      "tiles": [
+        {
+          "file": "t006_1.png",
+          "width": 1200,
+          "height": 869
+        },
+        {
+          "file": "t006_2.png",
+          "width": 1200,
+          "height": 829
+        }
+      ]
+    },
+    {
+      "page": 7,
+      "from": "293232.pdf",
+      "tiles": [
+        {
+          "file": "t007_1.png",
+          "width": 1200,
+          "height": 747
+        },
+        {
+          "file": "t007_2.png",
+          "width": 1200,
+          "height": 951
+        }
+      ]
+    },
+    {
+      "page": 8,
+      "from": "293232.pdf",
+      "tiles": [
+        {
+          "file": "t008_1.png",
+          "width": 1200,
+          "height": 736
+        },
+        {
+          "file": "t008_2.png",
+          "width": 1200,
+          "height": 962
+        }
+      ]
+    },
+    {
+      "page": 9,
+      "from": "293232.pdf",
+      "tiles": [
+        {
+          "file": "t009_1.png",
+          "width": 1200,
+          "height": 911
+        },
+        {
+          "file": "t009_2.png",
+          "width": 1200,
+          "height": 787
+        }
+      ]
+    },
+    {
+      "page": 10,
+      "from": "293232.pdf",
+      "tiles": [
+        {
+          "file": "t010_1.png",
+          "width": 1200,
+          "height": 795
+        },
+        {
+          "file": "t010_2.png",
+          "width": 1200,
+          "height": 903
+        }
+      ]
+    },
+    {
+      "page": 11,
+      "from": "293232.pdf",
+      "tiles": [
+        {
+          "file": "t011_1.png",
+          "width": 1200,
+          "height": 949
+        },
+        {
+          "file": "t011_2.png",
+          "width": 1200,
+          "height": 749
+        }
+      ]
+    },
+    {
+      "page": 12,
+      "from": "293232.pdf",
+      "tiles": [
+        {
+          "file": "t012_1.png",
+          "width": 1200,
+          "height": 868
+        },
+        {
+          "file": "t012_2.png",
+          "width": 1200,
+          "height": 830
+        }
+      ]
+    },
+    {
+      "page": 13,
+      "from": "293232.pdf",
+      "tiles": [
+        {
+          "file": "t013_1.png",
+          "width": 1200,
+          "height": 931
+        },
+        {
+          "file": "t013_2.png",
+          "width": 1200,
+          "height": 767
+        }
+      ]
+    },
+    {
+      "page": 14,
+      "from": "293232.pdf",
+      "tiles": [
+        {
+          "file": "t014_1.png",
+          "width": 1200,
+          "height": 904
+        },
+        {
+          "file": "t014_2.png",
+          "width": 1200,
+          "height": 794
+        }
+      ]
+    },
+    {
+      "page": 15,
+      "from": "293232.pdf",
+      "text_file": "text015.txt",
+      "kind": "pdf_text"
+    },
+    {
+      "page": 16,
+      "from": "293232.pdf",
+      "tiles": [
+        {
+          "file": "t016_1.png",
+          "width": 1200,
+          "height": 949
+        },
+        {
+          "file": "t016_2.png",
+          "width": 1200,
+          "height": 749
+        }
+      ]
+    },
+    {
+      "page": 17,
+      "from": "293232.pdf",
+      "text_file": "text017.txt",
+      "kind": "pdf_text"
+    },
+    {
+      "page": 18,
+      "from": "293232.pdf",
+      "text_file": "text018.txt",
+      "kind": "pdf_text"
+    },
+    {
+      "page": 19,
+      "from": "293232.pdf",
+      "tiles": [
+        {
+          "file": "t019_1.png",
+          "width": 1200,
+          "height": 936
+        },
+        {
+          "file": "t019_2.png",
+          "width": 1200,
+          "height": 762
+        }
+      ]
+    },
+    {
+      "page": 20,
+      "from": "293232.pdf",
+      "text_file": "text020.txt",
+      "kind": "pdf_text"
+    },
+    {
+      "page": 21,
+      "from": "293232.pdf",
+      "text_file": "text021.txt",
+      "kind": "pdf_text"
+    },
+    {
+      "page": 22,
+      "from": "293232.pdf",
+      "text_file": "text022.txt",
+      "kind": "pdf_text"
+    },
+    {
+      "page": 23,
+      "from": "293232.pdf",
+      "text_file": "text023.txt",
+      "kind": "pdf_text"
+    },
+    {
+      "page": 24,
+      "from": "293232.pdf",
+      "text_file": "text024.txt",
+      "kind": "pdf_text"
+    },
+    {
+      "page": 25,
+      "from": "293232.pdf",
+      "tiles": [
+        {
+          "file": "t025_1.png",
+          "width": 1200,
+          "height": 949
+        },
+        {
+          "file": "t025_2.png",
+          "width": 1200,
+          "height": 749
+        }
+      ]
+    },
+    {
+      "page": 26,
+      "from": "293232.pdf",
+      "text_file": "text026.txt",
+      "kind": "pdf_text"
+    },
+    {
+      "page": 27,
+      "from": "293232.pdf",
+      "text_file": "text027.txt",
+      "kind": "pdf_text"
+    },
+    {
+      "page": 28,
+      "from": "293232.pdf",
+      "tiles": [
+        {
+          "file": "t028_1.png",
+          "width": 1200,
+          "height": 949
+        },
+        {
+          "file": "t028_2.png",
+          "width": 1200,
+          "height": 749
+        }
+      ]
+    },
+    {
+      "page": 29,
+      "from": "293232.pdf",
+      "tiles": [
+        {
+          "file": "t029_1.png",
+          "width": 1200,
+          "height": 949
+        },
+        {
+          "file": "t029_2.png",
+          "width": 1200,
+          "height": 749
+        }
+      ]
+    },
+    {
+      "page": 30,
+      "from": "293232.pdf",
+      "text_file": "text030.txt",
+      "kind": "pdf_text"
+    },
+    {
+      "page": 31,
+      "from": "293232.pdf",
+      "text_file": "text031.txt",
+      "kind": "pdf_text"
+    },
+    {
+      "page": 32,
+      "from": "293232.pdf",
+      "text_file": "text032.txt",
+      "kind": "pdf_text"
+    },
+    {
+      "page": 33,
+      "from": "293232.pdf",
+      "tiles": [
+        {
+          "file": "t033_1.png",
+          "width": 1200,
+          "height": 879
+        },
+        {
+          "file": "t033_2.png",
+          "width": 1200,
+          "height": 819
+        }
+      ]
+    },
+    {
+      "page": 34,
+      "from": "293232.pdf",
+      "text_file": "text034.txt",
+      "kind": "pdf_text"
+    }
+  ]
+}

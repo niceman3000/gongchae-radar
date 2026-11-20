@@ -1,4 +1,15 @@
-# 코드 파일이 바뀌면 열린 화면을 자동으로 다시 실행한다.
-# (Claude·Codex가 번갈아 수정해도 Streamlit을 껐다 켤 필요 없음)
+# 화면 색·모양 (11-20 디자인 정리). 키는 여기 넣지 않는다 (키는 secrets.toml, Git에 안 올라감)
+[theme]
+primaryColor = "#2453E6"
+backgroundColor = "#F3F5F8"
+secondaryBackgroundColor = "#FFFFFF"
+textColor = "#16202E"
+baseRadius = "0.75rem"
+borderColor = "#E3E8EF"
+showWidgetBorder = true
+
+[client]
+toolbarMode = "viewer"
+
 [server]
-runOnSave = true
+headless = true

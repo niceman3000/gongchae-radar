@@ -1,0 +1,147 @@
+{
+  "sn": "298369",
+  "institution": "한전KDN",
+  "side": "curr",
+  "reason": "스캔 PDF(쪽당 글자 0자)",
+  "pages": [
+    {
+      "page": 1,
+      "from": "298369.pdf",
+      "tiles": [
+        {
+          "file": "t001_1.png",
+          "width": 1200,
+          "height": 873
+        },
+        {
+          "file": "t001_2.png",
+          "width": 1200,
+          "height": 942
+        },
+        {
+          "file": "t001_3.png",
+          "width": 1200,
+          "height": 949
+        },
+        {
+          "file": "t001_4.png",
+          "width": 1200,
+          "height": 949
+        },
+        {
+          "file": "t001_5.png",
+          "width": 1200,
+          "height": 949
+        },
+        {
+          "file": "t001_6.png",
+          "width": 1200,
+          "height": 942
+        },
+        {
+          "file": "t001_7.png",
+          "width": 1200,
+          "height": 949
+        },
+        {
+          "file": "t001_8.png",
+          "width": 1200,
+          "height": 938
+        },
+        {
+          "file": "t001_9.png",
+          "width": 1200,
+          "height": 933
+        },
+        {
+          "file": "t001_10.png",
+          "width": 1200,
+          "height": 949
+        },
+        {
+          "file": "t001_11.png",
+          "width": 1200,
+          "height": 949
+        },
+        {
+          "file": "t001_12.png",
+          "width": 1200,
+          "height": 918
+        },
+        {
+          "file": "t001_13.png",
+          "width": 1200,
+          "height": 949
+        },
+        {
+          "file": "t001_14.png",
+          "width": 1200,
+          "height": 949
+        },
+        {
+          "file": "t001_15.png",
+          "width": 1200,
+          "height": 924
+        },
+        {
+          "file": "t001_16.png",
+          "width": 1200,
+          "height": 949
+        },
+        {
+          "file": "t001_17.png",
+          "width": 1200,
+          "height": 557
+        }
+      ]
+    },
+    {
+      "page": 2,
+      "from": "첨부4. 영어성적 환산표.pdf",
+      "text_file": "text002.txt",
+      "kind": "pdf_text"
+    },
+    {
+      "page": 3,
+      "from": "첨부5. 채용 분야별 자격증 목록 및 점수표.pdf",
+      "text_file": "text003.txt",
+      "kind": "pdf_text"
+    },
+    {
+      "page": 4,
+      "from": "첨부5. 채용 분야별 자격증 목록 및 점수표.pdf",
+      "text_file": "text004.txt",
+      "kind": "pdf_text"
+    },
+    {
+      "page": 5,
+      "from": "첨부5. 채용 분야별 자격증 목록 및 점수표.pdf",
+      "text_file": "text005.txt",
+      "kind": "pdf_text"
+    },
+    {
+      "page": 6,
+      "from": "첨부5. 채용 분야별 자격증 목록 및 점수표.pdf",
+      "text_file": "text006.txt",
+      "kind": "pdf_text"
+    },
+    {
+      "page": 7,
+      "from": "첨부8. 비수도권 지역인재 및 이전지역 인재 기준.pdf",
+      "text_file": "text007.txt",
+      "kind": "pdf_text"
+    },
+    {
+      "page": 8,
+      "from": "첨부8. 비수도권 지역인재 및 이전지역 인재 기준.pdf",
+      "text_file": "text008.txt",
+      "kind": "pdf_text"
+    },
+    {
+      "page": 9,
+      "from": "첨부8. 비수도권 지역인재 및 이전지역 인재 기준.pdf",
+      "text_file": "text009.txt",
+      "kind": "pdf_text"
+    }
+  ]
+}

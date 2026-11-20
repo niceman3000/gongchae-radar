@@ -29,10 +29,21 @@ def _page_text(sn: str) -> dict[str, str] | None:
     return json.loads(path.read_text(encoding="utf-8")).get("all_text") or None
 
 
+@st.cache_data(show_spinner=False)
+def _text_source(sn: str) -> str:
+    """'ocr'이면 그림 공고문을 AI가 옮겨 적은 글자 (tools/ocr_notices.py)"""
+    path = ROOT / "stage2" / f"bundle_{sn}.json"
+    if not path.exists():
+        return ""
+    return str(json.loads(path.read_text(encoding="utf-8")).get("source") or "pdf")
+
+
 def _api_key() -> str:
     key = os.environ.get("ANTHROPIC_API_KEY", "").strip()
     if key:
         return key
+    if os.environ.get("GONGCHAE_IGNORE_SECRETS") == "1":  # 테스트용: PC의 .streamlit/secrets.toml 키를 쓰지 않음 (11-20 시험 중 실제 AI 호출)
+        return ""
     try:  # 배포(Streamlit Cloud)에서는 Secrets에 넣는다
         return str(st.secrets.get("ANTHROPIC_API_KEY", "")).strip()
     except Exception:  # noqa: BLE001 - secrets 파일이 없으면 키 없음
@@ -81,10 +92,13 @@ def render_qa_page() -> None:
     if not curr_text:
         st.warning("이 공고는 공고문이 그림·스캔 파일이라 원문 질문을 할 수 없어요. ‘공고 비교’ 화면은 그대로 볼 수 있어요.")
         return
+    if _text_source(str(report["curr"]["sn"])) == "ocr":
+        st.caption("이 공고문은 그림·스캔 파일이라, AI가 그림의 글자를 옮겨 적은 내용을 원문으로 써요. "
+                   "숫자·날짜는 공고문 원본으로 한 번 더 확인하세요.")
 
     st.caption("AI 답변: 켜짐 (API 키 있음)" if _api_key() else
-               "AI 답변: 꺼짐 (API 키 없음) · 관련 원문 발췌만 보여줘요. 키를 넣은 PowerShell 창에서 "
-               "`.venv\\Scripts\\python.exe -m streamlit run streamlit_app.py`로 켜야 해요.")
+               "AI 답변: 꺼짐 (API 키 없음) · 관련 원문 발췌만 보여줘요. "
+               "(PC: 키를 넣은 창에서 실행하거나 `.streamlit/secrets.toml`, 배포: Streamlit Cloud Secrets)")
     st.write("예시 질문")
     columns = st.columns(len(EXAMPLES))
     clicked = False

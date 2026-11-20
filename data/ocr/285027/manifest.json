@@ -1,0 +1,94 @@
+{
+  "sn": "285027",
+  "institution": "한국석유공사",
+  "side": "prev",
+  "reason": "공고문이 PDF가 아님(그림·한글·ZIP)",
+  "pages": [
+    {
+      "page": 1,
+      "from": "채용공고문.jpg",
+      "tiles": [
+        {
+          "file": "t001_1.png",
+          "width": 657,
+          "height": 938
+        },
+        {
+          "file": "t001_2.png",
+          "width": 657,
+          "height": 931
+        },
+        {
+          "file": "t001_3.png",
+          "width": 657,
+          "height": 940
+        },
+        {
+          "file": "t001_4.png",
+          "width": 657,
+          "height": 942
+        },
+        {
+          "file": "t001_5.png",
+          "width": 657,
+          "height": 943
+        },
+        {
+          "file": "t001_6.png",
+          "width": 657,
+          "height": 940
+        },
+        {
+          "file": "t001_7.png",
+          "width": 657,
+          "height": 949
+        },
+        {
+          "file": "t001_8.png",
+          "width": 657,
+          "height": 947
+        },
+        {
+          "file": "t001_9.png",
+          "width": 657,
+          "height": 949
+        },
+        {
+          "file": "t001_10.png",
+          "width": 657,
+          "height": 944
+        },
+        {
+          "file": "t001_11.png",
+          "width": 657,
+          "height": 948
+        },
+        {
+          "file": "t001_12.png",
+          "width": 657,
+          "height": 931
+        },
+        {
+          "file": "t001_13.png",
+          "width": 657,
+          "height": 949
+        },
+        {
+          "file": "t001_14.png",
+          "width": 657,
+          "height": 949
+        },
+        {
+          "file": "t001_15.png",
+          "width": 657,
+          "height": 949
+        },
+        {
+          "file": "t001_16.png",
+          "width": 657,
+          "height": 850
+        }
+      ]
+    }
+  ]
+}

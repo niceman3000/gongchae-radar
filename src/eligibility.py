@@ -99,6 +99,29 @@ def _check_unit(
     ]
     majors = [item for item in requirements.get("majors") or [] if _applies(item, track, name)]
 
+    # 필수 자격증(required)은 전공 조건보다 먼저 본다.
+    # 11-20 마사회: 공고 전체 '전공·학력 제한 없음' 항목이 먼저 걸려, 전기 모집단위 필수 자격(전기기사)이 없어도 '지원 가능'이 됨
+    # - 이 모집단위 이름이 적힌 필수 항목만 본다. 모집단위가 없는 필수 항목(석유공사 토익, 가스기술공사 운전면허 같은
+    #   공고 전체 조건)은 화면에서 입력받지 않는 조건이라 여기서 지원 불가로 만들지 않는다 (아래 흐름 그대로)
+    # - 한 모집단위의 필수 항목이 여러 개면 '그중 하나'로 본다 (한전KPS·LH: 기술사 또는 기사 또는 기능장)
+    required = [item for item in accepted if item.get("kind") == "required" and name in (item.get("applicable_units") or [])]
+    if required:
+        held = [cert for cert in certificates if any(matches(cert, item.get("match") or {}) for item in required)]
+        if not held:
+            return {
+                "status": "ineligible",
+                "reason": "필수 자격증이 없습니다: " + " 또는 ".join(item["name"] for item in required[:3]),
+                "evidence": [evidence for item in required[:3] for evidence in item["evidence"]],
+                "review": None,
+            }
+        item = next(item for item in required if any(matches(cert, item.get("match") or {}) for cert in held))
+        return {
+            "status": "eligible",
+            "reason": f"보유 자격증 {', '.join(held)} → 필수 자격 충족: {item['name']}",
+            "evidence": item["evidence"],
+            "review": None,
+        }
+
     unrestricted = next((item for item in majors if item.get("unrestricted")), None)
     if unrestricted:
         return {"status": "eligible", "reason": unrestricted["name"], "evidence": unrestricted["evidence"], "review": None}

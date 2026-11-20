@@ -132,9 +132,78 @@ def apply_styles() -> None:
             padding: .08rem .2rem; font-weight: 750;
         }
         .diff-ellipsis { color: #8791a2; padding: 0 .15rem; }
-        .status-eligible { color: #176b45; background: #ddf5e9; }
-        .status-ambiguous { color: #875800; background: #fff0c7; }
-        .status-ineligible { color: #9f2f2f; background: #ffe3e3; }
+        .status-eligible { color: #0B6E4C; background: #E3F6EE; }
+        .status-ambiguous { color: #8A5300; background: #FFF3D6; }
+        .status-ineligible { color: #B02A2A; background: #FCE8E8; }
+
+        /* ---- 11-20 디자인 정리: 글꼴 하나(Pretendard), 바탕 #F3F5F8, 포인트 #2453E6, 판정 3색 ---- */
+        @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css");
+        html, body, .stApp, .stApp button, .stApp input, .stApp textarea, .stApp select,
+        [data-testid="stMarkdownContainer"], [data-testid="stWidgetLabel"] {
+            font-family: "Pretendard Variable", Pretendard, -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+            letter-spacing: -0.01em;
+        }
+        .stApp { background: #F3F5F8; }
+        [data-testid="stHeader"] { background: rgba(243, 245, 248, 0.9); }
+        .block-container { max-width: 960px; padding-top: 3.2rem; }
+        h1, h2, h3, h4, h5, h6, [data-testid="stHeading"] * {
+            color: #16202E; letter-spacing: -0.025em;
+            font-family: "Pretendard Variable", Pretendard, -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif !important;
+        }
+        h2 { font-size: 1.45rem !important; font-weight: 800 !important; }
+        h3 { font-size: 1.2rem !important; font-weight: 800 !important; }
+        h4 { font-size: 1.02rem !important; font-weight: 750 !important; margin-top: .6rem; }
+        [data-testid="stMarkdownContainer"] ul { margin: .1rem 0 .5rem 0; padding-left: 1.2rem; }
+        [data-testid="stMarkdownContainer"] li { margin: .15rem 0; }
+        [data-testid="stMarkdownContainer"] li p { margin: 0; }
+        [data-testid="stCaptionContainer"] { color: #5B6675; }
+        .radar-title { color: #16202E; font-size: 1.85rem; font-weight: 800; line-height: 1.3; letter-spacing: -0.03em; }
+        .radar-subtitle { color: #5B6675; font-size: 1rem; margin: .4rem 0 1.4rem 0; }
+        .status-badge { font-variant-numeric: tabular-nums; }
+        .num { font-variant-numeric: tabular-nums; }
+        [data-testid="stVerticalBlockBorderWrapper"] { background: #FFFFFF; }
+        [data-testid="stExpander"] details { background: #FFFFFF; }
+
+        /* 첫 화면 소개 */
+        .hero { padding: .4rem 0 1.6rem 0; }
+        .hero-title { font-size: 2.35rem; font-weight: 800; line-height: 1.22; letter-spacing: -0.04em; color: #16202E; }
+        .hero-title .q { display: block; color: #2453E6; }
+        .hero-lead { color: #3B4656; font-size: 1.05rem; line-height: 1.7; margin-top: .9rem; max-width: 40rem; }
+        .hero-facts { display: flex; flex-wrap: wrap; gap: 1.6rem; margin-top: 1.2rem; color: #5B6675; font-size: .92rem; }
+        .hero-facts b { display: block; color: #16202E; font-size: 1.35rem; font-weight: 800; font-variant-numeric: tabular-nums; }
+        .form-head { font-size: 1.1rem; font-weight: 750; color: #16202E; margin: .2rem 0 .1rem 0; }
+        .privacy-note { color: #5B6675; font-size: .86rem; margin: .1rem 0 .8rem 0; }
+
+        /* 맞춤 공고: 판정 막대 */
+        .verdict { background: #FFFFFF; border: 1px solid #E3E8EF; border-radius: 1rem; padding: 1.1rem 1.2rem 1rem 1.2rem; margin: .6rem 0 1.2rem 0; }
+        .verdict-head { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; }
+        .verdict-title { font-size: 1.15rem; font-weight: 800; color: #16202E; }
+        .verdict-cond { color: #5B6675; font-size: .9rem; }
+        .verdict-bar { display: flex; height: .9rem; border-radius: 999px; overflow: hidden; margin: .85rem 0 .7rem 0; background: #EEF1F5; }
+        .verdict-bar span { display: block; height: 100%; }
+        .vb-eligible { background: #12A574; } .vb-ambiguous { background: #F2B035; } .vb-ineligible { background: #E5534B; }
+        .verdict-legend { display: flex; gap: 1.4rem; flex-wrap: wrap; font-size: .92rem; color: #3B4656; }
+        .verdict-legend i { display: inline-block; width: .6rem; height: .6rem; border-radius: 50%; margin-right: .35rem; vertical-align: .05rem; }
+        .verdict-legend b { font-variant-numeric: tabular-nums; color: #16202E; margin-left: .2rem; }
+
+        /* 맞춤 공고: 한 줄 요약 */
+        .row-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; }
+        .row-inst { font-size: 1.08rem; font-weight: 800; color: #16202E; }
+        .row-title { color: #3B4656; font-size: .93rem; margin-top: .1rem; }
+        .row-meta { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: .65rem; }
+        .chip { display: inline-block; border-radius: .5rem; padding: .22rem .55rem; font-size: .82rem; font-weight: 650; background: #F1F4F8; color: #3B4656; font-variant-numeric: tabular-nums; }
+        .chip-bonus { background: #EAF0FF; color: #1D47C4; }
+        .row-reason { color: #3B4656; font-size: .92rem; margin-top: .6rem; }
+        .row-status { font-size: .85rem; padding: .32rem .7rem; border-radius: .55rem; white-space: nowrap; }
+        [data-testid="stMetric"] { background: #FFFFFF; border: 1px solid #E3E8EF; border-radius: .9rem; padding: .8rem 1rem; }
+        [data-testid="stMetricValue"] { font-weight: 800; font-variant-numeric: tabular-nums; font-size: 1.7rem; }
+        [data-testid="stMetricLabel"] { color: #5B6675; }
+        [data-testid="stAlert"] { border-radius: .8rem; }
+        .section-head { font-size: 1.05rem; font-weight: 800; color: #16202E; margin: 1.6rem 0 .5rem 0; }
+        @media (max-width: 640px) {
+            .hero-title { font-size: 1.8rem; }
+            .row-top { flex-direction: column; }
+        }
         </style>
         """,
         unsafe_allow_html=True,

@@ -1,0 +1,1710 @@
+[
+  {
+    "sn": "301322",
+    "tile": "t001_1.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00069,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "301322",
+    "tile": "t001_2.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00103,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "301322",
+    "tile": "t001_3.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00131,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "301322",
+    "tile": "t001_4.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00101,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "301322",
+    "tile": "t001_5.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00157,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "301322",
+    "tile": "t001_6.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00149,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "301322",
+    "tile": "t001_7.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00127,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "301322",
+    "tile": "t001_8.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.0015,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "301322",
+    "tile": "t001_9.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00119,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "301322",
+    "tile": "t001_10.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00143,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "301322",
+    "tile": "t001_11.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00133,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "301322",
+    "tile": "t001_12.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.0008,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "301322",
+    "tile": "t002_1.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00107,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "301322",
+    "tile": "t002_2.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00099,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "301322",
+    "tile": "t002_3.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00067,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "301322",
+    "tile": "t002_4.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00102,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "301322",
+    "tile": "t002_5.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00174,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "301322",
+    "tile": "t002_6.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00079,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "290671",
+    "tile": "t001_1.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00072,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "290671",
+    "tile": "t001_2.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00124,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "290671",
+    "tile": "t001_3.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00168,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "290671",
+    "tile": "t001_4.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00096,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "290671",
+    "tile": "t001_5.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00119,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "290671",
+    "tile": "t001_6.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00148,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "290671",
+    "tile": "t001_7.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00166,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "290671",
+    "tile": "t001_8.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00169,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "290671",
+    "tile": "t001_9.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00094,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "290671",
+    "tile": "t001_10.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.0005,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "290671",
+    "tile": "t001_11.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00061,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "290671",
+    "tile": "t001_12.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.0007,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "290671",
+    "tile": "t001_13.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00114,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "305011",
+    "tile": "t001_1.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00036,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "305011",
+    "tile": "t001_2.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00027,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "305011",
+    "tile": "t001_3.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00097,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "305011",
+    "tile": "t001_4.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.0006,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "305011",
+    "tile": "t001_5.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00108,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "305011",
+    "tile": "t001_6.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00071,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "305011",
+    "tile": "t001_7.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.0006,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "305011",
+    "tile": "t001_8.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00071,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "305011",
+    "tile": "t001_9.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.0008,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "305011",
+    "tile": "t001_10.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00077,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "305011",
+    "tile": "t001_11.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00077,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "305011",
+    "tile": "t001_12.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00131,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "305011",
+    "tile": "t001_13.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.0009,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "305011",
+    "tile": "t001_14.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00134,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "305011",
+    "tile": "t001_15.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00091,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "305011",
+    "tile": "t001_16.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00065,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "305011",
+    "tile": "t001_17.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00049,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "305011",
+    "tile": "t001_18.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00104,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "305011",
+    "tile": "t001_19.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00101,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "305011",
+    "tile": "t001_20.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00131,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "305011",
+    "tile": "t001_21.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00036,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "289180",
+    "tile": "t001_1.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00034,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "289180",
+    "tile": "t001_2.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00064,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "289180",
+    "tile": "t002_1.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00119,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "289180",
+    "tile": "t002_2.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.0006,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "289180",
+    "tile": "t003_1.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.0006,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "289180",
+    "tile": "t003_2.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.0003,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "289180",
+    "tile": "t004_1.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00071,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "289180",
+    "tile": "t004_2.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00033,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "289180",
+    "tile": "t005_1.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00101,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "289180",
+    "tile": "t005_2.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00131,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "289180",
+    "tile": "t006_1.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00103,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "289180",
+    "tile": "t006_2.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00058,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "289180",
+    "tile": "t007_1.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00068,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "289180",
+    "tile": "t007_2.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00075,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "289180",
+    "tile": "t008_1.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00098,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "289180",
+    "tile": "t008_2.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00065,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "289180",
+    "tile": "t009_1.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00067,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "289180",
+    "tile": "t009_2.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00063,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "289180",
+    "tile": "t010_1.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00076,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "289180",
+    "tile": "t010_2.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00094,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "289180",
+    "tile": "t011_1.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00086,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "289180",
+    "tile": "t011_2.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00057,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "289180",
+    "tile": "t012_1.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00076,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "289180",
+    "tile": "t012_2.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00091,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "289180",
+    "tile": "t013_1.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00126,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "289180",
+    "tile": "t013_2.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00063,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "289180",
+    "tile": "t014_1.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00066,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "289180",
+    "tile": "t014_2.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00017,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "293232",
+    "tile": "t001_1.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00163,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "293232",
+    "tile": "t001_2.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.0007,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "293232",
+    "tile": "t002_1.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00131,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "293232",
+    "tile": "t002_2.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00129,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "293232",
+    "tile": "t003_1.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00114,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "293232",
+    "tile": "t003_2.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00103,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "293232",
+    "tile": "t005_1.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.001,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "293232",
+    "tile": "t005_2.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00066,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "293232",
+    "tile": "t006_1.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00143,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "293232",
+    "tile": "t006_2.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00114,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "293232",
+    "tile": "t007_1.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00084,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "293232",
+    "tile": "t007_2.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00147,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "293232",
+    "tile": "t008_1.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00082,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "293232",
+    "tile": "t008_2.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00184,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "293232",
+    "tile": "t009_1.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00097,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "293232",
+    "tile": "t009_2.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00095,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "293232",
+    "tile": "t010_1.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.0007,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "293232",
+    "tile": "t010_2.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00077,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "293232",
+    "tile": "t011_1.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00092,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "293232",
+    "tile": "t011_2.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00016,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "293232",
+    "tile": "t012_1.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00168,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "293232",
+    "tile": "t012_2.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00124,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "293232",
+    "tile": "t013_1.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00099,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "293232",
+    "tile": "t013_2.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00033,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "293232",
+    "tile": "t014_1.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00181,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "293232",
+    "tile": "t014_2.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.0013,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "293232",
+    "tile": "t016_1.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00119,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "293232",
+    "tile": "t016_2.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00111,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "293232",
+    "tile": "t019_1.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00115,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "293232",
+    "tile": "t019_2.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00072,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "293232",
+    "tile": "t025_1.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00028,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "293232",
+    "tile": "t025_2.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00016,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "293232",
+    "tile": "t028_1.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00058,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "293232",
+    "tile": "t028_2.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00023,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "293232",
+    "tile": "t029_1.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00086,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "293232",
+    "tile": "t029_2.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00016,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "293232",
+    "tile": "t033_1.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00141,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "293232",
+    "tile": "t033_2.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00126,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "298369",
+    "tile": "t001_1.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.0005,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "298369",
+    "tile": "t001_2.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.0009,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "298369",
+    "tile": "t001_3.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00127,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "298369",
+    "tile": "t001_4.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00084,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "298369",
+    "tile": "t001_5.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00136,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "298369",
+    "tile": "t001_6.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00132,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "298369",
+    "tile": "t001_7.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00058,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "298369",
+    "tile": "t001_8.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00128,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "298369",
+    "tile": "t001_9.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00131,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "298369",
+    "tile": "t001_10.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00108,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "298369",
+    "tile": "t001_11.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00102,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "298369",
+    "tile": "t001_12.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00071,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "298369",
+    "tile": "t001_13.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.0009,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "298369",
+    "tile": "t001_14.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.0009,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "298369",
+    "tile": "t001_15.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00082,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "298369",
+    "tile": "t001_16.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00146,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "298369",
+    "tile": "t001_17.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00091,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "285027",
+    "tile": "t001_1.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00136,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "285027",
+    "tile": "t001_2.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00274,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "285027",
+    "tile": "t001_3.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00282,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "285027",
+    "tile": "t001_4.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00312,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "285027",
+    "tile": "t001_5.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00294,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "285027",
+    "tile": "t001_6.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00312,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "285027",
+    "tile": "t001_7.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00268,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "285027",
+    "tile": "t001_8.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00277,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "285027",
+    "tile": "t001_9.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.0031,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "285027",
+    "tile": "t001_10.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00199,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "285027",
+    "tile": "t001_11.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00194,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "285027",
+    "tile": "t001_12.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00259,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "285027",
+    "tile": "t001_13.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00195,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "285027",
+    "tile": "t001_14.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00144,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "285027",
+    "tile": "t001_15.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00159,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "285027",
+    "tile": "t001_16.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00288,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "303890",
+    "tile": "t001_1.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00036,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "303890",
+    "tile": "t001_2.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00026,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "303890",
+    "tile": "t001_3.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00172,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "303890",
+    "tile": "t001_4.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00039,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "303890",
+    "tile": "t001_5.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00175,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "303890",
+    "tile": "t001_6.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00137,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "303890",
+    "tile": "t001_7.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00112,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "303890",
+    "tile": "t001_8.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00121,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "303890",
+    "tile": "t001_9.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00067,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "303890",
+    "tile": "t001_10.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00067,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "303890",
+    "tile": "t001_11.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00105,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "303890",
+    "tile": "t001_12.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00062,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "303890",
+    "tile": "t001_13.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00129,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "303890",
+    "tile": "t001_14.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.0016,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "303890",
+    "tile": "t001_15.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00093,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "303890",
+    "tile": "t001_16.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00067,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "303890",
+    "tile": "t001_17.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00054,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "303890",
+    "tile": "t001_18.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00109,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "303890",
+    "tile": "t001_19.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00116,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "303890",
+    "tile": "t001_20.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00104,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "303890",
+    "tile": "t001_21.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.0011,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "303890",
+    "tile": "t001_22.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00085,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "303890",
+    "tile": "t001_23.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00111,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "303890",
+    "tile": "t001_24.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00109,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "303890",
+    "tile": "t001_25.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00124,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "303890",
+    "tile": "t001_26.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00068,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "303890",
+    "tile": "t001_27.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00052,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "303890",
+    "tile": "t001_28.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00091,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "303890",
+    "tile": "t001_29.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00134,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "303890",
+    "tile": "t001_30.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00124,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "303890",
+    "tile": "t001_31.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00126,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "303890",
+    "tile": "t001_32.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00107,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "303890",
+    "tile": "t001_33.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00116,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "303890",
+    "tile": "t001_34.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00139,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "303890",
+    "tile": "t001_35.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00071,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "303890",
+    "tile": "t001_36.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00105,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "303890",
+    "tile": "t001_37.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00086,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "303890",
+    "tile": "t001_38.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00198,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "303890",
+    "tile": "t001_39.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00098,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "303890",
+    "tile": "t001_40.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00126,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "303890",
+    "tile": "t001_41.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00115,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "303890",
+    "tile": "t001_42.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00169,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "303890",
+    "tile": "t001_43.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.0006,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "303890",
+    "tile": "t001_44.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00071,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "291137",
+    "tile": "t001_1.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.0003,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "291137",
+    "tile": "t001_2.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00142,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "291137",
+    "tile": "t001_3.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00088,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "291137",
+    "tile": "t001_4.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00159,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "291137",
+    "tile": "t001_5.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00156,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "291137",
+    "tile": "t001_6.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00106,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "291137",
+    "tile": "t001_7.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00145,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "291137",
+    "tile": "t001_8.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00068,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "291137",
+    "tile": "t001_9.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00105,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "291137",
+    "tile": "t001_10.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.0012,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "291137",
+    "tile": "t001_11.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00128,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "291137",
+    "tile": "t001_12.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00108,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "291137",
+    "tile": "t001_13.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00114,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "291137",
+    "tile": "t001_14.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.001,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "291137",
+    "tile": "t001_15.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00071,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "291137",
+    "tile": "t001_16.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00098,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "291137",
+    "tile": "t001_17.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00057,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "291137",
+    "tile": "t001_18.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00095,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "291137",
+    "tile": "t001_19.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00192,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "291137",
+    "tile": "t001_20.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.0008,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "291137",
+    "tile": "t001_21.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00036,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "304492",
+    "tile": "t001_1.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00026,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "304492",
+    "tile": "t001_2.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00118,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "304492",
+    "tile": "t001_3.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00105,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "304492",
+    "tile": "t001_4.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00148,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "304492",
+    "tile": "t001_5.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.0016,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "304492",
+    "tile": "t001_6.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00109,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "304492",
+    "tile": "t001_7.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00106,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "304492",
+    "tile": "t001_8.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.0008,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "304492",
+    "tile": "t001_9.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.0011,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "304492",
+    "tile": "t001_10.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.0014,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "304492",
+    "tile": "t001_11.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00055,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "304492",
+    "tile": "t001_12.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00136,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "304492",
+    "tile": "t001_13.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00115,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "304492",
+    "tile": "t001_14.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00137,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "304492",
+    "tile": "t001_15.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.001,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "304492",
+    "tile": "t001_16.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00094,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "304492",
+    "tile": "t001_17.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00016,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "292578",
+    "tile": "t001_1.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00043,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "292578",
+    "tile": "t001_2.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.001,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "292578",
+    "tile": "t001_3.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00165,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "292578",
+    "tile": "t001_4.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00179,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "292578",
+    "tile": "t001_5.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00143,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "292578",
+    "tile": "t001_6.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00119,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "292578",
+    "tile": "t001_7.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00133,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "292578",
+    "tile": "t001_8.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00104,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "292578",
+    "tile": "t001_9.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00119,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "292578",
+    "tile": "t001_10.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00205,
+    "date": "2026-11-20"
+  },
+  {
+    "sn": "292578",
+    "tile": "t001_11.png",
+    "model": "claude-haiku-5-5",
+    "cost": 0.00083,
+    "date": "2026-11-20"
+  }
+]
