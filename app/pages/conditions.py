@@ -7,7 +7,7 @@ import streamlit as st
 from app.ui_components import apply_styles
 from src.certificates import COMMON_CERTIFICATES
 from src.eligibility import REGIONS
-from app.report_data import is_auto, load_reports
+from app.report_data import DATA_NOTICE, load_reports
 
 TRACK_ORDER = ["전기", "기계", "사무", "ICT", "토목", "건축", "원자력", "화학", "수자원"]
 EXAMPLE = {"track": "전기", "regions": ["부산", "울산"], "certificates": ["전기기사"]}
@@ -39,11 +39,7 @@ def render_conditions_page() -> None:
 
     reports, _ = load_reports()
     tracks, reviewed = available_tracks(reports)
-    auto = sum(is_auto(report) for report in reports)
-    st.caption(
-        f"미리 모아 둔 공기업 공고 {len(reports)}곳: 원문 검증 {len(reports) - auto}곳"
-        + (f" + 자동 비교 {auto}곳" if auto else "")
-    )
+    st.caption(f"미리 모아 둔 공기업 공고 {len(reports)}곳 · {DATA_NOTICE}")
     saved = st.session_state.get("user_condition") or {}
 
     if st.button("예시 조건으로 채우기 (전기 · 부산·울산 · 전기기사)"):

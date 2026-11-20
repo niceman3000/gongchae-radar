@@ -240,7 +240,8 @@
         "applicable_units": {"type": "array", "items": {"type": "string"}},
         "evidence": {"type": "array", "items": {"$ref": "#/$defs/evidence"}},
         "track": {"type": "string", "minLength": 1},
-        "points": {"type": "integer", "minimum": 0},
+        "points": {"type": "number", "minimum": 0},
+        "unit": {"description": "가점 단위: 점 또는 %(배점의 n%)", "enum": ["점", "%"]},
         "unrestricted": {"type": "boolean"},
         "match": {
           "description": "자격증 인정 목록. names(이름 그대로) 또는 items×grades(종목×등급)",

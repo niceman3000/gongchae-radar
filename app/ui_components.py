@@ -19,6 +19,10 @@ STATUS_LABELS = {
     "not_published": "기관 미공시",
 }
 
+# 11-19: 30곳을 같은 자동 과정으로 보여주기로 해서 손으로 쓴 제목(아래 두 표)은 화면에 쓰지 않는다.
+# 핵심 3곳 원문 대조 결과는 evaluation/ground_truth의 정답지로 남아 있다. 다시 쓰려면 True.
+USE_CURATED_COPY = False
+
 CHANGE_COPY = {
     ("kepco-2025-2026-h2", "stage1-001"): ("전체 채용인원 증가: 421명 → 490명", "전체 선발 규모가 69명 늘었습니다."),
     ("kepco-2025-2026-h2", "stage1-002"): ("광주·전남 지역 표기 변경 여부 확인 중", "API 표기는 달라졌지만 실제 지원 지역이 바뀐 것으로 아직 확정하지 않았습니다."),
@@ -213,7 +217,7 @@ def diff_side_html(previous: str, current: str, side: str) -> str:
 def concise_change_title(
     change: Mapping[str, Any], pair_id: str, notice_info: Mapping[str, Any] | None = None
 ) -> tuple[str, str]:
-    curated = CHANGE_COPY.get((pair_id, str(change.get("id"))))
+    curated = CHANGE_COPY.get((pair_id, str(change.get("id")))) if USE_CURATED_COPY else None
     if curated:
         return curated
 
@@ -318,7 +322,7 @@ def _render_evidence(evidence: list[Mapping[str, Any]], titles: Mapping[str, str
                 if index < len(evidence) - 1:
                     st.divider()
     else:
-        st.caption("원문 근거를 대조 중인 후보입니다.")
+        st.caption("공고 문구를 코드로 비교해 찾은 후보입니다. 공고문 원문으로 확인하세요.")
 
 
 def change_card(
@@ -348,7 +352,7 @@ def group_title(
     unit: Mapping[str, Any], pair_id: str, notice_info: Mapping[str, Any] | None = None
 ) -> tuple[str, str]:
     group = unit["group"]
-    curated = GROUP_COPY.get((pair_id, str(group["id"])))
+    curated = GROUP_COPY.get((pair_id, str(group["id"]))) if USE_CURATED_COPY else None
     if curated:
         return curated
     described = [describe_change(change, notice_info) for change in unit["changes"]]

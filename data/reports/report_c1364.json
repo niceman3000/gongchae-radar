@@ -1385,8 +1385,465 @@
       "울산",
       "전남광주"
     ],
-    "certificates": [],
-    "majors": [],
+    "certificates": [
+      {
+        "name": "한국사 3급·컴활 2급·워드프로세서 (각 항목 중 높은 1개)",
+        "kind": "bonus",
+        "applicable_units": [],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "303653",
+            "page": 26,
+            "quote": "한국사능력검정시험 3급",
+            "verified": true
+          },
+          {
+            "side": "curr",
+            "notice_sn": "303653",
+            "page": 26,
+            "quote": "컴퓨터활용능력 2급, 워드프로세서(舊. 1급)",
+            "verified": true
+          }
+        ],
+        "points": 1,
+        "unit": "점",
+        "match": {
+          "names": [
+            "한국사능력검정시험 3급",
+            "컴퓨터활용능력 2급",
+            "워드프로세서"
+          ]
+        }
+      },
+      {
+        "name": "한국사 2급·컴퓨터활용능력 1급",
+        "kind": "bonus",
+        "applicable_units": [],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "303653",
+            "page": 26,
+            "quote": "한국사능력검정시험 2급",
+            "verified": true
+          },
+          {
+            "side": "curr",
+            "notice_sn": "303653",
+            "page": 26,
+            "quote": "컴퓨터활용능력 1급",
+            "verified": true
+          }
+        ],
+        "points": 2,
+        "unit": "점",
+        "match": {
+          "names": [
+            "한국사능력검정시험 2급",
+            "컴퓨터활용능력 1급"
+          ]
+        }
+      },
+      {
+        "name": "한국사능력검정시험 1급",
+        "kind": "bonus",
+        "applicable_units": [],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "303653",
+            "page": 26,
+            "quote": "한국사능력검정시험 1급",
+            "verified": true
+          }
+        ],
+        "points": 3,
+        "unit": "점",
+        "match": {
+          "names": [
+            "한국사능력검정시험 1급"
+          ]
+        }
+      },
+      {
+        "name": "법무 가점 5점: 행정관리사 3급",
+        "kind": "bonus",
+        "applicable_units": [
+          "채용형 인턴_대졸수준 공개경쟁(법무)"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "303653",
+            "page": 26,
+            "quote": "행정관리사 3급 (사)한국행정관리협회",
+            "verified": true
+          }
+        ],
+        "track": "사무",
+        "points": 5,
+        "unit": "점",
+        "match": {
+          "names": [
+            "행정관리사 3급"
+          ]
+        }
+      },
+      {
+        "name": "법무 가점 10점: 행정관리사 2급 이상·일반행정사 등",
+        "kind": "bonus",
+        "applicable_units": [
+          "채용형 인턴_대졸수준 공개경쟁(법무)"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "303653",
+            "page": 26,
+            "quote": "행정관리사 2급 이상, 일반행정사, 경영지도사(인적자원",
+            "verified": true
+          }
+        ],
+        "track": "사무",
+        "points": 10,
+        "unit": "점",
+        "match": {
+          "names": [
+            "행정관리사 2급 이상",
+            "일반행정사",
+            "경영지도사(인적자원관리)"
+          ]
+        }
+      },
+      {
+        "name": "법무 가점 15점: 공인노무사·감정평가사·법무사 등",
+        "kind": "bonus",
+        "applicable_units": [
+          "채용형 인턴_대졸수준 공개경쟁(법무)"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "303653",
+            "page": 26,
+            "quote": "공인노무사, 감정평가사, 법무사, 변리사, 변호사",
+            "verified": true
+          }
+        ],
+        "track": "사무",
+        "points": 15,
+        "unit": "점",
+        "match": {
+          "names": [
+            "공인노무사",
+            "감정평가사",
+            "법무사",
+            "변리사",
+            "변호사"
+          ]
+        }
+      },
+      {
+        "name": "경영 가점 5점: 세무회계 2급·전산세무 2급 등",
+        "kind": "bonus",
+        "applicable_units": [
+          "채용형 인턴_대졸수준 공개경쟁(경영)",
+          "채용형 인턴_대졸수준 제한경쟁(장애인, 경영)",
+          "채용형 인턴_대졸수준 제한경쟁(이전지역인재, 경영)"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "303653",
+            "page": 26,
+            "quote": "세무회계 2급, 전산세무 2급, 전산회계운용사 2급, TAT",
+            "verified": true
+          }
+        ],
+        "track": "사무",
+        "points": 5,
+        "unit": "점",
+        "match": {
+          "names": [
+            "세무회계 2급",
+            "전산세무 2급",
+            "전산회계운용사 2급",
+            "TAT 2급",
+            "FAT 1급",
+            "전산회계 1급",
+            "회계관리 1급",
+            "원가분석사"
+          ]
+        }
+      },
+      {
+        "name": "경영 가점 10점: 경영지도사·경영관리사·1급 회계자격",
+        "kind": "bonus",
+        "applicable_units": [
+          "채용형 인턴_대졸수준 공개경쟁(경영)",
+          "채용형 인턴_대졸수준 제한경쟁(장애인, 경영)",
+          "채용형 인턴_대졸수준 제한경쟁(이전지역인재, 경영)"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "303653",
+            "page": 26,
+            "quote": "경영지도사(재무관리), 경영지도사(인적자원관리)",
+            "verified": true
+          }
+        ],
+        "track": "사무",
+        "points": 10,
+        "unit": "점",
+        "match": {
+          "names": [
+            "경영지도사(재무관리)",
+            "경영지도사(인적자원관리)",
+            "경영관리사",
+            "세무회계 1급",
+            "전산세무 1급",
+            "전산회계운용사 1급",
+            "TAT 1급"
+          ]
+        }
+      },
+      {
+        "name": "경영 가점 15점: 세무사·공인회계사·공인노무사 등",
+        "kind": "bonus",
+        "applicable_units": [
+          "채용형 인턴_대졸수준 공개경쟁(경영)",
+          "채용형 인턴_대졸수준 제한경쟁(장애인, 경영)",
+          "채용형 인턴_대졸수준 제한경쟁(이전지역인재, 경영)"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "303653",
+            "page": 26,
+            "quote": "세무사, 공인회계사, 공인노무사, 감정평가사, 변리사",
+            "verified": true
+          }
+        ],
+        "track": "사무",
+        "points": 15,
+        "unit": "점",
+        "match": {
+          "names": [
+            "세무사",
+            "공인회계사",
+            "공인노무사",
+            "감정평가사",
+            "변리사"
+          ]
+        }
+      },
+      {
+        "name": "안전 가점 5점: 산업안전·건설안전·산업위생관리 산업기사",
+        "kind": "bonus",
+        "applicable_units": [
+          "채용형 인턴_대졸수준 공개경쟁(안전)"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "303653",
+            "page": 26,
+            "quote": "산업안전산업기사, 건설안전산업기사, 산업위생관리산",
+            "verified": true
+          }
+        ],
+        "track": "기타",
+        "points": 5,
+        "unit": "점",
+        "match": {
+          "items": [
+            "산업안전",
+            "건설안전",
+            "산업위생관리"
+          ],
+          "grades": [
+            "산업기사"
+          ]
+        }
+      },
+      {
+        "name": "안전 가점 10점: 산업안전·건설안전·산업위생관리·인간공학 기사",
+        "kind": "bonus",
+        "applicable_units": [
+          "채용형 인턴_대졸수준 공개경쟁(안전)"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "303653",
+            "page": 26,
+            "quote": "산업안전기사, 건설안전기사, 산업위생관리기사,",
+            "verified": true
+          }
+        ],
+        "track": "기타",
+        "points": 10,
+        "unit": "점",
+        "match": {
+          "items": [
+            "산업안전",
+            "건설안전",
+            "산업위생관리",
+            "인간공학"
+          ],
+          "grades": [
+            "기사"
+          ]
+        }
+      },
+      {
+        "name": "안전 가점 15점: 안전 관련 기술사",
+        "kind": "bonus",
+        "applicable_units": [
+          "채용형 인턴_대졸수준 공개경쟁(안전)"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "303653",
+            "page": 26,
+            "quote": "산업안전지도사, 산업보건지도사, 건설안전기술사, 기계",
+            "verified": true
+          }
+        ],
+        "track": "기타",
+        "points": 15,
+        "unit": "점",
+        "match": {
+          "items": [
+            "건설안전",
+            "기계안전",
+            "산업위생관리",
+            "인간공학",
+            "전기안전",
+            "화공안전"
+          ],
+          "grades": [
+            "기술사"
+          ]
+        }
+      },
+      {
+        "name": "안전 가점 15점: 산업안전지도사·산업보건지도사",
+        "kind": "bonus",
+        "applicable_units": [
+          "채용형 인턴_대졸수준 공개경쟁(안전)"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "303653",
+            "page": 26,
+            "quote": "산업안전지도사, 산업보건지도사, 건설안전기술사, 기계",
+            "verified": true
+          }
+        ],
+        "track": "기타",
+        "points": 15,
+        "unit": "점",
+        "match": {
+          "names": [
+            "산업안전지도사",
+            "산업보건지도사"
+          ]
+        }
+      },
+      {
+        "name": "지질·자원 가점 5점: 광산보안·화약류관리 산업기사",
+        "kind": "bonus",
+        "applicable_units": [
+          "채용형 인턴_대졸수준 공개경쟁(지질)",
+          "채용형 인턴_대졸수준 제한경쟁(이전지역인재, 지질)",
+          "채용형 인턴_대졸수준 공개경쟁(자원)",
+          "채용형 인턴_대졸수준 제한경쟁(이전지역인재, 자원)"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "303653",
+            "page": 27,
+            "quote": "광산보안산업기사, 화약류관리산업기사",
+            "verified": true
+          }
+        ],
+        "track": "기타",
+        "points": 5,
+        "unit": "점",
+        "match": {
+          "items": [
+            "광산보안",
+            "화약류관리"
+          ],
+          "grades": [
+            "산업기사"
+          ]
+        }
+      },
+      {
+        "name": "지질·자원 가점 10점: 광산보안·화약류관리·광해방지·응용지질 기사",
+        "kind": "bonus",
+        "applicable_units": [
+          "채용형 인턴_대졸수준 공개경쟁(지질)",
+          "채용형 인턴_대졸수준 제한경쟁(이전지역인재, 지질)",
+          "채용형 인턴_대졸수준 공개경쟁(자원)",
+          "채용형 인턴_대졸수준 제한경쟁(이전지역인재, 자원)"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "303653",
+            "page": 27,
+            "quote": "광산보안기사, 화약류관리기사, 광해방지기사, 응용지질기사",
+            "verified": true
+          }
+        ],
+        "track": "기타",
+        "points": 10,
+        "unit": "점",
+        "match": {
+          "items": [
+            "광산보안",
+            "화약류관리",
+            "광해방지",
+            "응용지질"
+          ],
+          "grades": [
+            "기사"
+          ]
+        }
+      }
+    ],
+    "majors": [
+      {
+        "name": "학력·전공·성별 제한 없음 (고졸 제한 모집단위 제외)",
+        "kind": "accepted",
+        "applicable_units": [],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "303653",
+            "page": 3,
+            "quote": "성별·학력·전공 무관",
+            "verified": true
+          },
+          {
+            "side": "curr",
+            "notice_sn": "303653",
+            "page": 11,
+            "quote": "학력/전공 Ÿ제한 없음",
+            "verified": true
+          }
+        ],
+        "unrestricted": true
+      }
+    ],
     "manual_review_conditions": [],
     "units": [
       {
@@ -1575,7 +2032,11 @@
     "common_checks": [],
     "region_note": null,
     "bonus_rule": null,
-    "reviewed": null
+    "reviewed": {
+      "reviewed_at": "2026-11-19",
+      "reviewer": "AI 자동 추출(claude-sonnet-5-5), 인용 원문 대조 통과분만 · 사람 확인 전",
+      "scope": "채용형 인턴(대졸수준·고졸)·체험형 인턴 사무/기술"
+    }
   },
   "tier": "auto",
   "category": "준시장형"

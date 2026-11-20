@@ -124,13 +124,22 @@ def _check_unit(
             "evidence": majors[0]["evidence"] + (accepted[0]["evidence"] if accepted else []),
             "review": review,
         }
-    if accepted:
-        required = accepted[0]
+    # '필수 자격증'(required)으로 명시된 경우에만 지원 불가. '전공자 또는 자격증'(accepted)인데 전공 정보가 없으면
+    # 전공자일 수도 있으므로 애매로 둔다 (11-19 한수원 AI 추출: ICT 통신 관련학과 전공 항목이 빠져 통신 전공자도 '지원 불가'가 될 뻔함)
+    required = [item for item in accepted if item.get("kind") == "required"]
+    if required:
         return {
             "status": "ineligible",
-            "reason": f"필수 자격증이 없습니다: {required['name']}",
-            "evidence": required["evidence"],
+            "reason": f"필수 자격증이 없습니다: {required[0]['name']}",
+            "evidence": required[0]["evidence"],
             "review": None,
+        }
+    if accepted:
+        return {
+            "status": "ambiguous",
+            "reason": "입력한 자격증이 지원 가능 자격증 목록에 없고, 공고문에서 지원 가능 전공을 찾지 못했습니다.",
+            "evidence": accepted[0]["evidence"],
+            "review": f"관련 전공자인지 공고문에서 확인: {accepted[0]['name']}",
         }
     return {
         "status": "ambiguous",
@@ -152,12 +161,20 @@ def _bonus(track: str, certificates: tuple[str, ...], requirements: Mapping[str,
                     {
                         "certificate": cert,
                         "points": item.get("points"),
+                        "unit": item.get("unit") or "점",
                         "units": list(item.get("applicable_units") or []),
                         "item": item["name"],
                         "evidence": item["evidence"],
                     }
                 )
-    return rows
+    # 같은 자격증·같은 모집단위에 가점이 두 번 잡히면(예: '전체 직렬' 항목 + '기계 직렬' 항목) 높은 점수 하나만 남긴다.
+    # 11-19 중부발전 AI 추출: 정답 10점인데 두 항목을 더해 20점이 됨
+    best: dict[tuple, dict[str, Any]] = {}
+    for row in rows:
+        key = (row["certificate"], tuple(row["units"]), row.get("unit") or "점")
+        if key not in best or float(row["points"] or 0) > float(best[key]["points"] or 0):
+            best[key] = row
+    return [row for row in rows if best.get((row["certificate"], tuple(row["units"]), row.get("unit") or "점")) is row]
 
 
 def evaluate(condition: UserCondition, report: Mapping[str, Any]) -> EligibilityResult:

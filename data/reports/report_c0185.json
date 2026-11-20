@@ -1075,16 +1075,39 @@
       {
         "name": "일반행정(지역인재)",
         "track": "사무",
-        "kind": "general",
-        "note": null,
-        "evidence": []
+        "kind": "condition",
+        "note": "비수도권 지방학교(지방대학) 졸업(예정)·중퇴·재학·휴학자 등 비수도권 지역인재 기준 충족 필요",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "293232",
+            "page": 24,
+            "quote": "비수도권 지역인재 세부기준",
+            "verified": true
+          },
+          {
+            "side": "curr",
+            "notice_sn": "293232",
+            "page": 24,
+            "quote": "최종학력이 고졸이하인 경우에는 최종학교 소재지가 비수도권인 경우",
+            "verified": true
+          }
+        ]
       },
       {
         "name": "일반행정(사회형평)",
         "track": "사무",
-        "kind": "general",
-        "note": null,
-        "evidence": []
+        "kind": "special",
+        "note": "사회형평 대상 세부 기준 및 제출서류는 참고1에 별도 규정(세부 내용은 공고문에 미수록)",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "293232",
+            "page": 4,
+            "quote": "[참고1] 사회형평 대상 세부 기준",
+            "verified": true
+          }
+        ]
       },
       {
         "name": "산업안전보건관리",
@@ -1096,9 +1119,24 @@
       {
         "name": "산업안전보건관리(지역인재)",
         "track": "기타",
-        "kind": "general",
-        "note": null,
-        "evidence": []
+        "kind": "condition",
+        "note": "비수도권 지방학교(지방대학) 졸업(예정)·중퇴·재학·휴학자 등 비수도권 지역인재 기준 충족 필요",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "293232",
+            "page": 24,
+            "quote": "비수도권 지역인재 세부기준",
+            "verified": true
+          },
+          {
+            "side": "curr",
+            "notice_sn": "293232",
+            "page": 24,
+            "quote": "최종학력이 고졸이하인 경우에는 최종학교 소재지가 비수도권인 경우",
+            "verified": true
+          }
+        ]
       },
       {
         "name": "재무회계관리",
@@ -1194,9 +1232,24 @@
       {
         "name": "통신(지역인재)",
         "track": "ICT",
-        "kind": "general",
-        "note": null,
-        "evidence": []
+        "kind": "condition",
+        "note": "비수도권 지방학교(지방대학) 졸업(예정)·중퇴·재학·휴학자 등 비수도권 지역인재 기준 충족 필요",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "293232",
+            "page": 24,
+            "quote": "비수도권 지역인재 세부기준",
+            "verified": true
+          },
+          {
+            "side": "curr",
+            "notice_sn": "293232",
+            "page": 24,
+            "quote": "최종학력이 고졸이하인 경우에는 최종학교 소재지가 비수도권인 경우",
+            "verified": true
+          }
+        ]
       },
       {
         "name": "환경",
@@ -1222,9 +1275,24 @@
       {
         "name": "시스템개발(지역인재)",
         "track": "기타",
-        "kind": "general",
-        "note": null,
-        "evidence": []
+        "kind": "condition",
+        "note": "비수도권 지방학교(지방대학) 졸업(예정)·중퇴·재학·휴학자 등 비수도권 지역인재 기준 충족 필요",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "293232",
+            "page": 24,
+            "quote": "비수도권 지역인재 세부기준",
+            "verified": true
+          },
+          {
+            "side": "curr",
+            "notice_sn": "293232",
+            "page": 24,
+            "quote": "최종학력이 고졸이하인 경우에는 최종학교 소재지가 비수도권인 경우",
+            "verified": true
+          }
+        ]
       },
       {
         "name": "시스템운영",
@@ -1243,9 +1311,24 @@
       {
         "name": "아나운서(지역인재)",
         "track": "기타",
-        "kind": "general",
-        "note": null,
-        "evidence": []
+        "kind": "condition",
+        "note": "비수도권 지방학교(지방대학) 졸업(예정)·중퇴·재학·휴학자 등 비수도권 지역인재 기준 충족 필요",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "293232",
+            "page": 24,
+            "quote": "비수도권 지역인재 세부기준",
+            "verified": true
+          },
+          {
+            "side": "curr",
+            "notice_sn": "293232",
+            "page": 24,
+            "quote": "최종학력이 고졸이하인 경우에는 최종학교 소재지가 비수도권인 경우",
+            "verified": true
+          }
+        ]
       },
       {
         "name": "CG",
@@ -1264,9 +1347,24 @@
       {
         "name": "방송기술(지역인재)",
         "track": "기타",
-        "kind": "general",
-        "note": null,
-        "evidence": []
+        "kind": "condition",
+        "note": "비수도권 지방학교(지방대학) 졸업(예정)·중퇴·재학·휴학자 등 비수도권 지역인재 기준 충족 필요",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "293232",
+            "page": 24,
+            "quote": "비수도권 지역인재 세부기준",
+            "verified": true
+          },
+          {
+            "side": "curr",
+            "notice_sn": "293232",
+            "page": 24,
+            "quote": "최종학력이 고졸이하인 경우에는 최종학교 소재지가 비수도권인 경우",
+            "verified": true
+          }
+        ]
       },
       {
         "name": "승마교관",
@@ -1290,10 +1388,57 @@
         "evidence": []
       }
     ],
-    "common_checks": [],
-    "region_note": null,
+    "common_checks": [
+      {
+        "text": "한국마사회 인사규정 제10조 결격사유(병역의무 불이행 등)에 해당하지 않아야 함",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "293232",
+            "page": 23,
+            "quote": "(한국마사회 인사규정 제10조)",
+            "verified": true
+          },
+          {
+            "side": "curr",
+            "notice_sn": "293232",
+            "page": 23,
+            "quote": "병역법 제 조에 따른 병역의무를 불이행한 사람",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "text": "채용분야 간 또는 동일분야 내 중복지원 불가(중복지원 시 전체 탈락)",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "293232",
+            "page": 21,
+            "quote": "채용분야 간 또는 동일분야 내 중복지원은 불가하며, 중복지원 시",
+            "verified": true
+          }
+        ]
+      }
+    ],
+    "region_note": {
+      "text": "근무지는 과천, 부산경남, 제주, 장수, 영천 및 전국 지사(25개)",
+      "evidence": [
+        {
+          "side": "curr",
+          "notice_sn": "293232",
+          "page": 1,
+          "quote": "과천, 부산경남, 제주, 장수, 영천 및 전국 지사(25개)",
+          "verified": true
+        }
+      ]
+    },
     "bonus_rule": null,
-    "reviewed": null
+    "reviewed": {
+      "reviewed_at": "2026-11-19",
+      "reviewer": "AI 자동 추출(claude-sonnet-5-5), 인용 원문 대조 통과분만 · 사람 확인 전",
+      "scope": "일반직(5급, 6급) 신입 - 제공된 공고문에 직렬별 전공·자격증 요건과 가점 내용이 없음"
+    }
   },
   "tier": "auto",
   "category": "준시장형"

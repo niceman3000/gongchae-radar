@@ -12,7 +12,9 @@ from src.report_repository import DEFAULT_SCHEMA_PATH, ReportRepository, report_
 
 ROOT = Path(__file__).resolve().parents[1]
 CATEGORY_ORDER = {"시장형": 0, "준시장형": 1}
-AUTO_BADGE = "자동 비교 · 원문 미검증"
+AUTO_BADGE = "자동 비교 · 원문 미검증"  # 11-19부터 화면에서 쓰지 않음 (30곳을 똑같이 보여줌)
+# 30곳 모두에 해당하는 안내. 화면마다 한 번만 보여준다 (기관별 배지 대신)
+DATA_NOTICE = "공고 내용은 정부 채용정보와 공고문에서 자동으로 정리했어요. 지원 전에 공고문 원문을 꼭 확인하세요."
 
 
 @st.cache_data(show_spinner=False)
@@ -23,9 +25,8 @@ def _load(signature: tuple) -> tuple[list[dict[str, Any]], dict[str, str]]:
 
 
 def sort_key(report: dict[str, Any]) -> tuple:
-    """원문 검증 공고 먼저, 그다음 시장형 → 준시장형, 기관 이름 순."""
+    """시장형 → 준시장형, 기관 이름 순 (30곳을 똑같이 다룬다)."""
     return (
-        0 if report.get("tier", "verified") == "verified" else 1,
         CATEGORY_ORDER.get(str(report.get("category")), 2),
         str(report.get("institution")),
     )

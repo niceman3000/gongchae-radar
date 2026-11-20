@@ -69,12 +69,41 @@ def pdf_from_zip(body: bytes, title: str = "") -> tuple[bytes | None, str]:
     if not pdfs:
         names = ", ".join(zip_name(info) for info in archive.infolist())[:150]
         return None, f"ZIP 안에 PDF 없음({names})"
-    ranked = sorted(pdfs, key=lambda info: (zip_score(zip_name(info), title), info.file_size), reverse=True)
+    # 붙임 파일('…_붙임서류.pdf' 등)은 공고문 고르기 후보에서 빼고, 고른 공고문 뒤에 이어 붙인다
+    attachments_all = [info for info in pdfs if "붙임" in Path(zip_name(info)).stem]
+    candidates = [info for info in pdfs if info not in attachments_all] or pdfs
+    ranked = sorted(candidates, key=lambda info: (zip_score(zip_name(info), title), info.file_size), reverse=True)
     chosen = ranked[0]
     data = archive.read(chosen)
+    if not is_pdf(data):
+        return None, f"ZIP 안 {zip_name(chosen)}이 PDF가 아님"
+    stem = Path(zip_name(chosen)).stem
+    attachments = [info for info in attachments_all if Path(zip_name(info)).stem.startswith(stem)]
+    data = merge_pdfs([data] + [archive.read(info) for info in attachments])
     others = [Path(zip_name(info)).name for info in ranked[1:]]
-    note = Path(zip_name(chosen)).name + (f" | 고르지 않은 파일: {', '.join(others)}" if others else "")
-    return (data, note) if is_pdf(data) else (None, f"ZIP 안 {zip_name(chosen)}이 PDF가 아님")
+    others += [Path(zip_name(info)).name for info in attachments_all if info not in attachments]
+    note = Path(zip_name(chosen)).name
+    if attachments:
+        note += " + " + ", ".join(Path(zip_name(info)).name for info in attachments) + " 이어 붙임"
+    if others:
+        note += f" | 고르지 않은 파일: {', '.join(others)}"
+    return data, note
+
+
+def merge_pdfs(parts: list[bytes]) -> bytes:
+    """PDF 여러 개를 순서대로 이어 붙인다 (11-20 도로공사: 공고문 + 붙임서류, 붙임 2에 자격증 목록).
+    쪽 번호는 공고문 쪽 다음부터 이어진다. pypdfium2는 pdfplumber와 같이 설치돼 있다."""
+    parts = [part for part in parts if is_pdf(part)]
+    if len(parts) <= 1:
+        return parts[0] if parts else b""
+    import pypdfium2 as pdfium
+
+    merged = pdfium.PdfDocument(parts[0])
+    for part in parts[1:]:
+        merged.import_pages(pdfium.PdfDocument(part))
+    out = io.BytesIO()
+    merged.save(out)
+    return out.getvalue()
 
 
 def notice_file(sn: str) -> tuple[dict | None, str]:

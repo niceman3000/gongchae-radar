@@ -1065,8 +1065,787 @@
       "인천",
       "제주"
     ],
-    "certificates": [],
-    "majors": [],
+    "certificates": [
+      {
+        "name": "한국사능력검정시험 3급 이상 5점(대졸 일반·고졸)",
+        "kind": "bonus",
+        "applicable_units": [
+          "신입사원(대졸수준-일반(사무))",
+          "신입사원(대졸수준-일반(기계))",
+          "신입사원(대졸수준-일반(전기))",
+          "신입사원(대졸수준-일반(화학))",
+          "신입사원(대졸수준-일반(토목))",
+          "신입사원(대졸수준-일반(건축))",
+          "신입사원(고졸수준-(기계))",
+          "신입사원(고졸수준-(전기))"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304839",
+            "page": 33,
+            "quote": "한국사 5점 한국사능력검정시험 3급 이상",
+            "verified": true
+          },
+          {
+            "side": "curr",
+            "notice_sn": "304839",
+            "page": 34,
+            "quote": "한국사 5점 한국사능력검정시험 3급 이상",
+            "verified": true
+          }
+        ],
+        "points": 5,
+        "unit": "점",
+        "match": {
+          "names": [
+            "한국사능력검정시험 3급 이상"
+          ]
+        }
+      },
+      {
+        "name": "국어능력 자격 5점(대졸 일반)",
+        "kind": "bonus",
+        "applicable_units": [
+          "신입사원(대졸수준-일반(사무))",
+          "신입사원(대졸수준-일반(기계))",
+          "신입사원(대졸수준-일반(전기))",
+          "신입사원(대졸수준-일반(화학))",
+          "신입사원(대졸수준-일반(토목))",
+          "신입사원(대졸수준-일반(건축))"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304839",
+            "page": 33,
+            "quote": "국어능력인증 3급, KBS한국어능력 3+급, 한국실",
+            "verified": true
+          }
+        ],
+        "points": 5,
+        "unit": "점",
+        "match": {
+          "names": [
+            "국어능력인증 3급 이상",
+            "KBS한국어능력 3+급 이상",
+            "한국실용글쓰기 준2급 이상"
+          ]
+        }
+      },
+      {
+        "name": "IT능력 자격 5점(대졸 일반)",
+        "kind": "bonus",
+        "applicable_units": [
+          "신입사원(대졸수준-일반(사무))",
+          "신입사원(대졸수준-일반(기계))",
+          "신입사원(대졸수준-일반(전기))",
+          "신입사원(대졸수준-일반(화학))",
+          "신입사원(대졸수준-일반(토목))",
+          "신입사원(대졸수준-일반(건축))"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304839",
+            "page": 33,
+            "quote": "정보처리기사, 정보처리산업기사, 사무자동화산업기사,",
+            "verified": true
+          }
+        ],
+        "points": 5,
+        "unit": "점",
+        "match": {
+          "names": [
+            "정보처리기사",
+            "정보처리산업기사",
+            "사무자동화산업기사",
+            "컴퓨터활용능력 1급"
+          ]
+        }
+      },
+      {
+        "name": "외국어 토익스피킹·OPIc AL 이상 5점(대졸 일반)",
+        "kind": "bonus",
+        "applicable_units": [
+          "신입사원(대졸수준-일반(사무))",
+          "신입사원(대졸수준-일반(기계))",
+          "신입사원(대졸수준-일반(전기))",
+          "신입사원(대졸수준-일반(화학))",
+          "신입사원(대졸수준-일반(토목))",
+          "신입사원(대졸수준-일반(건축))"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304839",
+            "page": 33,
+            "quote": "토익스피킹 AL등급(7등급), OPIc AL등급 이상",
+            "verified": true
+          }
+        ],
+        "points": 5,
+        "unit": "점",
+        "match": {
+          "names": [
+            "토익스피킹 AL등급 이상",
+            "OPIc AL등급 이상"
+          ]
+        }
+      },
+      {
+        "name": "전기 직무 자격증 기사 10점",
+        "kind": "bonus",
+        "applicable_units": [
+          "신입사원(대졸수준-일반(전기))"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304839",
+            "page": 33,
+            "quote": "전기, 전기공사, 소방설비(전기분야), 산업안전,",
+            "verified": true
+          }
+        ],
+        "track": "전기",
+        "points": 10,
+        "unit": "점",
+        "match": {
+          "items": [
+            "전기",
+            "전기공사",
+            "소방설비(전기분야)",
+            "산업안전",
+            "전자",
+            "신재생에너지발전설비(태양광)"
+          ],
+          "grades": [
+            "기사"
+          ]
+        }
+      },
+      {
+        "name": "전기 직무 자격증 산업기사 5점",
+        "kind": "bonus",
+        "applicable_units": [
+          "신입사원(대졸수준-일반(전기))"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304839",
+            "page": 33,
+            "quote": "전자, 신재생에너지발전설비(태양광)",
+            "verified": true
+          }
+        ],
+        "track": "전기",
+        "points": 5,
+        "unit": "점",
+        "match": {
+          "items": [
+            "전기",
+            "전기공사",
+            "소방설비(전기분야)",
+            "산업안전",
+            "전자",
+            "신재생에너지발전설비(태양광)"
+          ],
+          "grades": [
+            "산업기사"
+          ]
+        }
+      },
+      {
+        "name": "기계 직무 자격증 기사 10점",
+        "kind": "bonus",
+        "applicable_units": [
+          "신입사원(대졸수준-일반(기계))"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304839",
+            "page": 33,
+            "quote": "일반기계, 에너지관리, 금속재료, 설비보전,",
+            "verified": true
+          },
+          {
+            "side": "curr",
+            "notice_sn": "304839",
+            "page": 33,
+            "quote": "메카트로닉스, 기계설계, 산업안전, 소방설비",
+            "verified": true
+          }
+        ],
+        "track": "기계",
+        "points": 10,
+        "unit": "점",
+        "match": {
+          "items": [
+            "일반기계",
+            "에너지관리",
+            "금속재료",
+            "설비보전",
+            "메카트로닉스",
+            "기계설계",
+            "산업안전",
+            "소방설비(기계)",
+            "공조냉동기계",
+            "비파괴검사(전분야)",
+            "용접",
+            "건설기계설비",
+            "건설기계정비",
+            "신재생에너지발전설비(태양광)",
+            "가스",
+            "건설안전"
+          ],
+          "grades": [
+            "기사"
+          ]
+        }
+      },
+      {
+        "name": "기계 직무 자격증 산업기사 5점",
+        "kind": "bonus",
+        "applicable_units": [
+          "신입사원(대졸수준-일반(기계))"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304839",
+            "page": 33,
+            "quote": "에너지발전설비(태양광), 가스, 건설안전",
+            "verified": true
+          }
+        ],
+        "track": "기계",
+        "points": 5,
+        "unit": "점",
+        "match": {
+          "items": [
+            "일반기계",
+            "에너지관리",
+            "금속재료",
+            "설비보전",
+            "메카트로닉스",
+            "기계설계",
+            "산업안전",
+            "소방설비(기계)",
+            "공조냉동기계",
+            "비파괴검사(전분야)",
+            "용접",
+            "건설기계설비",
+            "건설기계정비",
+            "신재생에너지발전설비(태양광)",
+            "가스",
+            "건설안전"
+          ],
+          "grades": [
+            "산업기사"
+          ]
+        }
+      },
+      {
+        "name": "화학 직무 자격증 기사 10점",
+        "kind": "bonus",
+        "applicable_units": [
+          "신입사원(대졸수준-일반(화학))"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304839",
+            "page": 33,
+            "quote": "대기환경(대기관리), 수질환경(수질관리), 소음진동,",
+            "verified": true
+          }
+        ],
+        "track": "화학",
+        "points": 10,
+        "unit": "점",
+        "match": {
+          "items": [
+            "대기환경(대기관리)",
+            "수질환경(수질관리)",
+            "소음진동",
+            "폐기물처리",
+            "화공",
+            "에너지관리",
+            "온실가스관리",
+            "신재생에너지발전설비(태양광)",
+            "토양환경",
+            "위험물",
+            "산업안전",
+            "화학분석",
+            "가스",
+            "환경위해관리"
+          ],
+          "grades": [
+            "기사"
+          ]
+        }
+      },
+      {
+        "name": "화학 직무 자격증 산업기사 5점",
+        "kind": "bonus",
+        "applicable_units": [
+          "신입사원(대졸수준-일반(화학))"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304839",
+            "page": 33,
+            "quote": "위험물, 산업안전, 화학분석, 가스, 환경위해관리",
+            "verified": true
+          }
+        ],
+        "track": "화학",
+        "points": 5,
+        "unit": "점",
+        "match": {
+          "items": [
+            "대기환경(대기관리)",
+            "수질환경(수질관리)",
+            "소음진동",
+            "폐기물처리",
+            "화공",
+            "에너지관리",
+            "온실가스관리",
+            "신재생에너지발전설비(태양광)",
+            "토양환경",
+            "위험물",
+            "산업안전",
+            "화학분석",
+            "가스",
+            "환경위해관리"
+          ],
+          "grades": [
+            "산업기사"
+          ]
+        }
+      },
+      {
+        "name": "토목 직무 자격증 기사 10점",
+        "kind": "bonus",
+        "applicable_units": [
+          "신입사원(대졸수준-일반(토목))"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304839",
+            "page": 33,
+            "quote": "토목, 건설재료시험, 측량 및 지형공간정보,",
+            "verified": true
+          }
+        ],
+        "track": "토목",
+        "points": 10,
+        "unit": "점",
+        "match": {
+          "items": [
+            "토목",
+            "건설재료시험",
+            "측량 및 지형공간정보",
+            "지적",
+            "콘크리트",
+            "건설안전"
+          ],
+          "grades": [
+            "기사"
+          ]
+        }
+      },
+      {
+        "name": "토목 조경·도시계획 기사 8점",
+        "kind": "bonus",
+        "applicable_units": [
+          "신입사원(대졸수준-일반(토목))"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304839",
+            "page": 33,
+            "quote": "조경, 도시계획",
+            "verified": true
+          }
+        ],
+        "track": "토목",
+        "points": 8,
+        "unit": "점",
+        "match": {
+          "items": [
+            "조경",
+            "도시계획"
+          ],
+          "grades": [
+            "기사"
+          ]
+        }
+      },
+      {
+        "name": "토목 직무 자격증 산업기사 5점",
+        "kind": "bonus",
+        "applicable_units": [
+          "신입사원(대졸수준-일반(토목))"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304839",
+            "page": 33,
+            "quote": "지적, 콘크리트, 건설안전",
+            "verified": true
+          }
+        ],
+        "track": "토목",
+        "points": 5,
+        "unit": "점",
+        "match": {
+          "items": [
+            "토목",
+            "건설재료시험",
+            "측량 및 지형공간정보",
+            "지적",
+            "콘크리트",
+            "건설안전"
+          ],
+          "grades": [
+            "산업기사"
+          ]
+        }
+      },
+      {
+        "name": "토목 조경 산업기사 3점",
+        "kind": "bonus",
+        "applicable_units": [
+          "신입사원(대졸수준-일반(토목))"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304839",
+            "page": 33,
+            "quote": "조경, 도시계획",
+            "verified": true
+          }
+        ],
+        "track": "토목",
+        "points": 3,
+        "unit": "점",
+        "match": {
+          "items": [
+            "조경"
+          ],
+          "grades": [
+            "산업기사"
+          ]
+        }
+      },
+      {
+        "name": "건축 직무 자격증 기사 10점",
+        "kind": "bonus",
+        "applicable_units": [
+          "신입사원(대졸수준-일반(건축))"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304839",
+            "page": 33,
+            "quote": "건축, 실내건축, 건축설비, 콘크리트, 건설안전",
+            "verified": true
+          }
+        ],
+        "track": "건축",
+        "points": 10,
+        "unit": "점",
+        "match": {
+          "items": [
+            "건축",
+            "실내건축",
+            "건축설비",
+            "콘크리트",
+            "건설안전"
+          ],
+          "grades": [
+            "기사"
+          ]
+        }
+      },
+      {
+        "name": "건축 조경·도시계획 기사 8점",
+        "kind": "bonus",
+        "applicable_units": [
+          "신입사원(대졸수준-일반(건축))"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304839",
+            "page": 33,
+            "quote": "조경, 도시계획",
+            "verified": true
+          }
+        ],
+        "track": "건축",
+        "points": 8,
+        "unit": "점",
+        "match": {
+          "items": [
+            "조경",
+            "도시계획"
+          ],
+          "grades": [
+            "기사"
+          ]
+        }
+      },
+      {
+        "name": "건축 직무 자격증 산업기사 5점",
+        "kind": "bonus",
+        "applicable_units": [
+          "신입사원(대졸수준-일반(건축))"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304839",
+            "page": 33,
+            "quote": "건축, 실내건축, 건축설비, 콘크리트, 건설안전",
+            "verified": true
+          }
+        ],
+        "track": "건축",
+        "points": 5,
+        "unit": "점",
+        "match": {
+          "items": [
+            "건축",
+            "실내건축",
+            "건축설비",
+            "콘크리트",
+            "건설안전"
+          ],
+          "grades": [
+            "산업기사"
+          ]
+        }
+      },
+      {
+        "name": "건축 조경 산업기사 3점",
+        "kind": "bonus",
+        "applicable_units": [
+          "신입사원(대졸수준-일반(건축))"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304839",
+            "page": 33,
+            "quote": "조경, 도시계획",
+            "verified": true
+          }
+        ],
+        "track": "건축",
+        "points": 3,
+        "unit": "점",
+        "match": {
+          "items": [
+            "조경"
+          ],
+          "grades": [
+            "산업기사"
+          ]
+        }
+      },
+      {
+        "name": "고졸 전기 직무 자격증 기능사 이상 5점",
+        "kind": "bonus",
+        "applicable_units": [
+          "신입사원(고졸수준-(전기))"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304839",
+            "page": 34,
+            "quote": "전기, 전기공사, 소방설비(전기분야), 산업안전,",
+            "verified": true
+          }
+        ],
+        "track": "전기",
+        "points": 5,
+        "unit": "점",
+        "match": {
+          "items": [
+            "전기",
+            "전기공사",
+            "소방설비(전기분야)",
+            "산업안전",
+            "전자",
+            "신재생에너지발전설비(태양광)"
+          ],
+          "grades": [
+            "기능사",
+            "산업기사",
+            "기사",
+            "기능장",
+            "기술사"
+          ]
+        }
+      },
+      {
+        "name": "고졸 기계 직무 자격증 기능사 이상 5점",
+        "kind": "bonus",
+        "applicable_units": [
+          "신입사원(고졸수준-(기계))"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304839",
+            "page": 34,
+            "quote": "일반기계, 에너지관리, 금속재료, 설비보전,",
+            "verified": true
+          }
+        ],
+        "track": "기계",
+        "points": 5,
+        "unit": "점",
+        "match": {
+          "items": [
+            "일반기계",
+            "에너지관리",
+            "금속재료",
+            "설비보전",
+            "메카트로닉스",
+            "기계설계",
+            "산업안전",
+            "소방설비(기계)",
+            "공조냉동기계",
+            "비파괴검사(전분야)",
+            "용접",
+            "건설기계설비",
+            "건설기계정비",
+            "신재생에너지발전설비(태양광)",
+            "가스",
+            "건설안전"
+          ],
+          "grades": [
+            "기능사",
+            "산업기사",
+            "기사",
+            "기능장",
+            "기술사"
+          ]
+        }
+      },
+      {
+        "name": "지게차운전기능사 자격증 및 건설기계조종사 면허 필수",
+        "kind": "required",
+        "applicable_units": [
+          "별정직(기술담당원(신인천))"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304839",
+            "page": 20,
+            "quote": "[필수] 지게차 운전기능사 자격증 및 건설기계조종사 면허증 소지자",
+            "verified": true
+          }
+        ],
+        "track": "기타",
+        "match": {
+          "names": [
+            "지게차운전기능사",
+            "건설기계조종사면허"
+          ]
+        }
+      },
+      {
+        "name": "조리사 면허 필수",
+        "kind": "required",
+        "applicable_units": [
+          "별정직(후생담당원(신인천))",
+          "별정직(후생담당원(삼척))"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304839",
+            "page": 20,
+            "quote": "[필수] 조리사 면허증 소지자",
+            "verified": true
+          }
+        ],
+        "track": "기타",
+        "match": {
+          "names": [
+            "조리사"
+          ]
+        }
+      },
+      {
+        "name": "간호사 면허 필수",
+        "kind": "required",
+        "applicable_units": [
+          "별정직(보건관리원(안동))"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304839",
+            "page": 20,
+            "quote": "[필수] 간호사 면허증 소지자",
+            "verified": true
+          }
+        ],
+        "track": "기타",
+        "match": {
+          "names": [
+            "간호사"
+          ]
+        }
+      }
+    ],
+    "majors": [
+      {
+        "name": "학력·전공·자격 제한 없음(대졸수준 일반)",
+        "kind": "accepted",
+        "applicable_units": [
+          "신입사원(대졸수준-일반(사무))",
+          "신입사원(대졸수준-일반(기계))",
+          "신입사원(대졸수준-일반(전기))",
+          "신입사원(대졸수준-일반(화학))",
+          "신입사원(대졸수준-일반(토목))",
+          "신입사원(대졸수준-일반(건축))"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304839",
+            "page": 2,
+            "quote": "학 력 ▪ 제한 없음",
+            "verified": true
+          },
+          {
+            "side": "curr",
+            "notice_sn": "304839",
+            "page": 2,
+            "quote": "자 격 ▪ 제한 없음",
+            "verified": true
+          }
+        ],
+        "unrestricted": true
+      }
+    ],
     "manual_review_conditions": [],
     "units": [
       {
@@ -1114,106 +1893,345 @@
       {
         "name": "신입사원(대졸수준-장애(사무))",
         "track": "사무",
-        "kind": "general",
-        "note": null,
-        "evidence": []
+        "kind": "special",
+        "note": "장애인고용촉진 및 직업재활법상 장애인 등록자만 지원 가능(서류심사 면제)",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304839",
+            "page": 7,
+            "quote": "「장애인고용촉진 및 직업재활법」에 의한 장애인 등록자",
+            "verified": true
+          }
+        ]
       },
       {
         "name": "신입사원(대졸수준-장애(기계))",
         "track": "기계",
-        "kind": "general",
-        "note": null,
-        "evidence": []
+        "kind": "special",
+        "note": "장애인고용촉진 및 직업재활법상 장애인 등록자만 지원 가능(서류심사 면제)",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304839",
+            "page": 7,
+            "quote": "「장애인고용촉진 및 직업재활법」에 의한 장애인 등록자",
+            "verified": true
+          }
+        ]
       },
       {
         "name": "신입사원(대졸수준-장애(전기))",
         "track": "전기",
-        "kind": "general",
-        "note": null,
-        "evidence": []
+        "kind": "special",
+        "note": "장애인고용촉진 및 직업재활법상 장애인 등록자만 지원 가능(서류심사 면제)",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304839",
+            "page": 7,
+            "quote": "「장애인고용촉진 및 직업재활법」에 의한 장애인 등록자",
+            "verified": true
+          }
+        ]
       },
       {
         "name": "신입사원(대졸수준-보훈(ICT))",
         "track": "ICT",
-        "kind": "general",
-        "note": null,
-        "evidence": []
+        "kind": "special",
+        "note": "국가유공자법상 취업지원대상자만 지원 가능(서류심사 면제)",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304839",
+            "page": 11,
+            "quote": "「국가유공자 등 예우 및 지원에 관한 법률」에 의한 취업지원대상자",
+            "verified": true
+          }
+        ]
       },
       {
         "name": "신입사원(대졸수준-보훈(기계))",
         "track": "기계",
-        "kind": "general",
-        "note": null,
-        "evidence": []
+        "kind": "special",
+        "note": "국가유공자법상 취업지원대상자만 지원 가능(서류심사 면제)",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304839",
+            "page": 11,
+            "quote": "「국가유공자 등 예우 및 지원에 관한 법률」에 의한 취업지원대상자",
+            "verified": true
+          }
+        ]
       },
       {
         "name": "신입사원(대졸수준-보훈(전기))",
         "track": "전기",
-        "kind": "general",
-        "note": null,
-        "evidence": []
+        "kind": "special",
+        "note": "국가유공자법상 취업지원대상자만 지원 가능(서류심사 면제)",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304839",
+            "page": 11,
+            "quote": "「국가유공자 등 예우 및 지원에 관한 법률」에 의한 취업지원대상자",
+            "verified": true
+          }
+        ]
       },
       {
         "name": "신입사원(대졸수준-보훈(화학))",
         "track": "화학",
-        "kind": "general",
-        "note": null,
-        "evidence": []
+        "kind": "special",
+        "note": "국가유공자법상 취업지원대상자만 지원 가능(서류심사 면제)",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304839",
+            "page": 11,
+            "quote": "「국가유공자 등 예우 및 지원에 관한 법률」에 의한 취업지원대상자",
+            "verified": true
+          }
+        ]
       },
       {
         "name": "신입사원(대졸수준-보훈(건축))",
         "track": "건축",
-        "kind": "general",
-        "note": null,
-        "evidence": []
+        "kind": "special",
+        "note": "국가유공자법상 취업지원대상자만 지원 가능(서류심사 면제)",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304839",
+            "page": 11,
+            "quote": "「국가유공자 등 예우 및 지원에 관한 법률」에 의한 취업지원대상자",
+            "verified": true
+          }
+        ]
       },
       {
         "name": "신입사원(고졸수준-(기계))",
         "track": "기계",
-        "kind": "general",
-        "note": null,
-        "evidence": []
+        "kind": "condition",
+        "note": "최종학력이 고등학교 졸업 또는 졸업예정인 자만 지원 가능(전문대·대학 졸업(예정)자 지원 불가)",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304839",
+            "page": 15,
+            "quote": "전문대·대학 졸업자 또는 졸업예정자(최종학기를 이수·등록한 자)",
+            "verified": true
+          }
+        ]
       },
       {
         "name": "신입사원(고졸수준-(전기))",
         "track": "전기",
-        "kind": "general",
-        "note": null,
-        "evidence": []
+        "kind": "condition",
+        "note": "최종학력이 고등학교 졸업 또는 졸업예정인 자만 지원 가능(전문대·대학 졸업(예정)자 지원 불가)",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304839",
+            "page": 15,
+            "quote": "전문대·대학 졸업자 또는 졸업예정자(최종학기를 이수·등록한 자)",
+            "verified": true
+          }
+        ]
       },
       {
         "name": "별정직(기술담당원(신인천))",
         "track": "기타",
-        "kind": "general",
-        "note": null,
-        "evidence": []
+        "kind": "condition",
+        "note": "모집단위 근무지역(신인천·삼척·안동빛드림본부) 출퇴근 가능자 필수, 모집단위별 면허·자격 필수",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304839",
+            "page": 20,
+            "quote": "[필수] 지원 모집단위 근무지역 (신인천빛드림본부) 출퇴근 가능자",
+            "verified": true
+          }
+        ]
       },
       {
         "name": "별정직(후생담당원(신인천))",
         "track": "기타",
-        "kind": "general",
-        "note": null,
-        "evidence": []
+        "kind": "condition",
+        "note": "모집단위 근무지역(신인천·삼척·안동빛드림본부) 출퇴근 가능자 필수, 모집단위별 면허·자격 필수",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304839",
+            "page": 20,
+            "quote": "[필수] 지원 모집단위 근무지역 (신인천빛드림본부) 출퇴근 가능자",
+            "verified": true
+          }
+        ]
       },
       {
         "name": "별정직(후생담당원(삼척))",
         "track": "기타",
-        "kind": "general",
-        "note": null,
-        "evidence": []
+        "kind": "condition",
+        "note": "모집단위 근무지역(신인천·삼척·안동빛드림본부) 출퇴근 가능자 필수, 모집단위별 면허·자격 필수",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304839",
+            "page": 20,
+            "quote": "[필수] 지원 모집단위 근무지역 (신인천빛드림본부) 출퇴근 가능자",
+            "verified": true
+          }
+        ]
       },
       {
         "name": "별정직(보건관리원(안동))",
         "track": "기타",
-        "kind": "general",
-        "note": null,
-        "evidence": []
+        "kind": "condition",
+        "note": "모집단위 근무지역(신인천·삼척·안동빛드림본부) 출퇴근 가능자 필수, 모집단위별 면허·자격 필수",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304839",
+            "page": 20,
+            "quote": "[필수] 지원 모집단위 근무지역 (신인천빛드림본부) 출퇴근 가능자",
+            "verified": true
+          }
+        ]
       }
     ],
-    "common_checks": [],
-    "region_note": null,
-    "bonus_rule": null,
-    "reviewed": null
+    "common_checks": [
+      {
+        "text": "병역법 제76조상 병역의무 불이행자가 아니어야 함",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304839",
+            "page": 2,
+            "quote": "「병역법」 제76조에서 정한 병역의무 불이행자에 해당하지 않는 자",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "text": "현역은 최종합격자 발표일 이전 전역 가능해야 함",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304839",
+            "page": 2,
+            "quote": "현역의 경우 최종합격자 발표일 이전에 전역 가능한 자",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "text": "연령 제한 없음(단 회사 정년(만 60세) 도달자는 지원 불가)",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304839",
+            "page": 2,
+            "quote": "단, 회사 정년(만 60세)에 도달한 자는 지원 불가",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "text": "어학 지원자격 제한 없으나 서류심사에서 외국어성적 50점 반영",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304839",
+            "page": 2,
+            "quote": "어 학 ▪ 제한 없음",
+            "verified": true
+          },
+          {
+            "side": "curr",
+            "notice_sn": "304839",
+            "page": 2,
+            "quote": "○ 외국어성적(50점)",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "text": "당사 인사관리규정 제10조 신규채용자 결격사유에 해당하지 않아야 함",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304839",
+            "page": 2,
+            "quote": "당사 「인사관리규정」 제10조 신규채용자의 결격사유에 해당하지 않는 자",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "text": "각 채용유형 및 모집단위별 중복지원 불가",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "304839",
+            "page": 25,
+            "quote": "각 채용유형 및 모집단위별 중복지원 불가합니다.",
+            "verified": true
+          }
+        ]
+      }
+    ],
+    "region_note": {
+      "text": "최초 근무지역은 본사(부산) 및 전 사업소(하동, 인천, 부산, 제주, 영월, 안동, 삼척, 세종 등)이며 인력운영상황에 따라 변동 가능",
+      "evidence": [
+        {
+          "side": "curr",
+          "notice_sn": "304839",
+          "page": 2,
+          "quote": "본사(부산) 및 전 사업소(하동, 인천, 부산, 제주,",
+          "verified": true
+        },
+        {
+          "side": "curr",
+          "notice_sn": "304839",
+          "page": 2,
+          "quote": "※ 최초 근무지역, 근무형태 등은 회사 인력운영상황에 따라 변동가능",
+          "verified": true
+        }
+      ]
+    },
+    "bonus_rule": {
+      "text": "대졸 서류심사 자격증 가점 최대 50점(고졸 최대 20점). 직무 자격증은 해당 모집단위 내 자격증만 최대 3개 인정, 동일종류는 상위등급 1개만 인정. 공통 분야(한국사·국어·IT·외국어)는 동일분야 내 상위등급 1개만 인정",
+      "evidence": [
+        {
+          "side": "curr",
+          "notice_sn": "304839",
+          "page": 2,
+          "quote": "○ 자격증 가점(최대 50점)",
+          "verified": true
+        },
+        {
+          "side": "curr",
+          "notice_sn": "304839",
+          "page": 33,
+          "quote": "*최대 3개 인정",
+          "verified": true
+        },
+        {
+          "side": "curr",
+          "notice_sn": "304839",
+          "page": 34,
+          "quote": "- 직무 자격증의 경우 해당 모집단위 내 자격증에 대하여 가점 부여",
+          "verified": true
+        }
+      ]
+    },
+    "reviewed": {
+      "reviewed_at": "2026-11-19",
+      "reviewer": "AI 자동 추출(claude-sonnet-5-5), 인용 원문 대조 통과분만 · 사람 확인 전",
+      "scope": "대졸수준 일반(사무·기계·전기·화학·토목·건축) 지원자격·자격증 가점, 고졸수준 가점, 별정직 필수자격"
+    }
   },
   "tier": "auto",
   "category": "시장형"

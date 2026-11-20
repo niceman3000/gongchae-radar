@@ -458,7 +458,7 @@ def _reviewed_requirements(
             "applicable_units": list(item.get("applicable_units") or []),
             "evidence": _verified(item.get("evidence"), curr_all_text, curr_sn),
         }
-        for key in ("track", "points", "match", "unrestricted"):
+        for key in ("track", "points", "unit", "match", "unrestricted"):
             if key in item:
                 converted[key] = item[key]
         (majors if item.get("kind") == "major" else certificates).append(converted)

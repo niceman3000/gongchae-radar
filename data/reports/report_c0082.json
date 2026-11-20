@@ -1145,8 +1145,563 @@
       "전북",
       "충남"
     ],
-    "certificates": [],
-    "majors": [],
+    "certificates": [
+      {
+        "name": "공통 IT 5점 (ICT직군 지원자는 제외)",
+        "kind": "bonus",
+        "applicable_units": [],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "305552",
+            "page": 19,
+            "quote": "5점 정보처리기사, 컴퓨터활용능력 1급",
+            "verified": true
+          }
+        ],
+        "points": 5,
+        "unit": "점",
+        "match": {
+          "names": [
+            "정보처리기사",
+            "컴퓨터활용능력 1급"
+          ]
+        }
+      },
+      {
+        "name": "공통 IT 3점 (ICT직군 지원자는 제외)",
+        "kind": "bonus",
+        "applicable_units": [],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "305552",
+            "page": 19,
+            "quote": "3점 정보처리산업기사, 사무자동화산업기사",
+            "verified": true
+          }
+        ],
+        "points": 3,
+        "unit": "점",
+        "match": {
+          "names": [
+            "정보처리산업기사",
+            "사무자동화산업기사"
+          ]
+        }
+      },
+      {
+        "name": "공통 한국어능력 5점 (접수마감일 기준 유효성적)",
+        "kind": "bonus",
+        "applicable_units": [],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "305552",
+            "page": 19,
+            "quote": "국어능력인증 3급 이상, KBS 한국어능력 3+급 이상,",
+            "verified": true
+          }
+        ],
+        "points": 5,
+        "unit": "점",
+        "match": {
+          "names": [
+            "국어능력인증 3급 이상",
+            "KBS 한국어능력 3+급 이상",
+            "한국실용글쓰기 준2급 이상"
+          ]
+        }
+      },
+      {
+        "name": "전기 기사 이상 15점",
+        "kind": "bonus",
+        "applicable_units": [],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "305552",
+            "page": 19,
+            "quote": "【기사이상】전기공사, 전기, 소방설비(전기분야), 산업안전, 전자",
+            "verified": true
+          }
+        ],
+        "track": "전기",
+        "points": 15,
+        "unit": "점",
+        "match": {
+          "items": [
+            "전기공사",
+            "전기",
+            "소방설비(전기분야)",
+            "산업안전",
+            "전자"
+          ],
+          "grades": [
+            "기술사",
+            "기능장",
+            "기사"
+          ]
+        }
+      },
+      {
+        "name": "전기 산업기사 10점",
+        "kind": "bonus",
+        "applicable_units": [],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "305552",
+            "page": 19,
+            "quote": "【산업기사】전기공사, 전기, 소방설비(전기분야), 산업안전, 전자",
+            "verified": true
+          }
+        ],
+        "track": "전기",
+        "points": 10,
+        "unit": "점",
+        "match": {
+          "items": [
+            "전기공사",
+            "전기",
+            "소방설비(전기분야)",
+            "산업안전",
+            "전자"
+          ],
+          "grades": [
+            "산업기사"
+          ]
+        }
+      },
+      {
+        "name": "기계 기사 이상 15점",
+        "kind": "bonus",
+        "applicable_units": [],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "305552",
+            "page": 19,
+            "quote": "【기사이상】건설기계설비, 금속재료, 산업안전, 소음진동, 가스,",
+            "verified": true
+          }
+        ],
+        "track": "기계",
+        "points": 15,
+        "unit": "점",
+        "match": {
+          "items": [
+            "건설기계설비",
+            "금속재료",
+            "산업안전",
+            "소음진동",
+            "가스",
+            "용접",
+            "에너지관리",
+            "소방설비(기계분야)",
+            "비파괴검사",
+            "공조냉동기계",
+            "기계설계",
+            "신재생에너지발전설비(태양광)",
+            "건설안전",
+            "일반기계",
+            "메카트로닉스"
+          ],
+          "grades": [
+            "기술사",
+            "기능장",
+            "기사"
+          ]
+        }
+      },
+      {
+        "name": "기계 산업기사 10점",
+        "kind": "bonus",
+        "applicable_units": [],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "305552",
+            "page": 19,
+            "quote": "【산업기사】건설기계설비, 금속재료, 산업안전, 소음진동, 가스,",
+            "verified": true
+          }
+        ],
+        "track": "기계",
+        "points": 10,
+        "unit": "점",
+        "match": {
+          "items": [
+            "건설기계설비",
+            "금속재료",
+            "산업안전",
+            "소음진동",
+            "가스",
+            "용접",
+            "에너지관리",
+            "소방설비(기계분야)",
+            "비파괴검사",
+            "공조냉동기계",
+            "기계설계",
+            "신재생에너지발전설비(태양광)",
+            "건설안전",
+            "컴퓨터응용가공",
+            "생산자동화"
+          ],
+          "grades": [
+            "산업기사"
+          ]
+        }
+      },
+      {
+        "name": "화학 기사 이상 15점",
+        "kind": "bonus",
+        "applicable_units": [],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "305552",
+            "page": 20,
+            "quote": "【기사이상】대기환경, 수질환경, 소음진동, 폐기물처리, 온실가스관리,",
+            "verified": true
+          }
+        ],
+        "track": "화학",
+        "points": 15,
+        "unit": "점",
+        "match": {
+          "items": [
+            "대기환경",
+            "수질환경",
+            "소음진동",
+            "폐기물처리",
+            "온실가스관리",
+            "가스",
+            "산업안전",
+            "신재생에너지발전설비(태양광)",
+            "에너지관리",
+            "화학분석",
+            "환경위해관리",
+            "토양환경",
+            "화공"
+          ],
+          "grades": [
+            "기술사",
+            "기능장",
+            "기사"
+          ]
+        }
+      },
+      {
+        "name": "위험물 기능장 15점 (기능장만 해당)",
+        "kind": "bonus",
+        "applicable_units": [],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "305552",
+            "page": 20,
+            "quote": "위험물(기능장만 해당)",
+            "verified": true
+          }
+        ],
+        "track": "화학",
+        "points": 15,
+        "unit": "점",
+        "match": {
+          "items": [
+            "위험물"
+          ],
+          "grades": [
+            "기능장"
+          ]
+        }
+      },
+      {
+        "name": "화학 산업기사 10점",
+        "kind": "bonus",
+        "applicable_units": [],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "305552",
+            "page": 20,
+            "quote": "【산업기사】대기환경, 수질환경, 소음진동, 폐기물처리,",
+            "verified": true
+          }
+        ],
+        "track": "화학",
+        "points": 10,
+        "unit": "점",
+        "match": {
+          "items": [
+            "대기환경",
+            "수질환경",
+            "소음진동",
+            "폐기물처리",
+            "온실가스관리",
+            "가스",
+            "산업안전",
+            "신재생에너지발전설비(태양광)",
+            "에너지관리",
+            "위험물"
+          ],
+          "grades": [
+            "산업기사"
+          ]
+        }
+      },
+      {
+        "name": "ICT 기사 이상 15점",
+        "kind": "bonus",
+        "applicable_units": [],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "305552",
+            "page": 20,
+            "quote": "【기사이상】정보통신, 정보처리, 정보보안, 전자계산기조직응용(구),",
+            "verified": true
+          }
+        ],
+        "track": "ICT",
+        "points": 15,
+        "unit": "점",
+        "match": {
+          "items": [
+            "정보통신",
+            "정보처리",
+            "정보보안",
+            "전자계산기조직응용",
+            "빅데이터분석",
+            "컴퓨터시스템"
+          ],
+          "grades": [
+            "기술사",
+            "기능장",
+            "기사"
+          ]
+        }
+      },
+      {
+        "name": "ICT 전자·무선설비·방송통신·전자계산기 기사 13점",
+        "kind": "bonus",
+        "applicable_units": [],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "305552",
+            "page": 20,
+            "quote": "13점 【기 사】전자, 무선설비, 방송통신, 전자계산기(구)",
+            "verified": true
+          }
+        ],
+        "track": "ICT",
+        "points": 13,
+        "unit": "점",
+        "match": {
+          "items": [
+            "전자",
+            "무선설비",
+            "방송통신",
+            "전자계산기"
+          ],
+          "grades": [
+            "기사"
+          ]
+        }
+      },
+      {
+        "name": "ICT 정보통신·정보처리·정보보안 산업기사 10점",
+        "kind": "bonus",
+        "applicable_units": [],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "305552",
+            "page": 20,
+            "quote": "10점 【산업기사】정보통신, 정보처리, 정보보안",
+            "verified": true
+          }
+        ],
+        "track": "ICT",
+        "points": 10,
+        "unit": "점",
+        "match": {
+          "items": [
+            "정보통신",
+            "정보처리",
+            "정보보안"
+          ],
+          "grades": [
+            "산업기사"
+          ]
+        }
+      },
+      {
+        "name": "ICT 전자·무선설비·방송통신·전자계산기제어 산업기사 8점",
+        "kind": "bonus",
+        "applicable_units": [],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "305552",
+            "page": 20,
+            "quote": "8점 【산업기사】전자, 무선설비, 방송통신, 전자계산기제어",
+            "verified": true
+          }
+        ],
+        "track": "ICT",
+        "points": 8,
+        "unit": "점",
+        "match": {
+          "items": [
+            "전자",
+            "무선설비",
+            "방송통신",
+            "전자계산기제어"
+          ],
+          "grades": [
+            "산업기사"
+          ]
+        }
+      },
+      {
+        "name": "토목 기사 이상 15점",
+        "kind": "bonus",
+        "applicable_units": [],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "305552",
+            "page": 20,
+            "quote": "15점 【기사이상】토목",
+            "verified": true
+          }
+        ],
+        "track": "토목",
+        "points": 15,
+        "unit": "점",
+        "match": {
+          "items": [
+            "토목"
+          ],
+          "grades": [
+            "기술사",
+            "기능장",
+            "기사"
+          ]
+        }
+      },
+      {
+        "name": "토목 관련 기사 13점",
+        "kind": "bonus",
+        "applicable_units": [],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "305552",
+            "page": 20,
+            "quote": "【기 사】건설재료시험, 콘크리트, 측량 및 지형공간정보,",
+            "verified": true
+          }
+        ],
+        "track": "토목",
+        "points": 13,
+        "unit": "점",
+        "match": {
+          "items": [
+            "건설재료시험",
+            "콘크리트",
+            "측량 및 지형공간정보",
+            "건설안전",
+            "지적",
+            "조경",
+            "건축",
+            "철도토목",
+            "도시계획",
+            "응용지질"
+          ],
+          "grades": [
+            "기사"
+          ]
+        }
+      },
+      {
+        "name": "토목 산업기사 10점",
+        "kind": "bonus",
+        "applicable_units": [],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "305552",
+            "page": 20,
+            "quote": "10점 【산업기사】토목",
+            "verified": true
+          }
+        ],
+        "track": "토목",
+        "points": 10,
+        "unit": "점",
+        "match": {
+          "items": [
+            "토목"
+          ],
+          "grades": [
+            "산업기사"
+          ]
+        }
+      },
+      {
+        "name": "토목 관련 산업기사 8점",
+        "kind": "bonus",
+        "applicable_units": [],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "305552",
+            "page": 20,
+            "quote": "【산업기사】건설재료시험, 콘크리트, 측량 및 지형공간정보,",
+            "verified": true
+          }
+        ],
+        "track": "토목",
+        "points": 8,
+        "unit": "점",
+        "match": {
+          "items": [
+            "건설재료시험",
+            "콘크리트",
+            "측량 및 지형공간정보",
+            "건설안전",
+            "지적",
+            "조경",
+            "건축",
+            "철도토목"
+          ],
+          "grades": [
+            "산업기사"
+          ]
+        }
+      }
+    ],
+    "majors": [
+      {
+        "name": "학력·전공 제한 없음 (만 60세 이상 지원불가)",
+        "kind": "accepted",
+        "applicable_units": [],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "305552",
+            "page": 2,
+            "quote": "▪제한 없음 (단, 만 60세 이상 지원불가)",
+            "verified": true
+          }
+        ],
+        "unrestricted": true
+      }
+    ],
     "manual_review_conditions": [],
     "units": [
       {
@@ -1159,16 +1714,39 @@
       {
         "name": "사무(보훈)",
         "track": "사무",
-        "kind": "general",
-        "note": null,
-        "evidence": []
+        "kind": "special",
+        "note": "보훈관계 법률에 따라 등록된 취업지원(보훈)대상자만 지원 가능한 특별전형. 어학 제한 없음, 보훈 가점·우대 적용.",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "305552",
+            "page": 3,
+            "quote": "보훈관계 법률에 의거 등록된 취업지원(보훈)대상자",
+            "verified": true
+          },
+          {
+            "side": "curr",
+            "notice_sn": "305552",
+            "page": 3,
+            "quote": "▪제한없음",
+            "verified": true
+          }
+        ]
       },
       {
         "name": "사무(장애)",
         "track": "사무",
-        "kind": "general",
-        "note": null,
-        "evidence": []
+        "kind": "special",
+        "note": "장애인 등록자만 지원 가능한 특별전형. 어학 제한 없음, 장애인 가점·우대는 미적용.",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "305552",
+            "page": 3,
+            "quote": "「장애인고용촉진 및 직업재활법」에 의한 장애인 등록자",
+            "verified": true
+          }
+        ]
       },
       {
         "name": "기계(일반)",
@@ -1180,16 +1758,39 @@
       {
         "name": "기계(보훈)",
         "track": "기계",
-        "kind": "general",
-        "note": null,
-        "evidence": []
+        "kind": "special",
+        "note": "보훈관계 법률에 따라 등록된 취업지원(보훈)대상자만 지원 가능한 특별전형. 어학 제한 없음, 보훈 가점·우대 적용.",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "305552",
+            "page": 3,
+            "quote": "보훈관계 법률에 의거 등록된 취업지원(보훈)대상자",
+            "verified": true
+          },
+          {
+            "side": "curr",
+            "notice_sn": "305552",
+            "page": 3,
+            "quote": "▪제한없음",
+            "verified": true
+          }
+        ]
       },
       {
         "name": "기계(장애)",
         "track": "기계",
-        "kind": "general",
-        "note": null,
-        "evidence": []
+        "kind": "special",
+        "note": "장애인 등록자만 지원 가능한 특별전형. 어학 제한 없음, 장애인 가점·우대는 미적용.",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "305552",
+            "page": 3,
+            "quote": "「장애인고용촉진 및 직업재활법」에 의한 장애인 등록자",
+            "verified": true
+          }
+        ]
       },
       {
         "name": "전기(일반)",
@@ -1201,16 +1802,39 @@
       {
         "name": "전기(보훈)",
         "track": "전기",
-        "kind": "general",
-        "note": null,
-        "evidence": []
+        "kind": "special",
+        "note": "보훈관계 법률에 따라 등록된 취업지원(보훈)대상자만 지원 가능한 특별전형. 어학 제한 없음, 보훈 가점·우대 적용.",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "305552",
+            "page": 3,
+            "quote": "보훈관계 법률에 의거 등록된 취업지원(보훈)대상자",
+            "verified": true
+          },
+          {
+            "side": "curr",
+            "notice_sn": "305552",
+            "page": 3,
+            "quote": "▪제한없음",
+            "verified": true
+          }
+        ]
       },
       {
         "name": "전기(장애)",
         "track": "전기",
-        "kind": "general",
-        "note": null,
-        "evidence": []
+        "kind": "special",
+        "note": "장애인 등록자만 지원 가능한 특별전형. 어학 제한 없음, 장애인 가점·우대는 미적용.",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "305552",
+            "page": 3,
+            "quote": "「장애인고용촉진 및 직업재활법」에 의한 장애인 등록자",
+            "verified": true
+          }
+        ]
       },
       {
         "name": "화학(일반)",
@@ -1222,16 +1846,46 @@
       {
         "name": "화학(보훈)",
         "track": "화학",
-        "kind": "general",
-        "note": null,
-        "evidence": []
+        "kind": "special",
+        "note": "보훈관계 법률에 따라 등록된 취업지원(보훈)대상자만 지원 가능한 특별전형. 어학 제한 없음, 보훈 가점·우대 적용.",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "305552",
+            "page": 3,
+            "quote": "보훈관계 법률에 의거 등록된 취업지원(보훈)대상자",
+            "verified": true
+          },
+          {
+            "side": "curr",
+            "notice_sn": "305552",
+            "page": 3,
+            "quote": "▪제한없음",
+            "verified": true
+          }
+        ]
       },
       {
         "name": "ICT(보훈)",
         "track": "ICT",
-        "kind": "general",
-        "note": null,
-        "evidence": []
+        "kind": "special",
+        "note": "보훈관계 법률에 따라 등록된 취업지원(보훈)대상자만 지원 가능한 특별전형. 어학 제한 없음, 보훈 가점·우대 적용.",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "305552",
+            "page": 3,
+            "quote": "보훈관계 법률에 의거 등록된 취업지원(보훈)대상자",
+            "verified": true
+          },
+          {
+            "side": "curr",
+            "notice_sn": "305552",
+            "page": 3,
+            "quote": "▪제한없음",
+            "verified": true
+          }
+        ]
       },
       {
         "name": "토목(일반)",
@@ -1241,10 +1895,118 @@
         "evidence": []
       }
     ],
-    "common_checks": [],
-    "region_note": null,
-    "bonus_rule": null,
-    "reviewed": null
+    "common_checks": [
+      {
+        "text": "학력·연령·성별 제한 없음 (단, 만 60세 이상 지원불가)",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "305552",
+            "page": 2,
+            "quote": "▪제한 없음 (단, 만 60세 이상 지원불가)",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "text": "병역의무 불이행 사실이 없는 자 (현역은 입사예정일 2026.12.14. 이전 전역 가능자)",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "305552",
+            "page": 2,
+            "quote": "▪병역법 76조에서 정한 병역의무 불이행 사실이 없는 자",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "text": "일반전형 영어 TOEIC 700점 이상 (보훈·장애전형은 어학 제한 없음, 고급자격증 소지자는 제외)",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "305552",
+            "page": 2,
+            "quote": "▪기 준: 700점 이상 (TOEIC 기준)",
+            "verified": true
+          },
+          {
+            "side": "curr",
+            "notice_sn": "305552",
+            "page": 8,
+            "quote": "일반전형 지원 시 어학 자격요건을 충족해야 함",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "text": "신규채용 결격사유가 없고 입사일(2026.12.14.)부터 근무 가능한 자",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "305552",
+            "page": 2,
+            "quote": "▪당사 신규채용에 결격사유가 없는 자",
+            "verified": true
+          },
+          {
+            "side": "curr",
+            "notice_sn": "305552",
+            "page": 2,
+            "quote": "부터 근무 가능한 자",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "text": "채용분야별 중복지원 불가 (일반전형과 보훈·장애전형 동시지원도 불가)",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "305552",
+            "page": 1,
+            "quote": "채용분야별 중복지원은 불가합니다.",
+            "verified": true
+          }
+        ]
+      }
+    ],
+    "region_note": {
+      "text": "근무지역: 태안(본사 및 사업소), 서인천, 평택, 군산, 김포, 구미 등",
+      "evidence": [
+        {
+          "side": "curr",
+          "notice_sn": "305552",
+          "page": 2,
+          "quote": "태안(본사 및 사업소), 서인천, 평택, 군산, 김포, 구미 등",
+          "verified": true
+        }
+      ]
+    },
+    "bonus_rule": {
+      "text": "공통 자격증은 분야별 상위 1개만 인정. 직군별 자격증은 이종 자격증에 한해 상위 2개까지, 점수가 다른 동종 자격증은 상위 1개만 인정. 공통 포함 최대 30점이며 사무는 자격증 10점, 기술은 30점 배점. 기능장은 기사 이상(15점)으로 적용.",
+      "evidence": [
+        {
+          "side": "curr",
+          "notice_sn": "305552",
+          "page": 21,
+          "quote": "공통 자격증 가점 포함 최대 30점 한도 가점 적용",
+          "verified": true
+        },
+        {
+          "side": "curr",
+          "notice_sn": "305552",
+          "page": 21,
+          "quote": "이종(異種)에 한하여 상위가점 2개만 인정",
+          "verified": true
+        }
+      ]
+    },
+    "reviewed": {
+      "reviewed_at": "2026-11-19",
+      "reviewer": "AI 자동 추출(claude-sonnet-5-5), 인용 원문 대조 통과분만 · 사람 확인 전",
+      "scope": "사무, 기계, 전기, 화학, ICT, 토목"
+    }
   },
   "tier": "auto",
   "category": "시장형"

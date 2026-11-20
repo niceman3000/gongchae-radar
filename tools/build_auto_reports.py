@@ -10,8 +10,8 @@
 실행 (프로젝트 최상위 폴더)
   .\\.venv\\Scripts\\python.exe tools\\build_auto_reports.py
 
-핵심 3곳(tier=verified)은 config/demo_pairs.json으로 따로 만든다:
-  .\\.venv\\Scripts\\python.exe -c "from src.report_builder import build_from_files; build_from_files()"
+11-19부터 핵심 3곳(config/demo_pairs.json)도 같은 방법으로 여기서 만든다 (30곳 모두 같은 과정).
+핵심 3곳 원문 대조 결과(evaluation/ground_truth)는 tools/score_against_ground_truth.py의 정답지로만 쓴다.
 """
 from __future__ import annotations
 
@@ -46,13 +46,23 @@ def _bundle_text(root: Path, sn: str, pdf: Path, log=print) -> dict | None:
     return json.loads(bundle.read_text(encoding="utf-8")).get("all_text")
 
 
+def all_pairs(root: Path = ROOT) -> list[dict]:
+    """30곳 전부: 핵심 3곳(config/demo_pairs.json) + 자동 수집 27곳(config/auto_pairs.json).
+    11-19부터 30곳 모두 같은 방법(코드 비교 + AI 추출 조건)으로 리포트를 만든다.
+    핵심 3곳의 원문 대조 결과(evaluation/ground_truth)는 화면에 쓰지 않고 채점용 정답지로만 쓴다."""
+    pairs = []
+    for name in ("demo_pairs.json", "auto_pairs.json"):
+        path = root / "config" / name
+        if path.exists():
+            pairs.extend(json.loads(path.read_text(encoding="utf-8")).get("pairs", []))
+    return [{**pair, "tier": "auto"} for pair in pairs]
+
+
 def build_all(root: Path = ROOT, only: list[str] | None = None, log=print) -> list[Path]:
-    config = json.loads((root / "config" / "auto_pairs.json").read_text(encoding="utf-8"))
     output_dir = root / "data" / "reports"
     output_dir.mkdir(parents=True, exist_ok=True)
-    review_dir = root / "evaluation" / "ground_truth"
     stage1_all, written = {}, []
-    for pair in config.get("pairs", []):
+    for pair in all_pairs(root):
         if only and pair["institution"] not in only:
             continue
         prefix = str(pair["pair_id"]).split("-", 1)[0]
@@ -64,7 +74,12 @@ def build_all(root: Path = ROOT, only: list[str] | None = None, log=print) -> li
             continue
         stage1 = compare(prev, curr)
         stage1_all[pair["institution"]] = stage1
-        requirements_file = review_dir / f"{prefix}_requirements.json"
+        # 지원 자격·가점: AI 추출본만 쓴다 (tools/extract_requirements.py, 인용 원문 대조 통과분)
+        requirements_file = root / "evaluation" / "ai_extracted" / f"{prefix}_requirements.json"
+        # 예전 공고에서 뽑은 것이면 쓰지 않는다 (새 공고 수집 후 extract_requirements.py로 다시 뽑기)
+        if requirements_file.exists() and json.loads(requirements_file.read_text(encoding="utf-8")).get("pair_id") != pair["pair_id"]:
+            log(f"  {pair['institution']}: AI 추출본이 예전 공고 것이라 쓰지 않음 → extract_requirements.py 다시 실행")
+            requirements_file = root / "evaluation" / "ai_extracted" / "_none.json"
         report = build_report(
             pair,
             stage1,

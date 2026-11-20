@@ -116,8 +116,8 @@
 - [X] T041 Owner=DEV `config/institutions.json`에 30곳 명단(이름·유형·별칭·기관코드·tier·핵심 pair_id)을 작성한다. (2026-11-18 Claude)
 - [X] T042 Owner=DEV `tools/collect_institutions.py`를 만든다. ① 목록 API(`/recruitment/list`, numOfRows=100)를 넘겨 가며 `instNm`이 이름·별칭과 같은 공고에서 `pblntInstCd`를 찾아 `config/institutions.json`에 채운다(호출 수 상한과 진행 상황 출력). ② 기관마다 `pblntInstCd`로 최근 2년 공고를 받아 `recrutSeNm`=신입, `hireTypeNmLst`에 정규직이 든 것만 남긴다. ③ 접수 시작일이 가장 늦은 공고를 올해(curr)로, 그보다 300~430일 앞선 공고 중 제목(연도·차수 숫자 제거 후)이 가장 비슷한 것을 작년(prev)으로 짝짓는다. 짝이 없으면 curr만 저장하고 사유를 남긴다. ④ 두 공고를 `tools/fetch_notice.py`와 같은 방식으로 상세 JSON·공고문 PDF 저장(HWP면 건너뛰고 기록). ⑤ `config/auto_pairs.json`을 `config/demo_pairs.json`과 같은 형식 + `tier`, `category`, `skip_reason`으로 쓴다. 인증키는 출력·파일에 남기지 않는다. (2026-11-19 완료: 실제 API 6차 실행으로 27곳 짝 전부. 고르는 규칙은 docs/전처리_규칙.md ①②. PDF는 새 주소 www.alio.go.kr/download/download.json?fileNo= 와 tools/redownload_pdfs.py(ZIP 꺼내기)로 43개 확보, 그림·HWP 공고문은 원문 기능 제외)
 - [X] T043 Owner=DEV `tools/build_auto_reports.py`를 만든다. `config/auto_pairs.json`의 각 쌍에 대해 `src/diff_stage1.compare`로 1단계 결과를 만들고, PDF가 있으면 `src/build_bundle.py`로 `stage2/bundle_<번호>.json`을 만든 뒤 `src/report_builder.build_report`로 `data/reports/report_<pair_id 앞부분>.json`을 쓴다. 리포트에 `tier`(verified/auto)와 `category`(시장형/준시장형)를 넣도록 `src/schemas/report.schema.json`에 선택 항목을 추가한다. 핵심 3곳은 기존 `config/demo_pairs.json` 경로를 그대로 쓴다. (2026-11-18 tools/build_auto_reports.py, 모집단위 없을 때 직무분야(NCS)로 직렬 추정) (2026-11-19 완료: 실제 데이터로 리포트 27개, PDF 읽기 실패 0. PDF가 묶음보다 새로우면 묶음 다시 만듦)
-- [ ] T044 [US1][US2] Owner=DEV 화면을 30곳에 맞춘다: 공고 비교 선택 상자를 유형별로 정렬하고 auto에 '자동 비교 · 원문 미검증' 배지, 맞춤 공고 카드에 같은 배지, 리포트 30개 읽기가 느리면 `st.cache_data`(파일 수정 시각을 키로) 적용. 짝 없는 기관은 '전년 비교 공고 없음'으로 표시한다. (화면 코드 초안 있음(app/report_data.py, 배지·정렬). 실제 수집 데이터로 확인 필요)
-- [ ] T045 Owner=DEV 유료 API(`src/ai_pipeline.py`)로 auto 기관 PDF에서 지원 가능 학과·자격증·가점을 뽑아 `evaluation/ground_truth/<prefix>_requirements.json`과 같은 형식(인용은 `src/evidence.check_evidence`로 원문 대조, 실패한 인용은 버림)으로 저장한다. 실행 전 쪽수·토큰으로 예상 비용을 계산해 사용자 승인을 받는다.
+- [X] T044 [US1][US2] Owner=DEV 화면을 30곳에 맞춘다: 공고 비교 선택 상자를 유형별로 정렬하고 auto에 '자동 비교 · 원문 미검증' 배지, 맞춤 공고 카드에 같은 배지, 리포트 30개 읽기가 느리면 `st.cache_data`(파일 수정 시각을 키로) 적용. 짝 없는 기관은 '전년 비교 공고 없음'으로 표시한다. (2026-11-19 15:40 완료: 실제 30곳 리포트로 조건 입력 → 맞춤 공고 → 비교 화면, 자동 비교 배지 사용자 확인)
+- [X] T045 Owner=DEV 유료 API(`src/ai_pipeline.py`)로 auto 기관 PDF에서 지원 가능 학과·자격증·가점을 뽑아 `evaluation/ground_truth/<prefix>_requirements.json`과 같은 형식(인용은 `src/evidence.check_evidence`로 원문 대조, 실패한 인용은 버림)으로 저장한다. 실행 전 쪽수·토큰으로 예상 비용을 계산해 사용자 승인을 받는다. (2026-11-19 완료: tools/extract_requirements.py, Sonnet 5.5로 22곳 중 19곳 추출·저장(잘린 4곳은 앞부분 복구), 사용 약 $4.5. 빈 결과: 한전KDN(스캔 PDF)·마사회(표가 그림), 도로공사 1항목. 그림 공고문 5곳 미처리)
 - [ ] T046 Owner=DEV T042~T045 테스트: 짝짓기 규칙(연도 숫자 제거·기간 범위), auto 리포트 스키마 통과, 30곳 리포트가 있을 때 조건 입력→맞춤 공고 흐름 AppTest, 인증키 문자열이 저장 파일에 없음. (미착수. 가짜 API 테스트는 2026-11-18 삭제, 실제 수집 결과 기준으로 작성)
 
 **Checkpoint**: 조건을 넣으면 30곳 공고 중 관련 공고가 나오고, 핵심 3곳은 근거·자격 판정까지, 나머지는 자동 비교 표시와 함께 나온다.
@@ -133,10 +133,10 @@
 
 ### Tests and Implementation
 
-- [ ] T027 [P] [US3] Owner=DEV 근거 있음, 근거 없음, 인용 미검증, API 키 없음, 모델 오류 사례의 실패 테스트를 `tests/unit/test_qa_service.py`에 먼저 작성한다.
-- [ ] T028 [US3] Owner=DEV `src/qa_service.py`에 검증 근거 선택, 근거 없음 조기 반환, 환경변수 기반 Haiku 호출, 계약 형태 응답을 구현해 T027을 통과시킨다.
-- [ ] T029 [US3] Owner=DEV 질문 입력, 답변, 쪽수·인용, `AI가 생성한 답변`, 장애 안내를 `app/pages/qa.py`에 구현한다.
-- [ ] T030 [US3] Owner=DEV 답이 있는 질문·없는 질문·키 없는 실행을 `tests/integration/test_streamlit_flow.py`에 추가하고 기존 P1·P2 화면이 계속 열리는지 확인한다.
+- [X] T027 [P] [US3] Owner=DEV 근거 있음, 근거 없음, 인용 미검증, API 키 없음, 모델 오류 사례의 실패 테스트를 `tests/unit/test_qa_service.py`에 먼저 작성한다. (11-19 완료: tests/unit/test_qa_service.py 8개)
+- [X] T028 [US3] Owner=DEV `src/qa_service.py`에 검증 근거 선택, 근거 없음 조기 반환, 환경변수 기반 Haiku 호출, 계약 형태 응답을 구현해 T027을 통과시킨다. (11-19 완료: src/qa_service.py, 코드로 관련 원문 고르기 → 없으면 AI 없이 명시 없음, Haiku 5.5, 인용 원문 대조)
+- [X] T029 [US3] Owner=DEV 질문 입력, 답변, 쪽수·인용, `AI가 생성한 답변`, 장애 안내를 `app/pages/qa.py`에 구현한다. (11-19 완료: app/pages/qa.py '공고문에 물어보기', 예시 질문, AI 생성 표시, 키 없으면 원문 발췌, 접속당 20회 제한)
+- [X] T030 [US3] Owner=DEV 답이 있는 질문·없는 질문·키 없는 실행을 `tests/integration/test_streamlit_flow.py`에 추가하고 기존 P1·P2 화면이 계속 열리는지 확인한다. (11-19 완료: 키 없음·명시 없음 화면 테스트 2개, 전체 107개 통과. 실제 AI 답은 PC에서 확인 필요)
 - [ ] T031 [P] [US3] Owner=DATA-QA1 한수원 취준생 질문 5개와 예상 답·쪽수·인용 또는 `명시 없음`을 `evaluation/questions-khnp.md`에 작성한다.
 - [ ] T032 [P] [US3] Owner=DATA-QA2 중부발전 취준생 질문 5개와 예상 답·쪽수·인용 또는 `명시 없음`을 `evaluation/questions-komipo.md`에 작성한다.
 

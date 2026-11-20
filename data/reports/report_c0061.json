@@ -528,8 +528,157 @@
       "제주",
       "충북"
     ],
-    "certificates": [],
-    "majors": [],
+    "certificates": [
+      {
+        "name": "한국공인회계사(KICPA) 자격 필수(마감일까지 취득 완료)",
+        "kind": "required",
+        "applicable_units": [
+          "(신입직) 관리6급-공인회계사"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "301943",
+            "page": 4,
+            "quote": "「공인회계사법」제3조에 따른 한국공인회계사(KICPA) 자격이",
+            "verified": true
+          },
+          {
+            "side": "curr",
+            "notice_sn": "301943",
+            "page": 4,
+            "quote": "원서접수 마감일(’26.7.8.)까지 최종 자격취득을 완료한 자에",
+            "verified": true
+          }
+        ],
+        "track": "사무",
+        "match": {
+          "names": [
+            "공인회계사"
+          ]
+        }
+      },
+      {
+        "name": "보험계리사 자격 필수(마감일까지 취득 완료)",
+        "kind": "required",
+        "applicable_units": [
+          "(신입직) 관리6급-보험계리사"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "301943",
+            "page": 4,
+            "quote": "보험계리사 자격증 소지자 (실무수습 무관)",
+            "verified": true
+          }
+        ],
+        "track": "기타",
+        "match": {
+          "names": [
+            "보험계리사"
+          ]
+        }
+      },
+      {
+        "name": "전문자격 가점: 배점의 10%(100점 만점 기준)",
+        "kind": "bonus",
+        "applicable_units": [],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "301943",
+            "page": 17,
+            "quote": "변호사, 공인회계사(KICPA), 세무사, 변리사,",
+            "verified": true
+          }
+        ],
+        "points": 10,
+        "unit": "%",
+        "match": {
+          "names": [
+            "변호사",
+            "공인회계사",
+            "세무사",
+            "변리사",
+            "감정평가사",
+            "공인노무사",
+            "건축사",
+            "법무사",
+            "보험계리사"
+          ]
+        }
+      },
+      {
+        "name": "기술사(건축, 정보통신 직무분야) 가점: 배점의 10%",
+        "kind": "bonus",
+        "applicable_units": [],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "301943",
+            "page": 17,
+            "quote": "기술사(국가기술자격법에 따른 건축, 정보",
+            "verified": true
+          }
+        ],
+        "points": 10,
+        "unit": "%",
+        "match": {
+          "items": [
+            "건축",
+            "정보통신"
+          ],
+          "grades": [
+            "기술사"
+          ]
+        }
+      },
+      {
+        "name": "한국사능력검정시험 2급 이상: 필기 배점의 0.3%",
+        "kind": "bonus",
+        "applicable_units": [],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "301943",
+            "page": 17,
+            "quote": "한국사능력검정시험 2급 이상 자격 소지자",
+            "verified": true
+          }
+        ],
+        "points": 0.3,
+        "unit": "%",
+        "match": {
+          "names": [
+            "한국사능력검정시험 2급 이상"
+          ]
+        }
+      }
+    ],
+    "majors": [
+      {
+        "name": "관리6급 일반: 전공·학력 제한 없음(공고문에 전공 요건 없음)",
+        "kind": "accepted",
+        "applicable_units": [
+          "(신입직) 관리6급-경영",
+          "(신입직) 관리6급-경제",
+          "(신입직) 관리6급-건축",
+          "(신입직) 관리6급-전산",
+          "(신입직) 관리6급-인공지능(AI)"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "301943",
+            "page": 3,
+            "quote": "아래 ①∼③을 모두 충족(성별, 신체조건 등 제한 없음)",
+            "verified": true
+          }
+        ],
+        "unrestricted": true
+      }
+    ],
     "manual_review_conditions": [],
     "units": [
       {
@@ -570,30 +719,62 @@
       {
         "name": "(신입직) 관리7급-금융",
         "track": "기타",
-        "kind": "general",
-        "note": null,
-        "evidence": []
+        "kind": "special",
+        "note": "고졸 채용: 2027년 2월 특성화고·마이스터고·종합고 졸업예정자로서 학교장 추천(학교별 3명 이하)을 받은 자, 학교폭력예방법 제17조 제1항 제4~9호 조치 대상 아닌 자",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "301943",
+            "page": 4,
+            "quote": "’27.2월 특성화고, 마이스터고, 종합고 졸업 예정자로서 학교장",
+            "verified": true
+          }
+        ]
       },
       {
         "name": "(신입직) 관리7급-전산",
         "track": "ICT",
-        "kind": "general",
-        "note": null,
-        "evidence": []
+        "kind": "special",
+        "note": "고졸 채용: 2027년 2월 특성화고·마이스터고·종합고 졸업예정자로서 학교장 추천(학교별 3명 이하)을 받은 자, 학교폭력예방법 제17조 제1항 제4~9호 조치 대상 아닌 자",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "301943",
+            "page": 4,
+            "quote": "’27.2월 특성화고, 마이스터고, 종합고 졸업 예정자로서 학교장",
+            "verified": true
+          }
+        ]
       },
       {
         "name": "(신입직) 관리6급-장애인(경영)",
         "track": "사무",
-        "kind": "general",
-        "note": null,
-        "evidence": []
+        "kind": "special",
+        "note": "장애인고용촉진 및 직업재활법에 따른 장애인·중증장애인(국가유공자법상 상이등급 기준 해당자 포함)만 지원 가능한 제한경쟁",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "301943",
+            "page": 3,
+            "quote": "「장애인고용촉진 및 직업재활법」에 따른 장애인 또는 중증장애인",
+            "verified": true
+          }
+        ]
       },
       {
         "name": "(신입직) 관리6급-국가유공자(경영)",
         "track": "사무",
-        "kind": "general",
-        "note": null,
-        "evidence": []
+        "kind": "special",
+        "note": "국가유공자 등 예우 및 지원에 관한 법률 등에 따른 취업지원대상자만 지원 가능한 제한경쟁",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "301943",
+            "page": 3,
+            "quote": "「국가유공자 등 예우 및 지원에 관한 법률」등에 따른 취업지원대상자",
+            "verified": true
+          }
+        ]
       },
       {
         "name": "(신입직) 관리6급-공인회계사",
@@ -610,10 +791,82 @@
         "evidence": []
       }
     ],
-    "common_checks": [],
-    "region_note": null,
-    "bonus_rule": null,
-    "reviewed": null
+    "common_checks": [
+      {
+        "text": "공고일 기준 만 60세 미만, 입사예정일 이후 즉시 근무 가능, 국가공무원법 제33조 및 공사 인사규정 제17조 결격사유 없음",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "301943",
+            "page": 3,
+            "quote": "① 공고일 기준 만 60세(정년) 미만인 자",
+            "verified": true
+          },
+          {
+            "side": "curr",
+            "notice_sn": "301943",
+            "page": 3,
+            "quote": "② 입사예정일 이후 즉시 근무가 가능한 자",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "text": "관리6급(일반·장애인·국가유공자) 영어 공인어학성적 필요: TOEIC 700, TEPS 340, TOEFL IBT 71, G-TELP 65(level 2), FLEX 625 중 하나 이상(청각장애 TOEIC 350, TEPS 204, FLEX 375). 공인회계사·보험계리사 분야는 어학성적 면제",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "301943",
+            "page": 3,
+            "quote": "일반 지원자 700 340 71 65(level 2) 625",
+            "verified": true
+          },
+          {
+            "side": "curr",
+            "notice_sn": "301943",
+            "page": 3,
+            "quote": "(성적기준) 아래 어느 하나 점수 이상의 유효한 공인어학성적 보유자",
+            "verified": true
+          }
+        ]
+      }
+    ],
+    "region_note": {
+      "text": "근무장소는 본사(부산) 또는 전국 영업부서 소재지",
+      "evidence": [
+        {
+          "side": "curr",
+          "notice_sn": "301943",
+          "page": 2,
+          "quote": "본사(부산) 또는 전국 영업부서 소재지",
+          "verified": true
+        }
+      ]
+    },
+    "bonus_rule": {
+      "text": "우대사항 중복 시 가장 유리한 1개만 적용(취업지원대상자가 전문자격 보유 시 중복 적용). 복수 전문자격은 1개만 우대. 국내 자격증만 인정하며 합격증으로 대체 가능. 가점 제외 점수 40점 미만이면 가점 미적용",
+      "evidence": [
+        {
+          "side": "curr",
+          "notice_sn": "301943",
+          "page": 16,
+          "quote": "우대사항 중복 시 가장 유리한 사항만 적용.",
+          "verified": true
+        },
+        {
+          "side": "curr",
+          "notice_sn": "301943",
+          "page": 16,
+          "quote": "소지자는 1개 자격증만 우대",
+          "verified": true
+        }
+      ]
+    },
+    "reviewed": {
+      "reviewed_at": "2026-11-19",
+      "reviewer": "AI 자동 추출(claude-sonnet-5-5), 인용 원문 대조 통과분만 · 사람 확인 전",
+      "scope": "관리6급(경영·경제·건축·전산·AI·장애인·국가유공자·공인회계사·보험계리사), 관리7급(금융·전산)"
+    }
   },
   "tier": "auto",
   "category": "준시장형"

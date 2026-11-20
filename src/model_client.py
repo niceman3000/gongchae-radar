@@ -10,6 +10,7 @@ import urllib.request
 
 
 ANTHROPIC_MESSAGES_URL = "https://api.anthropic.com/v1/messages"
+ANTHROPIC_COUNT_URL = "https://api.anthropic.com/v1/messages/count_tokens"  # 무료, 토큰 수만 셈
 
 
 class ModelClientError(RuntimeError):
@@ -23,6 +24,7 @@ class ModelResponse:
     input_tokens: int | None
     output_tokens: int | None
     elapsed_seconds: float
+    stop_reason: str | None = None  # "max_tokens"면 출력 한도에 걸려 답이 잘린 것
 
 
 class AnthropicClient:
@@ -33,6 +35,34 @@ class AnthropicClient:
         if not self.api_key:
             raise ModelClientError("ANTHROPIC_API_KEY가 설정되지 않았습니다.")
 
+    def _post(self, url: str, body: dict) -> dict:
+        request = urllib.request.Request(
+            url,
+            data=json.dumps(body).encode("utf-8"),
+            method="POST",
+            headers={
+                "x-api-key": self.api_key,
+                "anthropic-version": "2023-06-01",
+                "content-type": "application/json",
+            },
+        )
+        try:
+            with urllib.request.urlopen(request, timeout=self.timeout) as response:
+                return json.loads(response.read().decode("utf-8"))
+        except urllib.error.HTTPError as exc:
+            detail = exc.read().decode("utf-8", errors="replace")[:300]
+            raise ModelClientError(f"모델 API 오류 {exc.code}: {detail}") from exc
+        except (OSError, json.JSONDecodeError) as exc:
+            raise ModelClientError(f"모델 응답을 받을 수 없습니다: {exc}") from exc
+
+    def count_tokens(self, *, model: str, system: str, user: str) -> int:
+        """보낼 입력의 토큰 수 (요금 없음). 비용 계산용."""
+        payload = self._post(
+            ANTHROPIC_COUNT_URL,
+            {"model": model, "system": system, "messages": [{"role": "user", "content": user}]},
+        )
+        return int(payload.get("input_tokens") or 0)
+
     def complete(
         self,
         *,
@@ -40,15 +70,17 @@ class AnthropicClient:
         system: str,
         user: str,
         max_tokens: int,
+        thinking: dict | None = None,
     ) -> ModelResponse:
-        body = json.dumps(
-            {
-                "model": model,
-                "max_tokens": max_tokens,
-                "system": system,
-                "messages": [{"role": "user", "content": user}],
-            }
-        ).encode("utf-8")
+        payload_body = {
+            "model": model,
+            "max_tokens": max_tokens,
+            "system": system,
+            "messages": [{"role": "user", "content": user}],
+        }
+        if thinking:  # 예: Sonnet 5.5는 {"type": "between_tools"}로 답하기 전 '생각'을 끈다
+            payload_body["thinking"] = thinking
+        body = json.dumps(payload_body).encode("utf-8")
         request = urllib.request.Request(
             ANTHROPIC_MESSAGES_URL,
             data=body,
@@ -92,4 +124,5 @@ class AnthropicClient:
             input_tokens=usage.get("input_tokens"),
             output_tokens=usage.get("output_tokens"),
             elapsed_seconds=elapsed,
+            stop_reason=payload.get("stop_reason"),
         )

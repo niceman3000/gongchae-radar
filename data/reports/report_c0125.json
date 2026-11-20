@@ -954,8 +954,485 @@
       "충남",
       "충북"
     ],
-    "certificates": [],
-    "majors": [],
+    "certificates": [
+      {
+        "name": "운전면허 2종 보통 이상 (전 모집단위 필수)",
+        "kind": "required",
+        "applicable_units": [],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "305190",
+            "page": 21,
+            "quote": "□ 필수자격 : 운전면허 2종 보통 이상",
+            "verified": true
+          },
+          {
+            "side": "curr",
+            "notice_sn": "305190",
+            "page": 3,
+            "quote": "◦ 운전면허 2종 보통 이상 소지자",
+            "verified": true
+          }
+        ],
+        "match": {
+          "names": [
+            "운전면허 2종 보통"
+          ]
+        }
+      },
+      {
+        "name": "6급2 기계 직무 자격증 (산업기사 이상)",
+        "kind": "bonus",
+        "applicable_units": [
+          "일반직_신입_6급2_기계_전국"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "305190",
+            "page": 22,
+            "quote": "일반기계, 건설기계설비, 건설기계정비, 공조냉동기계",
+            "verified": true
+          },
+          {
+            "side": "curr",
+            "notice_sn": "305190",
+            "page": 22,
+            "quote": "인정기준 : 6급2 산업기사 이상, 7급 기능사 이상 자격증 소지자",
+            "verified": true
+          }
+        ],
+        "track": "기계",
+        "points": 20,
+        "unit": "점",
+        "match": {
+          "items": [
+            "일반기계",
+            "건설기계설비",
+            "건설기계정비",
+            "공조냉동기계"
+          ],
+          "grades": [
+            "기술사",
+            "기능장",
+            "기사",
+            "산업기사"
+          ]
+        }
+      },
+      {
+        "name": "6급2 전기 직무 자격증 (산업기사 이상)",
+        "kind": "bonus",
+        "applicable_units": [
+          "일반직_신입_6급2_전기_전국"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "305190",
+            "page": 22,
+            "quote": "전기, 전기공사, 전자",
+            "verified": true
+          },
+          {
+            "side": "curr",
+            "notice_sn": "305190",
+            "page": 22,
+            "quote": "인정기준 : 6급2 산업기사 이상, 7급 기능사 이상 자격증 소지자",
+            "verified": true
+          }
+        ],
+        "track": "전기",
+        "points": 20,
+        "unit": "점",
+        "match": {
+          "items": [
+            "전기",
+            "전기공사",
+            "전자"
+          ],
+          "grades": [
+            "기술사",
+            "기능장",
+            "기사",
+            "산업기사"
+          ]
+        }
+      },
+      {
+        "name": "6급2 토목 직무 자격증 (산업기사 이상)",
+        "kind": "bonus",
+        "applicable_units": [
+          "일반직_신입_6급2_토목_전국"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "305190",
+            "page": 22,
+            "quote": "직무 20점 토목, 건설재료시험, 측량 및 지형공간정보, 콘크리트",
+            "verified": true
+          },
+          {
+            "side": "curr",
+            "notice_sn": "305190",
+            "page": 22,
+            "quote": "인정기준 : 6급2 산업기사 이상, 7급 기능사 이상 자격증 소지자",
+            "verified": true
+          }
+        ],
+        "track": "토목",
+        "points": 20,
+        "unit": "점",
+        "match": {
+          "items": [
+            "토목",
+            "건설재료시험",
+            "측량 및 지형공간정보",
+            "콘크리트"
+          ],
+          "grades": [
+            "기술사",
+            "기능장",
+            "기사",
+            "산업기사"
+          ]
+        }
+      },
+      {
+        "name": "7급 기계 직무 자격증 (기능사 이상)",
+        "kind": "bonus",
+        "applicable_units": [
+          "일반직_신입_7급_기계_전국"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "305190",
+            "page": 22,
+            "quote": "일반기계, 건설기계설비, 건설기계정비, 공조냉동기계",
+            "verified": true
+          },
+          {
+            "side": "curr",
+            "notice_sn": "305190",
+            "page": 22,
+            "quote": "인정기준 : 6급2 산업기사 이상, 7급 기능사 이상 자격증 소지자",
+            "verified": true
+          }
+        ],
+        "track": "기계",
+        "points": 20,
+        "unit": "점",
+        "match": {
+          "items": [
+            "일반기계",
+            "건설기계설비",
+            "건설기계정비",
+            "공조냉동기계"
+          ],
+          "grades": [
+            "기술사",
+            "기능장",
+            "기사",
+            "산업기사",
+            "기능사"
+          ]
+        }
+      },
+      {
+        "name": "7급 전기 직무 자격증 (기능사 이상)",
+        "kind": "bonus",
+        "applicable_units": [
+          "일반직_신입_7급_전기_전국"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "305190",
+            "page": 22,
+            "quote": "전기, 전기공사, 전자",
+            "verified": true
+          },
+          {
+            "side": "curr",
+            "notice_sn": "305190",
+            "page": 22,
+            "quote": "인정기준 : 6급2 산업기사 이상, 7급 기능사 이상 자격증 소지자",
+            "verified": true
+          }
+        ],
+        "track": "전기",
+        "points": 20,
+        "unit": "점",
+        "match": {
+          "items": [
+            "전기",
+            "전기공사",
+            "전자"
+          ],
+          "grades": [
+            "기술사",
+            "기능장",
+            "기사",
+            "산업기사",
+            "기능사"
+          ]
+        }
+      },
+      {
+        "name": "특정직 기술공통 직무 자격증 (기능사 이상)",
+        "kind": "bonus",
+        "applicable_units": [
+          "특정직_신입_기술공통_전국"
+        ],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "305190",
+            "page": 22,
+            "quote": "(기술공 직무 20점",
+            "verified": true
+          },
+          {
+            "side": "curr",
+            "notice_sn": "305190",
+            "page": 22,
+            "quote": "인정기준 : 기능사 이상 자격증 소지자",
+            "verified": true
+          }
+        ],
+        "track": "기타",
+        "points": 20,
+        "unit": "점",
+        "match": {
+          "items": [
+            "일반기계",
+            "건설기계설비",
+            "건설기계정비",
+            "공조냉동기계",
+            "전기",
+            "전기공사",
+            "전자"
+          ],
+          "grades": [
+            "기술사",
+            "기능장",
+            "기사",
+            "산업기사",
+            "기능사"
+          ]
+        }
+      },
+      {
+        "name": "IT 공통: 정보처리기사·컴활 1급·워드 (10점)",
+        "kind": "bonus",
+        "applicable_units": [],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "305190",
+            "page": 22,
+            "quote": "10점 정보처리기사, 컴퓨터활용능력 1급, 워드프로세서(구1급)",
+            "verified": true
+          }
+        ],
+        "points": 10,
+        "unit": "점",
+        "match": {
+          "names": [
+            "정보처리기사",
+            "컴퓨터활용능력 1급",
+            "워드프로세서"
+          ]
+        }
+      },
+      {
+        "name": "IT 공통: 정보처리산업기사·컴활 2급 (5점)",
+        "kind": "bonus",
+        "applicable_units": [],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "305190",
+            "page": 22,
+            "quote": "5점 정보처리산업기사, 컴퓨터활용능력 2급",
+            "verified": true
+          }
+        ],
+        "points": 5,
+        "unit": "점",
+        "match": {
+          "names": [
+            "정보처리산업기사",
+            "컴퓨터활용능력 2급"
+          ]
+        }
+      },
+      {
+        "name": "안전 공통: 가스·산업안전·건설안전 (10점)",
+        "kind": "bonus",
+        "applicable_units": [],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "305190",
+            "page": 22,
+            "quote": "안전 10점 가스, 산업안전, 건설안전",
+            "verified": true
+          }
+        ],
+        "points": 10,
+        "unit": "점",
+        "match": {
+          "items": [
+            "가스",
+            "산업안전",
+            "건설안전"
+          ],
+          "grades": [
+            "기술사",
+            "기능장",
+            "기사",
+            "산업기사"
+          ]
+        }
+      },
+      {
+        "name": "전문자격 60점: 변호사·공인회계사·변리사",
+        "kind": "bonus",
+        "applicable_units": [],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "305190",
+            "page": 21,
+            "quote": "60점 변호사, 공인회계사, 변리사, 기술사*",
+            "verified": true
+          }
+        ],
+        "points": 60,
+        "unit": "점",
+        "match": {
+          "names": [
+            "변호사",
+            "공인회계사",
+            "변리사"
+          ]
+        }
+      },
+      {
+        "name": "전문자격 60점: 지정 분야 기술사",
+        "kind": "bonus",
+        "applicable_units": [],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "305190",
+            "page": 21,
+            "quote": "* 기술사 인정 분야",
+            "verified": true
+          },
+          {
+            "side": "curr",
+            "notice_sn": "305190",
+            "page": 21,
+            "quote": "60점 변호사, 공인회계사, 변리사, 기술사*",
+            "verified": true
+          }
+        ],
+        "points": 60,
+        "unit": "점",
+        "match": {
+          "items": [
+            "건축구조",
+            "건축기계설비",
+            "건축시공",
+            "건축품질시험",
+            "토목구조",
+            "측량 및 지형공간정보",
+            "토목시공",
+            "기계",
+            "건설기계",
+            "공조냉동기계",
+            "화공",
+            "건축전기설비",
+            "발송배전",
+            "전기응용",
+            "산업계측제어",
+            "전자응용",
+            "건설안전"
+          ],
+          "grades": [
+            "기술사"
+          ]
+        }
+      },
+      {
+        "name": "전문자격 50점: 관세사·노무사·세무사·법무사·감정평가사",
+        "kind": "bonus",
+        "applicable_units": [],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "305190",
+            "page": 21,
+            "quote": "50점 관세사, 공인노무사, 세무사, 법무사, 감정평가사",
+            "verified": true
+          }
+        ],
+        "points": 50,
+        "unit": "점",
+        "match": {
+          "names": [
+            "관세사",
+            "공인노무사",
+            "세무사",
+            "법무사",
+            "감정평가사"
+          ]
+        }
+      },
+      {
+        "name": "전문자격 40점: 경영지도사",
+        "kind": "bonus",
+        "applicable_units": [],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "305190",
+            "page": 21,
+            "quote": "40점 경영지도사",
+            "verified": true
+          }
+        ],
+        "points": 40,
+        "unit": "점",
+        "match": {
+          "names": [
+            "경영지도사"
+          ]
+        }
+      }
+    ],
+    "majors": [
+      {
+        "name": "학력·전공 제한 없음 (7급은 고졸 학력 제한, unit_notes 참고)",
+        "kind": "accepted",
+        "applicable_units": [],
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "305190",
+            "page": 3,
+            "quote": "학력·전공 ◦ 제한없음",
+            "verified": true
+          }
+        ],
+        "unrestricted": true
+      }
+    ],
     "manual_review_conditions": [],
     "units": [
       {
@@ -982,16 +1459,46 @@
       {
         "name": "일반직_신입_7급_기계_전국",
         "track": "기계",
-        "kind": "general",
-        "note": null,
-        "evidence": []
+        "kind": "condition",
+        "note": "고졸제한: 최종학력이 고등학교 졸업(예정) 또는 이에 준하는 학력자만 지원 가능, 전문학사·학사 등 학위 소지자 및 졸업예정자 지원불가",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "305190",
+            "page": 3,
+            "quote": "최종학력이 고등학교 졸업(예정) 또는 이에 준하는 학력 소지자",
+            "verified": true
+          },
+          {
+            "side": "curr",
+            "notice_sn": "305190",
+            "page": 3,
+            "quote": "※ 고졸제한",
+            "verified": true
+          }
+        ]
       },
       {
         "name": "일반직_신입_7급_전기_전국",
         "track": "전기",
-        "kind": "general",
-        "note": null,
-        "evidence": []
+        "kind": "condition",
+        "note": "고졸제한: 최종학력이 고등학교 졸업(예정) 또는 이에 준하는 학력자만 지원 가능, 전문학사·학사 등 학위 소지자 및 졸업예정자 지원불가",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "305190",
+            "page": 3,
+            "quote": "최종학력이 고등학교 졸업(예정) 또는 이에 준하는 학력 소지자",
+            "verified": true
+          },
+          {
+            "side": "curr",
+            "notice_sn": "305190",
+            "page": 3,
+            "quote": "※ 고졸제한",
+            "verified": true
+          }
+        ]
       },
       {
         "name": "특정직_신입_기술공통_전국",
@@ -1001,10 +1508,119 @@
         "evidence": []
       }
     ],
-    "common_checks": [],
+    "common_checks": [
+      {
+        "text": "연령 제한 없음 (임용일 기준 만 60세 초과자 제외, 정년 적용)",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "305190",
+            "page": 3,
+            "quote": "단, 임용일 기준 만 60세 초과자 제외 : 정년적용",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "text": "병역을 필했거나 면제받은 자 (임용일 전 전역 가능자 포함, 7급은 병역미필자도 응시 가능)",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "305190",
+            "page": 3,
+            "quote": "병역법 제76조(병역의무 불이행자에 대한 제재)에서 정한 병역의무",
+            "verified": true
+          },
+          {
+            "side": "curr",
+            "notice_sn": "305190",
+            "page": 3,
+            "quote": "단, 7급의 경우 병역미필자 응시 가능",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "text": "외국어성적 기준: 6급2 700점 이상, 7급·특정직 480점 이상",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "305190",
+            "page": 21,
+            "quote": "6급2 : 700점 이상 / 7급, 특정직 : 480점 이상",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "text": "임용일부터 공사 소속으로 근무 가능한 자",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "305190",
+            "page": 3,
+            "quote": "임용일부터 공사 소속으로 근무 가능자",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "text": "인사규정상 채용 결격사유가 없는 자",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "305190",
+            "page": 3,
+            "quote": "인사규정에 의한 채용 결격사유([첨부1] 참조)가 없는 자",
+            "verified": true
+          }
+        ]
+      },
+      {
+        "text": "각 채용분야 중복지원 불가",
+        "evidence": [
+          {
+            "side": "curr",
+            "notice_sn": "305190",
+            "page": 3,
+            "quote": "각 채용분야 중복지원 불가(중복지원 확인시 불합격 처리)",
+            "verified": true
+          }
+        ]
+      }
+    ],
     "region_note": null,
-    "bonus_rule": null,
-    "reviewed": null
+    "bonus_rule": {
+      "text": "직무분야 최대 3개 + 기술분야공통(IT·안전) 최대 3개 인정, 동일 종목은 높은 점수 1개만, 자격증 최대 60점 (전문자격도 최대 60점)",
+      "evidence": [
+        {
+          "side": "curr",
+          "notice_sn": "305190",
+          "page": 22,
+          "quote": "* 직무분야 최대 3개와 기술분야공통(IT·안전) 최대 3개 인정가능",
+          "verified": true
+        },
+        {
+          "side": "curr",
+          "notice_sn": "305190",
+          "page": 22,
+          "quote": "- 동일 종목은 높은 점수의 자격증 1개만 인정, 최대 60점 만점",
+          "verified": true
+        },
+        {
+          "side": "curr",
+          "notice_sn": "305190",
+          "page": 21,
+          "quote": "전문분야 자격증 보유시 최대 60점",
+          "verified": true
+        }
+      ]
+    },
+    "reviewed": {
+      "reviewed_at": "2026-11-19",
+      "reviewer": "AI 자동 추출(claude-sonnet-5-5), 인용 원문 대조 통과분만 · 사람 확인 전",
+      "scope": "일반직 6급2(기계·전기·토목), 일반직 7급(기계·전기), 특정직(기술공통)"
+    }
   },
   "tier": "auto",
   "category": "준시장형"

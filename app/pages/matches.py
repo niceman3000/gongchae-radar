@@ -12,7 +12,7 @@ import streamlit as st
 from app.pages.report import _units
 from app.ui_components import apply_styles, concise_change_title, eligibility_badge, evidence_card, md_text
 from src.eligibility import EligibilityResult, UserCondition, evaluate_all
-from app.report_data import AUTO_BADGE, collection_skipped, is_auto, load_reports
+from app.report_data import DATA_NOTICE, collection_skipped, load_reports
 
 CONDITIONS_PAGE = "app/pages/conditions.py"
 REPORT_PAGE = "app/pages/report.py"
@@ -37,15 +37,14 @@ def representative_change(report: Mapping[str, Any]) -> str | None:
     unit = next((item for item in units if item["status"] == "confirmed"), units[0])
     change = unit["changes"][0]
     title, _ = concise_change_title(change, str(report["pair_id"]), report.get("notice_info"))
-    status = "원문 확인" if unit["status"] == "confirmed" else "확인 필요 후보"
-    return f"{title} ({status})"
+    return f"{title} (원문 확인)" if unit["status"] == "confirmed" else title
 
 
 def _bonus_lines(result: EligibilityResult, track: str) -> list[str]:
     by_cert: dict[str, list[str]] = {}
     for row in result.bonus:
         where = "·".join(row["units"]) if row["units"] else f"{track} 직렬"
-        by_cert.setdefault(row["certificate"], []).append(f"{where} {row['points']}점")
+        by_cert.setdefault(row["certificate"], []).append(f"{where} {row['points']}{row.get('unit') or '점'}")
     return [f"{cert}: {', '.join(parts)}" for cert, parts in by_cert.items()]
 
 
@@ -60,11 +59,6 @@ def match_card(result: EligibilityResult, report: Mapping[str, Any], track: str)
             st.caption(f"{category}접수 마감 {format_deadline(result.deadline)}")
         with right:
             eligibility_badge(result.status)
-            if is_auto(report):
-                st.markdown(
-                    f'<span class="status-badge status-not_published">{AUTO_BADGE}</span>',
-                    unsafe_allow_html=True,
-                )
 
         st.markdown("**판단 이유**")
         for reason in result.reasons:
@@ -137,7 +131,7 @@ def render_matches_page() -> None:
     st.page_link(CONDITIONS_PAGE, label="조건 바꾸기", icon="📝")
     st.caption(
         "합격 가능성이나 순위가 아니라, 공고에 적힌 지원 조건과 내 조건을 비교한 결과입니다. "
-        "확정할 수 없는 조건이 있으면 '애매'로 표시합니다."
+        "확정할 수 없는 조건이 있으면 '애매'로 표시합니다. " + DATA_NOTICE
     )
 
     loaded, _ = load_reports()

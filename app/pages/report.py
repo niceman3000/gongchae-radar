@@ -11,7 +11,7 @@ import streamlit as st
 
 from app.ui_components import apply_styles, md_text, unit_card
 from src.change_groups import display_units
-from app.report_data import AUTO_BADGE, is_auto, load_reports
+from app.report_data import DATA_NOTICE, load_reports
 from src.report_repository import ReportContractError
 
 
@@ -86,14 +86,7 @@ def _render_header(report: Mapping[str, Any]) -> None:
         f'<div class="radar-title">{institution} 채용공고 비교</div>',
         unsafe_allow_html=True,
     )
-    if is_auto(report):
-        st.markdown(
-            f'<span class="status-badge status-review_required">{AUTO_BADGE}</span>',
-            unsafe_allow_html=True,
-        )
-        st.caption(
-            "정부 채용정보 API 문구를 코드로 자동 비교한 공고입니다. PDF 원문 대조 전이라 모든 변경점은 '확인 필요' 후보입니다."
-        )
+    st.caption(DATA_NOTICE)
     st.markdown(
         '<div class="radar-subtitle">현재 지원할 공고와 전년도 공고에서 달라진 내용을 확인합니다.</div>',
         unsafe_allow_html=True,
@@ -119,8 +112,9 @@ def _render_header(report: Mapping[str, Any]) -> None:
     confirmed = sum(item["status"] == "confirmed" for item in units)
     review = sum(item["status"] == "review_required" for item in units)
     first, second, third = st.columns(3)
-    first.metric("확인된 변경사항", f"{confirmed}건")
-    second.metric("추가 확인 필요", f"{review}건")
+    # 30곳 모두 자동 비교 후보라 '확인된 0건'처럼 보이지 않게 후보 수를 먼저 보여준다
+    first.metric("작년 대비 변경 후보", f"{confirmed + review}건")
+    second.metric("숫자가 바뀐 후보", f"{sum(unit['changes'][0].get('change_type') == 'number' for unit in units)}건")
     third.metric("데이터 확인일", report["checked_at"])
 
 
@@ -302,16 +296,16 @@ def render_report(report: Mapping[str, Any]) -> None:
     if confirmed_count:
         st.info("확정 결과에는 PDF 쪽수와 원문 인용이 반드시 붙습니다. 확인되지 않은 후보는 따로 표시합니다.")
     else:
-        st.warning(
-            "이 기업은 자동 비교 후보까지만 만들어졌고 PDF 원문 대조가 아직 끝나지 않았습니다. "
-            "아래 후보는 확정된 변경사항으로 사용하면 안 됩니다."
+        st.info(
+            "아래 변경점은 작년·올해 공고 문구를 코드로 비교해 찾은 후보입니다. "
+            "중요한 변경은 공고문 원문으로 확인하세요."
         )
     _render_ai_usage()
     _render_notice_info(report)
     _render_visual_summary(report)
 
     st.subheader("무엇이 바뀌었나")
-    show_review = st.toggle("확인 필요한 후보도 함께 보기", value=False)
+    show_review = st.toggle("확인 필요한 후보도 함께 보기", value=True)  # 30곳 모두 자동 후보라 기본으로 보여줌
     visible = [
         unit
         for unit in _units(report)
@@ -339,10 +333,7 @@ def _report_option_label(report: Mapping[str, Any]) -> str:
     units = _units(report)
     confirmed = sum(item["status"] == "confirmed" for item in units)
     review = sum(item["status"] == "review_required" for item in units)
-    if is_auto(report):
-        status = f"{AUTO_BADGE} · 후보 {review}건"
-    else:
-        status = f"원문 확인 {confirmed}건" if confirmed else f"원문 대조 중 · 후보 {review}건"
+    status = f"확인 {confirmed}건 · 후보 {review}건" if confirmed else f"변경 후보 {review}건"
     category = f"[{report['category']}] " if report.get("category") else ""
     return f'{category}{report["institution"]} · {report["pair_name"]} · {status}'
 
@@ -367,6 +358,11 @@ def render_report_page(pair_id: str = "kepco-2025-2026-h2") -> None:
             help="현재 공고와 전년도 유사 공고 한 쌍을 선택합니다.",
         )
         report = reports_by_id[selected_pair_id]
+        st.session_state["selected_pair_id"] = selected_pair_id  # ④ 질문 화면이 같은 공고를 연다
+        try:  # 화면 하나만 따로 띄울 때(자동 테스트)는 다른 화면 링크가 없어서 건너뛴다
+            st.page_link("app/pages/qa.py", label="이 공고에 대해 공고문에 물어보기", icon="💬")
+        except Exception:  # noqa: BLE001 - StreamlitPageNotFoundError
+            pass
     except (KeyError, ReportContractError) as exc:
         apply_styles()
         st.error(f"리포트를 열 수 없습니다: {exc}")

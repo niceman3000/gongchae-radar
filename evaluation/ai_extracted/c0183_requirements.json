@@ -1,0 +1,131 @@
+{
+  "pair_id": "c0183-287422-304761",
+  "reviewed_at": "2026-11-19",
+  "reviewer": "AI 자동 추출(claude-sonnet-5-5), 인용 원문 대조 통과분만 · 사람 확인 전",
+  "partial": false,
+  "scope": "5급 신입(인턴) 전 직렬: 행정(경영·법정·AI인재), 토목, 전기, 기계, 설비, 전산(AI인재), 전자",
+  "items": [
+    {
+      "kind": "major",
+      "name": "학력·성별·연령 제한 없음 (전공 제한 없음)",
+      "evidence": [
+        {
+          "side": "curr",
+          "page": 3,
+          "quote": "학력, 성별, 연령 제한 없음"
+        }
+      ],
+      "applicable_units": [],
+      "unrestricted": true
+    }
+  ],
+  "bonus_rule": null,
+  "common_checks": [
+    {
+      "text": "(AI인재·기술직 한정) 선발 분야의 기사 자격증 등 소지 필요. 세부 종목은 붙임 2에 있어 이 공고문에서는 확인 불가",
+      "evidence": [
+        {
+          "side": "curr",
+          "page": 3,
+          "quote": "◦ (AI인재, 기술직) 선발 분야의 기사 자격증 등 소지 [붙임 2]"
+        }
+      ]
+    },
+    {
+      "text": "어학성적 4종 중 택1 기준 점수 이상: 공통 TOEIC 700, TEPS 264, TOEIC-S Intermediate Mid2, OPIc IM1 / 우대대상자 TOEIC 500, TEPS 195, TOEIC-S Novice High, OPIc NH",
+      "evidence": [
+        {
+          "side": "curr",
+          "page": 3,
+          "quote": "◦ (성적기준) 4종 중 택1, 해당 점수 이상 보유"
+        },
+        {
+          "side": "curr",
+          "page": 3,
+          "quote": "공 통 700점 264점 IM1"
+        }
+      ]
+    },
+    {
+      "text": "병역: 남자는 병역필 또는 면제자 (병역특례 근무 중인 자 제외)",
+      "evidence": [
+        {
+          "side": "curr",
+          "page": 3,
+          "quote": "병역 : 남자의 경우 병역필 또는 면제자"
+        }
+      ]
+    },
+    {
+      "text": "공사 인사규정 제8조의 결격사유가 없는 자",
+      "evidence": [
+        {
+          "side": "curr",
+          "page": 3,
+          "quote": "◦ 공사 인사규정 제8조의 결격사유가 없는 자 [붙임 1]"
+        }
+      ]
+    },
+    {
+      "text": "인턴 계약일(2026년 11월 중 예정)부터 근무 가능한 자",
+      "evidence": [
+        {
+          "side": "curr",
+          "page": 3,
+          "quote": "인턴 계약일(2026년 11월 중 예정)부터 근무가 가능한 자"
+        }
+      ]
+    },
+    {
+      "text": "모든 선발분야 간 및 일반직 8급 채용과 중복지원 불가",
+      "evidence": [
+        {
+          "side": "curr",
+          "page": 3,
+          "quote": "및 일반직 8급 채용과 중복지원 불가"
+        }
+      ]
+    }
+  ],
+  "region_note": {
+    "text": "지역권 지원 시 선택한 권역이 입사 후 근무지 배치 기준이 되며, 정규임용일 기준 해당 권역에서 7년 근무가 원칙",
+    "evidence": [
+      {
+        "side": "curr",
+        "page": 2,
+        "quote": "선택한 권역은 입사 후 근무지 배치 기준이 되므로"
+      },
+      {
+        "side": "curr",
+        "page": 2,
+        "quote": "정규임용일 기준 해당 권역에서 7년 근무가 원칙이며"
+      }
+    ]
+  },
+  "unit_notes": [
+    {
+      "pattern": "보훈",
+      "kind": "special",
+      "text": "보훈·장애인 취업지원대상자로서 취업지원대상자 증명서 발급 가능자만 지원 가능",
+      "evidence": [
+        {
+          "side": "curr",
+          "page": 3,
+          "quote": "취업지원대상자 증명서 발급 가능자"
+        }
+      ]
+    },
+    {
+      "pattern": "장애인",
+      "kind": "special",
+      "text": "장애인고용촉진 및 직업재활법 시행령 제3조에 따른 장애인으로 증빙서류 제출 가능한 자만 지원 가능",
+      "evidence": [
+        {
+          "side": "curr",
+          "page": 3,
+          "quote": "동시행령 제3조제2항의 증빙서류 제출이 가능한 자 [붙임 4]"
+        }
+      ]
+    }
+  ]
+}
