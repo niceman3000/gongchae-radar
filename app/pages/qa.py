@@ -45,9 +45,31 @@ def _api_key() -> str:
     if os.environ.get("GONGCHAE_IGNORE_SECRETS") == "1":  # 테스트용: PC의 .streamlit/secrets.toml 키를 쓰지 않음 (11-20 시험 중 실제 AI 호출)
         return ""
     try:  # 배포(Streamlit Cloud)에서는 Secrets에 넣는다
-        return str(st.secrets.get("ANTHROPIC_API_KEY", "")).strip()
-    except Exception:  # noqa: BLE001 - secrets 파일이 없으면 키 없음
+        secrets = st.secrets
+        value = secrets.get("ANTHROPIC_API_KEY")
+        if not value:  # '[anthropic]' 같은 칸 안에 넣은 경우도 읽는다
+            for section in secrets.values():
+                if isinstance(section, Mapping) and section.get("ANTHROPIC_API_KEY"):
+                    value = section.get("ANTHROPIC_API_KEY")
+                    break
+        return str(value or "").strip()
+    except Exception as exc:  # noqa: BLE001 - secrets 파일이 없거나 형식 오류면 키 없음
+        st.session_state["secrets_problem"] = type(exc).__name__
         return ""
+
+
+def _secrets_hint() -> str:
+    """키가 안 읽힐 때 이유 (키 값은 절대 보여 주지 않고 이름·오류 종류만)"""
+    problem = st.session_state.get("secrets_problem")
+    if problem:
+        return f" · Secrets 읽기 오류: {problem} (형식 확인: ANTHROPIC_API_KEY = \"키\")"
+    try:
+        names = [str(name) for name in st.secrets.keys()]
+    except Exception:  # noqa: BLE001
+        names = []
+    if names:
+        return f" · Secrets에 있는 이름: {', '.join(names)} (ANTHROPIC_API_KEY 이어야 해요)"
+    return " · Secrets가 비어 있어요"
 
 
 def _render_answer(result: GroundedAnswer, report: Mapping[str, Any]) -> None:
@@ -98,7 +120,8 @@ def render_qa_page() -> None:
 
     st.caption("AI 답변: 켜짐 (API 키 있음)" if _api_key() else
                "AI 답변: 꺼짐 (API 키 없음) · 관련 원문 발췌만 보여줘요. "
-               "(PC: 키를 넣은 창에서 실행하거나 `.streamlit/secrets.toml`, 배포: Streamlit Cloud Secrets)")
+               "(PC: 키를 넣은 창에서 실행하거나 `.streamlit/secrets.toml`, 배포: Streamlit Cloud Secrets)"
+               + _secrets_hint())
     st.write("예시 질문")
     columns = st.columns(len(EXAMPLES))
     clicked = False
