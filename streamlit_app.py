@@ -1,14 +1,17 @@
 """공채레이더 로컬 실행 진입점: ① 내 조건 입력 → ② 맞춤 공고 → ③ 공고 비교 → ④ 공고문에 물어보기."""
 
+import os
 import sys
 
 import streamlit as st
 
-# 실행할 때마다 프로젝트 코드(app·src)를 새로 불러온다.
+# PC 개발용(run_streamlit.bat이 GONGCHAE_DEV=1을 켬): 실행할 때마다 프로젝트 코드(app·src)를 새로 불러온다.
 # Streamlit은 화면이 닫혀 있을 때 바뀐 파일을 놓치고 예전 코드를 계속 쓰는 경우가 있어서
 # (2026-11-18 확인), Claude·Codex가 번갈아 고쳐도 껐다 켜지 않게 한다.
-for _name in [name for name in sys.modules if name.split(".")[0] in {"app", "src"}]:
-    del sys.modules[_name]
+# 배포 서버에서는 끈다 (11-20 Streamlit Cloud Python 3.14: 지운 모듈을 다시 읽다가 dataclass 오류로 '공고 찾기'가 멈춤)
+if os.environ.get("GONGCHAE_DEV") == "1":
+    for _name in [name for name in sys.modules if name.split(".")[0] in {"app", "src"}]:
+        del sys.modules[_name]
 
 
 st.set_page_config(
