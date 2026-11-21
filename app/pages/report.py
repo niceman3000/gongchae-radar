@@ -9,7 +9,7 @@ from typing import Any, Mapping
 import pandas as pd
 import streamlit as st
 
-from app.ui_components import apply_styles, md_text, unit_card
+from app.ui_components import apply_styles, change_row, md_text
 from src.change_groups import display_units
 from app.report_data import DATA_NOTICE, load_reports
 from src.report_repository import ReportContractError
@@ -118,14 +118,6 @@ def _render_header(report: Mapping[str, Any]) -> None:
             )
     st.caption(DATA_NOTICE)
 
-    units = _units(report)
-    confirmed = sum(item["status"] == "confirmed" for item in units)
-    review = sum(item["status"] == "review_required" for item in units)
-    first, second, third = st.columns(3)
-    # 30곳 모두 자동 비교 후보라 '확인된 0건'처럼 보이지 않게 후보 수를 먼저 보여준다
-    first.metric("작년 대비 변경 후보", f"{confirmed + review}건")
-    second.metric("숫자가 바뀐 후보", f"{sum(unit['changes'][0].get('change_type') == 'number' for unit in units)}건")
-    third.metric("데이터 확인일", report["checked_at"])
 
 
 def _render_sources(report: Mapping[str, Any]) -> None:
@@ -334,28 +326,42 @@ def render_report(report: Mapping[str, Any]) -> None:
     # 내 직렬 이름이 들어간 변경을 맨 위로 (11-21 팀원 점검 13번)
     main.sort(key=lambda unit: (not _mentions_track(unit, track), unit["importance"]))
 
-    st.subheader("무엇이 바뀌었나")
-    grouped = sum(unit["kind"] == "group" for unit in main)
+    related = [unit for unit in main if _mentions_track(unit, track)]
+    total = len(main) + len(minor)
+    st.markdown(f'<div class="m-head"><div><span class="m-head-title">작년과 달라진 점</span> '
+                f'<span class="m-head-count">{total}</span><span class="m-head-title">건</span></div></div>',
+                unsafe_allow_html=True)
     dated = sum(change.get("change_type") == "date" for change in report["changes"])
     st.caption(
-        "작년·올해 공고 문구를 코드로 비교해 찾은 후보예요. 카드마다 바뀐 부분을 표시했고, "
-        "아래 '공식 공고 원문'에서 바로 확인할 수 있어요."
-        + (f" · {track} 직렬 관련 변경을 먼저 보여 드려요" if track and any(_mentions_track(u, track) for u in main) else "")
-        + (f" · 같은 변경을 나눠 잡은 {grouped}묶음은 한 장으로" if grouped else "")
-        + (f" · 날짜만 바뀐 {dated}건은 ‘이번 공고 한눈에 보기’에" if dated else "")
+        "작년·올해 공고 문구를 코드로 비교해 찾은 후보예요. 중요한 변경은 아래 ‘공식 공고 원문’으로 확인하세요."
+        + (f" 날짜만 바뀐 {dated}건은 ‘이번 공고 한눈에 보기’에 있어요." if dated else "")
     )
-
-    titles = {"prev": report["prev"]["title"], "curr": report["curr"]["title"]}
-    for unit in main:
-        if _mentions_track(unit, track):
-            st.markdown(f'<span class="chip chip-bonus">내 직렬({escape(track)}) 관련</span>', unsafe_allow_html=True)
-        unit_card(unit, titles, str(report["pair_id"]), report.get("notice_info"))
-    if not main and not minor:
+    if not total:
         st.info("작년 공고와 비교해 찾은 변경 후보가 없어요.")
-    if minor:
-        with st.expander(f"이름·표기만 바뀐 사소한 변경 {len(minor)}건"):
-            for unit in minor:
-                unit_card(unit, titles, str(report["pair_id"]), report.get("notice_info"))
+    else:
+        titles = {"prev": report["prev"]["title"], "curr": report["curr"]["title"]}
+        pair_id, info = str(report["pair_id"]), report.get("notice_info")
+        tabs = ([(f"내 직렬({track}) 관련 {len(related)}", "related")] if related else []) + [(f"전체 {len(main)}", "all")]
+        if minor:
+            tabs.append((f"사소한 변경 {len(minor)}", "minor"))
+        for tab, (_, kind) in zip(st.tabs([label for label, _ in tabs]), tabs):
+            with tab:
+                if kind == "related":
+                    for index, unit in enumerate(related):
+                        change_row(unit, titles, pair_id, info, track, first=index == 0)
+                elif kind == "all":
+                    more_key = f"more-changes-{pair_id}"
+                    shown = main if st.session_state.get(more_key) else main[:6]
+                    for index, unit in enumerate(shown):
+                        change_row(unit, titles, pair_id, info, track if unit in related else None, first=index == 0)
+                    if len(main) > len(shown) and st.button(f"나머지 변경 {len(main) - len(shown)}건 보기 ▾",
+                                                            key=f"btn-{more_key}", type="tertiary"):
+                        st.session_state[more_key] = True
+                        st.rerun()
+                else:
+                    st.caption("행사·시스템 이름처럼 이름·표기만 바뀐 변경이에요.")
+                    for index, unit in enumerate(minor):
+                        change_row(unit, titles, pair_id, info, first=index == 0)
 
     _render_visual_summary(report)
     _render_notice_info(report)
@@ -383,7 +389,7 @@ def render_report_page(pair_id: str = "kepco-2025-2026-h2") -> None:
         default_index = list(reports_by_id).index(pair_id) if pair_id in reports_by_id else 0
         apply_styles()
         if st.session_state.get("user_condition"):
-            st.page_link("app/pages/matches.py", label="맞춤 공고 목록으로 돌아가기", icon="🔎")
+            st.page_link("app/pages/matches.py", label="맞춤 공고 목록으로 돌아가기", icon=":material/arrow_back:")
         selected_pair_id = st.selectbox(
             "지원할 기업과 비교 공고 선택",
             options=list(reports_by_id),

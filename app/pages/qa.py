@@ -95,7 +95,7 @@ def _render_answer(result: GroundedAnswer, report: Mapping[str, Any]) -> None:
 
 def render_qa_page() -> None:
     apply_styles()
-    st.title("공고문에 물어보기")
+    st.markdown('<div class="radar-title">공고문에 물어보기</div>', unsafe_allow_html=True)  # 다른 화면과 같은 크기 (20번)
     st.caption("선택한 공고의 공고문 원문 안에서만 답해요. 공고문에 없는 내용은 ‘공고문에 명시 없음’으로 답해요. "
                "이름·연락처 같은 개인정보는 입력하지 마세요.")
     reports, _ = load_reports()

@@ -213,9 +213,78 @@ def apply_styles() -> None:
         .stButton button p { font-size: 1rem; font-weight: 700; }
         .block-container { padding-top: 4rem; }
         .section-head { font-size: 1.05rem; font-weight: 800; color: #16202E; margin: 1.6rem 0 .5rem 0; }
+        /* ---- 11-21 팀원 예시 1~3: 상자 대신 줄, 구역은 검은 선 + 굵은 제목 ---- */
+        [data-testid="stHeader"] { background: #F3F5F8; }  /* 불투명: 내리면 메뉴 뒤로 글자가 비치던 것 (20번) */
+        [data-testid="stCaptionContainer"], [data-testid="stCaptionContainer"] * {
+            font-family: "Pretendard Variable", Pretendard, -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif !important;
+        }
+        .m-cond { margin-bottom: .2rem; }
+        .m-summary { color: #16202E; font-size: 1rem; margin: .9rem 0 .2rem 0; font-variant-numeric: tabular-nums; }
+        .m-summary span { color: #5B6675; }
+        .m-head { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem;
+                  border-top: 2px solid #16202E; padding-top: .9rem; margin: 2rem 0 .2rem 0; }
+        .m-head-title { font-size: 1.25rem; font-weight: 800; color: #16202E; }
+        .m-head-count { font-size: 1.25rem; font-weight: 800; color: #2453E6; font-variant-numeric: tabular-nums; }
+        .m-head-hint { color: #5B6675; font-size: .88rem; }
+        .m-empty { color: #5B6675; font-size: .95rem; margin: .1rem 0 .6rem 0; }
+        .m-notrack { margin-top: 1.6rem; }
+        .m-row { display: flex; justify-content: space-between; gap: 1rem; border-top: 1px solid #DDE2EA;
+                 padding: 1.05rem 0 .35rem 0; }
+        .m-inst { font-size: 1.3rem; font-weight: 800; color: #16202E; letter-spacing: -0.02em; }
+        .m-sub { color: #5B6675; font-size: .93rem; margin-top: .2rem; font-variant-numeric: tabular-nums; }
+        .m-bar { color: #C5CCD6; margin: 0 .5rem; }
+        .m-reason { color: #16202E; font-size: 1.02rem; margin-top: .55rem; }
+        .m-side { display: flex; flex-direction: column; align-items: flex-end; gap: .55rem; white-space: nowrap; }
+        .m-dday { background: #E8EEFF; color: #1D47C4; font-weight: 800; font-size: .88rem; border-radius: .4rem;
+                  padding: .18rem .5rem; font-variant-numeric: tabular-nums; }
+        .m-closed { color: #5B6675; font-size: .88rem; }
+        .m-verdict { font-weight: 800; font-size: 1.02rem; }
+        .v-eligible { color: #0B6E4C !important; } .v-ambiguous { color: #8A5300 !important; }
+        .v-ineligible { color: #B02A2A !important; } .v-past { color: #3B4656 !important; }
+        .m-foot { border-top: 1px solid #DDE2EA; margin-top: 1.6rem; }
+        /* 줄 아래 '자세히 보기'는 상자 없이 파란 글자 */
+        .m-first { border-top: 0; padding-top: .7rem; }
+        [data-testid="stMain"] [data-testid="stExpander"] details { border: 0; background: transparent; }
+        [data-testid="stMain"] [data-testid="stExpander"] summary { padding-left: 0; }
+        [data-testid="stMain"] [data-testid="stExpander"] details[open] > div { padding-left: 0; padding-right: 0; }
+        .d-table th, .d-table td { border-left: 0 !important; border-right: 0 !important; border-top: 0 !important; background: transparent !important; }
+        [data-testid="stMain"] [data-testid="stExpander"] summary p { color: #2453E6; font-weight: 700; font-size: .95rem; }
+        .d-head { border-top: 2px solid #16202E; padding-top: .75rem; margin: 1.3rem 0 .5rem 0;
+                  font-size: 1.08rem; font-weight: 800; color: #16202E; }
+        .d-head:first-child { margin-top: .2rem; }
+        .d-list { margin: 0 0 .4rem 0; padding-left: 1.15rem; color: #16202E; font-size: 1.02rem; line-height: 1.65; }
+        .d-list li { margin: .12rem 0; }
+        .d-table { width: 100%; border-collapse: collapse; font-size: .97rem; color: #16202E; margin-bottom: .4rem; }
+        .d-table th { text-align: left; color: #5B6675; font-weight: 600; font-size: .88rem;
+                      border-bottom: 1px solid #16202E; padding: .45rem .6rem .45rem 0; }
+        .d-table td { border-bottom: 1px solid #E3E8EF; padding: .6rem .6rem .6rem 0; vertical-align: top; line-height: 1.55; }
+        .d-table td.d-unit, .d-table td.d-page { font-weight: 800; white-space: nowrap; }
+        .d-table td[class^="v-"] { font-weight: 750; white-space: nowrap; }
+        .d-evidence td:first-child { width: 6.5rem; }
+        .stButton button[kind="tertiary"] p { color: #2453E6; font-size: .95rem; font-weight: 700; }
+        /* 변경점 (예시 3) */
+        .c-row { border-top: 1px solid #DDE2EA; padding-top: 1rem; margin-top: .4rem; }
+        .c-tags { display: flex; justify-content: space-between; font-size: .85rem; }
+        .c-tag-track { color: #2453E6; font-weight: 800; }
+        .c-tag-sep { color: #C5CCD6; margin: 0 .45rem; }
+        .c-tag-imp { color: #16202E; font-weight: 800; } .c-tag-low { color: #5B6675; font-weight: 600; }
+        .c-check { color: #5B6675; }
+        .c-title { font-size: 1.22rem; font-weight: 800; color: #16202E; margin-top: .3rem; letter-spacing: -0.02em; }
+        .c-title .up { color: #0B6E4C; } .c-title .down { color: #B02A2A; }
+        .c-meaning { color: #3B4656; font-size: 1rem; margin: .3rem 0 .6rem 0; }
+        .c-table { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: .95rem; }
+        .c-table th { background: #F1F4F8 !important; color: #3B4656; text-align: left; font-weight: 700; font-size: .86rem;
+                      padding: .5rem .7rem; border: 1px solid #DDE2EA; }
+        .c-table td { padding: .65rem .7rem; border: 1px solid #DDE2EA; vertical-align: top; line-height: 1.65;
+                      color: #273247; overflow-wrap: anywhere; background: #FFFFFF; }
+        .c-legend { color: #5B6675; font-size: .82rem; margin: .35rem 0 .2rem 0; }
+        .c-member { font-weight: 750; color: #16202E; margin: .7rem 0 .3rem 0; font-size: .95rem; }
+        [data-baseweb="tab-list"] { gap: 1.4rem; border-bottom: 1px solid #DDE2EA; }
+        [data-baseweb="tab"] p { font-size: 1.02rem; font-weight: 700; }
         @media (max-width: 640px) {
             .hero-title { font-size: 1.8rem; }
-            .row-top { flex-direction: column; }
+            .row-top, .m-row { flex-direction: column; }
+            .m-side { flex-direction: row; align-items: center; }
         }
         </style>
         """,
@@ -346,6 +415,24 @@ def _number_value_diff(prev: str, curr: str) -> tuple[list[str], list[str]]:
     return gone, new
 
 
+def _changed_fragment(prev: str, curr: str, numbers: list[str], added: bool) -> str | None:
+    """추가(또는 삭제)된 글자 조각 중 그 숫자가 든 것 ('전기(배전, 송변전) : 10배수,' → '전기(배전, 송변전) 10배수')"""
+    a_tokens = re.findall(r"\s+|[\w]+|[^\w\s]", prev)
+    b_tokens = re.findall(r"\s+|[\w]+|[^\w\s]", curr)
+    matcher = SequenceMatcher(None, a_tokens, b_tokens, autojunk=False)
+    for tag, a1, a2, b1, b2 in matcher.get_opcodes():
+        piece = "".join(b_tokens[b1:b2] if added else a_tokens[a1:a2])
+        if tag == "equal" or not any(re.sub(r"[^\d.]", "", number) in piece for number in numbers):
+            continue
+        piece = re.sub(r"\s*:\s*", " ", piece).strip(" ,/·:;○")
+        words = [word for word in re.findall(r"[가-힣A-Za-z]{2,}", piece) if word not in {"배수", "또는", "이상", "이하", "및"}]
+        clean = (re.match(r"[\w\[(]", piece) and not re.search(r"(또는|및|~|\()$", piece)
+                 and not re.match(r"(또는|및)\b", piece) and piece.count("(") == piece.count(")"))
+        if 3 <= len(piece) <= 30 and words and clean:
+            return piece
+    return None
+
+
 def number_title(change: Mapping[str, Any]) -> tuple[str, str | None] | None:
     """숫자가 바뀐 카드: '421명 → 490명 (+69명)', '15배수 → 10배수' + 규칙으로 쓴 의미 한 줄 (11-21 팀원 점검 6·15번)"""
     if change.get("change_type") != "number":
@@ -368,6 +455,10 @@ def number_title(change: Mapping[str, Any]) -> tuple[str, str | None] | None:
         return None
     label = {"전형": "전형 기준", "가점": "가점"}.get(category, category or "숫자")
     title = f"{label}: {', '.join(gone) or '없음'} → {', '.join(new) or '없음'}"
+    fragment = _changed_fragment(prev, curr, new or gone, added=bool(new))
+    if fragment and not (gone and new):  # 한쪽에만 있는 숫자: 바뀐 조각으로 제목 (11-21 팀원 점검 13번 '전기(배전, 송변전) 10배수 신설')
+        return f"{fragment} {'신설' if new else '없어짐'}", ("새 기준이 생겼어요. 내 직렬에 해당하는지 아래 표시를 보세요." if new
+                                                           else "이 기준이 없어졌어요. 아래 표시를 보세요.")
     units = {re.sub(r"[\d.\s]", "", value) for value in gone + new}
     meaning = None
     if units == {"배수"} and gone and new:
@@ -571,3 +662,82 @@ def unit_card(
         group_card(unit, titles, pair_id, notice_info)
     else:
         change_card(unit["changes"][0], titles, pair_id, notice_info)
+
+
+# ---- 11-21 팀원 예시 3: 변경점은 상자 대신 줄, 작년|올해 두 칸 대비표 ----
+PREV_HEAD, CURR_HEAD = "작년 공고 (2025)", "올해 공고 (2026)"
+DIFF_LEGEND = '<div class="c-legend">빨강 + 취소선 = 빠진 글자 · 초록 + 밑줄 = 추가된 글자</div>'
+
+
+def _title_html(title: str) -> str:
+    """'인원: 421명 → 490명 (+69명)'의 증감을 초록(늘어남)·빨강(줄어듦) 글자로"""
+    match = re.search(r"\(([+-])([\d,]+[^)]*)\)$", title)
+    if not match:
+        return escape(title)
+    css = "up" if match.group(1) == "+" else "down"
+    return f'{escape(title[:match.start()])}<span class="{css}">({escape(match.group(1) + match.group(2))})</span>'
+
+
+def _two_column(prev_html: str, curr_html: str) -> str:
+    return (f'<table class="c-table"><thead><tr><th>{PREV_HEAD}</th><th>{CURR_HEAD}</th></tr></thead>'
+            f"<tbody><tr><td>{prev_html}</td><td>{curr_html}</td></tr></tbody></table>")
+
+
+def change_values_table(change: Mapping[str, Any]) -> None:
+    """바뀐 값 한 쌍을 '작년 공고 | 올해 공고' 표로. 정수만 바뀐 숫자는 제목에 다 있으니 표를 생략"""
+    previous, current = change.get("prev_value"), change.get("curr_value")
+    if change.get("change_type") == "number" and _as_int(previous) is not None and _as_int(current) is not None:
+        return
+    if change.get("change_type") == "text" and is_list_like(previous) and is_list_like(current):
+        removed, added, same = item_diff(previous, current)
+        st.markdown(_two_column(_chips(removed, "removed") or "빠진 항목 없음", _chips(added, "added") or "새 항목 없음")
+                    + DIFF_LEGEND, unsafe_allow_html=True)
+        with st.expander(f"그대로인 항목 {same}개와 원문 전체"):
+            st.markdown(_two_column(escape(previous), escape(current)), unsafe_allow_html=True)
+        return
+    if isinstance(previous, str) and isinstance(current, str):
+        st.markdown(_two_column(diff_side_html(previous, current, "prev"), diff_side_html(previous, current, "curr"))
+                    + DIFF_LEGEND, unsafe_allow_html=True)
+        if max(len(previous), len(current)) >= 60:
+            with st.expander("원문 전체 비교"):
+                st.markdown(_two_column(escape(previous), escape(current)), unsafe_allow_html=True)
+        return
+    st.markdown(_two_column(escape(display_value(previous)), escape(display_value(current))), unsafe_allow_html=True)
+
+
+def change_row(
+    unit: Mapping[str, Any],
+    titles: Mapping[str, str],
+    pair_id: str,
+    notice_info: Mapping[str, Any] | None = None,
+    track: str | None = None,
+    first: bool = False,
+) -> None:
+    """변경 한 건 = 줄 하나: 꼬리표(내 직렬 관련 | 중요) · 굵은 제목 · 의미 한 줄 · 대비표 (예시 3)"""
+    members = list(unit["changes"])
+    if unit["kind"] == "group":
+        title, impact = group_title(unit, pair_id, notice_info)
+    else:
+        title, impact = concise_change_title(members[0], pair_id, notice_info)
+    importance = IMPORTANCE_LABELS.get(unit["importance"], "참고")
+    tags = []
+    if track:
+        tags.append(f'<span class="c-tag-track">내 직렬({escape(track)}) 관련</span>')
+    tags.append(f'<span class="{"c-tag-imp" if importance == "중요" else "c-tag-low"}">{importance}</span>')
+    tags.append(f'<span class="c-tag-low">{escape(str(unit["category"]))}</span>')
+    check = "원문 확인됨" if unit["status"] == "confirmed" else "원문 확인 권장"
+    st.markdown(
+        f'<div class="c-row{" m-first" if first else ""}"><div class="c-tags"><div>'
+        + '<span class="c-tag-sep">|</span>'.join(tags)
+        + f'</div><span class="c-check">{check}</span></div>'
+        f'<div class="c-title">{_title_html(title)}</div>'
+        + (f'<div class="c-meaning">{escape(impact)}</div>' if impact else '<div class="c-meaning"></div>')
+        + "</div>",
+        unsafe_allow_html=True,
+    )
+    for index, change in enumerate(members, 1):
+        if len(members) > 1:
+            st.markdown(f'<div class="c-member">{index}. {escape(_member_label(change, notice_info))}</div>',
+                        unsafe_allow_html=True)
+        change_values_table(change)
+    _render_evidence([item for change in members for item in change.get("evidence") or []], titles)

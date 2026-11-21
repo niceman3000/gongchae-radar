@@ -21,8 +21,8 @@ def test_kepco_report_opens_with_candidates_and_notice():
     assert any("올해 공고 (2026)" in item.value for item in app.markdown)
     assert any("작년 공고 (2025)" in item.value for item in app.markdown)
     assert any("자동으로 정리했어요" in item.value for item in app.caption)
-    assert any(item.label == "작년 대비 변경 후보" and item.value.endswith("건") for item in app.metric)
-    assert not any(item.label == "확인된 변경사항" for item in app.metric)
+    assert any("작년과 달라진 점" in item.value for item in app.markdown)  # 11-21 예시 3: 숫자 상자 대신 제목에 건수
+    assert not app.metric
     assert any("이번 공고 한눈에 보기" in item.value for item in app.subheader)
     assert any("접수기간:** 2026.09.02 ~ 2026.09.16" in item.value for item in app.markdown)
     assert any("421" in item.value and "490" in item.value for item in app.markdown)
@@ -40,16 +40,22 @@ def test_candidates_are_shown_with_one_notice_and_minor_changes_folded():
     assert not app.toggle
     assert sum("코드로 비교해 찾은 후보" in item.value for item in app.caption) == 1
     visible_text = " ".join(item.value for item in app.markdown)
-    assert "인원: 421명 → 490명 (+69명)" in visible_text
+    assert "인원: 421명 → 490명" in visible_text and '<span class="up">(+69명)</span>' in visible_text
     assert "뽑는 인원이 늘었어요 (69명)" in visible_text
+    assert "전기(배전, 송변전) 10배수 신설" in visible_text  # 13번: 바뀐 조각으로 제목
     assert "추가 확인 중" not in visible_text
-    assert any(item.label.startswith("이름·표기만 바뀐 사소한 변경") for item in app.expander)
+    labels = [tab.label for tab in app.tabs]  # 11-21 예시 3: 전체 / 사소한 변경 탭
+    assert any(label.startswith("전체 ") for label in labels)
+    assert any(label.startswith("사소한 변경 ") for label in labels)
 
 
 def test_user_can_switch_company():
     app = _open_report_page()
 
     app.selectbox[0].set_value("khnp-2025-2026-round3").run()
+    more = [button for button in app.button if button.label.startswith("나머지 변경")]  # 전체 탭은 6건 먼저 (예시 3)
+    if more:
+        more[0].click().run()
 
     assert not app.exception
     assert any("한국수력원자력 채용공고 비교" in item.value for item in app.markdown)
@@ -80,11 +86,15 @@ def test_conditions_to_matches_to_report_flow_without_personal_data():
 
     assert not app.exception
     assert any("내 조건에 맞는 공고" in item.value for item in app.markdown)
-    assert any(item.value.startswith("조건에 맞는 공고 ") for item in app.subheader)
+    assert any("조건 맞는 공고 <b>" in item.value for item in app.markdown)
+    assert any("지금 접수 중" in item.value for item in app.markdown)  # 11-21 예시 1: 접수 중 먼저
+    more = [button for button in app.button if button.label.startswith("지난 공고")]  # 지난 공고는 3건 먼저
+    if more:
+        more[0].click().run()
     text = " ".join(item.value for item in app.markdown)
     assert "지원 가능" in text
     assert "전기기사: 배전(일반) 10점, 송변전(일반) 10점" in text  # 한전 (AI 추출, 정답지와 같은 값)
-    assert "인원: 421명 → 490명 (+69명)" in text
+    assert "판정에 쓴 공고 근거" in text and '<td class="d-page">올해' in text  # 예시 2: 쪽 | 원문 표
     # T047: 결과를 PDF로 받기 버튼
     downloads = app.get("download_button")
     assert len(downloads) == 1 and "PDF" in downloads[0].proto.label
@@ -107,7 +117,7 @@ def test_qa_without_api_key_shows_original_excerpts(monkeypatch):
     app = _open_qa_page()
 
     assert not app.exception
-    assert any("공고문에 물어보기" in item.value for item in app.title)
+    assert any("공고문에 물어보기" in item.value for item in app.markdown)
     app.text_input(key="qa_question").set_value("토익 몇 점 필요해?")
     [button for button in app.button if button.label == "물어보기"][0].click().run()
 
