@@ -1,4 +1,7 @@
-"""공채레이더 로컬 실행 진입점: ① 내 조건 입력 → ② 맞춤 공고 → ③ 공고 비교 → ④ 공고문에 물어보기."""
+"""공채레이더 진입점: 화면 1 공고 목록(조건 입력 + 결과) → 화면 2 공고 상세(판정·달라진 점·일정·질문·원문 대조).
+
+11-21 구조 개편: 기능별 메뉴 4개(입력·맞춤·비교·질문) → 화면 2개. 위쪽 메뉴는 화면 안의 '공채레이더 / 공고 찾기'.
+"""
 
 import os
 import sys
@@ -22,9 +25,7 @@ st.set_page_config(
 )
 
 pages = [
-    st.Page("app/pages/conditions.py", title="내 조건 입력", icon=":material/tune:", default=True),
-    st.Page("app/pages/matches.py", title="맞춤 공고", icon=":material/fact_check:"),
-    st.Page("app/pages/report.py", title="공고 비교", icon=":material/compare_arrows:"),
-    st.Page("app/pages/qa.py", title="공고문에 물어보기", icon=":material/forum:"),
+    st.Page("app/pages/search.py", title="공고 찾기", icon=":material/search:", default=True),
+    st.Page("app/pages/detail.py", title="공고 상세", icon=":material/description:", url_path="detail"),
 ]
-st.navigation(pages, position="top").run()
+st.navigation(pages, position="hidden").run()

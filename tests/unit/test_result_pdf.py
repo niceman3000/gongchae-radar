@@ -51,7 +51,7 @@ def test_past_notice_is_one_row_and_pdf_stays_short() -> None:
 def test_empty_result_still_makes_pdf() -> None:
     condition = UserCondition.from_mapping({"track": "사무", "region": "서울", "certificates": []})
     text = _pdf_text(build_result_pdf(condition, [], made_at="2026.11.20"))
-    assert "조건 맞는 공고" in text and "0건" in text
+    assert "사무 직렬 공고" in text and "0건" in text
 
 
 def test_clean_drops_missing_glyphs_and_old_url_is_rewritten() -> None:

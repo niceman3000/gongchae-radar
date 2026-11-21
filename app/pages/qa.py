@@ -109,6 +109,12 @@ def render_qa_page() -> None:
                            format_func=lambda value: f"{by_id[value]['institution']} · {by_id[value]['curr']['title']}")
     st.session_state["selected_pair_id"] = pair_id
     report = by_id[pair_id]
+    render_qa_box(report)
+
+
+def render_qa_box(report: Mapping[str, Any], examples: list[str] | None = None) -> None:
+    """질문 입력·예시 질문·답과 근거 (11-21 구조 개편: 공고 상세 화면 4구역으로도 씀, 공고는 이 공고로 고정)"""
+    pair_id = str(report["pair_id"])
     curr_text = _page_text(str(report["curr"]["sn"]))
     prev_text = _page_text(str(report["prev"]["sn"]))
     if not curr_text:
@@ -123,9 +129,9 @@ def render_qa_page() -> None:
                    "(PC: 키를 넣은 창에서 실행하거나 `.streamlit/secrets.toml`, 배포: Streamlit Cloud Secrets)"
                    + _secrets_hint())
     st.write("예시 질문")
-    columns = st.columns(len(EXAMPLES))
+    columns = st.columns(len(examples or EXAMPLES))
     clicked = False
-    for column, example in zip(columns, EXAMPLES):
+    for column, example in zip(columns, examples or EXAMPLES):
         if column.button(example, key=f"example-{example}"):
             st.session_state["qa_question"] = example
             clicked = True

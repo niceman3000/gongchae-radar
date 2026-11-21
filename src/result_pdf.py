@@ -253,21 +253,32 @@ def _table(doc: _Doc, rows: list[tuple[Any, Mapping[str, Any]]], past: bool) -> 
     doc.line(doc.l_margin, doc.get_y(), doc.w - doc.r_margin, doc.get_y())
     doc.set_draw_color(*LINE)
     for result, report in rows:
-        if doc.get_y() > doc.page_break_trigger - 8:
-            doc.add_page()
         status = result.status or "ambiguous"
         cells = (result.institution,
                  PAST_LABEL.get(status, "-") if past else (result.label or "-"),
                  deadline_text(result.deadline)[2:], _best_bonus(result), _reason(result))
+        # 이유는 자르지 않고 줄을 바꿈 (11-21 사용자: PDF에서 이유가 잘림), 최대 3줄
+        doc.set_font("kr", "", 8.8)
+        reason_lines = doc.multi_cell(widths[4], 4.6, clean(cells[4]), dry_run=True, output="LINES")[:3]
+        if len(doc.multi_cell(widths[4], 4.6, clean(cells[4]), dry_run=True, output="LINES")) > 3:
+            reason_lines[-1] = _fit(doc, reason_lines[-1] + "…", widths[4])
+        height = max(7.5, 4.6 * len(reason_lines) + 2.9)
+        if doc.get_y() + height > doc.page_break_trigger:
+            doc.add_page()
+        y = doc.get_y()
+        x = doc.l_margin
         for index, (width, text) in enumerate(zip(widths, cells)):
+            doc.set_xy(x, y)
             doc.set_font("kr", "B" if index in (0, 1) else "", 8.8)
             doc.set_text_color(*(STATUS_COLOR.get(status, INK) if index == 1 else INK if index == 0 else (60, 70, 86)))
-            text = _fit(doc, text, width)
-            if index == 0 and notice_url(report):
-                doc.cell(width, 7.5, text, link=notice_url(report))
+            if index == 4:
+                doc.set_xy(x, y + 1.45)
+                doc.multi_cell(width, 4.6, "\n".join(reason_lines), align="L")
             else:
-                doc.cell(width, 7.5, text)
-        doc.ln()
+                text = _fit(doc, text, width)
+                doc.cell(width, 7.5, text, link=notice_url(report) if index == 0 and notice_url(report) else "")
+            x += width
+        doc.set_xy(doc.l_margin, y + height)
         doc.line(doc.l_margin, doc.get_y(), doc.w - doc.r_margin, doc.get_y())
     doc.set_text_color(0, 0, 0)
 
@@ -298,7 +309,7 @@ def build_result_pdf(
     open_now = sorted((item for item in entries if is_open(item[0])), key=lambda item: item[0].deadline)
     past = sorted((item for item in entries if not is_open(item[0])), key=lambda item: item[0].deadline, reverse=True)
     counts = {key: sum(1 for result, _, _ in entries if result.status == key) for key in STATUS_COLOR}
-    _tiles(doc, [("조건 맞는 공고", f"{len(entries)}건", INK), ("지금 접수 중", f"{len(open_now)}건", BLUE),
+    _tiles(doc, [(f"{condition.track} 직렬 공고", f"{len(entries)}건", INK), ("지금 접수 중", f"{len(open_now)}건", BLUE),
                  ("조건 맞음", str(counts["eligible"]), STATUS_COLOR["eligible"]),
                  ("애매", str(counts["ambiguous"]), STATUS_COLOR["ambiguous"]),
                  ("안 맞음", str(counts["ineligible"]), STATUS_COLOR["ineligible"])])
