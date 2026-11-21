@@ -97,82 +97,177 @@ class _Doc(FPDF):
         self.text_block(text, size=10, style="B")
 
 
-def _summary_table(doc: _Doc, rows: list[tuple[Any, str]], track: str) -> None:
-    widths = (40, 72, 24, 42)
-    doc.set_font("kr", "B", 9)
-    doc.set_fill_color(240, 242, 245)
-    for width, head in zip(widths, ("기관", "공고", "판정", "내 가점")):
-        doc.cell(width, 7, head, border=1, fill=True)
-    doc.ln()
-    doc.set_font("kr", "", 8.5)
-    for result, _ in rows:
-        points = sorted({f"{row['points']}{row.get('unit') or '점'}" for row in result.bonus})
-        cells = (result.institution, result.title, result.label or "-", ", ".join(points) or "-")
-        line_counts = [len(doc.multi_cell(width, 5, clean(text), align="L", dry_run=True, output="LINES")) for width, text in zip(widths, cells)]
-        height = 5 * max(line_counts)
-        if doc.get_y() + height > doc.page_break_trigger:
-            doc.add_page()
-        y = doc.get_y()
-        x = doc.l_margin
-        for index, (width, text) in enumerate(zip(widths, cells)):
-            doc.set_xy(x, y)
-            if index == 2:
-                doc.set_text_color(*STATUS_COLOR.get(result.status or "", (0, 0, 0)))
-                doc.set_font("kr", "B", 8.5)
-            doc.multi_cell(width, 5, clean(text), align="L", border=0)
-            doc.set_text_color(0, 0, 0)
-            doc.set_font("kr", "", 8.5)
-            doc.rect(x, y, width, height)
-            x += width
-        doc.set_xy(doc.l_margin, y + height)
+BLUE = (36, 83, 230)
+INK = (22, 32, 46)
+LINE = (221, 226, 234)
+PAST_LABEL = {"eligible": "조건 맞음", "ambiguous": "애매", "ineligible": "조건 안 맞음"}
+LANGUAGE = re.compile(r"토익|TOEIC|어학|외국어")
 
 
-def _section(doc: _Doc, result: Any, report: Mapping[str, Any], track: str, change: str | None) -> None:
-    if doc.get_y() > doc.page_break_trigger - 40:
+def _short(text: Any, limit: int) -> str:
+    text = " ".join(clean(text).split())
+    return text if len(text) <= limit else text[: limit - 1] + "…"
+
+
+def _days_left(value: str, today: date) -> int | None:
+    if len(value) == 8 and value.isdigit():
+        return (date(int(value[:4]), int(value[4:6]), int(value[6:])) - today).days
+    return None
+
+
+def _best_bonus(result: Any) -> str:
+    points = []
+    for row in result.bonus:
+        try:
+            points.append((row.get("unit") or "점", float(row["points"])))
+        except (TypeError, ValueError):
+            continue
+    if not points:
+        return "-"
+    unit, value = max(points, key=lambda item: (item[0] == "점", item[1]))
+    return f"최대 {value:g}{unit}"
+
+
+def _reason(result: Any) -> str:
+    """판정을 가른 이유 한 줄 (화면 목록과 같은 규칙)"""
+    status = result.status or "ambiguous"
+    unit = next((item for item in result.units if item.get("status") == status), None)
+    if status == "ambiguous" and result.review_items:
+        reason = result.review_items[0]
+    elif unit:
+        reason = unit.get("reason") or ""
+    else:
+        reason = result.reasons[-1] if result.reasons else ""
+    return (f"{unit['name']} · " if unit and status != "ambiguous" else "") + str(reason)
+
+
+def _heading(doc: _Doc, title: str, count: int | None = None, hint: str = "") -> None:
+    if doc.get_y() > doc.page_break_trigger - 30:
         doc.add_page()
-    doc.ln(4)
-    doc.set_draw_color(200, 200, 200)
+    doc.ln(5)
+    doc.set_draw_color(*INK)
+    doc.set_line_width(0.6)
     doc.line(doc.l_margin, doc.get_y(), doc.w - doc.r_margin, doc.get_y())
-    doc.ln(2)
-    doc.text_block(result.institution, size=13, style="B", height=7)
-    doc.text_block(result.title, size=10)
-    category = f"{report['category']} 공기업 · " if report.get("category") else ""
-    doc.text_block(f"{category}접수 마감 {deadline_text(result.deadline)}", size=8.5, color=GRAY)
-    doc.text_block(f"판정: {result.label or '-'}", size=11, style="B",
-                   color=STATUS_COLOR.get(result.status or "", (0, 0, 0)), height=7)
+    doc.set_line_width(0.2)
+    doc.ln(2.5)
+    doc.set_font("kr", "B", 13)
+    doc.set_text_color(*INK)
+    width = doc.get_string_width(clean(title)) + 2
+    doc.cell(width, 7, clean(title))
+    if count is not None:
+        doc.set_text_color(*BLUE)
+        doc.cell(12, 7, str(count))
+    if hint:
+        doc.set_font("kr", "", 8.5)
+        doc.set_text_color(*GRAY)
+        doc.cell(0, 7, clean(hint), align="R")
+    doc.ln(9)
+    doc.set_text_color(0, 0, 0)
 
-    doc.label("판단 이유")
-    doc.bullets(result.reasons)
-    if result.review_items:
-        doc.label("직접 확인할 것")
-        doc.bullets(result.review_items)
+
+def _tiles(doc: _Doc, items: list[tuple[str, str, tuple[int, int, int]]]) -> None:
+    gap = 3
+    width = (doc.w - doc.l_margin - doc.r_margin - gap * (len(items) - 1)) / len(items)
+    y = doc.get_y()
+    for index, (label, value, color) in enumerate(items):
+        x = doc.l_margin + index * (width + gap)
+        doc.set_fill_color(243, 245, 248)
+        doc.rect(x, y, width, 19, style="F")
+        doc.set_xy(x + 4, y + 2.5)
+        doc.set_font("kr", "", 8.5)
+        doc.set_text_color(*GRAY)
+        doc.cell(width - 8, 5, clean(label))
+        doc.set_xy(x + 4, y + 8)
+        doc.set_font("kr", "B", 16)
+        doc.set_text_color(*color)
+        doc.cell(width - 8, 8, clean(value))
+    doc.set_text_color(0, 0, 0)
+    doc.set_xy(doc.l_margin, y + 23)
+
+
+def _open_card(doc: _Doc, result: Any, report: Mapping[str, Any], track: str, today: date) -> None:
+    """접수 중 공고 한 건: 기관·판정 / 공고·마감·가점 / 이유 / 확인할 것 2개 / 근거 1개 / 원문"""
+    if doc.get_y() > doc.page_break_trigger - 45:
+        doc.add_page()
+    status = result.status or "ambiguous"
+    full = doc.w - doc.l_margin - doc.r_margin
+    doc.set_draw_color(*LINE)
+    doc.line(doc.l_margin, doc.get_y(), doc.w - doc.r_margin, doc.get_y())
+    doc.ln(3)
+    y = doc.get_y()
+    doc.set_font("kr", "B", 13)
+    doc.set_text_color(*INK)
+    doc.cell(full - 45, 7, clean(result.institution))
+    days = _days_left(result.deadline, today)
+    doc.set_font("kr", "B", 11)
+    doc.set_text_color(*STATUS_COLOR.get(status, INK))
+    doc.cell(45, 7, clean(f"{'D-' + str(days) + '  ' if days is not None else ''}{result.label or '-'}"), align="R")
+    doc.set_xy(doc.l_margin, y + 7.5)
     bonus = bonus_text(result, track)
+    doc.text_block(f"{_short(result.title, 48)}  |  {deadline_text(result.deadline)} 마감"
+                   + (f"  |  내 가점 {_best_bonus(result)}" if result.bonus else ""), size=9, color=GRAY, height=5)
+    doc.ln(1)
+    doc.text_block(_short(_reason(result), 110), size=10.5, style="B", color=INK, height=6)
+    checks = [str(item) for item in list(result.review_items) + list(result.common_checks)]
+    checks = sorted(checks, key=lambda item: not LANGUAGE.search(item))[:3]
     if bonus:
-        doc.label("내 자격증 가점")
-        doc.bullets([bonus] + ([result.bonus_rule] if result.bonus_rule else []))
-    if result.common_checks:
-        doc.label("모든 지원자 공통 확인")
-        doc.bullets(result.common_checks)
-    if change:
-        doc.label("작년 대비 대표 변경")
-        doc.bullets([change])
-    if result.units:
-        doc.label(f"모집단위별 판정 {len(result.units)}개")
-        doc.bullets(f"{unit['name']}: {unit['label']} — {unit['reason']}" for unit in result.units)
-    evidence = []
-    seen = set()
-    for item in result.evidence:
-        key = (item.get("side"), item.get("page"), item.get("quote"))
-        if key not in seen:
-            seen.add(key)
-            evidence.append(item)
+        checks.insert(0, f"내 자격증 가점: {bonus}")
+    if checks:
+        doc.ln(0.5)
+        doc.bullets([_short(item, 105) for item in checks], size=9)
+    evidence = next(iter(result.evidence), None)
     if evidence:
-        doc.label(f"판정에 쓴 공고 근거 {len(evidence)}개")
-        doc.bullets([f"{SIDE_LABEL.get(item.get('side'), '공고')} {item.get('page')}쪽: “{item.get('quote')}”"
-                     for item in evidence], size=8.5)
+        doc.text_block(f"근거  {SIDE_LABEL.get(evidence.get('side'), '공고')} {evidence.get('page')}쪽 · "
+                       f"“{_short(evidence.get('quote'), 80)}”", size=8.5, color=GRAY, height=4.8)
     url = notice_url(report)
     if url:
-        doc.text_block(f"공고 원문: {url}", size=8, color=GRAY)
+        doc.set_font("kr", "", 8.5)
+        doc.set_text_color(*BLUE)
+        doc.cell(0, 5, "공고 원문 열기", link=url, new_x="LMARGIN", new_y="NEXT")
+        doc.set_text_color(0, 0, 0)
+    doc.ln(2)
+
+
+def _fit(doc: _Doc, text: str, width: float) -> str:
+    """칸 너비에 맞게 자르기 (지금 글꼴 기준)"""
+    text = clean(text)
+    if doc.get_string_width(text) <= width - 1.5:
+        return text
+    while text and doc.get_string_width(text + "…") > width - 1.5:
+        text = text[:-1]
+    return text + "…"
+
+
+def _table(doc: _Doc, rows: list[tuple[Any, Mapping[str, Any]]], past: bool) -> None:
+    """지난 공고 등: 한 공고 = 한 줄 (기관 · 판정 · 마감 · 내 가점 · 이유)"""
+    widths = (40, 21, 18, 19, 80)
+    heads = ("기관", "판정", "마감", "내 가점", "이유")
+    doc.set_font("kr", "B", 8.5)
+    doc.set_text_color(*GRAY)
+    for width, head in zip(widths, heads):
+        doc.cell(width, 6.5, head)
+    doc.ln()
+    doc.set_draw_color(*INK)
+    doc.line(doc.l_margin, doc.get_y(), doc.w - doc.r_margin, doc.get_y())
+    doc.set_draw_color(*LINE)
+    for result, report in rows:
+        if doc.get_y() > doc.page_break_trigger - 8:
+            doc.add_page()
+        status = result.status or "ambiguous"
+        cells = (result.institution,
+                 PAST_LABEL.get(status, "-") if past else (result.label or "-"),
+                 deadline_text(result.deadline)[2:], _best_bonus(result), _reason(result))
+        for index, (width, text) in enumerate(zip(widths, cells)):
+            doc.set_font("kr", "B" if index in (0, 1) else "", 8.8)
+            doc.set_text_color(*(STATUS_COLOR.get(status, INK) if index == 1 else INK if index == 0 else (60, 70, 86)))
+            text = _fit(doc, text, width)
+            if index == 0 and notice_url(report):
+                doc.cell(width, 7.5, text, link=notice_url(report))
+            else:
+                doc.cell(width, 7.5, text)
+        doc.ln()
+        doc.line(doc.l_margin, doc.get_y(), doc.w - doc.r_margin, doc.get_y())
+    doc.set_text_color(0, 0, 0)
 
 
 def build_result_pdf(
@@ -182,31 +277,48 @@ def build_result_pdf(
     no_track: list[str] = (),
     made_at: str | None = None,
 ) -> bytes:
-    """entries / other_region: (판정 결과, 리포트, 대표 변경 한 줄) 목록 → PDF 바이트"""
-    made_at = made_at or date.today().strftime("%Y.%m.%d")
+    """entries / other_region: (판정 결과, 리포트, 대표 변경 한 줄) 목록 → PDF 바이트.
+    11-21: 공고마다 전체 내용을 늘어놓아 18쪽 → 화면과 같은 구조로 2~3쪽 (접수 중만 카드, 나머지는 한 줄 표)"""
+    today = date.today()
+    made_at = made_at or today.strftime("%Y.%m.%d")
     doc = _Doc(made_at)
     doc.add_page()
-    doc.text_block("공채레이더 · 내 조건 맞춤 결과", size=17, style="B", height=9)
-    certificates = ", ".join(condition.certificates) or "없음"
-    doc.text_block(f"내 조건: {condition.track} 직렬 · {"지역 상관없음" if len(condition.regions) >= 17 else ", ".join(condition.regions)} · 자격증 {certificates}", size=10.5)
-    doc.text_block(f"만든 날짜: {made_at}", size=9, color=GRAY)
-    doc.ln(2)
-    doc.text_block(NOTICE, size=8.5, color=GRAY, height=4.8)
-    doc.ln(3)
+    doc.text_block("공채레이더 · 내 맞춤 공고", size=18, style="B", color=INK, height=10)
+    certificates = ", ".join(condition.certificates) or "자격증 없음"
+    regions = "지역 상관없음" if len(condition.regions) >= 17 else ", ".join(condition.regions)
+    doc.text_block(f"{condition.track} · {regions} · {certificates}   ({made_at} 기준)", size=10, color=GRAY)
+    doc.ln(4)
 
-    doc.text_block(f"조건에 맞는 공고 {len(entries)}건", size=12, style="B", height=7)
-    if entries:
-        _summary_table(doc, [(result, report) for result, report, _ in entries], condition.track)
+    def is_open(result: Any) -> bool:
+        days = _days_left(result.deadline, today)
+        return days is not None and days >= 0
+
+    open_now = sorted((item for item in entries if is_open(item[0])), key=lambda item: item[0].deadline)
+    past = sorted((item for item in entries if not is_open(item[0])), key=lambda item: item[0].deadline, reverse=True)
+    counts = {key: sum(1 for result, _, _ in entries if result.status == key) for key in STATUS_COLOR}
+    _tiles(doc, [("조건 맞는 공고", f"{len(entries)}건", INK), ("지금 접수 중", f"{len(open_now)}건", BLUE),
+                 ("조건 맞음", str(counts["eligible"]), STATUS_COLOR["eligible"]),
+                 ("애매", str(counts["ambiguous"]), STATUS_COLOR["ambiguous"]),
+                 ("안 맞음", str(counts["ineligible"]), STATUS_COLOR["ineligible"])])
+    doc.text_block(NOTICE, size=8, color=GRAY, height=4.4)
+
+    _heading(doc, "지금 접수 중", len(open_now), "마감 빠른 순")
+    if open_now:
+        for result, report, _ in open_now:
+            _open_card(doc, result, report, condition.track, today)
     else:
-        doc.text_block("희망 직렬과 지역이 모두 맞는 공고가 없어요.", size=9.5)
-    if other_region:
-        doc.ln(3)
-        doc.text_block(f"희망 지역에 근무지가 없는 공고 {len(other_region)}건", size=12, style="B", height=7)
-        _summary_table(doc, [(result, report) for result, report, _ in other_region], condition.track)
-    if no_track:
-        doc.ln(2)
-        doc.text_block(f"{condition.track} 직렬을 뽑지 않는 공고: " + ", ".join(no_track), size=8.5, color=GRAY)
+        doc.text_block("지금 접수 중인 공고는 없어요. 아래 지난 공고로 다음 채용을 준비해 보세요.", size=9.5, color=GRAY)
 
-    for result, report, change in list(entries) + list(other_region):
-        _section(doc, result, report, condition.track, change)
+    if past:
+        _heading(doc, "지난 공고", len(past), "다음 채용 대비 · 기관 이름을 누르면 공고 원문")
+        _table(doc, [(result, report) for result, report, _ in past], past=True)
+    if not entries:
+        doc.text_block("희망 직렬과 지역이 모두 맞는 공고가 없어요.", size=9.5)
+
+    if other_region:
+        _heading(doc, "희망 지역에 근무지가 없는 공고", len(other_region), "직렬은 맞지만 근무지역이 달라요")
+        _table(doc, [(result, report) for result, report, _ in other_region], past=True)
+    if no_track:
+        doc.ln(4)
+        doc.text_block(f"{condition.track} 직렬을 뽑지 않는 공고: " + ", ".join(no_track), size=8.5, color=GRAY)
     return bytes(doc.output())
