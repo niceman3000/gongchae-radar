@@ -1849,6 +1849,9 @@
       {
         "name": "채용형 인턴_대졸수준 공개경쟁(법무)",
         "track": "사무",
+        "tracks": [
+          "사무"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1856,6 +1859,9 @@
       {
         "name": "채용형 인턴_대졸수준 공개경쟁(경영)",
         "track": "사무",
+        "tracks": [
+          "사무"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1863,6 +1869,9 @@
       {
         "name": "채용형 인턴_대졸수준 공개경쟁(자원)",
         "track": "기타",
+        "tracks": [
+          "기타"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1870,6 +1879,9 @@
       {
         "name": "채용형 인턴_대졸수준 공개경쟁(지질)",
         "track": "기타",
+        "tracks": [
+          "기타"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1877,6 +1889,9 @@
       {
         "name": "채용형 인턴_대졸수준 공개경쟁(환경)",
         "track": "화학",
+        "tracks": [
+          "화학"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1884,6 +1899,9 @@
       {
         "name": "채용형 인턴_대졸수준 공개경쟁(토목)",
         "track": "토목",
+        "tracks": [
+          "토목"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1891,6 +1909,9 @@
       {
         "name": "채용형 인턴_대졸수준 공개경쟁(안전)",
         "track": "기타",
+        "tracks": [
+          "기타"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1898,134 +1919,191 @@
       {
         "name": "채용형 인턴_대졸수준 제한경쟁(장애인, 경영)",
         "track": "사무",
-        "kind": "general",
+        "tracks": [
+          "사무"
+        ],
+        "kind": "special",
         "note": null,
         "evidence": []
       },
       {
         "name": "채용형 인턴_대졸수준 제한경쟁(이전지역인재, 경영)",
         "track": "사무",
-        "kind": "general",
+        "tracks": [
+          "사무"
+        ],
+        "kind": "special",
         "note": null,
         "evidence": []
       },
       {
         "name": "채용형 인턴_대졸수준 제한경쟁(이전지역인재, 자원)",
         "track": "기타",
-        "kind": "general",
+        "tracks": [
+          "기타"
+        ],
+        "kind": "special",
         "note": null,
         "evidence": []
       },
       {
         "name": "채용형 인턴_대졸수준 제한경쟁(이전지역인재, 지질)",
         "track": "기타",
-        "kind": "general",
+        "tracks": [
+          "기타"
+        ],
+        "kind": "special",
         "note": null,
         "evidence": []
       },
       {
         "name": "채용형 인턴_대졸수준 제한경쟁(이전지역인재, 환경)",
         "track": "화학",
-        "kind": "general",
+        "tracks": [
+          "화학"
+        ],
+        "kind": "special",
         "note": null,
         "evidence": []
       },
       {
         "name": "채용형 인턴_대졸수준 제한경쟁(이전지역인재, 화공)",
-        "track": "기타",
-        "kind": "general",
+        "track": "화학",
+        "tracks": [
+          "화학"
+        ],
+        "kind": "special",
         "note": null,
         "evidence": []
       },
       {
         "name": "채용형 인턴_고졸 제한경쟁(이전지역인재(본사), 행정)",
         "track": "사무",
-        "kind": "general",
+        "tracks": [
+          "사무"
+        ],
+        "kind": "special",
         "note": null,
         "evidence": []
       },
       {
         "name": "채용형 인턴_고졸 제한경쟁(이전지역인재(광산안전센터), 행정)",
         "track": "사무",
-        "kind": "general",
+        "tracks": [
+          "사무"
+        ],
+        "kind": "special",
         "note": null,
         "evidence": []
       },
       {
         "name": "채용형 인턴_고졸 제한경쟁(이전지역인재(본사), 회계·정산)",
         "track": "사무",
-        "kind": "general",
+        "tracks": [
+          "사무"
+        ],
+        "kind": "special",
         "note": null,
         "evidence": []
       },
       {
         "name": "체험형 인턴(경인지사, 기술)",
         "track": "기타",
-        "kind": "general",
-        "note": null,
+        "tracks": [
+          "기타"
+        ],
+        "kind": "excluded",
+        "note": "체험형 인턴은 정규직 채용이 아니라 판정에서 뺐어요.",
         "evidence": []
       },
       {
         "name": "체험형 인턴(강원지사, 사무)",
         "track": "사무",
-        "kind": "general",
-        "note": null,
+        "tracks": [
+          "사무"
+        ],
+        "kind": "excluded",
+        "note": "체험형 인턴은 정규직 채용이 아니라 판정에서 뺐어요.",
         "evidence": []
       },
       {
         "name": "체험형 인턴(강원지사, 기술)",
         "track": "기타",
-        "kind": "general",
-        "note": null,
+        "tracks": [
+          "기타"
+        ],
+        "kind": "excluded",
+        "note": "체험형 인턴은 정규직 채용이 아니라 판정에서 뺐어요.",
         "evidence": []
       },
       {
         "name": "체험형 인턴(충청지사, 사무)",
         "track": "사무",
-        "kind": "general",
-        "note": null,
+        "tracks": [
+          "사무"
+        ],
+        "kind": "excluded",
+        "note": "체험형 인턴은 정규직 채용이 아니라 판정에서 뺐어요.",
         "evidence": []
       },
       {
         "name": "체험형 인턴(충청지사, 기술)",
         "track": "기타",
-        "kind": "general",
-        "note": null,
+        "tracks": [
+          "기타"
+        ],
+        "kind": "excluded",
+        "note": "체험형 인턴은 정규직 채용이 아니라 판정에서 뺐어요.",
         "evidence": []
       },
       {
         "name": "체험형 인턴(영남지사, 사무)",
         "track": "사무",
-        "kind": "general",
-        "note": null,
+        "tracks": [
+          "사무"
+        ],
+        "kind": "excluded",
+        "note": "체험형 인턴은 정규직 채용이 아니라 판정에서 뺐어요.",
         "evidence": []
       },
       {
         "name": "체험형 인턴(영남지사, 기술)",
         "track": "기타",
-        "kind": "general",
-        "note": null,
+        "tracks": [
+          "기타"
+        ],
+        "kind": "excluded",
+        "note": "체험형 인턴은 정규직 채용이 아니라 판정에서 뺐어요.",
         "evidence": []
       },
       {
         "name": "체험형 인턴(호남지사, 사무)",
         "track": "사무",
-        "kind": "general",
-        "note": null,
+        "tracks": [
+          "사무"
+        ],
+        "kind": "excluded",
+        "note": "체험형 인턴은 정규직 채용이 아니라 판정에서 뺐어요.",
         "evidence": []
       },
       {
         "name": "체험형 인턴(호남지사, 기술)",
         "track": "기타",
-        "kind": "general",
-        "note": null,
+        "tracks": [
+          "기타"
+        ],
+        "kind": "excluded",
+        "note": "체험형 인턴은 정규직 채용이 아니라 판정에서 뺐어요.",
         "evidence": []
       },
       {
         "name": "체험형 인턴_장애인 제한(경인지사, 사무)",
         "track": "사무",
-        "kind": "general",
-        "note": null,
+        "tracks": [
+          "사무"
+        ],
+        "kind": "excluded",
+        "note": "체험형 인턴은 정규직 채용이 아니라 판정에서 뺐어요.",
         "evidence": []
       }
     ],

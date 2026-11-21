@@ -181,16 +181,16 @@ def describe_change(
                 title = title.replace(f"{label} ", f"{label}({where}) ", 1)
             if category == "가점":
                 subject = f"{where}에서 " if where else ""
-                impact = f"이 줄은 {subject}가점을 받는 대상 목록입니다. "
+                impact = f"이 줄은 {subject}가점을 받는 대상 목록이에요. "
                 if added:
-                    impact += f"2026년에 {', '.join(added)}이(가) 목록에 들어가 해당 지원자도 가점을 받습니다. "
+                    impact += f"2026년에 {', '.join(added)}이(가) 목록에 들어가 해당 지원자도 가점을 받아요. "
                 if removed:
                     impact += f"{', '.join(removed)}은(는) 목록에서 빠져 더 이상 가점 대상이 아닙니다. "
-                impact += f"나머지 {same}개 대상은 작년과 같습니다."
+                impact += f"나머지 {same}개 대상은 작년과 같아요."
                 if added:
-                    impact += " 가점 크기는 이 문구에 없어 공고문 가점표 확인이 필요합니다."
+                    impact += " 가점 크기는 이 문구에 없어 공고문 가점표를 확인해야 해요."
             else:
-                impact = f"나머지 {same}개 항목은 작년과 같습니다."
+                impact = f"나머지 {same}개 항목은 작년과 같아요."
             return title, impact
 
     # 2) '대상: 내용' 형식: 어느 대상의 무엇이 바뀌었는지 적는다.
@@ -204,7 +204,7 @@ def describe_change(
     if kind == "removed" and pair_prev:
         subject, rest = pair_prev
         verb = "우대 삭제" if category == "가점" else "삭제"
-        return f"{subject} {verb}", f"2025에 있던 {noun} '{_short(rest, 60)}'이(가) 2026 공고에서 빠졌습니다."
+        return f"{subject} {verb}", f"2025에 있던 {noun} '{_short(rest, 60)}'이(가) 2026 공고에서 빠졌어요."
     if kind in {"text", "number"} and pair_prev and pair_curr:
         subject = pair_curr[0]
         if subject in VAGUE_SUBJECTS:
@@ -225,5 +225,5 @@ def describe_change(
         detail = fragment_title(prev, curr)
         if detail:
             label = FIELD_LABEL.get(category, category or "공고")
-            return f"{label} 문구: {detail}", "문장 전체는 그대로이고 표시한 부분만 달라졌습니다."
+            return f"{label} 문구: {detail}", "문장 전체는 그대로이고 표시한 부분만 달라졌어요."
     return None

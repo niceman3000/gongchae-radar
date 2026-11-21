@@ -44,7 +44,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-006",
+      "id": "stage1-005",
       "importance": 1,
       "category": "자격",
       "title": "응시자격: ○발전설비운영(G4_해외사업)_기계 : 관련 분야 기사, 기술사 등 자격·면허 소지자, 어학 토익 700점 이상, 영어우수자(OPIc IH 또는 TOEIC Speaking AL등급 이상) → ○발전설비운영(G3_일반)_기계, 전기, 비파괴 : 관련 분야 산업기사 이상 자격·면허 소지자, 어학 토익 500점 이상",
@@ -60,26 +60,6 @@
     },
     {
       "id": "stage1-002",
-      "importance": 2,
-      "category": "지역",
-      "title": "근무지역 목록 변경",
-      "change_type": "list",
-      "prev_value": [
-        "광주",
-        "전남"
-      ],
-      "curr_value": [
-        "전남광주"
-      ],
-      "source": "stage1",
-      "ai_label": null,
-      "confidence": "not_applicable",
-      "status": "review_required",
-      "affected_units": [],
-      "evidence": []
-    },
-    {
-      "id": "stage1-003",
       "importance": 2,
       "category": "직무분야(NCS)",
       "title": "직무분야(NCS) 목록 변경",
@@ -100,7 +80,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-004",
+      "id": "stage1-003",
       "importance": 2,
       "category": "모집단위",
       "title": "모집단위 목록 변경",
@@ -127,7 +107,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-005",
+      "id": "stage1-004",
       "importance": 2,
       "category": "자격",
       "title": "응시자격 삭제: ○경영·회계·사무(G4_일반)_상경 : 전공 및 자격제한 없음, 어학 토익 700점 이상",
@@ -142,7 +122,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-007",
+      "id": "stage1-006",
       "importance": 2,
       "category": "자격",
       "title": "응시자격 삭제: ○경영·회계·사무(G3_보훈)_상경 : 전공 및 자격제한 없음, 어학 토익 500점 이상, 국가유공자 등 예우 및 지원에 관한 법률 등 보훈관계법률에 의한 취업지원 대상자",
@@ -157,7 +137,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-008",
+      "id": "stage1-007",
       "importance": 2,
       "category": "자격",
       "title": "응시자격 삭제: ○발전설비운영(G3_일반)_기계, 전기 : 관련 분야 산업기사 이상 자격·면허 소지자, 어학 토익 500점 이상",
@@ -172,7 +152,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-009",
+      "id": "stage1-008",
       "importance": 2,
       "category": "자격",
       "title": "응시자격: ○발전설비운영(G2_일반)_기계, 전기, 용접 : 최종학력이 고등학교 졸업한 자 또는 졸업예정자, 관련 분야 기능사 이상 자격·면허 소지자 → ○발전설비운영(G2_일반)_기계, 전기 : 최종학력이 고등학교 졸업한 자 또는 졸업예정자, 관련 분야 기능사 이상 자격·면허 소지자",
@@ -187,7 +167,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-010",
+      "id": "stage1-009",
       "importance": 2,
       "category": "자격",
       "title": "응시자격 삭제: ○발전설비운영(G2_보훈)_기계, 전기 : 최종학력이 고등학교 졸업한 자 또는 졸업예정자, 관련 분야 기능사 이상 자격·면허 소지자, 국가유공자 등 예우 및 지원에 관한 법률 등 보훈관계법률에 의한 취업지원 대상자",
@@ -202,7 +182,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-011",
+      "id": "stage1-010",
       "importance": 2,
       "category": "자격",
       "title": "응시자격 삭제: ○전문직(일반급)_건축 : 관련 분야 기사, 기술사 등 자격·면허 소지자, 어학 토익 700점 이상",
@@ -219,15 +199,15 @@
   ],
   "change_groups": [
     {
-      "id": "group-stage1-005",
+      "id": "group-stage1-004",
       "category": "자격",
       "member_ids": [
-        "stage1-006",
         "stage1-005",
+        "stage1-004",
+        "stage1-006",
         "stage1-007",
-        "stage1-008",
-        "stage1-010",
-        "stage1-011"
+        "stage1-009",
+        "stage1-010"
       ],
       "shared_terms": [
         "산업기사",
@@ -904,6 +884,9 @@
       {
         "name": "G4 전산",
         "track": "ICT",
+        "tracks": [
+          "ICT"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -911,6 +894,9 @@
       {
         "name": "G4 기계",
         "track": "기계",
+        "tracks": [
+          "기계"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -918,6 +904,9 @@
       {
         "name": "G4 전기",
         "track": "전기",
+        "tracks": [
+          "전기"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -925,6 +914,9 @@
       {
         "name": "G3 기계",
         "track": "기계",
+        "tracks": [
+          "기계"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -932,6 +924,9 @@
       {
         "name": "G3 전기",
         "track": "전기",
+        "tracks": [
+          "전기"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -939,6 +934,9 @@
       {
         "name": "G3 비파괴",
         "track": "기타",
+        "tracks": [
+          "기타"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -946,6 +944,9 @@
       {
         "name": "G3 울진기계",
         "track": "기계",
+        "tracks": [
+          "기계"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -953,6 +954,9 @@
       {
         "name": "G3 울진전기",
         "track": "전기",
+        "tracks": [
+          "전기"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -960,6 +964,9 @@
       {
         "name": "G2 기계",
         "track": "기계",
+        "tracks": [
+          "기계"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -967,6 +974,9 @@
       {
         "name": "G2 전기",
         "track": "전기",
+        "tracks": [
+          "전기"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []

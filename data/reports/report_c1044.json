@@ -473,10 +473,10 @@
   "requirements": {
     "tracks": [
       "기타",
-      "ICT",
       "기계",
       "전기",
-      "화학"
+      "화학",
+      "ICT"
     ],
     "regions": [
       "경기",
@@ -1158,27 +1158,39 @@
       {
         "name": "경력직 객실장(부산)",
         "track": "기타",
-        "kind": "general",
-        "note": null,
+        "tracks": [
+          "기타"
+        ],
+        "kind": "excluded",
+        "note": "경력 채용이라 신입 판정에서 뺐어요.",
         "evidence": []
       },
       {
         "name": "경력직 객실장(광주)",
         "track": "기타",
-        "kind": "general",
-        "note": null,
+        "tracks": [
+          "기타"
+        ],
+        "kind": "excluded",
+        "note": "경력 채용이라 신입 판정에서 뺐어요.",
         "evidence": []
       },
       {
         "name": "경력직 시설통신",
         "track": "ICT",
-        "kind": "general",
-        "note": null,
+        "tracks": [
+          "ICT"
+        ],
+        "kind": "excluded",
+        "note": "경력 채용이라 신입 판정에서 뺐어요.",
         "evidence": []
       },
       {
         "name": "신입직 객실장(수서)",
         "track": "기타",
+        "tracks": [
+          "기타"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1186,6 +1198,9 @@
       {
         "name": "신입직 객실장(부산)",
         "track": "기타",
+        "tracks": [
+          "기타"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1193,6 +1208,9 @@
       {
         "name": "신입직 객실장(광주)",
         "track": "기타",
+        "tracks": [
+          "기타"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1200,6 +1218,9 @@
       {
         "name": "신입직 역무원",
         "track": "기타",
+        "tracks": [
+          "기타"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1207,6 +1228,9 @@
       {
         "name": "신입직 영업마케팅",
         "track": "기타",
+        "tracks": [
+          "기타"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1214,6 +1238,9 @@
       {
         "name": "신입직 차량기계",
         "track": "기계",
+        "tracks": [
+          "기계"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1221,6 +1248,9 @@
       {
         "name": "신입직 차량전기",
         "track": "전기",
+        "tracks": [
+          "전기"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1228,6 +1258,9 @@
       {
         "name": "신입직 시설기계",
         "track": "기계",
+        "tracks": [
+          "기계"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1235,13 +1268,19 @@
       {
         "name": "신입직 환경·에너지",
         "track": "화학",
+        "tracks": [
+          "화학"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
       },
       {
         "name": "신입직 AX기획·서비스",
-        "track": "기타",
+        "track": "ICT",
+        "tracks": [
+          "ICT"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1249,6 +1288,9 @@
       {
         "name": "신입직 기록물관리",
         "track": "기타",
+        "tracks": [
+          "기타"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1256,6 +1298,9 @@
       {
         "name": "신입직 객실장(자립준비청년)",
         "track": "기타",
+        "tracks": [
+          "기타"
+        ],
         "kind": "special",
         "note": "『아동복지법』에 따른 자립지원대상자로 보호조치 종료·퇴소 후 5년 이내인 자만 지원 가능",
         "evidence": [
@@ -1271,6 +1316,9 @@
       {
         "name": "신입직 역무원(자립준비청년)",
         "track": "기타",
+        "tracks": [
+          "기타"
+        ],
         "kind": "special",
         "note": "『아동복지법』에 따른 자립지원대상자로 보호조치 종료·퇴소 후 5년 이내인 자만 지원 가능",
         "evidence": [
@@ -1286,8 +1334,11 @@
       {
         "name": "신입직 객실장(고졸)",
         "track": "기타",
-        "kind": "special",
-        "note": "최종학력이 고등학교(검정고시 포함) 졸업인 자. 대학 졸업자·졸업학년 2학기 재학·휴학생 등은 불가",
+        "tracks": [
+          "기타"
+        ],
+        "kind": "condition",
+        "note": "고졸 학력자만 지원할 수 있는 모집단위예요. 학력은 입력받지 않아 확정하지 않았어요.",
         "evidence": [
           {
             "side": "curr",
@@ -1301,8 +1352,11 @@
       {
         "name": "신입직 역무원(고졸)",
         "track": "기타",
-        "kind": "special",
-        "note": "최종학력이 고등학교(검정고시 포함) 졸업인 자. 대학 졸업자·졸업학년 2학기 재학·휴학생 등은 불가",
+        "tracks": [
+          "기타"
+        ],
+        "kind": "condition",
+        "note": "고졸 학력자만 지원할 수 있는 모집단위예요. 학력은 입력받지 않아 확정하지 않았어요.",
         "evidence": [
           {
             "side": "curr",
@@ -1316,6 +1370,9 @@
       {
         "name": "신입직 역무원(보훈)",
         "track": "기타",
+        "tracks": [
+          "기타"
+        ],
         "kind": "special",
         "note": "국가유공자법에 따른 취업지원 대상자 중 서울남부보훈지청 추천 대상자에 한함",
         "evidence": [

@@ -11,6 +11,9 @@ from app.report_data import DATA_NOTICE, load_reports
 
 TRACK_ORDER = ["전기", "기계", "사무", "ICT", "토목", "건축", "원자력", "화학", "수자원"]
 EXAMPLE = {"track": "전기", "regions": ["부산", "울산"], "certificates": ["전기기사"]}
+# 자격증 없음 예시: 가능·애매·불가가 섞여 나와 판정 기능이 잘 보인다 (11-21 팀원 점검 9번)
+EXAMPLE_NO_CERT = {"track": "전기", "regions": ["부산"], "certificates": []}
+ANY_REGION = "지역 상관없음"
 MATCHES_PAGE = "app/pages/matches.py"
 
 
@@ -52,10 +55,14 @@ def render_conditions_page() -> None:
         )
         saved = st.session_state.get("user_condition") or {}
 
-        if st.button("예시 조건으로 채우기 (전기 · 부산·울산 · 전기기사)"):
-            st.session_state["condition_track"] = EXAMPLE["track"]
-            st.session_state["condition_regions"] = EXAMPLE["regions"]
-            st.session_state["condition_certificates"] = EXAMPLE["certificates"]
+        first, second = st.columns(2)
+        for column, example, label in ((first, EXAMPLE, "예시: 전기 · 부산·울산 · 전기기사"),
+                                       (second, EXAMPLE_NO_CERT, "예시: 전기 · 부산 · 자격증 없음")):
+            with column:
+                if st.button(label, use_container_width=True):
+                    st.session_state["condition_track"] = example["track"]
+                    st.session_state["condition_regions"] = example["regions"]
+                    st.session_state["condition_certificates"] = example["certificates"]
 
         track_default = saved.get("track") if saved.get("track") in tracks else (tracks[0] if tracks else None)
         st.session_state.setdefault("condition_track", track_default)
@@ -63,7 +70,7 @@ def render_conditions_page() -> None:
         st.session_state.setdefault("condition_certificates", list(saved.get("certificates") or []))
 
         track = st.selectbox("희망 직렬", options=tracks, key="condition_track")
-        regions = st.multiselect("희망 근무 지역 (여러 개 선택 가능)", options=REGIONS, key="condition_regions",
+        regions = st.multiselect("희망 근무 지역 (여러 개 선택 가능)", options=[ANY_REGION, *REGIONS], key="condition_regions",
                                  placeholder="지역을 골라 주세요")
         certificates = st.multiselect(
             "보유 자격증 (없으면 비워 두세요 · 목록에 없으면 직접 입력)",
@@ -77,6 +84,8 @@ def render_conditions_page() -> None:
             if not track or not regions:
                 st.warning("희망 직렬과 근무 지역을 하나 이상 골라 주세요.")
                 return
+            if ANY_REGION in regions:
+                regions = list(REGIONS)
             st.session_state["user_condition"] = {
                 "track": track,
                 "region": "·".join(regions),

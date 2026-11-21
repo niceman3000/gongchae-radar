@@ -1619,6 +1619,9 @@
       {
         "name": "사무/상경(일반)",
         "track": "사무",
+        "tracks": [
+          "사무"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1626,6 +1629,9 @@
       {
         "name": "사무/상경(장애)",
         "track": "사무",
+        "tracks": [
+          "사무"
+        ],
         "kind": "special",
         "note": "「장애인고용촉진 및 직업재활법」 및 같은 법 시행령에 따른 장애인만 지원 가능",
         "evidence": [
@@ -1641,6 +1647,9 @@
       {
         "name": "사무/상경(보훈)",
         "track": "사무",
+        "tracks": [
+          "사무"
+        ],
         "kind": "special",
         "note": "「국가유공자 등 예우 및 지원에 관한 법률」 등에 따른 취업지원대상자만 지원 가능",
         "evidence": [
@@ -1656,6 +1665,9 @@
       {
         "name": "사무/법학",
         "track": "사무",
+        "tracks": [
+          "사무"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1663,6 +1675,9 @@
       {
         "name": "기술/IT",
         "track": "ICT",
+        "tracks": [
+          "ICT"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1670,6 +1685,9 @@
       {
         "name": "기술/기계",
         "track": "기계",
+        "tracks": [
+          "기계"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1677,6 +1695,9 @@
       {
         "name": "기술/전기",
         "track": "전기",
+        "tracks": [
+          "전기"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1684,6 +1705,9 @@
       {
         "name": "기술/토목",
         "track": "토목",
+        "tracks": [
+          "토목"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1691,6 +1715,9 @@
       {
         "name": "기술/항무",
         "track": "기타",
+        "tracks": [
+          "기타"
+        ],
         "kind": "condition",
         "note": "항해사(3급 이상) 또는 운항사(3급 이상) 면허와 액체화물 운반선 항해사(3급 이상) 승선경력 2년 이상을 모두 갖춘 자",
         "evidence": [

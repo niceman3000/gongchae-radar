@@ -23,21 +23,21 @@
       }
     },
     {
-      "pair_id": "c0042-280977-295867",
-      "pair_name": "한국남동발전 · 2026년 한국남동발전(주) 신입사원 채용 공고",
+      "pair_id": "c0042-290354-303429",
+      "pair_name": "한국남동발전 · 2026년 한국남동발전(주) 하반기 신입사원 채용공고",
       "institution": "한국남동발전",
       "category": "시장형",
       "tier": "auto",
       "track_focus": [
         "전체"
       ],
-      "prev_sn": "280977",
-      "curr_sn": "295867",
-      "prev_api": "data/api/api_detail_280977.json",
-      "curr_api": "data/api/api_detail_295867.json",
-      "prev_pdf": "data/pdf/280977.pdf",
-      "curr_pdf": "data/pdf/295867.pdf",
-      "collected_at": "2026-11-19"
+      "prev_sn": "290354",
+      "curr_sn": "303429",
+      "prev_api": "data/api/api_detail_290354.json",
+      "curr_api": "data/api/api_detail_303429.json",
+      "prev_pdf": "data/pdf/290354.pdf",
+      "curr_pdf": "data/pdf/303429.pdf",
+      "collected_at": "2026-11-21"
     },
     {
       "pair_id": "c0183-287422-304761",
@@ -163,24 +163,21 @@
       "collected_at": "2026-11-19"
     },
     {
-      "pair_id": "c0221-279558-300029",
-      "pair_name": "한국수자원공사 · [한국수자원공사] 2026년 상반기(2차) 신입사원 공채",
+      "pair_id": "c0221-289946-305290",
+      "pair_name": "한국수자원공사 · [한국수자원공사] 2026년 하반기 일반직 신입사원 공채",
       "institution": "한국수자원공사",
       "category": "준시장형",
       "tier": "auto",
       "track_focus": [
         "전체"
       ],
-      "prev_sn": "279558",
-      "curr_sn": "300029",
-      "prev_api": "data/api/api_detail_279558.json",
-      "curr_api": "data/api/api_detail_300029.json",
-      "prev_pdf": "data/pdf/279558.pdf",
-      "curr_pdf": "data/pdf/300029.pdf",
-      "collected_at": "2026-11-19",
-      "pdf_notes": {
-        "curr": "공고문이 PDF가 아님(2026년 상반기(2차) 신입사원 공채 공고문.zip) → PDF 원문 기능 제외"
-      }
+      "prev_sn": "289946",
+      "curr_sn": "305290",
+      "prev_api": "data/api/api_detail_289946.json",
+      "curr_api": "data/api/api_detail_305290.json",
+      "prev_pdf": "data/pdf/289946.pdf",
+      "curr_pdf": "data/pdf/305290.pdf",
+      "collected_at": "2026-11-21"
     },
     {
       "pair_id": "c0248-290013-304717",
@@ -463,21 +460,21 @@
       "collected_at": "2026-11-19"
     },
     {
-      "pair_id": "c0268-282791-297210",
-      "pair_name": "한국철도공사 · 2026년 상반기 한국철도공사 신입사원 채용 공고",
+      "pair_id": "c0268-289492-303642",
+      "pair_name": "한국철도공사 · 2026년 하반기 한국철도공사 신입사원 채용 공고",
       "institution": "한국철도공사",
       "category": "준시장형",
       "tier": "auto",
       "track_focus": [
         "전체"
       ],
-      "prev_sn": "282791",
-      "curr_sn": "297210",
-      "prev_api": "data/api/api_detail_282791.json",
-      "curr_api": "data/api/api_detail_297210.json",
-      "prev_pdf": "data/pdf/282791.pdf",
-      "curr_pdf": "data/pdf/297210.pdf",
-      "collected_at": "2026-11-19"
+      "prev_sn": "289492",
+      "curr_sn": "303642",
+      "prev_api": "data/api/api_detail_289492.json",
+      "curr_api": "data/api/api_detail_303642.json",
+      "prev_pdf": "data/pdf/289492.pdf",
+      "curr_pdf": "data/pdf/303642.pdf",
+      "collected_at": "2026-11-21"
     },
     {
       "pair_id": "c0396-290832-304958",

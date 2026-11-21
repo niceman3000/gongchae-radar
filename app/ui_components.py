@@ -10,12 +10,12 @@ from typing import Any, Mapping
 
 import streamlit as st
 
-from src.notice_text import describe_change, is_list_like, item_diff, list_section
+from src.notice_text import describe_change, is_list_like, item_diff, list_section, number_diff
 
 
 STATUS_LABELS = {
     "confirmed": "원문 확인",
-    "review_required": "확인 필요",
+    "review_required": "원문 확인 권장",
     "not_published": "기관 미공시",
 }
 
@@ -82,7 +82,12 @@ MEMBER_LABELS = {
     "list": "바뀐 목록",
 }
 
-LONG_TEXT_THRESHOLD = 90
+LONG_TEXT_THRESHOLD = 30  # 11-21: 90자 미만 문장도 바뀐 부분 색 표시 (팀원 점검 14번)
+IMPORTANCE_LABELS = {1: "중요", 2: "보통", 3: "참고"}
+NUMBER_MEANING = {
+    "배수": ("서류 통과 인원이 늘어나요 (모집인원 대비 배수가 커짐)", "서류 통과 인원이 줄어요 (모집인원 대비 배수가 작아짐)"),
+    "명": ("뽑는 인원이 늘었어요", "뽑는 인원이 줄었어요"),
+}
 
 
 def apply_styles() -> None:
@@ -102,7 +107,7 @@ def apply_styles() -> None:
             font-size: .76rem; font-weight: 750; margin-bottom: .35rem;
         }
         .status-confirmed { color: #176b45; background: #ddf5e9; }
-        .status-review_required { color: #875800; background: #fff0c7; }
+        .status-review_required { color: #3B4656; background: #EEF1F5; }  /* 11-21: 노랑은 '애매' 한 뜻만 (팀원 점검 19번) */
         .status-not_published { color: #5f6b7d; background: #e8ebf1; }
         .change-title { color: #172033; font-weight: 780; font-size: 1.02rem; }
         .value-label { color: #727e90; font-size: .76rem; font-weight: 700; }
@@ -130,6 +135,7 @@ def apply_styles() -> None:
         .diff-added {
             color: #11673f; background: #dcf7e9; border-radius: .25rem;
             padding: .08rem .2rem; font-weight: 750;
+            text-decoration: underline; text-underline-offset: .18em;  /* 흑백 인쇄·색약 대비 (11-21) */
         }
         .diff-ellipsis { color: #8791a2; padding: 0 .15rem; }
         .status-eligible { color: #0B6E4C; background: #E3F6EE; }
@@ -199,6 +205,13 @@ def apply_styles() -> None:
         [data-testid="stMetricValue"] { font-weight: 800; font-variant-numeric: tabular-nums; font-size: 1.7rem; }
         [data-testid="stMetricLabel"] { color: #5B6675; }
         [data-testid="stAlert"] { border-radius: .8rem; }
+        .chip-open { background: #E8EEFF; color: #1D47C4; font-weight: 800; }
+        .row-status { font-size: .95rem !important; font-weight: 750; }
+        .evidence-box { background: #F6F8FB; border: 1px solid #E3E8EF; border-radius: .7rem; padding: .6rem .8rem; margin: 0 0 .9rem 0; }
+        .evidence-page { color: #16202E; font-size: .9rem; margin-bottom: .25rem; }
+        .evidence-box .evidence-quote { margin: 0; border: 0; background: transparent; padding: 0; color: #3B4656; }
+        .stButton button p { font-size: 1rem; font-weight: 700; }
+        .block-container { padding-top: 4rem; }
         .section-head { font-size: 1.05rem; font-weight: 800; color: #16202E; margin: 1.6rem 0 .5rem 0; }
         @media (max-width: 640px) {
             .hero-title { font-size: 1.8rem; }
@@ -286,9 +299,15 @@ def diff_side_html(previous: str, current: str, side: str) -> str:
 def concise_change_title(
     change: Mapping[str, Any], pair_id: str, notice_info: Mapping[str, Any] | None = None
 ) -> tuple[str, str]:
+    """(카드 제목, 지원자에게 의미 한 줄 또는 None). 의미를 규칙으로 쓸 수 없으면 None → 화면에서 숨김 (11-21)"""
     curated = CHANGE_COPY.get((pair_id, str(change.get("id")))) if USE_CURATED_COPY else None
     if curated:
         return curated
+
+    # 숫자 변경은 숫자 규칙 먼저 (대상 이름 규칙은 '사무 : 50배수, 기술 : 15배수'에서 엉뚱한 대상을 고름, 11-21)
+    numbered = number_title(change)
+    if numbered:
+        return numbered
 
     described = describe_change(change, notice_info)
     if described:
@@ -296,14 +315,77 @@ def concise_change_title(
 
     raw_title = str(change["title"])
     if len(raw_title) <= 80:
-        return raw_title, "지원자에게 미치는 영향을 추가 확인 중입니다."
+        return raw_title, None
 
     prefix = raw_title.split(":", 1)[0].strip()
     subject = prefix if 1 <= len(prefix) <= 16 else str(change.get("category") or "공고")
-    return (
-        f"{subject} 세부 기준 변경",
-        "빨간색은 이전 공고에서 빠진 내용, 초록색은 새 공고에 추가된 내용입니다. 정확한 적용 범위는 원문 확인이 필요합니다.",
-    )
+    return f"{subject} 문구 변경", None
+
+
+def _as_int(value: Any) -> int | None:
+    text = str(value or "").replace(",", "").strip()
+    return int(text) if text.isdigit() else None
+
+
+def _number_value_diff(prev: str, curr: str) -> tuple[list[str], list[str]]:
+    """숫자 값으로 비교한 (빠진 숫자, 생긴 숫자). '사무20' → '사무20점'처럼 단위만 붙은 것은 같은 숫자 (11-21).
+    결과에는 원문에 단위가 있으면 붙여 보여 준다 ('15배수')."""
+    from collections import Counter
+
+    def values(text: str) -> list[str]:
+        return re.findall(r"\d+(?:\.\d+)?", text)
+
+    def with_unit(number: str, text: str) -> str:
+        match = re.search(rf"(?<![\d.]){re.escape(number)}\s*(배수|점|명|%|개월)", text)
+        return f"{number}{match.group(1)}" if match else number
+
+    gone_counter = Counter(values(prev)) - Counter(values(curr))
+    new_counter = Counter(values(curr)) - Counter(values(prev))
+    gone = [with_unit(number, prev) for number in gone_counter.elements()]
+    new = [with_unit(number, curr) for number in new_counter.elements()]
+    return gone, new
+
+
+def number_title(change: Mapping[str, Any]) -> tuple[str, str | None] | None:
+    """숫자가 바뀐 카드: '421명 → 490명 (+69명)', '15배수 → 10배수' + 규칙으로 쓴 의미 한 줄 (11-21 팀원 점검 6·15번)"""
+    if change.get("change_type") != "number":
+        return None
+    category = str(change.get("category") or "")
+    prev, curr = change.get("prev_value"), change.get("curr_value")
+    before, after = _as_int(prev), _as_int(curr)
+    if before is not None and after is not None:
+        unit = "명" if category == "인원" else ""
+        delta = after - before
+        meaning = NUMBER_MEANING["명"][0 if delta > 0 else 1] if unit == "명" else None
+        return (f"{category or '숫자'}: {before:,}{unit} → {after:,}{unit} ({delta:+,}{unit})",
+                f"{meaning} ({abs(delta):,}명)" if meaning else None)
+    if not isinstance(prev, str) or not isinstance(curr, str):
+        return None
+    gone, new = _number_value_diff(prev, curr)
+    if not gone and not new or len(gone) > 3 or len(new) > 3:
+        return None
+    if any(value.replace(".", "").isdigit() for value in gone + new):  # 단위 없는 숫자(날짜·번호)가 섞이면 숫자 제목을 쓰지 않음
+        return None
+    label = {"전형": "전형 기준", "가점": "가점"}.get(category, category or "숫자")
+    title = f"{label}: {', '.join(gone) or '없음'} → {', '.join(new) or '없음'}"
+    units = {re.sub(r"[\d.\s]", "", value) for value in gone + new}
+    meaning = None
+    if units == {"배수"} and gone and new:
+        smaller = min(float(re.sub(r"[^\d.]", "", value)) for value in new) < min(
+            float(re.sub(r"[^\d.]", "", value)) for value in gone)
+        meaning = NUMBER_MEANING["배수"][1 if smaller else 0] + ". 어느 직렬에 해당하는지는 아래 표시를 보세요."
+    elif units == {"점"} and category == "자격" and len(gone) == len(new):
+        values = [(float(re.sub(r"[^\d.]", "", a)), float(re.sub(r"[^\d.]", "", b))) for a, b in zip(gone, new)]
+        if all(b < a for a, b in values):
+            meaning = "기준 점수가 낮아졌어요. 어떤 시험의 기준인지는 아래 표시를 보세요."
+        elif all(b > a for a, b in values):
+            meaning = "기준 점수가 높아졌어요. 어떤 시험의 기준인지는 아래 표시를 보세요."
+    elif units == {"%"} and category == "가점" and len(gone) == len(new) == 1:
+        before_value, after_value = (float(value.rstrip("%")) for value in (gone[0], new[0]))
+        meaning = "가점 비율이 커졌어요." if after_value > before_value else "가점 비율이 작아졌어요."
+    elif units == {"점"} and category in {"전형", "가점"}:
+        meaning = "배점이 바뀌었어요. 어느 항목의 배점인지는 아래 표시를 보세요."
+    return title, meaning
 
 
 def _render_long_text_diff(previous: str, current: str) -> None:
@@ -334,11 +416,12 @@ def _render_long_text_diff(previous: str, current: str) -> None:
 
 
 def evidence_card(item: Mapping[str, Any], titles: Mapping[str, str]) -> None:
+    """근거 한 개 = 상자 하나: 첫 줄에 굵은 쪽수, 그 아래 인용 (11-21 팀원 점검 18번: 쪽수가 앞 인용에 붙어 보임)"""
     side = str(item["side"])
-    year_label = "전년도" if side == "prev" else "당해 연도"
-    st.caption(f"{year_label} · {titles[side]} · PDF {item['page']}쪽")
+    year_label = "작년 공고" if side == "prev" else "올해 공고"
     st.markdown(
-        f'<div class="evidence-quote">{escape(str(item["quote"]))}</div>',
+        f'<div class="evidence-box"><div class="evidence-page"><b>{year_label} {escape(str(item["page"]))}쪽</b>'
+        f' · {escape(titles[side])}</div><div class="evidence-quote">“{escape(str(item["quote"]))}”</div></div>',
         unsafe_allow_html=True,
     )
 
@@ -390,8 +473,6 @@ def _render_evidence(evidence: list[Mapping[str, Any]], titles: Mapping[str, str
                 evidence_card(item, titles)
                 if index < len(evidence) - 1:
                     st.divider()
-    else:
-        st.caption("공고 문구를 코드로 비교해 찾은 후보입니다. 공고문 원문으로 확인하세요.")
 
 
 def change_card(
@@ -408,8 +489,9 @@ def change_card(
                 f'<div class="change-title">{escape(plain_title)}</div>',
                 unsafe_allow_html=True,
             )
-            st.caption(f'{change["category"]} · 중요도 {change["importance"]}')
-            st.markdown(f"**지원자에게 의미:** {md_text(impact)}")
+            st.caption(f'{change["category"]} · {IMPORTANCE_LABELS.get(change["importance"], "참고")}')
+            if impact:
+                st.markdown(f"**지원자에게 의미:** {md_text(impact)}")
         with right:
             status_badge(str(change["status"]))
 
@@ -429,12 +511,12 @@ def group_title(
     if first:
         return (
             f'{first} 외 {len(unit["changes"]) - 1}건',
-            "같은 변경이 공고 여러 곳에 나뉘어 잡혀 한 장으로 묶었습니다. 아래 문구별 차이를 함께 확인하세요.",
+            "같은 변경이 공고 여러 곳에 나뉘어 잡혀 한 장으로 묶었어요. 아래 문구별 차이를 함께 확인하세요.",
         )
     terms = ", ".join(group.get("shared_terms") or [])
     return (
         f'{unit["category"]} 관련 변경 {len(unit["changes"])}건' + (f" · {terms}" if terms else ""),
-        "같은 변경이 공고 여러 곳에 나뉘어 잡혀 한 장으로 묶었습니다. 아래 문구별 차이를 함께 확인하세요.",
+        "같은 변경이 공고 여러 곳에 나뉘어 잡혀 한 장으로 묶었어요. 아래 문구별 차이를 함께 확인하세요.",
     )
 
 
@@ -463,9 +545,10 @@ def group_card(
                 unsafe_allow_html=True,
             )
             st.caption(
-                f'{unit["category"]} · 중요도 {unit["importance"]} · 관련 문구 {len(members)}개를 묶음'
+                f'{unit["category"]} · {IMPORTANCE_LABELS.get(unit["importance"], "참고")} · 관련 문구 {len(members)}개를 묶음'
             )
-            st.markdown(f"**지원자에게 의미:** {md_text(impact)}")
+            if impact:
+                st.markdown(f"**지원자에게 의미:** {md_text(impact)}")
         with right:
             status_badge(str(unit["status"]))
 

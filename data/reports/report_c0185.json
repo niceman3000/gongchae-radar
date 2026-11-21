@@ -2210,6 +2210,9 @@
       {
         "name": "일반행정",
         "track": "사무",
+        "tracks": [
+          "사무"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -2217,6 +2220,9 @@
       {
         "name": "일반행정(장애인)",
         "track": "사무",
+        "tracks": [
+          "사무"
+        ],
         "kind": "special",
         "note": "장애인 등록자만 지원 가능",
         "evidence": [
@@ -2232,6 +2238,9 @@
       {
         "name": "일반행정(보훈)",
         "track": "사무",
+        "tracks": [
+          "사무"
+        ],
         "kind": "special",
         "note": "취업지원(보훈)대상자만 지원 가능 (건축·토목은 해당 기사 자격증도 필요)",
         "evidence": [
@@ -2247,6 +2256,9 @@
       {
         "name": "일반행정(지역인재)",
         "track": "사무",
+        "tracks": [
+          "사무"
+        ],
         "kind": "special",
         "note": "비수도권 지역인재에 해당하는 자만 지원 가능 (자격증이 필요한 단위는 둘 다 충족)",
         "evidence": [
@@ -2262,6 +2274,9 @@
       {
         "name": "일반행정(사회형평)",
         "track": "사무",
+        "tracks": [
+          "사무"
+        ],
         "kind": "special",
         "note": "농어업인 자녀, 기초생활수급자, 북한이탈주민 등 사회형평 대상자만 지원 가능",
         "evidence": [
@@ -2277,6 +2292,9 @@
       {
         "name": "산업안전보건관리",
         "track": "기타",
+        "tracks": [
+          "기타"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -2284,6 +2302,9 @@
       {
         "name": "산업안전보건관리(지역인재)",
         "track": "기타",
+        "tracks": [
+          "기타"
+        ],
         "kind": "special",
         "note": "비수도권 지역인재에 해당하는 자만 지원 가능 (자격증이 필요한 단위는 둘 다 충족)",
         "evidence": [
@@ -2299,6 +2320,9 @@
       {
         "name": "재무회계관리",
         "track": "사무",
+        "tracks": [
+          "사무"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -2306,6 +2330,9 @@
       {
         "name": "법무",
         "track": "사무",
+        "tracks": [
+          "사무"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -2313,6 +2340,9 @@
       {
         "name": "수의",
         "track": "기타",
+        "tracks": [
+          "기타"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -2320,6 +2350,9 @@
       {
         "name": "도핑",
         "track": "기타",
+        "tracks": [
+          "기타"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -2327,6 +2360,9 @@
       {
         "name": "유전자",
         "track": "기타",
+        "tracks": [
+          "기타"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -2334,6 +2370,9 @@
       {
         "name": "말생산육성",
         "track": "기타",
+        "tracks": [
+          "기타"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -2341,6 +2380,9 @@
       {
         "name": "건축",
         "track": "건축",
+        "tracks": [
+          "건축"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -2348,6 +2390,9 @@
       {
         "name": "건축(보훈)",
         "track": "건축",
+        "tracks": [
+          "건축"
+        ],
         "kind": "special",
         "note": "취업지원(보훈)대상자만 지원 가능 (건축·토목은 해당 기사 자격증도 필요)",
         "evidence": [
@@ -2363,6 +2408,9 @@
       {
         "name": "토목",
         "track": "토목",
+        "tracks": [
+          "토목"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -2370,6 +2418,9 @@
       {
         "name": "토목(보훈)",
         "track": "토목",
+        "tracks": [
+          "토목"
+        ],
         "kind": "special",
         "note": "취업지원(보훈)대상자만 지원 가능 (건축·토목은 해당 기사 자격증도 필요)",
         "evidence": [
@@ -2385,6 +2436,9 @@
       {
         "name": "기계",
         "track": "기계",
+        "tracks": [
+          "기계"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -2392,6 +2446,9 @@
       {
         "name": "전기",
         "track": "전기",
+        "tracks": [
+          "전기"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -2399,6 +2456,9 @@
       {
         "name": "통신",
         "track": "ICT",
+        "tracks": [
+          "ICT"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -2406,6 +2466,9 @@
       {
         "name": "통신(지역인재)",
         "track": "ICT",
+        "tracks": [
+          "ICT"
+        ],
         "kind": "special",
         "note": "비수도권 지역인재에 해당하는 자만 지원 가능 (자격증이 필요한 단위는 둘 다 충족)",
         "evidence": [
@@ -2421,20 +2484,29 @@
       {
         "name": "환경",
         "track": "화학",
+        "tracks": [
+          "화학"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
       },
       {
         "name": "시스템개발",
-        "track": "기타",
+        "track": "ICT",
+        "tracks": [
+          "ICT"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
       },
       {
         "name": "시스템개발(보훈)",
-        "track": "기타",
+        "track": "ICT",
+        "tracks": [
+          "ICT"
+        ],
         "kind": "special",
         "note": "취업지원(보훈)대상자만 지원 가능 (건축·토목은 해당 기사 자격증도 필요)",
         "evidence": [
@@ -2449,7 +2521,10 @@
       },
       {
         "name": "시스템개발(지역인재)",
-        "track": "기타",
+        "track": "ICT",
+        "tracks": [
+          "ICT"
+        ],
         "kind": "special",
         "note": "비수도권 지역인재에 해당하는 자만 지원 가능 (자격증이 필요한 단위는 둘 다 충족)",
         "evidence": [
@@ -2464,7 +2539,10 @@
       },
       {
         "name": "시스템운영",
-        "track": "기타",
+        "track": "ICT",
+        "tracks": [
+          "ICT"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -2472,6 +2550,9 @@
       {
         "name": "정보보안",
         "track": "ICT",
+        "tracks": [
+          "ICT"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -2479,6 +2560,9 @@
       {
         "name": "아나운서(지역인재)",
         "track": "기타",
+        "tracks": [
+          "기타"
+        ],
         "kind": "special",
         "note": "비수도권 지역인재에 해당하는 자만 지원 가능 (자격증이 필요한 단위는 둘 다 충족)",
         "evidence": [
@@ -2494,6 +2578,9 @@
       {
         "name": "CG",
         "track": "기타",
+        "tracks": [
+          "기타"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -2501,6 +2588,9 @@
       {
         "name": "방송기술",
         "track": "기타",
+        "tracks": [
+          "기타"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -2508,6 +2598,9 @@
       {
         "name": "방송기술(지역인재)",
         "track": "기타",
+        "tracks": [
+          "기타"
+        ],
         "kind": "special",
         "note": "비수도권 지역인재에 해당하는 자만 지원 가능 (자격증이 필요한 단위는 둘 다 충족)",
         "evidence": [
@@ -2523,6 +2616,9 @@
       {
         "name": "승마교관",
         "track": "기타",
+        "tracks": [
+          "기타"
+        ],
         "kind": "condition",
         "note": "승마 자격증과 함께 전국규모대회 장애물비월 3회 이상 입상경력 필요 (두 가지 모두 충족)",
         "evidence": [
@@ -2538,6 +2634,9 @@
       {
         "name": "기승조교 및 말관리",
         "track": "기타",
+        "tracks": [
+          "기타"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -2545,6 +2644,9 @@
       {
         "name": "출발",
         "track": "기타",
+        "tracks": [
+          "기타"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []

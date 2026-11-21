@@ -44,7 +44,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-004",
+      "id": "stage1-003",
       "importance": 1,
       "category": "전형",
       "title": "전형방법: - 합격배수 : 최종선발예정인원 10명이상(1.8배수), 3명이상~9명이하(3배수), 2명(4배수), 1명(5배수) → - 합격배수 : 최종선발예정인원 10명이상(1.5배수), 4명이상~9명이하(2.5배수), 2~3명(3배수), 1명(4배수)",
@@ -59,7 +59,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-010",
+      "id": "stage1-009",
       "importance": 1,
       "category": "전형",
       "title": "전형방법: - 합격배수 : 최종선발예정인원 3명이상(3배수), 1명(5배수) → - 합격배수 : 자립준비청년 전형(3배수), 그 외 전형(4배수)",
@@ -75,26 +75,6 @@
     },
     {
       "id": "stage1-002",
-      "importance": 2,
-      "category": "지역",
-      "title": "근무지역 목록 변경",
-      "change_type": "list",
-      "prev_value": [
-        "광주",
-        "전남"
-      ],
-      "curr_value": [
-        "전남광주"
-      ],
-      "source": "stage1",
-      "ai_label": null,
-      "confidence": "not_applicable",
-      "status": "review_required",
-      "affected_units": [],
-      "evidence": []
-    },
-    {
-      "id": "stage1-003",
       "importance": 2,
       "category": "모집단위",
       "title": "모집단위 목록 변경",
@@ -186,7 +166,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-005",
+      "id": "stage1-004",
       "importance": 2,
       "category": "전형",
       "title": "전형방법: o 1차면접(PT 및 그룹토론 면접) : 필기(40), 1차면접(60), 법정가점(해당 시) → o 면접전형(PT 및 역량 면접) : 필기(50), 면접(50), 법정가점(해당 시)",
@@ -201,7 +181,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-006",
+      "id": "stage1-005",
       "importance": 2,
       "category": "전형",
       "title": "전형방법 삭제: - 합격배수 : 최종선발예정인원 10명이상(1.2배수), 3명이상~9명이하(1.5배수), 2명(2배수), 1명(3배수)",
@@ -216,7 +196,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-007",
+      "id": "stage1-006",
       "importance": 2,
       "category": "전형",
       "title": "전형방법 삭제: ※ 동점자 전원 선발, 선발인원 산정 시 소수점 첫째 자리에서 올림",
@@ -231,7 +211,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-008",
+      "id": "stage1-007",
       "importance": 2,
       "category": "전형",
       "title": "전형방법 삭제: o 2차면접(역량면접) : 필기(20), 1차면접(50), 2차면접(30), 법정가점(해당 시)",
@@ -246,7 +226,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-009",
+      "id": "stage1-008",
       "importance": 2,
       "category": "전형",
       "title": "전형방법 추가: ※ 필기전형 점수의 경우, 부가점수 제외한 후 합산",
@@ -261,7 +241,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-011",
+      "id": "stage1-010",
       "importance": 2,
       "category": "전형",
       "title": "전형방법 삭제: - 합격배수 : 최종선발예정인원 3명이상(1.5배수), 1명(3배수)",
@@ -276,7 +256,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-013",
+      "id": "stage1-012",
       "importance": 2,
       "category": "자격",
       "title": "응시자격: o 병역사항 : 남자의 경우 병역필 또는 면제자 → o 병역사항 : 남자의 경우 병역필 또는 면제자(병역특례 근무 중인 자 제외)",
@@ -291,7 +271,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-014",
+      "id": "stage1-013",
       "importance": 2,
       "category": "자격",
       "title": "응시자격: ※ 인턴계약일(2025년 9월 중 예정) 이전 전역 예정자 포함, 병역특례 근무 중인 자 제외 → ※ 인턴계약일(2026년 11월 중 예정) 이전 전역 예정자 포함",
@@ -306,7 +286,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-015",
+      "id": "stage1-014",
       "importance": 2,
       "category": "자격",
       "title": "응시자격 삭제: o 자격증 (기술직 및 4차산업인재) 선발분야 기사 이상 자격증 소지자",
@@ -321,7 +301,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-016",
+      "id": "stage1-015",
       "importance": 2,
       "category": "자격",
       "title": "응시자격 추가: o (AI인재, 기술직) 선발 분야의 기사 자격증 등 소지자",
@@ -336,7 +316,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-017",
+      "id": "stage1-016",
       "importance": 2,
       "category": "자격",
       "title": "응시자격: o「국가유공자 등 예우 및 지원에 관한 법률」등에 따른 취업지원대상자로서 증명서 발급이 가능한 자 → o 「국가유공자 등 예우 및 지원에 관한 법률」등에 따른 취업지원대상자로서 취업지원대상자 증명서 발급 가능한 자",
@@ -351,7 +331,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-018",
+      "id": "stage1-017",
       "importance": 2,
       "category": "자격",
       "title": "응시자격: o 「장애인고용촉진 및 직업재활법」에 따른 장애인으로서 증명서 발급이 가능한 자 → o 「장애인고용촉진 및 직업재활법 시행령」 제3조에 따른 장애인으로 동시행령 제3조제2항의 증빙서류 제출이 가능한 자",
@@ -366,7 +346,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-019",
+      "id": "stage1-018",
       "importance": 2,
       "category": "자격",
       "title": "응시자격: o 성별, 연령, 병역사항 및 어학성적 제한 없음 (단, 공사 정년에 도달하는 자 제외) → o 성별, 연령(자립준비청년전형 제외), 병역사항 및 어학성적 제한 없음 (단, 공사 정년에 도달하는 자 제외)",
@@ -381,7 +361,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-021",
+      "id": "stage1-020",
       "importance": 2,
       "category": "자격",
       "title": "응시자격: o 원서접수 마감일 현재 최종학력이 고등학교 졸업이거나, 2026년 2월 졸업 예정인 자 → o 원서접수 마감일 현재 최종학력이 고등학교 졸업(예정)인 자",
@@ -396,7 +376,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-022",
+      "id": "stage1-021",
       "importance": 2,
       "category": "자격",
       "title": "응시자격 삭제: ※ 고졸 검정고시 합격자 및 전문대 이상 중퇴자, 재학, 휴학 중인 자는 지원 가능.",
@@ -411,7 +391,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-023",
+      "id": "stage1-022",
       "importance": 2,
       "category": "자격",
       "title": "응시자격: ※ 전문대 이상 졸업(예정)자(최종학기를 이수(등록)한 자, 또는 인턴근무 시작일 전 등록 예정인 자)는 지원 불가 → ※ 전문대 이상 졸업(예정)자(최종학기를 이수(등록)한 자 등)는 지원 불가",
@@ -426,7 +406,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-024",
+      "id": "stage1-023",
       "importance": 2,
       "category": "자격",
       "title": "응시자격: ※ 2026년 2월 고등학교 졸업예정자는 원서접수 마감일 현재 졸업예정증명서를 발급, 제출할 수 있는 자 → ※ 고등학교 졸업예정자는 원서접수 마감일 현재 졸업예정증명서 발급이 가능한 자",
@@ -441,7 +421,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-025",
+      "id": "stage1-024",
       "importance": 2,
       "category": "자격",
       "title": "응시자격 추가: [자립준비청년전형]",
@@ -456,7 +436,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-026",
+      "id": "stage1-025",
       "importance": 2,
       "category": "자격",
       "title": "응시자격 추가: o 「아동복지법」 제16조 또는 제16조의3에 따라 보호조치가 종료되거나 해당 시설을 퇴소한 사람 중 만 34세 이하인 자",
@@ -471,7 +451,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-012",
+      "id": "stage1-011",
       "importance": 3,
       "category": "자격",
       "title": "응시자격: o 인턴계약일(2025년 9월 중 예정)로부터 근무 가능자(사업장 전국 소재) → o 인턴계약일(2026년 11월 중 예정)로부터 근무 가능자(사업장 전국 소재)",
@@ -486,7 +466,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-020",
+      "id": "stage1-019",
       "importance": 3,
       "category": "자격",
       "title": "응시자격: o 인턴계약일(2025년 9월 중 예정)로 부터 근무 가능자(사업장 전국 소재) → o 인턴계약일(2026년 11월 중 예정)로 부터 근무 가능자(사업장 전국 소재)",
@@ -503,12 +483,12 @@
   ],
   "change_groups": [
     {
-      "id": "group-stage1-006",
+      "id": "group-stage1-005",
       "category": "전형",
       "member_ids": [
-        "stage1-010",
-        "stage1-006",
-        "stage1-011"
+        "stage1-009",
+        "stage1-005",
+        "stage1-010"
       ],
       "shared_terms": [
         "최종선발예정인원",
@@ -518,22 +498,22 @@
       ]
     },
     {
-      "id": "group-stage1-005",
+      "id": "group-stage1-004",
       "category": "전형",
       "member_ids": [
-        "stage1-005",
-        "stage1-008"
+        "stage1-004",
+        "stage1-007"
       ],
       "shared_terms": [
         "차면접"
       ]
     },
     {
-      "id": "group-stage1-013",
+      "id": "group-stage1-012",
       "category": "자격",
       "member_ids": [
-        "stage1-013",
-        "stage1-014"
+        "stage1-012",
+        "stage1-013"
       ],
       "shared_terms": [
         "병역특례",
@@ -542,11 +522,11 @@
       ]
     },
     {
-      "id": "group-stage1-015",
+      "id": "group-stage1-014",
       "category": "자격",
       "member_ids": [
-        "stage1-015",
-        "stage1-016"
+        "stage1-014",
+        "stage1-015"
       ],
       "shared_terms": [
         "기술직",
@@ -556,12 +536,12 @@
       ]
     },
     {
-      "id": "group-stage1-017",
+      "id": "group-stage1-016",
       "category": "자격",
       "member_ids": [
+        "stage1-016",
         "stage1-017",
-        "stage1-018",
-        "stage1-024"
+        "stage1-023"
       ],
       "shared_terms": [
         "발급이",
@@ -569,22 +549,22 @@
       ]
     },
     {
-      "id": "group-stage1-019",
+      "id": "group-stage1-018",
       "category": "자격",
       "member_ids": [
-        "stage1-019",
-        "stage1-025"
+        "stage1-018",
+        "stage1-024"
       ],
       "shared_terms": [
         "자립준비청년전형"
       ]
     },
     {
-      "id": "group-stage1-021",
+      "id": "group-stage1-020",
       "category": "자격",
       "member_ids": [
-        "stage1-021",
-        "stage1-023"
+        "stage1-020",
+        "stage1-022"
       ],
       "shared_terms": [
         "예정인"
@@ -1422,6 +1402,9 @@
       {
         "name": "[전국권-5급 일반] 행정(경영)",
         "track": "사무",
+        "tracks": [
+          "사무"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1429,6 +1412,9 @@
       {
         "name": "[전국권-5급 일반] 행정(법정)",
         "track": "사무",
+        "tracks": [
+          "사무"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1436,6 +1422,9 @@
       {
         "name": "[전국권-5급 일반] 행정(AI인재)",
         "track": "사무",
+        "tracks": [
+          "사무"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1443,6 +1432,9 @@
       {
         "name": "[전국권-5급 일반] 토목(일반)",
         "track": "토목",
+        "tracks": [
+          "토목"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1450,6 +1442,9 @@
       {
         "name": "[전국권-5급 일반] 토목(교통)",
         "track": "토목",
+        "tracks": [
+          "토목"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1457,6 +1452,9 @@
       {
         "name": "[전국권-5급 일반] 전기",
         "track": "전기",
+        "tracks": [
+          "전기"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1464,6 +1462,9 @@
       {
         "name": "[전국권-5급 일반] 기계",
         "track": "기계",
+        "tracks": [
+          "기계"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1471,6 +1472,9 @@
       {
         "name": "[전국권-5급 일반] 설비",
         "track": "기타",
+        "tracks": [
+          "기타"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1478,13 +1482,20 @@
       {
         "name": "[전국권-5급 일반] 전산(AI인재)",
         "track": "ICT",
+        "tracks": [
+          "ICT"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
       },
       {
         "name": "[전국권-5급 일반] 전자",
-        "track": "기타",
+        "track": "전기",
+        "tracks": [
+          "전기",
+          "ICT"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1492,6 +1503,9 @@
       {
         "name": "[전국권-5급 보훈] 행정(경영)",
         "track": "사무",
+        "tracks": [
+          "사무"
+        ],
         "kind": "special",
         "note": "국가유공자법 등에 따른 보훈·장애인 취업지원대상자로서 취업지원대상자 증명서 발급 가능자만 지원 가능",
         "evidence": [
@@ -1507,6 +1521,9 @@
       {
         "name": "[전국권-5급 보훈] 행정(법정)",
         "track": "사무",
+        "tracks": [
+          "사무"
+        ],
         "kind": "special",
         "note": "국가유공자법 등에 따른 보훈·장애인 취업지원대상자로서 취업지원대상자 증명서 발급 가능자만 지원 가능",
         "evidence": [
@@ -1522,6 +1539,9 @@
       {
         "name": "[전국권-5급 장애인] 행정(경영)",
         "track": "사무",
+        "tracks": [
+          "사무"
+        ],
         "kind": "special",
         "note": "장애인고용촉진 및 직업재활법 시행령 제3조에 따른 장애인으로 증빙서류 제출이 가능한 자만 지원 가능",
         "evidence": [
@@ -1537,6 +1557,9 @@
       {
         "name": "[전국권-5급 장애인] 행정(법정)",
         "track": "사무",
+        "tracks": [
+          "사무"
+        ],
         "kind": "special",
         "note": "장애인고용촉진 및 직업재활법 시행령 제3조에 따른 장애인으로 증빙서류 제출이 가능한 자만 지원 가능",
         "evidence": [
@@ -1552,6 +1575,9 @@
       {
         "name": "[지역권-5급 강원] 행정(경영)",
         "track": "사무",
+        "tracks": [
+          "사무"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1559,6 +1585,9 @@
       {
         "name": "[지역권-5급 강원] 행정(법정)",
         "track": "사무",
+        "tracks": [
+          "사무"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1566,6 +1595,9 @@
       {
         "name": "[지역권-5급 강원] 토목(일반)",
         "track": "토목",
+        "tracks": [
+          "토목"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1573,6 +1605,9 @@
       {
         "name": "[지역권-5급 전북] 행정(경영)",
         "track": "사무",
+        "tracks": [
+          "사무"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1580,6 +1615,9 @@
       {
         "name": "[지역권-5급 전북] 행정(법정)",
         "track": "사무",
+        "tracks": [
+          "사무"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1587,6 +1625,9 @@
       {
         "name": "[지역권-5급 전북] 토목(일반)",
         "track": "토목",
+        "tracks": [
+          "토목"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1594,6 +1635,9 @@
       {
         "name": "[지역권-5급 광주전남] 행정(경영)",
         "track": "사무",
+        "tracks": [
+          "사무"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1601,6 +1645,9 @@
       {
         "name": "[지역권-5급 광주전남] 행정(법정)",
         "track": "사무",
+        "tracks": [
+          "사무"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1608,6 +1655,9 @@
       {
         "name": "[지역권-5급 광주전남] 토목(일반)",
         "track": "토목",
+        "tracks": [
+          "토목"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1615,6 +1665,9 @@
       {
         "name": "[전국권-8급 장애인] 행정",
         "track": "사무",
+        "tracks": [
+          "사무"
+        ],
         "kind": "special",
         "note": "장애인고용촉진 및 직업재활법 시행령 제3조에 따른 장애인으로 증빙서류 제출이 가능한 자만 지원 가능",
         "evidence": [
@@ -1630,197 +1683,281 @@
       {
         "name": "[전국권-8급 자립준비청년] 행정",
         "track": "사무",
-        "kind": "general",
+        "tracks": [
+          "사무"
+        ],
+        "kind": "special",
         "note": null,
         "evidence": []
       },
       {
         "name": "[지역권-8급 수도권] 행정(고졸일반)",
         "track": "사무",
-        "kind": "general",
-        "note": null,
+        "tracks": [
+          "사무"
+        ],
+        "kind": "condition",
+        "note": "고졸 학력자만 지원할 수 있는 모집단위예요. 학력은 입력받지 않아 확정하지 않았어요.",
         "evidence": []
       },
       {
         "name": "[지역권-8급 수도권] 행정(보훈)",
         "track": "사무",
-        "kind": "general",
+        "tracks": [
+          "사무"
+        ],
+        "kind": "special",
         "note": null,
         "evidence": []
       },
       {
         "name": "[지역권-8급 수도권] 토목(고졸일반)",
         "track": "토목",
-        "kind": "general",
-        "note": null,
+        "tracks": [
+          "토목"
+        ],
+        "kind": "condition",
+        "note": "고졸 학력자만 지원할 수 있는 모집단위예요. 학력은 입력받지 않아 확정하지 않았어요.",
         "evidence": []
       },
       {
         "name": "[지역권-8급 서울경기] 행정(고졸일반)",
         "track": "사무",
-        "kind": "general",
-        "note": null,
+        "tracks": [
+          "사무"
+        ],
+        "kind": "condition",
+        "note": "고졸 학력자만 지원할 수 있는 모집단위예요. 학력은 입력받지 않아 확정하지 않았어요.",
         "evidence": []
       },
       {
         "name": "[지역권-8급 서울경기] 행정(보훈)",
         "track": "사무",
-        "kind": "general",
+        "tracks": [
+          "사무"
+        ],
+        "kind": "special",
         "note": null,
         "evidence": []
       },
       {
         "name": "[지역권-8급 서울경기] 토목(고졸일반)",
         "track": "토목",
-        "kind": "general",
-        "note": null,
+        "tracks": [
+          "토목"
+        ],
+        "kind": "condition",
+        "note": "고졸 학력자만 지원할 수 있는 모집단위예요. 학력은 입력받지 않아 확정하지 않았어요.",
         "evidence": []
       },
       {
         "name": "[지역권-8급 강원] 행정(고졸일반)",
         "track": "사무",
-        "kind": "general",
-        "note": null,
+        "tracks": [
+          "사무"
+        ],
+        "kind": "condition",
+        "note": "고졸 학력자만 지원할 수 있는 모집단위예요. 학력은 입력받지 않아 확정하지 않았어요.",
         "evidence": []
       },
       {
         "name": "[지역권-8급 강원] 행정(보훈)",
         "track": "사무",
-        "kind": "general",
+        "tracks": [
+          "사무"
+        ],
+        "kind": "special",
         "note": null,
         "evidence": []
       },
       {
         "name": "[지역권-8급 강원] 토목(고졸일반)",
         "track": "토목",
-        "kind": "general",
-        "note": null,
+        "tracks": [
+          "토목"
+        ],
+        "kind": "condition",
+        "note": "고졸 학력자만 지원할 수 있는 모집단위예요. 학력은 입력받지 않아 확정하지 않았어요.",
         "evidence": []
       },
       {
         "name": "[지역권-8급 충북] 행정(고졸일반)",
         "track": "사무",
-        "kind": "general",
-        "note": null,
+        "tracks": [
+          "사무"
+        ],
+        "kind": "condition",
+        "note": "고졸 학력자만 지원할 수 있는 모집단위예요. 학력은 입력받지 않아 확정하지 않았어요.",
         "evidence": []
       },
       {
         "name": "[지역권-8급 충북] 행정(보훈)",
         "track": "사무",
-        "kind": "general",
+        "tracks": [
+          "사무"
+        ],
+        "kind": "special",
         "note": null,
         "evidence": []
       },
       {
         "name": "[지역권-8급 충북] 토목(고졸일반)",
         "track": "토목",
-        "kind": "general",
-        "note": null,
+        "tracks": [
+          "토목"
+        ],
+        "kind": "condition",
+        "note": "고졸 학력자만 지원할 수 있는 모집단위예요. 학력은 입력받지 않아 확정하지 않았어요.",
         "evidence": []
       },
       {
         "name": "[지역권-8급 대전충남] 행정(고졸일반)",
         "track": "사무",
-        "kind": "general",
-        "note": null,
+        "tracks": [
+          "사무"
+        ],
+        "kind": "condition",
+        "note": "고졸 학력자만 지원할 수 있는 모집단위예요. 학력은 입력받지 않아 확정하지 않았어요.",
         "evidence": []
       },
       {
         "name": "[지역권-8급 대전충남] 행정(보훈)",
         "track": "사무",
-        "kind": "general",
+        "tracks": [
+          "사무"
+        ],
+        "kind": "special",
         "note": null,
         "evidence": []
       },
       {
         "name": "[지역권-8급 대전충남] 토목(고졸일반)",
         "track": "토목",
-        "kind": "general",
-        "note": null,
+        "tracks": [
+          "토목"
+        ],
+        "kind": "condition",
+        "note": "고졸 학력자만 지원할 수 있는 모집단위예요. 학력은 입력받지 않아 확정하지 않았어요.",
         "evidence": []
       },
       {
         "name": "[지역권-8급 전북] 행정(고졸일반)",
         "track": "사무",
-        "kind": "general",
-        "note": null,
+        "tracks": [
+          "사무"
+        ],
+        "kind": "condition",
+        "note": "고졸 학력자만 지원할 수 있는 모집단위예요. 학력은 입력받지 않아 확정하지 않았어요.",
         "evidence": []
       },
       {
         "name": "[지역권-8급 전북] 행정(보훈)",
         "track": "사무",
-        "kind": "general",
+        "tracks": [
+          "사무"
+        ],
+        "kind": "special",
         "note": null,
         "evidence": []
       },
       {
         "name": "[지역권-8급 전북] 토목(고졸일반)",
         "track": "토목",
-        "kind": "general",
-        "note": null,
+        "tracks": [
+          "토목"
+        ],
+        "kind": "condition",
+        "note": "고졸 학력자만 지원할 수 있는 모집단위예요. 학력은 입력받지 않아 확정하지 않았어요.",
         "evidence": []
       },
       {
         "name": "[지역권-8급 광주전남] 행정(고졸일반)",
         "track": "사무",
-        "kind": "general",
-        "note": null,
+        "tracks": [
+          "사무"
+        ],
+        "kind": "condition",
+        "note": "고졸 학력자만 지원할 수 있는 모집단위예요. 학력은 입력받지 않아 확정하지 않았어요.",
         "evidence": []
       },
       {
         "name": "[지역권-8급 광주전남] 행정(보훈)",
         "track": "사무",
-        "kind": "general",
+        "tracks": [
+          "사무"
+        ],
+        "kind": "special",
         "note": null,
         "evidence": []
       },
       {
         "name": "[지역권-8급 광주전남] 토목(고졸일반)",
         "track": "토목",
-        "kind": "general",
-        "note": null,
+        "tracks": [
+          "토목"
+        ],
+        "kind": "condition",
+        "note": "고졸 학력자만 지원할 수 있는 모집단위예요. 학력은 입력받지 않아 확정하지 않았어요.",
         "evidence": []
       },
       {
         "name": "[지역권-8급 대구경북] 행정(고졸일반)",
         "track": "사무",
-        "kind": "general",
-        "note": null,
+        "tracks": [
+          "사무"
+        ],
+        "kind": "condition",
+        "note": "고졸 학력자만 지원할 수 있는 모집단위예요. 학력은 입력받지 않아 확정하지 않았어요.",
         "evidence": []
       },
       {
         "name": "[지역권-8급 대구경북] 행정(보훈)",
         "track": "사무",
-        "kind": "general",
+        "tracks": [
+          "사무"
+        ],
+        "kind": "special",
         "note": null,
         "evidence": []
       },
       {
         "name": "[지역권-8급 대구경북] 토목(고졸일반)",
         "track": "토목",
-        "kind": "general",
-        "note": null,
+        "tracks": [
+          "토목"
+        ],
+        "kind": "condition",
+        "note": "고졸 학력자만 지원할 수 있는 모집단위예요. 학력은 입력받지 않아 확정하지 않았어요.",
         "evidence": []
       },
       {
         "name": "[지역권-8급 부산경남] 행정(고졸일반)",
         "track": "사무",
-        "kind": "general",
-        "note": null,
+        "tracks": [
+          "사무"
+        ],
+        "kind": "condition",
+        "note": "고졸 학력자만 지원할 수 있는 모집단위예요. 학력은 입력받지 않아 확정하지 않았어요.",
         "evidence": []
       },
       {
         "name": "[지역권-8급 부산경남] 행정(보훈)",
         "track": "사무",
-        "kind": "general",
+        "tracks": [
+          "사무"
+        ],
+        "kind": "special",
         "note": null,
         "evidence": []
       },
       {
         "name": "[지역권-8급 부산경남] 토목(고졸일반)",
         "track": "토목",
-        "kind": "general",
-        "note": null,
+        "tracks": [
+          "토목"
+        ],
+        "kind": "condition",
+        "note": "고졸 학력자만 지원할 수 있는 모집단위예요. 학력은 입력받지 않아 확정하지 않았어요.",
         "evidence": []
       }
     ],

@@ -39,11 +39,11 @@ def _text_source(sn: str) -> str:
 
 
 def _api_key() -> str:
+    if os.environ.get("GONGCHAE_IGNORE_SECRETS") == "1":  # 테스트용: 키를 아예 안 씀 (11-20 시험 중 실제 AI 호출)
+        return ""  # 먼저 봐야 함: Streamlit이 secrets.toml 맨 위 칸을 환경변수로도 넣기 때문 (11-21 PC에서만 실패)
     key = os.environ.get("ANTHROPIC_API_KEY", "").strip()
     if key:
         return key
-    if os.environ.get("GONGCHAE_IGNORE_SECRETS") == "1":  # 테스트용: PC의 .streamlit/secrets.toml 키를 쓰지 않음 (11-20 시험 중 실제 AI 호출)
-        return ""
     try:  # 배포(Streamlit Cloud)에서는 Secrets에 넣는다
         secrets = st.secrets
         value = secrets.get("ANTHROPIC_API_KEY")
@@ -118,10 +118,10 @@ def render_qa_page() -> None:
         st.caption("이 공고문은 그림·스캔 파일이라, AI가 그림의 글자를 옮겨 적은 내용을 원문으로 써요. "
                    "숫자·날짜는 공고문 원본으로 한 번 더 확인하세요.")
 
-    st.caption("AI 답변: 켜짐 (API 키 있음)" if _api_key() else
-               "AI 답변: 꺼짐 (API 키 없음) · 관련 원문 발췌만 보여줘요. "
-               "(PC: 키를 넣은 창에서 실행하거나 `.streamlit/secrets.toml`, 배포: Streamlit Cloud Secrets)"
-               + _secrets_hint())
+    if not _api_key():  # 켜져 있을 때는 안내하지 않음 (11-21 팀원 점검 16번)
+        st.caption("AI 답변: 꺼짐 (API 키 없음) · 관련 원문 발췌만 보여줘요. "
+                   "(PC: 키를 넣은 창에서 실행하거나 `.streamlit/secrets.toml`, 배포: Streamlit Cloud Secrets)"
+                   + _secrets_hint())
     st.write("예시 질문")
     columns = st.columns(len(EXAMPLES))
     clicked = False

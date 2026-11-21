@@ -84,33 +84,39 @@ def _ymd(value: Any) -> str:
     return f"{text[:4]}.{text[4:6]}.{text[6:]}" if len(text) == 8 and text.isdigit() else text
 
 
+def _closed(report: Mapping[str, Any]) -> bool:
+    from datetime import date
+
+    end = str(report["curr"]["period"]["end"] or "")
+    return len(end) == 8 and end.isdigit() and end < date.today().strftime("%Y%m%d")
+
+
 def _render_header(report: Mapping[str, Any]) -> None:
     institution = escape(str(report["institution"]))
     st.markdown(
         f'<div class="radar-title">{institution} 채용공고 비교</div>',
         unsafe_allow_html=True,
     )
-    st.caption(DATA_NOTICE)
     st.markdown(
-        '<div class="radar-subtitle">현재 지원할 공고와 전년도 공고에서 달라진 내용을 확인합니다.</div>',
+        '<div class="radar-subtitle">올해 공고와 작년 공고에서 달라진 내용을 나란히 보여 드려요.</div>',
         unsafe_allow_html=True,
     )
 
     with st.container(border=True):
-        st.markdown(f"### 지원 대상 기업: {report['institution']}")
         current, previous = st.columns(2)
         with current:
-            st.markdown("**현재 지원 공고 (2026)**")
+            st.markdown("**올해 공고 (2026)**" + (" · 접수 마감" if _closed(report) else ""))
             st.write(report["curr"]["title"])
             st.caption(
                 f"공고번호 {report['curr']['sn']} · 접수 {_ymd(report['curr']['period']['start'])} ~ {_ymd(report['curr']['period']['end'])}"
             )
         with previous:
-            st.markdown("**비교 기준 공고 (2025)**")
+            st.markdown("**작년 공고 (2025)**")
             st.write(report["prev"]["title"])
             st.caption(
                 f"공고번호 {report['prev']['sn']} · 접수 {_ymd(report['prev']['period']['start'])} ~ {_ymd(report['prev']['period']['end'])}"
             )
+    st.caption(DATA_NOTICE)
 
     units = _units(report)
     confirmed = sum(item["status"] == "confirmed" for item in units)
@@ -124,10 +130,10 @@ def _render_header(report: Mapping[str, Any]) -> None:
 
 def _render_sources(report: Mapping[str, Any]) -> None:
     st.subheader("공식 공고 원문")
-    st.caption("잡알리오 외부 링크 대신 수집 당시 저장한 공식 PDF를 직접 확인합니다.")
+    st.caption("수집할 때 저장한 공식 공고문이에요. 변경 카드의 내용을 여기서 바로 확인할 수 있어요.")
 
     columns = st.columns(2)
-    for column, (label, key) in zip(columns, (("현재 공고 (2026)", "curr"), ("비교 공고 (2025)", "prev"))):
+    for column, (label, key) in zip(columns, (("올해 공고 (2026)", "curr"), ("작년 공고 (2025)", "prev"))):
         notice = report[key]
         pdf_path = ROOT / str(notice["pdf_path"])
         with column:
@@ -142,16 +148,16 @@ def _render_sources(report: Mapping[str, Any]) -> None:
                     use_container_width=True,
                 )
             else:
-                st.warning("저장된 원문 PDF를 찾을 수 없습니다.")
+                st.caption("이 공고는 원문이 그림·한글 파일이라 PDF를 저장하지 않았어요.")
 
     selection = st.selectbox(
         "화면에서 바로 볼 공고",
-        options=["선택 안 함", "현재 공고 (2026)", "비교 공고 (2025)"],
+        options=["선택 안 함", "올해 공고 (2026)", "작년 공고 (2025)"],
         index=0,
     )
     selected_key = {
-        "현재 공고 (2026)": "curr",
-        "비교 공고 (2025)": "prev",
+        "올해 공고 (2026)": "curr",
+        "작년 공고 (2025)": "prev",
     }.get(selection)
     if selected_key:
         notice = report[selected_key]
@@ -164,7 +170,7 @@ def _render_sources(report: Mapping[str, Any]) -> None:
                 alt=f"{notice['title']} 공식 공고문",
             )
         else:
-            st.warning("저장된 원문 PDF를 찾을 수 없습니다.")
+            st.caption("이 공고는 원문이 그림·한글 파일이라 PDF를 저장하지 않았어요.")
 
 
 def _render_visual_summary(report: Mapping[str, Any]) -> None:
@@ -173,7 +179,7 @@ def _render_visual_summary(report: Mapping[str, Any]) -> None:
         return
 
     st.subheader("숫자로 보는 핵심 변화")
-    st.caption("그래프는 원문 확인이 끝난 수치만 사용합니다. 정확한 문장은 아래 변경사항에서 확인할 수 있습니다.")
+    st.caption("그래프는 원문 확인이 끝난 수치만 써요. 정확한 문장은 아래 변경사항에서 확인할 수 있습니다.")
 
     total = summary["total_headcount"]
     total_delta = total["curr"] - total["prev"]
@@ -283,53 +289,77 @@ def _render_ai_usage() -> None:
     with st.expander("AI는 이 서비스에서 어디에 사용되나요?"):
         st.markdown(
             """
-- **코드가 하는 일:** 숫자 비교, 지원조건 일치 여부, 쪽수·인용문 존재 확인
-- **사람이 하는 일:** 비교 공고 확정, 애매한 변경과 원문 최종 검토
-- **AI가 맡을 일:** 긴 공고문 구조화, 어려운 변경 문구의 쉬운 설명, 검증된 원문 안에서 질문 답변
+- **코드가 하는 일:** 작년·올해 공고 비교, 같은 변경 묶기, 지원 가능·애매·불가 판정, 가점 계산, 인용문이 원문에 있는지 대조
+- **AI가 하는 일:** 공고문에서 지원 자격·가점을 정해진 칸에 정리(미리 한 번), 그림 공고의 글자 옮겨 적기(미리 한 번), 공고문 안에서만 질문 답변
+- **사람이 하는 일:** 비교할 공고 고르기 규칙, 판정 규칙, 정답지로 정확도 확인
 
-현재 이 상세 화면은 실시간 AI를 호출하지 않습니다. 지금 보이는 수치와 설명은 저장된 검증 결과를
-사용하며, AI가 원문에 없는 조건이나 숫자를 만들어 판정하지 못하도록 분리합니다.
+이 비교 화면은 실시간 AI를 부르지 않아요. 지금 보이는 수치와 설명은 미리 저장한 결과이고,
+AI가 원문에 없는 조건이나 숫자를 만들어 판정하지 못하게 나눠 두었어요.
 """
         )
+
+
+def _is_minor(change: Mapping[str, Any]) -> bool:
+    """이름·표기만 바뀐 사소한 변경 (숫자 없음, 바뀐 조각이 짧음): 행사·시스템 이름 등 (11-21 팀원 점검 7·13번)"""
+    from difflib import SequenceMatcher
+
+    prev, curr = change.get("prev_value"), change.get("curr_value")
+    if change.get("change_type") == "rename":
+        return True
+    if change.get("change_type") != "text" or not isinstance(prev, str) or not isinstance(curr, str):
+        return False
+    matcher = SequenceMatcher(None, prev, curr, autojunk=False)
+    gone = "".join(prev[a:b] for tag, a, b, _, _ in matcher.get_opcodes() if tag in {"delete", "replace"})
+    new = "".join(curr[c:d] for tag, _, _, c, d in matcher.get_opcodes() if tag in {"insert", "replace"})
+    if any(char.isdigit() for char in gone + new):
+        return False
+    return 0 < len(gone.strip()) <= 10 and 0 < len(new.strip()) <= 12 and matcher.ratio() >= 0.7
+
+
+def _mentions_track(unit: Mapping[str, Any], track: str | None) -> bool:
+    if not track:
+        return False
+    texts = [str(change.get(key) or "") for change in unit["changes"] for key in ("prev_value", "curr_value", "title")]
+    return any(track in text for text in texts)
 
 
 def render_report(report: Mapping[str, Any]) -> None:
     apply_styles()
     _render_header(report)
-    confirmed_count = sum(item["status"] == "confirmed" for item in report["changes"])
-    if confirmed_count:
-        st.info("확정 결과에는 PDF 쪽수와 원문 인용이 반드시 붙습니다. 확인되지 않은 후보는 따로 표시합니다.")
-    else:
-        st.info(
-            "아래 변경점은 작년·올해 공고 문구를 코드로 비교해 찾은 후보입니다. "
-            "중요한 변경은 공고문 원문으로 확인하세요."
-        )
-    _render_ai_usage()
-    _render_notice_info(report)
-    _render_visual_summary(report)
+
+    units = _units(report)
+    track = (st.session_state.get("user_condition") or {}).get("track")
+    main = [unit for unit in units if not all(_is_minor(change) for change in unit["changes"])]
+    minor = [unit for unit in units if unit not in main]
+    # 내 직렬 이름이 들어간 변경을 맨 위로 (11-21 팀원 점검 13번)
+    main.sort(key=lambda unit: (not _mentions_track(unit, track), unit["importance"]))
 
     st.subheader("무엇이 바뀌었나")
-    show_review = st.toggle("확인 필요한 후보도 함께 보기", value=True)  # 30곳 모두 자동 후보라 기본으로 보여줌
-    visible = [
-        unit
-        for unit in _units(report)
-        if unit["status"] == "confirmed" or show_review
-    ]
-    grouped = sum(unit["kind"] == "group" for unit in visible)
+    grouped = sum(unit["kind"] == "group" for unit in main)
     dated = sum(change.get("change_type") == "date" for change in report["changes"])
     st.caption(
-        f"현재 {len(visible)}건 표시 · 중요도 높은 순"
-        + (f" · 같은 변경을 나눠 잡은 후보 {grouped}묶음은 한 장으로 표시" if grouped else "")
-        + (f" · 날짜만 바뀐 {dated}건은 ‘이번 공고 한눈에 보기’에 정리" if dated else "")
+        "작년·올해 공고 문구를 코드로 비교해 찾은 후보예요. 카드마다 바뀐 부분을 표시했고, "
+        "아래 '공식 공고 원문'에서 바로 확인할 수 있어요."
+        + (f" · {track} 직렬 관련 변경을 먼저 보여 드려요" if track and any(_mentions_track(u, track) for u in main) else "")
+        + (f" · 같은 변경을 나눠 잡은 {grouped}묶음은 한 장으로" if grouped else "")
+        + (f" · 날짜만 바뀐 {dated}건은 ‘이번 공고 한눈에 보기’에" if dated else "")
     )
 
     titles = {"prev": report["prev"]["title"], "curr": report["curr"]["title"]}
-    for unit in visible:
+    for unit in main:
+        if _mentions_track(unit, track):
+            st.markdown(f'<span class="chip chip-bonus">내 직렬({escape(track)}) 관련</span>', unsafe_allow_html=True)
         unit_card(unit, titles, str(report["pair_id"]), report.get("notice_info"))
+    if not main and not minor:
+        st.info("작년 공고와 비교해 찾은 변경 후보가 없어요.")
+    if minor:
+        with st.expander(f"이름·표기만 바뀐 사소한 변경 {len(minor)}건"):
+            for unit in minor:
+                unit_card(unit, titles, str(report["pair_id"]), report.get("notice_info"))
 
-    if not visible:
-        st.warning("표시할 확정 변경점이 없습니다.")
-
+    _render_visual_summary(report)
+    _render_notice_info(report)
+    _render_ai_usage()
     _render_sources(report)
 
 
@@ -359,12 +389,12 @@ def render_report_page(pair_id: str = "kepco-2025-2026-h2") -> None:
             options=list(reports_by_id),
             index=default_index,
             format_func=lambda value: _report_option_label(reports_by_id[value]),
-            help="현재 공고와 전년도 유사 공고 한 쌍을 선택합니다.",
+            help="올해 공고와 작년 같은 공고 한 쌍을 골라요.",
         )
         report = reports_by_id[selected_pair_id]
         st.session_state["selected_pair_id"] = selected_pair_id  # ④ 질문 화면이 같은 공고를 연다
         try:  # 화면 하나만 따로 띄울 때(자동 테스트)는 다른 화면 링크가 없어서 건너뛴다
-            st.page_link("app/pages/qa.py", label="이 공고에 대해 공고문에 물어보기", icon="💬")
+            st.page_link("app/pages/qa.py", label="이 공고에 대해 공고문에 물어보기", icon=":material/forum:")
         except Exception:  # noqa: BLE001 - StreamlitPageNotFoundError
             pass
     except (KeyError, ReportContractError) as exc:

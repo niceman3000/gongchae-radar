@@ -284,7 +284,8 @@
             "properties": {
               "name": {"type": "string", "minLength": 1},
               "track": {"type": "string", "minLength": 1},
-              "kind": {"enum": ["general", "special", "condition"]},
+              "tracks": {"description": "이 모집단위로 찾을 수 있는 직렬 목록 (전기통신 → 전기·ICT). 11-21 추가", "type": "array", "items": {"type": "string", "minLength": 1}},
+              "kind": {"enum": ["general", "special", "condition", "excluded"]},
               "note": {"type": ["string", "null"]},
               "evidence": {"type": "array", "items": {"$ref": "#/$defs/evidence"}}
             }

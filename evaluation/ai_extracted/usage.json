@@ -440,5 +440,44 @@
     "items_dropped": 0,
     "quotes_kept": 24,
     "quotes_dropped": 0
+  },
+  {
+    "date": "2026-11-21",
+    "institution": "한국남동발전",
+    "pair_id": "c0042-290354-303429",
+    "model": "claude-sonnet-5-5",
+    "input_tokens": 48019,
+    "output_tokens": 6100,
+    "cost_usd": 0.157,
+    "items_kept": 21,
+    "items_dropped": 0,
+    "quotes_kept": 47,
+    "quotes_dropped": 0
+  },
+  {
+    "date": "2026-11-21",
+    "institution": "한국수자원공사",
+    "pair_id": "c0221-289946-305290",
+    "model": "claude-sonnet-5-5",
+    "input_tokens": 33084,
+    "output_tokens": 6299,
+    "cost_usd": 0.1292,
+    "items_kept": 25,
+    "items_dropped": 0,
+    "quotes_kept": 58,
+    "quotes_dropped": 2
+  },
+  {
+    "date": "2026-11-21",
+    "institution": "한국철도공사",
+    "pair_id": "c0268-289492-303642",
+    "model": "claude-sonnet-5-5",
+    "input_tokens": 19885,
+    "output_tokens": 2797,
+    "cost_usd": 0.0677,
+    "items_kept": 6,
+    "items_dropped": 0,
+    "quotes_kept": 19,
+    "quotes_dropped": 0
   }
 ]

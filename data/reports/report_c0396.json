@@ -46,26 +46,6 @@
     {
       "id": "stage1-002",
       "importance": 2,
-      "category": "지역",
-      "title": "근무지역 목록 변경",
-      "change_type": "list",
-      "prev_value": [
-        "광주",
-        "전남"
-      ],
-      "curr_value": [
-        "전남광주"
-      ],
-      "source": "stage1",
-      "ai_label": null,
-      "confidence": "not_applicable",
-      "status": "review_required",
-      "affected_units": [],
-      "evidence": []
-    },
-    {
-      "id": "stage1-003",
-      "importance": 2,
       "category": "직무분야(NCS)",
       "title": "직무분야(NCS) 목록 변경",
       "change_type": "list",
@@ -81,7 +61,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-004",
+      "id": "stage1-003",
       "importance": 2,
       "category": "모집단위",
       "title": "모집단위 목록 변경",
@@ -111,7 +91,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-005",
+      "id": "stage1-004",
       "importance": 2,
       "category": "모집단위",
       "title": "모집단위 세분화 추가: ['5급 일반행정(보훈)', '5급 일반행정(장애인)', '6급 행정(보훈)', '6급 행정(장애인)']",
@@ -131,7 +111,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-006",
+      "id": "stage1-005",
       "importance": 2,
       "category": "전형",
       "title": "전형방법: ㅇ (6급 일반) 어학(10점), 자격증 등(90점), 가산점 반영 → ㅇ (6급 일반·보훈) 어학(10점), 자격증 등(90점), 가산점 반영",
@@ -146,7 +126,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-007",
+      "id": "stage1-006",
       "importance": 2,
       "category": "전형",
       "title": "전형방법 추가: ㅇ (5·6급 장애인) 지원자격에 부합하는 경우, 전원 선발",
@@ -161,7 +141,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-008",
+      "id": "stage1-007",
       "importance": 2,
       "category": "전형",
       "title": "전형방법: □ (2차) 필기전형 : (일반) 2~4배수, (보훈) 4~8배수 → □ (2차) 필기전형 : (일반) 2~4배수, (보훈·장애인) 4~8배수",
@@ -176,7 +156,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-009",
+      "id": "stage1-008",
       "importance": 2,
       "category": "전형",
       "title": "전형방법: 보훈전형은 NCS 직업기초능력과 직무역량검사를 모두 응시하되, NCS 직업기초능력 100%로 합격자 선정함. 다만, 직무역량평가 결과(가산점 제외) 만점의 40% 미만 득점시 과락(불합격)처리 → 보훈전형은 NCS 직업기초능력과 직무역량검사를 모두 응시하되, NCS 직업기초능력 100%로 합격자 선정함. 다만, 직무역량평가 결과(가산점 제외) 만점의 40% 미만 득점시 과락처리",
@@ -191,7 +171,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-010",
+      "id": "stage1-009",
       "importance": 2,
       "category": "전형",
       "title": "전형방법 추가: - (장애인) NCS 직업기초능력 100%, 60분",
@@ -206,7 +186,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-011",
+      "id": "stage1-010",
       "importance": 2,
       "category": "전형",
       "title": "전형방법 삭제: - (일반·보훈) 가산점을 제외한 NCS 직업기초능력 및 직무역량 평가결과 중 한 가지라도 만점의 40% 미만 시 과락(불합격) 처리, 표준점수제를 적용하는 5급 일반행정 분야는 원점수와 표준점수 모두 과락으로 판정받은 경우에만 과락으로 처리. 즉, 원점수 기준으로는 과락이지만 표준점수로는 과락이 아니거나, 원점수 기준에서 과락이 아니지만 표준점수로 환산했을 때 과락인 경우는 과락으로 처리하지 않음",
@@ -221,7 +201,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-012",
+      "id": "stage1-011",
       "importance": 2,
       "category": "전형",
       "title": "전형방법 추가: - (일반·보훈) 가산점을 제외한 NCS 직업기초능력 및 직무역량 평가결과 중 한 가지라도 만점의 40% 미만 시 과락(불합격) 처리",
@@ -236,7 +216,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-013",
+      "id": "stage1-012",
       "importance": 2,
       "category": "전형",
       "title": "전형방법 추가: - (장애인) 가산점을 제외한 NCS직업기초능력 평가결과가 만점의 40% 미만 시 과락(불합격) 처리",
@@ -251,7 +231,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-014",
+      "id": "stage1-013",
       "importance": 2,
       "category": "전형",
       "title": "전형방법: - 합격자 선정 : 필기전형 점수에 가산점을 합산한 총점의 고득점자 순 → - 합격자 선정 : 직무능력검사 점수에 가산점을 합산한 총점의 고득점자 순",
@@ -266,7 +246,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-015",
+      "id": "stage1-014",
       "importance": 2,
       "category": "전형",
       "title": "전형방법: ㅇ (대상) 필기전형 합격자 중 기한 내 자기소개서 제출, 사전 온라인 검사 및 서류제출 완료자 → ㅇ (대상) 필기전형 합격자 중 자기소개서 제출, 사전 온라인 검사 및 서류제출 완료자",
@@ -281,7 +261,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-016",
+      "id": "stage1-015",
       "importance": 2,
       "category": "전형",
       "title": "전형방법 삭제: ㅇ (공통) 직무발표면접(50%) + 인성면접(50%) 평가",
@@ -296,7 +276,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-017",
+      "id": "stage1-016",
       "importance": 2,
       "category": "전형",
       "title": "전형방법: - (직무발표면접) 직무별 상황과 관련한 다양한 업무자료 분석 및 발표능력 평가 → - (집단발표면접) 직무별 상황과 관련한 다양한 업무자료 분석 및 발표에 대해 평가",
@@ -311,7 +291,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-018",
+      "id": "stage1-017",
       "importance": 2,
       "category": "전형",
       "title": "전형방법: - (인성면접) 자기소개서, 인성검사 등 기반으로 인성요소 등에 대해 평가 → - (개별역량면접) 자기소개서, 인성검사 등 기반으로 인성요소 등에 대해 평가",
@@ -326,7 +306,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-019",
+      "id": "stage1-018",
       "importance": 2,
       "category": "전형",
       "title": "전형방법: ※ 직무 및 인성면접 평가점수(가산점 제외) 중 한 가지라도 만점의 40% 미만 시 과락(불합격) 처리 → ※ 면접전형 평가 결과(가산점 제외) 만점의 40% 미만 시 과락(불합격) 처리",
@@ -341,7 +321,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-020",
+      "id": "stage1-019",
       "importance": 2,
       "category": "전형",
       "title": "전형방법 추가: ㅇ (공통) 직무역량종합면접 평가",
@@ -356,7 +336,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-021",
+      "id": "stage1-020",
       "importance": 2,
       "category": "전형",
       "title": "전형방법: ㅇ (예비합격자) 모집분야별 선발예정인원의 50%(일반) / 100%(보훈) (소수점 반올림) 운영(최소 1인선발) → ㅇ (예비합격자) 모집분야별 선발예정인원의 50%(일반)(소수점 반올림, 최소 1인선발) / 100%(보훈·장애인) 운영",
@@ -371,7 +351,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-023",
+      "id": "stage1-022",
       "importance": 2,
       "category": "전형",
       "title": "전형방법 삭제: ※ 최종 합격자를 대상으로 신원조사 등을 실시할 수 있으며, 결격사유 발생시 합격취소",
@@ -386,7 +366,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-024",
+      "id": "stage1-023",
       "importance": 2,
       "category": "전형",
       "title": "전형방법 추가: ※ 최종합격자 발표 이후라도 결격사유 발생시 합격취소(임용일 이후 결격사유가 확인될 수 있음)",
@@ -401,7 +381,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-025",
+      "id": "stage1-024",
       "importance": 2,
       "category": "자격",
       "title": "응시자격: - 사무직(전산,지적), 기술직(전체) : 해당 모집직무 지원자격 자격증 보유자 → - 사무직(전문-전산·국가유산), 기술직(전체) : 해당 모집직무 지원자격 자격증 보유자",
@@ -416,7 +396,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-026",
+      "id": "stage1-025",
       "importance": 2,
       "category": "자격",
       "title": "응시자격: ㅇ (보훈전형) 「국가유공자 등 예우 및 지원에 관한 법률」에 따른 취업지원대상자 → ㅇ (보훈전형) 「국가유공자 등 예우 및 지원에 관한 법률」 등에 따른 취업지원대상자",
@@ -431,7 +411,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-027",
+      "id": "stage1-026",
       "importance": 2,
       "category": "자격",
       "title": "응시자격 추가: □ 5급 장애인",
@@ -446,7 +426,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-028",
+      "id": "stage1-027",
       "importance": 2,
       "category": "자격",
       "title": "응시자격 추가: ㅇ (기본자격) 「장애인고용촉진 및 직업재활법」에 따른 장애인",
@@ -461,7 +441,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-029",
+      "id": "stage1-028",
       "importance": 2,
       "category": "자격",
       "title": "응시자격 추가: ㅇ 자격증",
@@ -476,7 +456,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-030",
+      "id": "stage1-029",
       "importance": 2,
       "category": "자격",
       "title": "응시자격 추가: - 사무직(일반행정) : 제한없음",
@@ -491,7 +471,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-031",
+      "id": "stage1-030",
       "importance": 2,
       "category": "자격",
       "title": "응시자격 추가: - 기술직(전체) : 해당 모집직무 지원자격 자격증 보유자",
@@ -506,7 +486,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-032",
+      "id": "stage1-031",
       "importance": 2,
       "category": "자격",
       "title": "응시자격 추가: ※ 기술직 지원자의 경우 본인이 선택한 모집직무의 지원자격을 보유해야함",
@@ -521,7 +501,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-033",
+      "id": "stage1-032",
       "importance": 2,
       "category": "자격",
       "title": "응시자격 추가: ※ 장애인 지원자격과 관련하여 허위 사실이 발견된 경우 합격취소 및 직권면직될 수 있음",
@@ -536,7 +516,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-035",
+      "id": "stage1-034",
       "importance": 2,
       "category": "자격",
       "title": "응시자격: ㅇ ‘25.12.29부터 전일근무가 가능하고 인턴기간 중 4주 내외 합숙교육이 가능한 자 → ㅇ ‘26.12.28부터 전일근무가 가능하고 인턴기간 중 3주 내외 합숙교육이 가능한 자",
@@ -551,7 +531,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-036",
+      "id": "stage1-035",
       "importance": 2,
       "category": "자격",
       "title": "응시자격: ※ 지원자격 기재사항이 허위로 판명될 경우 불합격 처리 등 불이익을 받을 수 있음 → ※ 지원자격 등 입사지원서상 기재사항이 허위로 판명될 경우 불합격 처리 등 불이익을 받을 수 있음",
@@ -566,7 +546,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-037",
+      "id": "stage1-036",
       "importance": 2,
       "category": "자격",
       "title": "응시자격: □ 6급 일반 → □ 6급 일반·보훈",
@@ -581,7 +561,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-038",
+      "id": "stage1-037",
       "importance": 2,
       "category": "자격",
       "title": "응시자격 추가: ㅇ (학력) 고교졸업예정자 및 최종학력이 고졸인 자(고교 검정고시 합격자 및 대학 중퇴자, 대학 재학·휴학자 포함)",
@@ -596,7 +576,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-039",
+      "id": "stage1-038",
       "importance": 2,
       "category": "자격",
       "title": "응시자격 추가: * 공고일 기준 대학(전문대학 포함) 졸업자 및 졸업학년 2학기 재학 이상인 자는 지원할 수 없으며, 별도 수업 없이 대학 졸업이 가능한 경우도 졸업한 것으로 간주하여 고졸자에서 제외",
@@ -611,7 +591,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-040",
+      "id": "stage1-039",
       "importance": 2,
       "category": "자격",
       "title": "응시자격 추가: ㅇ (보훈전형) 「국가유공자 등 예우 및 지원에 관한 법률」등에 따른 취업지원대상자",
@@ -626,7 +606,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-041",
+      "id": "stage1-040",
       "importance": 2,
       "category": "자격",
       "title": "응시자격 추가: □ 6급 장애인",
@@ -641,7 +621,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-043",
+      "id": "stage1-042",
       "importance": 2,
       "category": "자격",
       "title": "응시자격 추가: ※ 6급공채 및 장애인 자격과 관련하여 허위 사실이 발견된 경우 합격취소 및 직권면직될 수 있으며,",
@@ -656,7 +636,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-022",
+      "id": "stage1-021",
       "importance": 3,
       "category": "전형",
       "title": "전형방법: - 합격자 발표일로부터 2개월(‘26.2.18(수) 16시)까지 결원이 발생한 경우에 한해 예비합격자 순위에 의거 임용함 → - 합격자 발표일로부터 2개월(‘27.2.17(수) 16시)까지 결원이 발생한 경우에 한해 예비합격자 순위에 의거 임용함",
@@ -671,7 +651,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-034",
+      "id": "stage1-033",
       "importance": 3,
       "category": "자격",
       "title": "응시자격: ※ 단, ‘25.12.28까지 전역예정자로서 전형절차에 응시 가능한 경우에 지원 가능 → ※ 단, ‘26.12.27까지 전역예정자로서 전형절차에 응시 가능한 경우에 지원 가능",
@@ -686,7 +666,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-042",
+      "id": "stage1-041",
       "importance": 3,
       "category": "자격",
       "title": "응시자격: ※ 병역 미필자도 지원 가능하며, 현재 군 복무중인 자는 ‘25.12.28까지 전역예정자로서 전형절차에 응시 가능한 경우에 지원 가능 → ※ 병역 미필자도 지원 가능하며, 현재 군 복무중인 자는 ‘26.12.27까지 전역예정자로서 전형절차에 응시 가능한 경우에 지원 가능",
@@ -703,22 +683,22 @@
   ],
   "change_groups": [
     {
-      "id": "group-stage1-007",
+      "id": "group-stage1-006",
       "category": "전형",
       "member_ids": [
+        "stage1-006",
         "stage1-007",
         "stage1-008",
         "stage1-009",
         "stage1-010",
         "stage1-011",
         "stage1-012",
-        "stage1-013",
+        "stage1-015",
         "stage1-016",
         "stage1-017",
         "stage1-018",
         "stage1-019",
-        "stage1-020",
-        "stage1-021"
+        "stage1-020"
       ],
       "shared_terms": [
         "장애인",
@@ -730,11 +710,11 @@
       ]
     },
     {
-      "id": "group-stage1-023",
+      "id": "group-stage1-022",
       "category": "전형",
       "member_ids": [
-        "stage1-023",
-        "stage1-024"
+        "stage1-022",
+        "stage1-023"
       ],
       "shared_terms": [
         "결격사유",
@@ -743,17 +723,17 @@
       ]
     },
     {
-      "id": "group-stage1-027",
+      "id": "group-stage1-026",
       "category": "자격",
       "member_ids": [
+        "stage1-026",
         "stage1-027",
         "stage1-028",
-        "stage1-029",
+        "stage1-030",
         "stage1-031",
         "stage1-032",
-        "stage1-033",
-        "stage1-041",
-        "stage1-043"
+        "stage1-040",
+        "stage1-042"
       ],
       "shared_terms": [
         "장애인",
@@ -765,11 +745,11 @@
       ]
     },
     {
-      "id": "group-stage1-038",
+      "id": "group-stage1-037",
       "category": "자격",
       "member_ids": [
-        "stage1-038",
-        "stage1-039"
+        "stage1-037",
+        "stage1-038"
       ],
       "shared_terms": [
         "대학",
@@ -1702,6 +1682,9 @@
       {
         "name": "5급 일반행정",
         "track": "사무",
+        "tracks": [
+          "사무"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1709,6 +1692,9 @@
       {
         "name": "5급 법률",
         "track": "기타",
+        "tracks": [
+          "기타"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1716,6 +1702,9 @@
       {
         "name": "5급 회계",
         "track": "사무",
+        "tracks": [
+          "사무"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1723,6 +1712,9 @@
       {
         "name": "5급 전산",
         "track": "ICT",
+        "tracks": [
+          "ICT"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1730,6 +1722,9 @@
       {
         "name": "5급 국가유산",
         "track": "기타",
+        "tracks": [
+          "기타"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1737,6 +1732,9 @@
       {
         "name": "5급 토목",
         "track": "토목",
+        "tracks": [
+          "토목"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1744,6 +1742,9 @@
       {
         "name": "5급 도시계획",
         "track": "기타",
+        "tracks": [
+          "기타"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1751,6 +1752,9 @@
       {
         "name": "5급 조경",
         "track": "기타",
+        "tracks": [
+          "기타"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1758,6 +1762,9 @@
       {
         "name": "5급 건축",
         "track": "건축",
+        "tracks": [
+          "건축"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1765,6 +1772,9 @@
       {
         "name": "5급 기계",
         "track": "기계",
+        "tracks": [
+          "기계"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1772,6 +1782,9 @@
       {
         "name": "5급 전기",
         "track": "전기",
+        "tracks": [
+          "전기"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1779,41 +1792,59 @@
       {
         "name": "5급 일반행정(보훈)",
         "track": "사무",
-        "kind": "general",
+        "tracks": [
+          "사무"
+        ],
+        "kind": "special",
         "note": null,
         "evidence": []
       },
       {
         "name": "5급 토목군(보훈)",
         "track": "토목",
-        "kind": "general",
+        "tracks": [
+          "토목"
+        ],
+        "kind": "special",
         "note": null,
         "evidence": []
       },
       {
         "name": "5급 건축군(보훈)",
         "track": "건축",
-        "kind": "general",
+        "tracks": [
+          "건축"
+        ],
+        "kind": "special",
         "note": null,
         "evidence": []
       },
       {
         "name": "5급 일반행정(장애인)",
         "track": "사무",
-        "kind": "general",
+        "tracks": [
+          "사무"
+        ],
+        "kind": "special",
         "note": null,
         "evidence": []
       },
       {
         "name": "5급 기술직(장애인)",
         "track": "기타",
-        "kind": "general",
+        "tracks": [
+          "기타"
+        ],
+        "kind": "special",
         "note": null,
         "evidence": []
       },
       {
         "name": "6급 행정",
         "track": "사무",
+        "tracks": [
+          "사무"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1821,6 +1852,9 @@
       {
         "name": "6급 토목",
         "track": "토목",
+        "tracks": [
+          "토목"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1828,6 +1862,9 @@
       {
         "name": "6급 건축",
         "track": "건축",
+        "tracks": [
+          "건축"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1835,6 +1872,9 @@
       {
         "name": "6급 기계",
         "track": "기계",
+        "tracks": [
+          "기계"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1842,6 +1882,9 @@
       {
         "name": "6급 전기",
         "track": "전기",
+        "tracks": [
+          "전기"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1849,28 +1892,40 @@
       {
         "name": "6급 행정(보훈)",
         "track": "사무",
-        "kind": "general",
+        "tracks": [
+          "사무"
+        ],
+        "kind": "special",
         "note": null,
         "evidence": []
       },
       {
         "name": "6급 기술직(보훈)",
         "track": "기타",
-        "kind": "general",
+        "tracks": [
+          "기타"
+        ],
+        "kind": "special",
         "note": null,
         "evidence": []
       },
       {
         "name": "6급 행정(장애인)",
         "track": "사무",
-        "kind": "general",
+        "tracks": [
+          "사무"
+        ],
+        "kind": "special",
         "note": null,
         "evidence": []
       },
       {
         "name": "6급 기술직(장애인)",
         "track": "기타",
-        "kind": "general",
+        "tracks": [
+          "기타"
+        ],
+        "kind": "special",
         "note": null,
         "evidence": []
       }

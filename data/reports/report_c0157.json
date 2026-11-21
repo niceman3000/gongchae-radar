@@ -46,26 +46,6 @@
     {
       "id": "stage1-002",
       "importance": 2,
-      "category": "지역",
-      "title": "근무지역 목록 변경",
-      "change_type": "list",
-      "prev_value": [
-        "광주",
-        "전남"
-      ],
-      "curr_value": [
-        "전남광주"
-      ],
-      "source": "stage1",
-      "ai_label": null,
-      "confidence": "not_applicable",
-      "status": "review_required",
-      "affected_units": [],
-      "evidence": []
-    },
-    {
-      "id": "stage1-003",
-      "importance": 2,
       "category": "직무분야(NCS)",
       "title": "직무분야(NCS) 목록 변경",
       "change_type": "list",
@@ -82,7 +62,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-004",
+      "id": "stage1-003",
       "importance": 2,
       "category": "모집단위",
       "title": "모집단위 목록 변경",
@@ -105,7 +85,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-005",
+      "id": "stage1-004",
       "importance": 2,
       "category": "전형",
       "title": "전형방법: [5급갑-일반] → [5급갑-일반, 동행]",
@@ -120,7 +100,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-006",
+      "id": "stage1-005",
       "importance": 2,
       "category": "전형",
       "title": "전형방법: - 5단계(2차 면접전형) : 1배수. 심층인성면접(100점) → - 5단계(2차면접전형) : 1배수. 심층종합면접(100점)",
@@ -135,7 +115,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-007",
+      "id": "stage1-006",
       "importance": 2,
       "category": "전형",
       "title": "전형방법: [6급갑-일반] → [5급갑-장애인]",
@@ -150,7 +130,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-008",
+      "id": "stage1-007",
       "importance": 2,
       "category": "전형",
       "title": "전형방법: - 1단계(서류전형) : 60배수. 공인어학성적 및 자격증 등(100점) → - 1단계(서류전형) : 40~60배수. 공인어학성적 및 자격증 등(100점)",
@@ -165,7 +145,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-009",
+      "id": "stage1-008",
       "importance": 2,
       "category": "전형",
       "title": "전형방법 추가: - 4단계(면접전형) : 1배수. 직무역량(외국어 포함) 및 심층종합면접(100점)",
@@ -180,7 +160,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-010",
+      "id": "stage1-009",
       "importance": 2,
       "category": "전형",
       "title": "전형방법 추가: - 5단계(신원조사) : 적/부",
@@ -195,7 +175,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-011",
+      "id": "stage1-010",
       "importance": 2,
       "category": "전형",
       "title": "전형방법 추가: [6급갑 고졸수준-일반]",
@@ -210,7 +190,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-012",
+      "id": "stage1-011",
       "importance": 2,
       "category": "전형",
       "title": "전형방법 추가: - 1단계(서류전형) : 60배수. 공인어학성적 및 자격증 등(100점)",
@@ -225,7 +205,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-013",
+      "id": "stage1-012",
       "importance": 2,
       "category": "전형",
       "title": "전형방법 추가: - 2단계(필기전형) : 5배수. 직무수행능력평가(50점), 직업기초능력평가(50점)",
@@ -240,7 +220,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-014",
+      "id": "stage1-013",
       "importance": 2,
       "category": "전형",
       "title": "전형방법 추가: - 3단계(인성검사 및 자기소개서 입력) : 응시 및 입력완료자",
@@ -255,7 +235,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-015",
+      "id": "stage1-014",
       "importance": 2,
       "category": "자격",
       "title": "응시자격: [5급갑 일반(전국)] → [6급갑 고졸수준 일반]",
@@ -270,7 +250,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-016",
+      "id": "stage1-015",
       "importance": 2,
       "category": "자격",
       "title": "응시자격: - 학력 및 전공, 연령 및 성별 : 제한없음 (단, 연령은 우리 공사 규정에 따른 정년(만60세) 이내인 자) → - 학력(전공), 연령, 성별 : 제한없음 (단, 연령은 공사 내부규정의 정년(만60세) 이내여야 함)",
@@ -285,7 +265,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-017",
+      "id": "stage1-016",
       "importance": 2,
       "category": "자격",
       "title": "응시자격: - 병역 : 남성의 경우 병역필 또는 병역면제자 * 2차 면접 합격발표일('25.12.05. 예정) 이전 전역(제대)예정자 지원 가능 → - 병역 : 남자의 경우, 병역필 또는 병역면제자 * 면접 합격발표일('26.12.24. 예정) 이전 전역(제대) 예정자 지원 가능",
@@ -300,7 +280,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-018",
+      "id": "stage1-017",
       "importance": 2,
       "category": "자격",
       "title": "응시자격: - 기타 : 공사 인사규정 제19조(임용결격 사유)에 해당하지 않는 자 → - 기타 : 공사 인사규정 제19조(임용결격 사유)에 해당하지 않는 사람",
@@ -315,7 +295,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-019",
+      "id": "stage1-018",
       "importance": 2,
       "category": "자격",
       "title": "응시자격 삭제: - 자격(행정-관제) : 지정 자격을 모두 갖춘 자(행정-관제분야만 해당)",
@@ -330,7 +310,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-020",
+      "id": "stage1-019",
       "importance": 2,
       "category": "자격",
       "title": "응시자격 삭제: [6급갑 일반(전국)]",
@@ -345,7 +325,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-021",
+      "id": "stage1-020",
       "importance": 2,
       "category": "자격",
       "title": "응시자격: - 학력 및 전공, 연령 및 성별 : 제한없음 (단, 연령은 우리 공사 규정에 따른 정년(만60세) 이내인 자) → - 연령, 학력, 성별 : 제한없음 (단, 연령은 공사 내부규정의 정년(만60세) 이내여야 함)",
@@ -360,7 +340,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-022",
+      "id": "stage1-021",
       "importance": 2,
       "category": "자격",
       "title": "응시자격: - 병역 : 남성의 경우 병역필 또는 병역면제자 * 2차 면접 합격발표일('25.12.05. 예정) 이전 전역(제대)예정자 지원 가능 → - 병역 : 남성의 경우, 병역필 또는 병역면제자 * 합격발표일('26.12.24. 예정) 이전 전역(제대) 예정자 지원 가능",
@@ -375,7 +355,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-023",
+      "id": "stage1-022",
       "importance": 2,
       "category": "자격",
       "title": "응시자격 삭제: - 자격(증) : 운전면허 1종 대형면허를 소지하고, 지정 장비 분야 관련 자격증 1개 이상을 소지한 자",
@@ -390,7 +370,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-024",
+      "id": "stage1-023",
       "importance": 2,
       "category": "자격",
       "title": "응시자격 추가: [5급갑일반·5급갑동행·5급갑장애인]",
@@ -405,7 +385,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-025",
+      "id": "stage1-024",
       "importance": 2,
       "category": "자격",
       "title": "응시자격 추가: - 장애인 전형 : 장애인증명서 등 장애인임을 증명할 수 있는 증명서 발급이 가능한 자",
@@ -420,7 +400,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-026",
+      "id": "stage1-025",
       "importance": 2,
       "category": "자격",
       "title": "응시자격 추가: - 동행 전형 : 기초생활수급자, 북한이탈주민, 다문화가족 자녀, 자립준비청년에 해당하는 자로 증명서 제출이 가능한 자",
@@ -435,7 +415,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-027",
+      "id": "stage1-026",
       "importance": 2,
       "category": "결격사유",
       "title": "결격사유: 6의2. 「성폭력범죄의 처벌 등에 관한 특례법」 제2조에 규정된 죄를 범한 사람으로서 100만원 이상의 벌금형을 선고받고 그 형이 확정된 후 3년이 지나지 아니한 사람 → 6의2. 다음 각 목의 어느 하나에 해당하는 죄를 범한 사람으로서 100만원 이상의 벌금형을 선고받고 그 형이 확정된 후 3년이 지나지 아니한 사람<",
@@ -450,7 +430,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-028",
+      "id": "stage1-027",
       "importance": 2,
       "category": "결격사유",
       "title": "결격사유 추가: 가. 「성폭력범죄의 처벌 등에 관한 특례법」 제2조에 따른 성폭력범죄",
@@ -465,7 +445,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-029",
+      "id": "stage1-028",
       "importance": 2,
       "category": "결격사유",
       "title": "결격사유 추가: 나. 「정보통신망 이용촉진 및 정보보호 등에 관한 법률」 제74조제1항제2호 및 제3호에 규정된 죄",
@@ -480,7 +460,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-030",
+      "id": "stage1-029",
       "importance": 2,
       "category": "결격사유",
       "title": "결격사유 추가: 다. 「스토킹범죄의 처벌 등에 관한 법률」 제2조제2호에 따른 스토킹범죄",
@@ -495,7 +475,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-031",
+      "id": "stage1-030",
       "importance": 2,
       "category": "가점",
       "title": "우대사항 삭제: ㅇ5급갑 일반",
@@ -510,7 +490,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-032",
+      "id": "stage1-031",
       "importance": 2,
       "category": "가점",
       "title": "우대사항: - 서류전형 우대 : 어학 및 자격, 비수도권 지역인재, 기초생활수급자, 북한이탈주민, 다문화가족 자녀, 자립준비청년, 우리공사 청년인턴 근무자 → - 서류전형 우대 : 어학 및 자격, 비수도권 지역인재, 기초생활수급자, 북한이탈주민, 다문화가족 자녀, 자립준비청년, 우리공사 인턴 근무자",
@@ -525,7 +505,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-033",
+      "id": "stage1-032",
       "importance": 2,
       "category": "가점",
       "title": "우대사항: - 필기전형 우대 : 재직자, 특수자격증 소지자, 우리 공사 청년인턴 근무자 → - 필기전형 우대 : 재직자, 특수자격증 소지자, 우리공사 인턴 근무자",
@@ -540,7 +520,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-034",
+      "id": "stage1-033",
       "importance": 2,
       "category": "가점",
       "title": "우대사항 추가: ㅇ5급갑(일반, 동행, 장애인) 우대내용",
@@ -555,7 +535,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-035",
+      "id": "stage1-034",
       "importance": 2,
       "category": "가점",
       "title": "우대사항 삭제: ㅇ6급갑 일반",
@@ -570,7 +550,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-036",
+      "id": "stage1-035",
       "importance": 2,
       "category": "가점",
       "title": "우대사항: - 서류전형 우대(시설-장비) : 어학 및 자격, 관련 분야 전공, 기초생활수급자, 북한이탈주민, 다문화가족 자녀, 자립준비청년 → - 서류전형 우대 : 어학 및 자격, 기초생활수급자, 북한이탈주민, 다문화가족 자녀, 자립준비청년",
@@ -585,7 +565,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-037",
+      "id": "stage1-036",
       "importance": 2,
       "category": "가점",
       "title": "우대사항: - 필기전형 우대 : 재직자, 특수자격증 소지자 → - 필기전형 우대 : 재직자",
@@ -600,7 +580,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-038",
+      "id": "stage1-037",
       "importance": 2,
       "category": "가점",
       "title": "우대사항 추가: ㅇ6급갑 고졸수준 우대내용",
@@ -617,13 +597,13 @@
   ],
   "change_groups": [
     {
-      "id": "group-stage1-006",
+      "id": "group-stage1-005",
       "category": "전형",
       "member_ids": [
-        "stage1-006",
-        "stage1-009",
-        "stage1-012",
-        "stage1-013"
+        "stage1-005",
+        "stage1-008",
+        "stage1-011",
+        "stage1-012"
       ],
       "shared_terms": [
         "심층종합면접",
@@ -633,11 +613,11 @@
       ]
     },
     {
-      "id": "group-stage1-016",
+      "id": "group-stage1-015",
       "category": "자격",
       "member_ids": [
-        "stage1-016",
-        "stage1-021"
+        "stage1-015",
+        "stage1-020"
       ],
       "shared_terms": [
         "내부규정",
@@ -648,11 +628,11 @@
       ]
     },
     {
-      "id": "group-stage1-019",
+      "id": "group-stage1-018",
       "category": "자격",
       "member_ids": [
-        "stage1-019",
-        "stage1-023"
+        "stage1-018",
+        "stage1-022"
       ],
       "shared_terms": [
         "자격",
@@ -660,11 +640,11 @@
       ]
     },
     {
-      "id": "group-stage1-025",
+      "id": "group-stage1-024",
       "category": "자격",
       "member_ids": [
-        "stage1-025",
-        "stage1-026"
+        "stage1-024",
+        "stage1-025"
       ],
       "shared_terms": [
         "가능한",
@@ -672,13 +652,13 @@
       ]
     },
     {
-      "id": "group-stage1-027",
+      "id": "group-stage1-026",
       "category": "결격사유",
       "member_ids": [
+        "stage1-026",
         "stage1-027",
         "stage1-028",
-        "stage1-029",
-        "stage1-030"
+        "stage1-029"
       ],
       "shared_terms": [
         "성폭력범죄",
@@ -690,11 +670,11 @@
       ]
     },
     {
-      "id": "group-stage1-032",
+      "id": "group-stage1-031",
       "category": "가점",
       "member_ids": [
-        "stage1-032",
-        "stage1-033"
+        "stage1-031",
+        "stage1-032"
       ],
       "shared_terms": [
         "청년인턴",
@@ -702,11 +682,11 @@
       ]
     },
     {
-      "id": "group-stage1-034",
+      "id": "group-stage1-033",
       "category": "가점",
       "member_ids": [
-        "stage1-034",
-        "stage1-038"
+        "stage1-033",
+        "stage1-037"
       ],
       "shared_terms": [
         "우대내용",
@@ -821,7 +801,10 @@
     "units": [
       {
         "name": "5급갑 일반",
-        "track": "기타",
+        "track": "전체",
+        "tracks": [
+          "전체"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -829,6 +812,9 @@
       {
         "name": "5급갑 동행",
         "track": "기타",
+        "tracks": [
+          "기타"
+        ],
         "kind": "special",
         "note": "사회형평인재 대상 전형: 기초생활수급자, 북한이탈주민, 다문화가족 자녀, 자립준비청년 중 하나에 해당하고 증빙서류 제출이 가능한 자만 지원 가능",
         "evidence": [
@@ -844,6 +830,9 @@
       {
         "name": "5급갑 장애인",
         "track": "기타",
+        "tracks": [
+          "기타"
+        ],
         "kind": "special",
         "note": "장애인증명서 등 장애인임을 증명할 수 있는 증명서 발급이 가능한 자만 지원 가능",
         "evidence": [
@@ -859,8 +848,11 @@
       {
         "name": "6급갑 고졸수준",
         "track": "기타",
-        "kind": "general",
-        "note": null,
+        "tracks": [
+          "기타"
+        ],
+        "kind": "condition",
+        "note": "고졸 학력자만 지원할 수 있는 모집단위예요. 학력은 입력받지 않아 확정하지 않았어요.",
         "evidence": []
       }
     ],

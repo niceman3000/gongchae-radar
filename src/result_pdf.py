@@ -17,8 +17,8 @@ FONT_DIR = Path(__file__).resolve().parents[1] / "assets" / "fonts"
 STATUS_COLOR = {"eligible": (22, 128, 61), "ambiguous": (180, 110, 0), "ineligible": (190, 30, 45)}
 GRAY = (110, 110, 110)
 SIDE_LABEL = {"curr": "올해 공고", "prev": "작년 공고"}
-NOTICE = ("합격 가능성이나 순위가 아니라, 공고에 적힌 지원 조건과 내 조건을 비교한 결과입니다. "
-          "확정할 수 없는 조건이 있으면 '애매'로 표시합니다. 공고 내용은 정부 채용정보와 공고문에서 자동으로 "
+NOTICE = ("합격 가능성이나 순위가 아니라, 공고에 적힌 지원 조건과 내 조건을 비교한 결과예요. "
+          "확정할 수 없는 조건이 있으면 '애매'로 표시해요. 공고 내용은 정부 채용정보와 공고문에서 자동으로 "
           "정리했어요. 지원 전에 공고문 원문을 꼭 확인하세요.")
 
 
@@ -188,7 +188,7 @@ def build_result_pdf(
     doc.add_page()
     doc.text_block("공채레이더 · 내 조건 맞춤 결과", size=17, style="B", height=9)
     certificates = ", ".join(condition.certificates) or "없음"
-    doc.text_block(f"내 조건: {condition.track} 직렬 · {', '.join(condition.regions)} · 자격증 {certificates}", size=10.5)
+    doc.text_block(f"내 조건: {condition.track} 직렬 · {"지역 상관없음" if len(condition.regions) >= 17 else ", ".join(condition.regions)} · 자격증 {certificates}", size=10.5)
     doc.text_block(f"만든 날짜: {made_at}", size=9, color=GRAY)
     doc.ln(2)
     doc.text_block(NOTICE, size=8.5, color=GRAY, height=4.8)
@@ -198,7 +198,7 @@ def build_result_pdf(
     if entries:
         _summary_table(doc, [(result, report) for result, report, _ in entries], condition.track)
     else:
-        doc.text_block("희망 직렬과 지역이 모두 맞는 공고가 없습니다.", size=9.5)
+        doc.text_block("희망 직렬과 지역이 모두 맞는 공고가 없어요.", size=9.5)
     if other_region:
         doc.ln(3)
         doc.text_block(f"희망 지역에 근무지가 없는 공고 {len(other_region)}건", size=12, style="B", height=7)

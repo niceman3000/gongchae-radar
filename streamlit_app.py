@@ -22,9 +22,9 @@ st.set_page_config(
 )
 
 pages = [
-    st.Page("app/pages/conditions.py", title="내 조건 입력", icon="📝", default=True),
-    st.Page("app/pages/matches.py", title="맞춤 공고", icon="🔎"),
-    st.Page("app/pages/report.py", title="공고 비교", icon="📊"),
-    st.Page("app/pages/qa.py", title="공고문에 물어보기", icon="💬"),
+    st.Page("app/pages/conditions.py", title="내 조건 입력", icon=":material/tune:", default=True),
+    st.Page("app/pages/matches.py", title="맞춤 공고", icon=":material/fact_check:"),
+    st.Page("app/pages/report.py", title="공고 비교", icon=":material/compare_arrows:"),
+    st.Page("app/pages/qa.py", title="공고문에 물어보기", icon=":material/forum:"),
 ]
 st.navigation(pages, position="top").run()

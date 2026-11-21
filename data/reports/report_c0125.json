@@ -46,26 +46,6 @@
     {
       "id": "stage1-002",
       "importance": 2,
-      "category": "지역",
-      "title": "근무지역 목록 변경",
-      "change_type": "list",
-      "prev_value": [
-        "광주",
-        "전남"
-      ],
-      "curr_value": [
-        "전남광주"
-      ],
-      "source": "stage1",
-      "ai_label": null,
-      "confidence": "not_applicable",
-      "status": "review_required",
-      "affected_units": [],
-      "evidence": []
-    },
-    {
-      "id": "stage1-003",
-      "importance": 2,
       "category": "직무분야(NCS)",
       "title": "직무분야(NCS) 목록 변경",
       "change_type": "list",
@@ -88,7 +68,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-004",
+      "id": "stage1-003",
       "importance": 2,
       "category": "고용형태",
       "title": "고용형태 목록 변경",
@@ -105,7 +85,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-005",
+      "id": "stage1-004",
       "importance": 2,
       "category": "학력조건",
       "title": "학력조건 목록 변경",
@@ -122,7 +102,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-006",
+      "id": "stage1-005",
       "importance": 2,
       "category": "모집단위",
       "title": "모집단위 목록 변경",
@@ -158,7 +138,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-007",
+      "id": "stage1-006",
       "importance": 2,
       "category": "전형",
       "title": "전형방법: <일반직> → <일반직, 특정직>",
@@ -173,7 +153,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-008",
+      "id": "stage1-007",
       "importance": 2,
       "category": "전형",
       "title": "전형방법 삭제: <별정직(미화)>",
@@ -188,7 +168,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-009",
+      "id": "stage1-008",
       "importance": 2,
       "category": "전형",
       "title": "전형방법 삭제: ○ 1차(서류전형) : 우대사항 평가, 8배수",
@@ -203,7 +183,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-010",
+      "id": "stage1-009",
       "importance": 2,
       "category": "전형",
       "title": "전형방법 삭제: ○ 2차(면접전형) : 면접전형(100%), 1배수",
@@ -218,7 +198,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-011",
+      "id": "stage1-010",
       "importance": 2,
       "category": "전형",
       "title": "전형방법: 분아별 채용계획인원 범위 내에서 필기점수[직무점수(50%)+NCS직업기초능력(50%)의 30%]와 면접전형(70%) 점수를 합산하여 고득점자 순으로 결정 → 분아별 채용계획인원 범위 내에서 필기점수[직무전공 점수(50%)+NCS직업공통능력(50%)의 30%]와 면접전형(70%) 점수를 합산하여 고득점자 순으로 결정",
@@ -233,7 +213,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-012",
+      "id": "stage1-011",
       "importance": 2,
       "category": "전형",
       "title": "전형방법 삭제: ※ 필기전형 미실시 분야는 서류전형(30%) + 면접전형(70%) 적용",
@@ -248,7 +228,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-013",
+      "id": "stage1-012",
       "importance": 2,
       "category": "전형",
       "title": "전형방법: 1. 취업지원대상자 중 가점 고득점자 → 1. [全 분야] 취업지원대상자 중 가점 고득점자",
@@ -263,7 +243,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-014",
+      "id": "stage1-013",
       "importance": 2,
       "category": "전형",
       "title": "전형방법: 2. 장애인 → 2. [全 분야] 장애인",
@@ -278,7 +258,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-015",
+      "id": "stage1-014",
       "importance": 2,
       "category": "전형",
       "title": "전형방법: 4. [일반직] 필기전형 총점(가점 포함) 고득점자 → 4. [全 분야] 필기전형 총점(가점 포함) 고득점자",
@@ -293,7 +273,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-016",
+      "id": "stage1-015",
       "importance": 2,
       "category": "전형",
       "title": "전형방법 삭제: [별정직] 서류전형 총점(가점 포함) 고득점자",
@@ -308,7 +288,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-017",
+      "id": "stage1-016",
       "importance": 2,
       "category": "전형",
       "title": "전형방법: 5. [全 분야] 사회형평적 채용(다문화가족, 기초생활수급자, 자립준비청년, 의사상자) 가점 총점기준 고득점자 → 5. [全 분야] 사회형평적 채용(다문화가족, 기초생활수급자, 자립준비청년, 의사상자, 북한이탈주민) 가점 총점기준 고득점자",
@@ -323,7 +303,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-018",
+      "id": "stage1-017",
       "importance": 2,
       "category": "자격",
       "title": "응시자격 삭제: ※ 단, 별정직(미화)은 임용일 기준 만65세 초과자 제외",
@@ -338,7 +318,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-019",
+      "id": "stage1-018",
       "importance": 2,
       "category": "자격",
       "title": "응시자격: ※ 임용일 전까지 전역 가능한 자 포함. 단, 7급의 경우 병역미필자 지원가능 → ※ 임용일 전까지 전역 가능한 자 포함. 단, 7급의 경우 병역미필자 응시가능",
@@ -353,7 +333,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-020",
+      "id": "stage1-019",
       "importance": 2,
       "category": "자격",
       "title": "응시자격: ○ 임용일부터 공사 소속으로 근무 가능한 자 → ○ 임용일부터 근무 가능자",
@@ -368,7 +348,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-021",
+      "id": "stage1-020",
       "importance": 2,
       "category": "자격",
       "title": "응시자격: <일반직_신입_6급2_기계, 전기, 안전, 토목, 화공, 연구_일반경쟁> → <일반직_신입_6급2_기계·전기·토목_일반경쟁>",
@@ -383,7 +363,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-022",
+      "id": "stage1-021",
       "importance": 2,
       "category": "자격",
       "title": "응시자격: <일반직_신입_6급2_기계, 전기_보훈 제한경쟁> → <일반직_신입_7급_기계·전기_고졸제한경쟁>",
@@ -398,7 +378,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-023",
+      "id": "stage1-022",
       "importance": 2,
       "category": "자격",
       "title": "응시자격 추가: ○ 최종학력이 고등학교 졸업 또는 이에 준하는 학력 소지자",
@@ -413,7 +393,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-024",
+      "id": "stage1-023",
       "importance": 2,
       "category": "자격",
       "title": "응시자격 삭제: ○ 「국가유공자 등 예우 및 지원에 관한 법률」 등 보훈관계법률에 따른 취업보호대상자",
@@ -428,7 +408,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-025",
+      "id": "stage1-024",
       "importance": 2,
       "category": "자격",
       "title": "응시자격 삭제: ※ 상기 자격 모두 만족하여야 함",
@@ -443,7 +423,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-026",
+      "id": "stage1-025",
       "importance": 2,
       "category": "자격",
       "title": "응시자격 삭제: <일반직_신입_6급2_사무_장애인 제한경쟁>",
@@ -458,7 +438,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-027",
+      "id": "stage1-026",
       "importance": 2,
       "category": "자격",
       "title": "응시자격 삭제: ○ 「장애인고용촉진 및 직업재활법」에 의한 장애인으로 등록된 자",
@@ -473,7 +453,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-028",
+      "id": "stage1-027",
       "importance": 2,
       "category": "자격",
       "title": "응시자격 삭제: <일반직_신입_7급_기계, 전기_고졸 제한경쟁>",
@@ -488,7 +468,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-029",
+      "id": "stage1-028",
       "importance": 2,
       "category": "자격",
       "title": "응시자격 삭제: ○ 최종 학력이 고등학교 졸업('26.2월 예정 포함) 또는 이에 준하는 학력 소지자",
@@ -503,7 +483,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-030",
+      "id": "stage1-029",
       "importance": 2,
       "category": "자격",
       "title": "응시자격 추가: <특정직_기술공통_일반경쟁>",
@@ -518,7 +498,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-031",
+      "id": "stage1-030",
       "importance": 2,
       "category": "가점",
       "title": "우대사항: ○ 「국가유공자 등 예우 및 지원에 관한 법률」 등 보훈관계법률에 따른 취업보호대상자 가점 부여(만점의 10% 또는 5%) (단, 동법 제31조에 따라 가점합격자 상한제 적용) → ○ 「국가유공자 등 예우 및 지원에 관한 법률」 등 보훈관계법률에 따른 가점대상자 가점 부여(만점의 10% 또는 5%)(단, 동법 제31조에 따라 가점합격자 상한제 적용)",
@@ -533,7 +513,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-032",
+      "id": "stage1-031",
       "importance": 2,
       "category": "가점",
       "title": "우대사항 추가: ○ 「북한이탈주민의 보호 및 정착지원에 관한 법률」에 해당하는 북한이탈주민(필기전형에 한함)",
@@ -548,7 +528,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-033",
+      "id": "stage1-032",
       "importance": 2,
       "category": "가점",
       "title": "우대사항: <일반직_신입_6급2_기계, 전기, 안전, 토목, 화공, 연구, 전산_전국, 대전> → <일반직_신입_6급2_기계,전기,토목_전국>",
@@ -563,7 +543,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-034",
+      "id": "stage1-033",
       "importance": 2,
       "category": "가점",
       "title": "우대사항: ○ 직무 및 IT, 안전분야 우대 국가기술자격증 소지자 → ○ 직무 및 안전분야 우대 국가기술자격증 소지자",
@@ -578,7 +558,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-035",
+      "id": "stage1-034",
       "importance": 2,
       "category": "가점",
       "title": "우대사항: ○ (일부분야) 공사재직자 : 우리공사 특정직, 무기계약직 직원으로 근무중인 자 → ○ 공사재직자 : 우리공사 특정직, 무기계약직 직원으로 근무 중인 자",
@@ -593,7 +573,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-036",
+      "id": "stage1-035",
       "importance": 2,
       "category": "가점",
       "title": "우대사항: <일반직_신입_6급2_사무_전국> → <일반직_신입_7급_기계,전기_전국>",
@@ -608,7 +588,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-037",
+      "id": "stage1-036",
       "importance": 2,
       "category": "가점",
       "title": "우대사항: ○ 직무 및 IT분야 우대 국가기술자격증 소지자 → ○ 직무 및 안전분야 우대 국가기술자격증 소지자",
@@ -623,7 +603,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-038",
+      "id": "stage1-037",
       "importance": 2,
       "category": "가점",
       "title": "우대사항 삭제: <일반직_신입_7급_기계, 전기_전국>",
@@ -638,7 +618,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-039",
+      "id": "stage1-038",
       "importance": 2,
       "category": "가점",
       "title": "우대사항 추가: ○ 공사재직자 : 우리공사 특정직, 무기계약직 직원으로 근무 중인 자",
@@ -653,7 +633,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-040",
+      "id": "stage1-039",
       "importance": 2,
       "category": "가점",
       "title": "우대사항 추가: <특정직_기술공통_전국>",
@@ -668,7 +648,7 @@
       "evidence": []
     },
     {
-      "id": "stage1-041",
+      "id": "stage1-040",
       "importance": 2,
       "category": "가점",
       "title": "우대사항 삭제: ○ 공사재직자 : 우리공사 특정직, 무기계약직 직원으로 근무중인 자",
@@ -685,14 +665,14 @@
   ],
   "change_groups": [
     {
-      "id": "group-stage1-008",
+      "id": "group-stage1-007",
       "category": "전형",
       "member_ids": [
+        "stage1-007",
         "stage1-008",
         "stage1-009",
-        "stage1-010",
-        "stage1-012",
-        "stage1-016"
+        "stage1-011",
+        "stage1-015"
       ],
       "shared_terms": [
         "별정직",
@@ -701,13 +681,13 @@
       ]
     },
     {
-      "id": "group-stage1-022",
+      "id": "group-stage1-021",
       "category": "자격",
       "member_ids": [
-        "stage1-022",
+        "stage1-021",
+        "stage1-025",
         "stage1-026",
-        "stage1-027",
-        "stage1-028"
+        "stage1-027"
       ],
       "shared_terms": [
         "제한경쟁",
@@ -716,11 +696,11 @@
       ]
     },
     {
-      "id": "group-stage1-023",
+      "id": "group-stage1-022",
       "category": "자격",
       "member_ids": [
-        "stage1-023",
-        "stage1-029"
+        "stage1-022",
+        "stage1-028"
       ],
       "shared_terms": [
         "고등학교",
@@ -732,13 +712,13 @@
       ]
     },
     {
-      "id": "group-stage1-035",
+      "id": "group-stage1-034",
       "category": "가점",
       "member_ids": [
-        "stage1-035",
+        "stage1-034",
+        "stage1-038",
         "stage1-039",
-        "stage1-040",
-        "stage1-041"
+        "stage1-040"
       ],
       "shared_terms": [
         "근무",
@@ -750,11 +730,11 @@
       ]
     },
     {
-      "id": "group-stage1-036",
+      "id": "group-stage1-035",
       "category": "가점",
       "member_ids": [
-        "stage1-036",
-        "stage1-038"
+        "stage1-035",
+        "stage1-037"
       ],
       "shared_terms": [
         "기계",
@@ -1418,7 +1398,7 @@
     ],
     "majors": [
       {
-        "name": "학력·전공 제한 없음 (7급은 고졸 학력 제한, unit_notes 참고)",
+        "name": "학력·전공 제한 없음 (7급은 고졸 학력 제한, 모집단위별 안내 참고)",
         "kind": "accepted",
         "applicable_units": [],
         "evidence": [
@@ -1438,6 +1418,9 @@
       {
         "name": "일반직_신입_6급2_기계_전국",
         "track": "기계",
+        "tracks": [
+          "기계"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1445,6 +1428,9 @@
       {
         "name": "일반직_신입_6급2_전기_전국",
         "track": "전기",
+        "tracks": [
+          "전기"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1452,6 +1438,9 @@
       {
         "name": "일반직_신입_6급2_토목_전국",
         "track": "토목",
+        "tracks": [
+          "토목"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1459,6 +1448,9 @@
       {
         "name": "일반직_신입_7급_기계_전국",
         "track": "기계",
+        "tracks": [
+          "기계"
+        ],
         "kind": "condition",
         "note": "고졸제한: 최종학력이 고등학교 졸업(예정) 또는 이에 준하는 학력자만 지원 가능, 전문학사·학사 등 학위 소지자 및 졸업예정자 지원불가",
         "evidence": [
@@ -1481,6 +1473,9 @@
       {
         "name": "일반직_신입_7급_전기_전국",
         "track": "전기",
+        "tracks": [
+          "전기"
+        ],
         "kind": "condition",
         "note": "고졸제한: 최종학력이 고등학교 졸업(예정) 또는 이에 준하는 학력자만 지원 가능, 전문학사·학사 등 학위 소지자 및 졸업예정자 지원불가",
         "evidence": [
@@ -1503,6 +1498,9 @@
       {
         "name": "특정직_신입_기술공통_전국",
         "track": "기타",
+        "tracks": [
+          "기타"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []

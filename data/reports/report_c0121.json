@@ -895,6 +895,9 @@
       {
         "name": "6급_자격_일반행정(전국)",
         "track": "사무",
+        "tracks": [
+          "사무"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -902,6 +905,9 @@
       {
         "name": "6급_자격_일반행정(제주)",
         "track": "사무",
+        "tracks": [
+          "사무"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -909,6 +915,9 @@
       {
         "name": "6급_자격_회계(전국)",
         "track": "사무",
+        "tracks": [
+          "사무"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -916,6 +925,9 @@
       {
         "name": "6급_자격_전산(전국)",
         "track": "ICT",
+        "tracks": [
+          "ICT"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -923,6 +935,9 @@
       {
         "name": "6급_자격_전기(전국)",
         "track": "전기",
+        "tracks": [
+          "전기"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -930,13 +945,19 @@
       {
         "name": "6급_자격_토목(전국)",
         "track": "토목",
+        "tracks": [
+          "토목"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
       },
       {
         "name": "6급_자격_인공지능(전국)",
-        "track": "기타",
+        "track": "ICT",
+        "tracks": [
+          "ICT"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -944,6 +965,9 @@
       {
         "name": "6급_자격(보훈)_일반행정(전국)",
         "track": "사무",
+        "tracks": [
+          "사무"
+        ],
         "kind": "special",
         "note": "법률에 의한 취업지원 대상자만 지원 가능",
         "evidence": [
@@ -959,8 +983,11 @@
       {
         "name": "7급_자격(고졸)_일반행정(제주)",
         "track": "사무",
-        "kind": "special",
-        "note": "고교졸업예정자 또는 최종학력 고졸자이면서 제주지역인재",
+        "tracks": [
+          "사무"
+        ],
+        "kind": "condition",
+        "note": "고졸 학력자만 지원할 수 있는 모집단위예요. 학력은 입력받지 않아 확정하지 않았어요.",
         "evidence": [
           {
             "side": "curr",
@@ -981,6 +1008,9 @@
       {
         "name": "공무직_자격_차량관리(전국)",
         "track": "기타",
+        "tracks": [
+          "기타"
+        ],
         "kind": "condition",
         "note": "접수마감일 기준 최근 5년 이내 음주운전으로 면허 취소·정지 처분 경험이 없어야 함",
         "evidence": [

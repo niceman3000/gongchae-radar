@@ -379,8 +379,9 @@
       "사무",
       "기계",
       "전기",
-      "기타",
-      "토목"
+      "ICT",
+      "토목",
+      "화학"
     ],
     "regions": [
       "경기",
@@ -1316,6 +1317,9 @@
       {
         "name": "일반_비수도권 지역인재 할당제 적용 외_사무(사무)",
         "track": "사무",
+        "tracks": [
+          "사무"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1323,6 +1327,9 @@
       {
         "name": "일반_비수도권 지역인재 할당제 적용 외_기술(기계)",
         "track": "기계",
+        "tracks": [
+          "기계"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1330,13 +1337,20 @@
       {
         "name": "일반_비수도권 지역인재 할당제 적용 외_기술(전기)",
         "track": "전기",
+        "tracks": [
+          "전기"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
       },
       {
         "name": "일반_비수도권 지역인재 할당제 적용 외_기술(전자)",
-        "track": "기타",
+        "track": "전기",
+        "tracks": [
+          "전기",
+          "ICT"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1344,13 +1358,19 @@
       {
         "name": "일반_비수도권 지역인재 할당제 적용 외_기술(토목)",
         "track": "토목",
+        "tracks": [
+          "토목"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
       },
       {
         "name": "일반_비수도권 지역인재 할당제 적용 외_기술(화공)",
-        "track": "기타",
+        "track": "화학",
+        "tracks": [
+          "화학"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1358,6 +1378,9 @@
       {
         "name": "일반_비수도권 지역인재 할당제 적용_사무(사무)",
         "track": "사무",
+        "tracks": [
+          "사무"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1365,6 +1388,9 @@
       {
         "name": "일반_비수도권 지역인재 할당제 적용_기술(기계)",
         "track": "기계",
+        "tracks": [
+          "기계"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1372,13 +1398,20 @@
       {
         "name": "일반_비수도권 지역인재 할당제 적용_기술(전기)",
         "track": "전기",
+        "tracks": [
+          "전기"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
       },
       {
         "name": "일반_비수도권 지역인재 할당제 적용_기술(전자)",
-        "track": "기타",
+        "track": "전기",
+        "tracks": [
+          "전기",
+          "ICT"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1386,13 +1419,19 @@
       {
         "name": "일반_비수도권 지역인재 할당제 적용_기술(토목)",
         "track": "토목",
+        "tracks": [
+          "토목"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
       },
       {
         "name": "일반_비수도권 지역인재 할당제 적용_기술(화공)",
-        "track": "기타",
+        "track": "화학",
+        "tracks": [
+          "화학"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1400,99 +1439,143 @@
       {
         "name": "사회형평_보훈_사무(사무)",
         "track": "사무",
-        "kind": "general",
+        "tracks": [
+          "사무"
+        ],
+        "kind": "special",
         "note": null,
         "evidence": []
       },
       {
         "name": "사회형평_보훈_기술(기계)",
         "track": "기계",
-        "kind": "general",
+        "tracks": [
+          "기계"
+        ],
+        "kind": "special",
         "note": null,
         "evidence": []
       },
       {
         "name": "사회형평_보훈_기술(전기)",
         "track": "전기",
-        "kind": "general",
+        "tracks": [
+          "전기"
+        ],
+        "kind": "special",
         "note": null,
         "evidence": []
       },
       {
         "name": "사회형평_장애_사무(사무)",
         "track": "사무",
-        "kind": "general",
+        "tracks": [
+          "사무"
+        ],
+        "kind": "special",
         "note": null,
         "evidence": []
       },
       {
         "name": "사회형평_장애_기술(기계)",
         "track": "기계",
-        "kind": "general",
+        "tracks": [
+          "기계"
+        ],
+        "kind": "special",
         "note": null,
         "evidence": []
       },
       {
         "name": "사회형평_장애_기술(전기)",
         "track": "전기",
-        "kind": "general",
+        "tracks": [
+          "전기"
+        ],
+        "kind": "special",
         "note": null,
         "evidence": []
       },
       {
         "name": "고졸인재_비수도권 지역인재 할당제 적용 외_사무(사무)",
         "track": "사무",
-        "kind": "general",
-        "note": null,
+        "tracks": [
+          "사무"
+        ],
+        "kind": "condition",
+        "note": "고졸 학력자만 지원할 수 있는 모집단위예요. 학력은 입력받지 않아 확정하지 않았어요.",
         "evidence": []
       },
       {
         "name": "고졸인재_비수도권 지역인재 할당제 적용 외_기술(기계)",
         "track": "기계",
-        "kind": "general",
-        "note": null,
+        "tracks": [
+          "기계"
+        ],
+        "kind": "condition",
+        "note": "고졸 학력자만 지원할 수 있는 모집단위예요. 학력은 입력받지 않아 확정하지 않았어요.",
         "evidence": []
       },
       {
         "name": "고졸인재_비수도권 지역인재 할당제 적용 외_기술(전기)",
         "track": "전기",
-        "kind": "general",
-        "note": null,
+        "tracks": [
+          "전기"
+        ],
+        "kind": "condition",
+        "note": "고졸 학력자만 지원할 수 있는 모집단위예요. 학력은 입력받지 않아 확정하지 않았어요.",
         "evidence": []
       },
       {
         "name": "고졸인재_비수도권 지역인재 할당제 적용 외_기술(전자)",
-        "track": "기타",
-        "kind": "general",
-        "note": null,
+        "track": "전기",
+        "tracks": [
+          "전기",
+          "ICT"
+        ],
+        "kind": "condition",
+        "note": "고졸 학력자만 지원할 수 있는 모집단위예요. 학력은 입력받지 않아 확정하지 않았어요.",
         "evidence": []
       },
       {
         "name": "고졸인재_비수도권 지역인재 할당제 적용_사무(사무)",
         "track": "사무",
-        "kind": "general",
-        "note": null,
+        "tracks": [
+          "사무"
+        ],
+        "kind": "condition",
+        "note": "고졸 학력자만 지원할 수 있는 모집단위예요. 학력은 입력받지 않아 확정하지 않았어요.",
         "evidence": []
       },
       {
         "name": "고졸인재_비수도권 지역인재 할당제 적용_기술(기계)",
         "track": "기계",
-        "kind": "general",
-        "note": null,
+        "tracks": [
+          "기계"
+        ],
+        "kind": "condition",
+        "note": "고졸 학력자만 지원할 수 있는 모집단위예요. 학력은 입력받지 않아 확정하지 않았어요.",
         "evidence": []
       },
       {
         "name": "고졸인재_비수도권 지역인재 할당제 적용_기술(전기)",
         "track": "전기",
-        "kind": "general",
-        "note": null,
+        "tracks": [
+          "전기"
+        ],
+        "kind": "condition",
+        "note": "고졸 학력자만 지원할 수 있는 모집단위예요. 학력은 입력받지 않아 확정하지 않았어요.",
         "evidence": []
       },
       {
         "name": "고졸인재_비수도권 지역인재 할당제 적용_기술(전자)",
-        "track": "기타",
-        "kind": "general",
-        "note": null,
+        "track": "전기",
+        "tracks": [
+          "전기",
+          "ICT"
+        ],
+        "kind": "condition",
+        "note": "고졸 학력자만 지원할 수 있는 모집단위예요. 학력은 입력받지 않아 확정하지 않았어요.",
         "evidence": []
       }
     ],

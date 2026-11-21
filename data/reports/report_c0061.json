@@ -684,6 +684,9 @@
       {
         "name": "(신입직) 관리6급-경영",
         "track": "사무",
+        "tracks": [
+          "사무"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -691,6 +694,9 @@
       {
         "name": "(신입직) 관리6급-경제",
         "track": "기타",
+        "tracks": [
+          "기타"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -698,6 +704,9 @@
       {
         "name": "(신입직) 관리6급-건축",
         "track": "건축",
+        "tracks": [
+          "건축"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -705,13 +714,19 @@
       {
         "name": "(신입직) 관리6급-전산",
         "track": "ICT",
+        "tracks": [
+          "ICT"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
       },
       {
         "name": "(신입직) 관리6급-인공지능(AI)",
-        "track": "기타",
+        "track": "ICT",
+        "tracks": [
+          "ICT"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -719,6 +734,9 @@
       {
         "name": "(신입직) 관리7급-금융",
         "track": "기타",
+        "tracks": [
+          "기타"
+        ],
         "kind": "special",
         "note": "고졸 채용: 2027년 2월 특성화고·마이스터고·종합고 졸업예정자로서 학교장 추천(학교별 3명 이하)을 받은 자, 학교폭력예방법 제17조 제1항 제4~9호 조치 대상 아닌 자",
         "evidence": [
@@ -734,6 +752,9 @@
       {
         "name": "(신입직) 관리7급-전산",
         "track": "ICT",
+        "tracks": [
+          "ICT"
+        ],
         "kind": "special",
         "note": "고졸 채용: 2027년 2월 특성화고·마이스터고·종합고 졸업예정자로서 학교장 추천(학교별 3명 이하)을 받은 자, 학교폭력예방법 제17조 제1항 제4~9호 조치 대상 아닌 자",
         "evidence": [
@@ -749,6 +770,9 @@
       {
         "name": "(신입직) 관리6급-장애인(경영)",
         "track": "사무",
+        "tracks": [
+          "사무"
+        ],
         "kind": "special",
         "note": "장애인고용촉진 및 직업재활법에 따른 장애인·중증장애인(국가유공자법상 상이등급 기준 해당자 포함)만 지원 가능한 제한경쟁",
         "evidence": [
@@ -764,6 +788,9 @@
       {
         "name": "(신입직) 관리6급-국가유공자(경영)",
         "track": "사무",
+        "tracks": [
+          "사무"
+        ],
         "kind": "special",
         "note": "국가유공자 등 예우 및 지원에 관한 법률 등에 따른 취업지원대상자만 지원 가능한 제한경쟁",
         "evidence": [
@@ -779,6 +806,9 @@
       {
         "name": "(신입직) 관리6급-공인회계사",
         "track": "사무",
+        "tracks": [
+          "사무"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -786,6 +816,9 @@
       {
         "name": "(신입직) 관리6급-보험계리사",
         "track": "기타",
+        "tracks": [
+          "기타"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []

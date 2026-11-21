@@ -284,7 +284,8 @@
       "기타",
       "원자력",
       "건축",
-      "ICT"
+      "ICT",
+      "화학"
     ],
     "regions": [
       "경북"
@@ -1230,6 +1231,9 @@
       {
         "name": "사무(대졸수준)",
         "track": "사무",
+        "tracks": [
+          "사무"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1237,6 +1241,9 @@
       {
         "name": "기계(대졸수준)",
         "track": "기계",
+        "tracks": [
+          "기계"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1244,6 +1251,9 @@
       {
         "name": "전기(대졸수준)",
         "track": "전기",
+        "tracks": [
+          "전기"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1251,6 +1261,9 @@
       {
         "name": "토목(대졸수준)",
         "track": "토목",
+        "tracks": [
+          "토목"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1258,6 +1271,9 @@
       {
         "name": "계측(대졸수준)",
         "track": "기타",
+        "tracks": [
+          "기타"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1265,6 +1281,9 @@
       {
         "name": "원자력(대졸수준)",
         "track": "원자력",
+        "tracks": [
+          "원자력"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1272,6 +1291,9 @@
       {
         "name": "산업공학(대졸수준)",
         "track": "기타",
+        "tracks": [
+          "기타"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1279,6 +1301,9 @@
       {
         "name": "건축(대졸수준)",
         "track": "건축",
+        "tracks": [
+          "건축"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1286,6 +1311,9 @@
       {
         "name": "전산(대졸수준)",
         "track": "ICT",
+        "tracks": [
+          "ICT"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1293,13 +1321,19 @@
       {
         "name": "문헌정보(대졸수준)",
         "track": "ICT",
+        "tracks": [
+          "ICT"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
       },
       {
         "name": "화공(대졸수준)",
-        "track": "기타",
+        "track": "화학",
+        "tracks": [
+          "화학"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1307,6 +1341,9 @@
       {
         "name": "인간공학(대졸수준)",
         "track": "기타",
+        "tracks": [
+          "기타"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1314,6 +1351,9 @@
       {
         "name": "지질(대졸수준)",
         "track": "기타",
+        "tracks": [
+          "기타"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1321,42 +1361,60 @@
       {
         "name": "사무(고졸)",
         "track": "사무",
-        "kind": "general",
-        "note": null,
+        "tracks": [
+          "사무"
+        ],
+        "kind": "condition",
+        "note": "고졸 학력자만 지원할 수 있는 모집단위예요. 학력은 입력받지 않아 확정하지 않았어요.",
         "evidence": []
       },
       {
         "name": "사무(보훈특별고용)",
         "track": "사무",
-        "kind": "general",
+        "tracks": [
+          "사무"
+        ],
+        "kind": "special",
         "note": null,
         "evidence": []
       },
       {
         "name": "기술/연구(보훈특별고용)",
         "track": "기타",
-        "kind": "general",
+        "tracks": [
+          "기타"
+        ],
+        "kind": "special",
         "note": null,
         "evidence": []
       },
       {
         "name": "기술/연구(보훈제한경쟁)",
         "track": "기타",
-        "kind": "general",
+        "tracks": [
+          "기타"
+        ],
+        "kind": "special",
         "note": null,
         "evidence": []
       },
       {
         "name": "사무(장애인)",
         "track": "사무",
-        "kind": "general",
+        "tracks": [
+          "사무"
+        ],
+        "kind": "special",
         "note": null,
         "evidence": []
       },
       {
         "name": "기술/연구(장애인)",
         "track": "기타",
-        "kind": "general",
+        "tracks": [
+          "기타"
+        ],
+        "kind": "special",
         "note": null,
         "evidence": []
       }

@@ -1026,6 +1026,9 @@
       {
         "name": "기술직 5급(항해)",
         "track": "기타",
+        "tracks": [
+          "기타"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1033,6 +1036,9 @@
       {
         "name": "기술직 5급(기관)",
         "track": "기타",
+        "tracks": [
+          "기타"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1040,6 +1046,9 @@
       {
         "name": "기술직 5급(환경)",
         "track": "화학",
+        "tracks": [
+          "화학"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []

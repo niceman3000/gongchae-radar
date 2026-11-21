@@ -110,7 +110,7 @@ def _check_unit(
         if not held:
             return {
                 "status": "ineligible",
-                "reason": "필수 자격증이 없습니다: " + " 또는 ".join(item["name"] for item in required[:3]),
+                "reason": "필수 자격증이 없어요: " + " 또는 ".join(item["name"] for item in required[:3]),
                 "evidence": [evidence for item in required[:3] for evidence in item["evidence"]],
                 "review": None,
             }
@@ -139,11 +139,11 @@ def _check_unit(
     if majors:
         review = f"관련 전공자인지 확인: {majors[0]['name']}"
         if accepted and not certificates:
-            review += " (전공자가 아니면 지원 가능 자격증이 필요합니다)"
+            review += " (전공자가 아니면 지원 가능 자격증이 필요해요)"
         return {
             "status": "ambiguous",
-            "reason": "입력한 자격증이 지원 가능 자격증 목록에 없어 전공 요건 확인이 필요합니다."
-            if certificates else "자격증 입력이 없어 전공 요건 확인이 필요합니다.",
+            "reason": "입력한 자격증이 지원 가능 자격증 목록에 없어 전공 요건을 확인해야 해요."
+            if certificates else "자격증 입력이 없어 전공 요건을 확인해야 해요.",
             "evidence": majors[0]["evidence"] + (accepted[0]["evidence"] if accepted else []),
             "review": review,
         }
@@ -153,20 +153,20 @@ def _check_unit(
     if required:
         return {
             "status": "ineligible",
-            "reason": f"필수 자격증이 없습니다: {required[0]['name']}",
+            "reason": f"필수 자격증이 없어요: {required[0]['name']}",
             "evidence": required[0]["evidence"],
             "review": None,
         }
     if accepted:
         return {
             "status": "ambiguous",
-            "reason": "입력한 자격증이 지원 가능 자격증 목록에 없고, 공고문에서 지원 가능 전공을 찾지 못했습니다.",
+            "reason": "입력한 자격증이 지원 가능 자격증 목록에 없고, 공고문에서 지원 가능 전공을 찾지 못했어요.",
             "evidence": accepted[0]["evidence"],
             "review": f"관련 전공자인지 공고문에서 확인: {accepted[0]['name']}",
         }
     return {
         "status": "ambiguous",
-        "reason": "이 직렬의 전공·자격증 요건이 아직 정리되지 않았습니다.",
+        "reason": "이 직렬의 전공·자격증 요건이 아직 정리되지 않았어요.",
         "evidence": [],
         "review": "공고문 지원자격에서 이 직렬의 전공·자격증 요건을 직접 확인하세요.",
     }
@@ -215,10 +215,14 @@ def evaluate(condition: UserCondition, report: Mapping[str, Any]) -> Eligibility
         bonus_rule=(requirements.get("bonus_rule") or {}).get("text"),
     )
 
-    units = [unit for unit in requirements.get("units") or [] if unit.get("track") == condition.track]
+    # 한 모집단위가 여러 직렬에 걸칠 수 있음(전기통신 → 전기·ICT), '전체'는 직렬 구분 없는 모집단위 (11-21)
+    all_units = [unit for unit in requirements.get("units") or []
+                 if condition.track in (unit.get("tracks") or [unit.get("track")]) or unit.get("track") == "전체"]
+    excluded = [unit for unit in all_units if unit.get("kind") == "excluded"]
+    units = [unit for unit in all_units if unit.get("kind") != "excluded"]
     if not units:
         result.relevance = "track_missing"
-        result.reasons.append(f"이 공고에는 {condition.track} 직렬 모집단위가 없습니다.")
+        result.reasons.append(f"이 공고에는 {condition.track} 직렬 모집단위가 없어요.")
         return result
 
     # 지역: 공고 근무지역과 희망 지역이 겹치는지
@@ -226,25 +230,27 @@ def evaluate(condition: UserCondition, report: Mapping[str, Any]) -> Eligibility
     wanted = condition.regions
     overlap = [region for region in wanted if region in notice_regions]
     if not notice_regions:
-        result.review_items.append("공고에 근무지역 정보가 없어 직접 확인이 필요합니다.")
+        result.review_items.append("공고에 근무지역 정보가 없어 직접 확인해야 해요.")
     elif overlap:
         result.reasons.append(f"희망 지역 근무지 있음: {', '.join(overlap)}")
     else:
         result.relevance = "region_mismatch"
         result.reasons.append(
-            f"희망 지역({', '.join(wanted)})에 근무지가 없습니다. 근무지: {', '.join(notice_regions)}"
+            f"희망 지역({', '.join(wanted)})에 근무지가 없어요. 근무지: {', '.join(notice_regions)}"
         )
     region_note = requirements.get("region_note")
-    if region_note:
-        result.review_items.append(str(region_note["text"]))
-        result.evidence.extend(region_note.get("evidence") or [])
 
     # 모집단위별 판정
     special = [unit for unit in units if unit.get("kind") == "special"]
     for unit in units:
         if unit.get("kind") == "special":
             continue
-        if unit.get("kind") == "condition":
+        if unit.get("track") == "전체":
+            row = {"status": "ambiguous",
+                   "reason": "모집단위 이름에 직렬 구분이 없어요. 공고문에서 뽑는 분야를 확인하세요.",
+                   "evidence": unit.get("evidence") or [],
+                   "review": "모집단위 이름에 직렬 구분이 없어 공고문에서 뽑는 분야를 확인해야 해요."}
+        elif unit.get("kind") == "condition":
             row = {"status": "ambiguous", "reason": unit.get("note") or "별도 지원 조건 확인 필요",
                    "evidence": unit.get("evidence") or [], "review": unit.get("note")}
         else:
@@ -269,8 +275,17 @@ def evaluate(condition: UserCondition, report: Mapping[str, Any]) -> Eligibility
     if special:
         result.review_items.append(
             f"특별전형 모집단위 {len(special)}개({', '.join(unit['name'] for unit in special)})는 "
-            "보훈·장애 등 해당 대상자만 지원할 수 있어 판정에서 뺐습니다."
+            "보훈·장애·지역인재 등 해당 대상자만 지원할 수 있어 판정에서 뺐어요."
         )
+    if excluded:
+        result.review_items.append(
+            f"체험형 인턴·경력 채용 {len(excluded)}개({', '.join(unit['name'] for unit in excluded)})는 "
+            "신입 정규직 채용이 아니라 판정에서 뺐어요."
+        )
+    # 근무지 배치 안내는 판정 이유 뒤에 (11-21 팀원 점검 4번: '애매' 한 줄 요약에 배치 안내가 먼저 나옴)
+    if region_note:
+        result.review_items.append(str(region_note["text"]))
+        result.evidence.extend(region_note.get("evidence") or [])
     if result.status == "eligible":
         best = next(unit for unit in result.units if unit["status"] == "eligible")
         result.reasons.append(f"{best['name']}: {best['reason']}")

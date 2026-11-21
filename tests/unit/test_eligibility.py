@@ -72,7 +72,7 @@ def test_explicit_missing_required_certificate_is_ineligible():
 
     assert result.status == "ineligible"
     assert result.label == "지원 불가"
-    assert any("필수 자격증이 없습니다" in reason for reason in result.reasons)
+    assert any("필수 자격증이 없어요" in reason for reason in result.reasons)
     assert result.evidence == EVIDENCE
 
 
@@ -232,3 +232,46 @@ def test_notice_wide_required_item_does_not_override_unrestricted_major():
 
     result = evaluate(UserCondition("전기", "부산", ()), _report({"majors": [unrestricted], "certificates": [license_]}))
     assert result.status == "eligible"
+
+
+def test_unit_tracks_and_kinds_from_names():
+    """11-21 팀원 점검 2·3번: 직렬 분류와 모집단위 구분"""
+    from src.report_builder import unit_kind, unit_tracks
+
+    assert unit_tracks("대졸일반-발전기계") == ["기계"]          # '발전기'의 '전기'로 오인하지 않음
+    assert unit_tracks("대졸일반-발전전기") == ["전기"]
+    assert unit_tracks("차량(공개경쟁채용)") == ["기계", "전기"]
+    assert unit_tracks("신입직 차량기계") == ["기계"]
+    assert unit_tracks("전기통신(공개경쟁채용)") == ["전기", "ICT"]
+    assert unit_tracks("일반직(신입, 6급) - 공급운영 - 화공") == ["화학"]
+    assert unit_tracks("시스템개발") == ["ICT"]
+    assert unit_tracks("유전자") == ["기타"]                       # '전자' 글자만으로 전기가 되지 않음
+    assert unit_kind("체험형 인턴(강원지사, 사무)", "general", None)[0] == "excluded"
+    assert unit_kind("경력직원(공인회계사)_전국", "condition", None)[0] == "excluded"
+    assert unit_kind("카지노딜러_경력단절여성", "special", None)[0] == "special"
+    assert unit_kind("채용형 인턴_대졸수준 제한경쟁(이전지역인재, 경영)", "general", None)[0] == "special"
+    assert unit_kind("일반_비수도권 지역인재 할당제 적용_사무(사무)", "general", None)[0] == "general"
+    assert unit_kind("[지역권-8급 수도권] 행정(고졸일반)", "general", None)[0] == "condition"
+
+
+def test_multi_track_unit_and_excluded_unit():
+    unit = {**_report({})["requirements"]["units"][0]}
+    report = _report({})
+    report["requirements"]["units"] = [
+        {**unit, "name": "전기통신(공개경쟁채용)", "track": "전기", "tracks": ["전기", "ICT"]},
+        {**unit, "name": "체험형인턴", "track": "ICT", "tracks": ["ICT"], "kind": "excluded"},
+    ]
+    result = evaluate(UserCondition("ICT", "부산", ()), report)
+    assert result.relevance != "track_missing"
+    assert [row["name"] for row in result.units] == ["전기통신(공개경쟁채용)"]
+    assert any("체험형 인턴·경력 채용 1개" in item for item in result.review_items)
+
+
+def test_region_note_comes_after_unit_review():
+    """11-21 팀원 점검 4번: 애매 한 줄 요약에 근무지 배치 안내가 먼저 나오지 않게"""
+    report = _report({"majors": [{**MAJOR, "name": "전기공학"}]})
+    report["requirements"]["region_note"] = {"text": "본사 및 전국 사업소 배치", "evidence": []}
+    result = evaluate(UserCondition("전기", "부산", ()), report)
+    assert result.status == "ambiguous"
+    assert result.review_items[0].startswith("관련 전공자인지 확인")
+    assert result.review_items[-1] == "본사 및 전국 사업소 배치"

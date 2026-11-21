@@ -2530,6 +2530,9 @@
       {
         "name": "사무",
         "track": "사무",
+        "tracks": [
+          "사무"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -2537,6 +2540,9 @@
       {
         "name": "건축",
         "track": "건축",
+        "tracks": [
+          "건축"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -2544,6 +2550,9 @@
       {
         "name": "기계",
         "track": "기계",
+        "tracks": [
+          "기계"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -2551,6 +2560,9 @@
       {
         "name": "전기",
         "track": "전기",
+        "tracks": [
+          "전기"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -2558,6 +2570,9 @@
       {
         "name": "전산",
         "track": "ICT",
+        "tracks": [
+          "ICT"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -2565,6 +2580,9 @@
       {
         "name": "통신",
         "track": "ICT",
+        "tracks": [
+          "ICT"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -2572,6 +2590,9 @@
       {
         "name": "토목",
         "track": "토목",
+        "tracks": [
+          "토목"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -2579,6 +2600,9 @@
       {
         "name": "관제",
         "track": "기타",
+        "tracks": [
+          "기타"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -2586,6 +2610,9 @@
       {
         "name": "장애(사무)",
         "track": "사무",
+        "tracks": [
+          "사무"
+        ],
         "kind": "special",
         "note": "「장애인 고용촉진 및 직업재활법」 제2조에 의한 장애인만 지원 가능 (어학성적 완화 기준 적용)",
         "evidence": [
@@ -2601,6 +2628,9 @@
       {
         "name": "장애(기술)",
         "track": "기타",
+        "tracks": [
+          "기타"
+        ],
         "kind": "special",
         "note": "「장애인 고용촉진 및 직업재활법」 제2조에 의한 장애인만 지원 가능 (어학성적 완화 기준 적용)",
         "evidence": [
@@ -2616,6 +2646,9 @@
       {
         "name": "보훈(사무)",
         "track": "사무",
+        "tracks": [
+          "사무"
+        ],
         "kind": "special",
         "note": "「국가유공자 등 예우 및 지원에 관한 법률」 등 보훈 관계 법령에 의한 취업지원대상자만 지원 가능",
         "evidence": [
@@ -2631,6 +2664,9 @@
       {
         "name": "보훈(기술)",
         "track": "기타",
+        "tracks": [
+          "기타"
+        ],
         "kind": "special",
         "note": "「국가유공자 등 예우 및 지원에 관한 법률」 등 보훈 관계 법령에 의한 취업지원대상자만 지원 가능",
         "evidence": [
@@ -2646,6 +2682,9 @@
       {
         "name": "안전보안직(보안검색감독자)",
         "track": "기타",
+        "tracks": [
+          "기타"
+        ],
         "kind": "condition",
         "note": "만 18세 이상 대한민국 국적, 신체조건 충족, 2년 이상 보안검색 실무경험 필요 (안전보안직은 우대자격증 가점 없음)",
         "evidence": [

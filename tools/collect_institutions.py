@@ -166,18 +166,29 @@ def headcount(item: dict) -> int:
         return 0
 
 
-def pick_pair(notices: list[dict]) -> tuple[dict | None, dict | None, str | None]:
-    """(올해, 작년, 짝이 없을 때 사유). 올해 = 접수 시작일이 가장 늦은 공고."""
+# 올해 공고를 손으로 고정한 기관 (11-21 팀원 점검 1번). 규칙 ②는 '가장 큰 공채의 절반 이상 중 최신'이라
+# 하반기 공고가 상반기 인원의 절반이 안 되면 빠졌다 → 평가자가 기대하는 '가장 최근 공고'와 다름.
+# 한국중부발전(304972)은 정답지(핵심 3곳)를 만든 공고(302314)를 바꾸면 채점이 무너져 고정하지 않음.
+PIN_CURR = {
+    "한국철도공사": "303642",    # 2026 하반기 600명 (자동 규칙은 상반기 297210 1,800명)
+    "한국수자원공사": "305290",  # 2026 하반기 66명 (자동 규칙은 상반기 2차 300029 240명)
+    "한국남동발전": "303429",    # 2026 하반기 30명 (자동 규칙은 1월 295867 130명)
+}
+
+
+def pick_pair(notices: list[dict], pinned_sn: str | None = None) -> tuple[dict | None, dict | None, str | None]:
+    """(올해, 작년, 짝이 없을 때 사유). 올해 = 접수 시작일이 가장 늦은 공고. pinned_sn이 목록에 있으면 그것."""
     dated = [item for item in notices if parse_ymd(item.get("pbancBgngYmd"))]
     if not dated:
         return None, None, "신입·정규직 공고 없음"
+    pinned = next((item for item in dated if str(item.get("recrutPblntSn")) == str(pinned_sn)), None) if pinned_sn else None
     # 올해 공고 = 가장 최근 공고일로부터 1년 안의 공고 중, 그 안에서 가장 큰 공채 인원의 절반 이상인
     #            공고 가운데 가장 최근 것 (작은 공고는 건너뛰고, 큰 공채 중에서는 최신을 고른다)
     latest = max(parse_ymd(item["pbancBgngYmd"]) for item in dated)
     recent = [item for item in dated if (latest - parse_ymd(item["pbancBgngYmd"])).days <= 365]
     biggest = max(headcount(item) for item in recent)
     large = [item for item in recent if headcount(item) >= biggest / 2] or recent
-    curr = max(large, key=lambda item: (parse_ymd(item["pbancBgngYmd"]), headcount(item)))
+    curr = pinned or max(large, key=lambda item: (parse_ymd(item["pbancBgngYmd"]), headcount(item)))
     curr_day = parse_ymd(curr["pbancBgngYmd"])
     title = normalize_title(curr.get("recrutPbancTtl"))
 
@@ -322,7 +333,9 @@ def collect(client: ApiClient, institutions: list[dict], *, only: list[str] | No
         try:
             notices = [item for item in list_notices(client, institution["pblntInstCd"], today, reuse=reuse_lists)
                        if is_target(item)]
-            curr, prev, reason = pick_pair(notices)
+            curr, prev, reason = pick_pair(notices, PIN_CURR.get(name))
+            if PIN_CURR.get(name) and str((curr or {}).get("recrutPblntSn")) != PIN_CURR[name]:
+                log(f"  {name}: 고정 공고 {PIN_CURR[name]}이(가) 목록에 없어 자동 규칙으로 고름")
             row["target_notices"] = len(notices)
             if not curr or not prev:
                 skipped.append({**row, "reason": reason, "curr_sn": (curr or {}).get("recrutPblntSn")})
@@ -386,7 +399,14 @@ def main(argv: list[str] | None = None) -> None:
     )
     log_path = ROOT / "data/api/collect_log.json"
     log_path.parent.mkdir(parents=True, exist_ok=True)
-    log_path.write_text(json.dumps({"collected_at": date.today().isoformat(), **result}, ensure_ascii=False, indent=2) + "\n",
+    logged = dict(result)
+    if args.only and log_path.exists():
+        # 몇 곳만 다시 모을 때는 나머지 기관 기록(건너뛴 기관 목록 등)을 지우지 않고 합친다 (11-21)
+        old_log = json.loads(log_path.read_text(encoding="utf-8"))
+        for key in ("skipped", "details"):
+            kept = [row for row in old_log.get(key) or [] if row.get("institution") not in args.only]
+            logged[key] = kept + list(result.get(key) or [])
+    log_path.write_text(json.dumps({"collected_at": date.today().isoformat(), **logged}, ensure_ascii=False, indent=2) + "\n",
                         encoding="utf-8")
     print(f"\n짝 {len(result['pairs'])}곳 저장 → config/auto_pairs.json (누적 {len(merged)}곳)")
     print(f"건너뜀 {len(result['skipped'])}곳, API 호출 {result['api_calls']}회 → data/api/collect_log.json")

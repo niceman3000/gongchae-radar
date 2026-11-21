@@ -70,3 +70,14 @@ def test_saved_files_have_no_key_strings(folder, pattern):
     for path in (ROOT / folder).glob(pattern):
         text = path.read_text(encoding="utf-8", errors="ignore")
         assert not any(shape.search(text) for shape in KEY_SHAPES), path.name
+
+
+def test_pinned_current_notice_wins_over_size_rule():
+    """11-21 팀원 점검 1번: 하반기 공고가 상반기 인원의 절반이 안 돼도 고정하면 그 공고를 쓴다."""
+    big = notice("2", "20260301", "2026년 상반기 신입사원 채용", people=1800)
+    small = notice("3", "20260807", "2026년 하반기 신입사원 채용", people=600)
+    last = notice("1", "20250805", "2025년 하반기 신입사원 채용", people=700)
+    curr, _, _ = pick_pair([big, small, last])
+    assert curr["recrutPblntSn"] == "2"
+    curr, prev, reason = pick_pair([big, small, last], pinned_sn="3")
+    assert curr["recrutPblntSn"] == "3" and prev["recrutPblntSn"] == "1" and reason is None

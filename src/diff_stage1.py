@@ -85,6 +85,18 @@ def load_item(path):
     return res[0] if isinstance(res, list) else res
 
 
+REGION_PARTS = {"전남광주": ("광주", "전남"), "광주전남": ("광주", "전남"), "광주·전남": ("광주", "전남"),
+                "광주광역시": ("광주",), "전라남도": ("전남",)}
+
+
+def region_set(items):
+    """근무지역 목록 → 실제 지역 집합 (별칭 풀기)"""
+    out = set()
+    for item in items:
+        out.update(REGION_PARTS.get(str(item).strip(), (str(item).strip(),)))
+    return out
+
+
 def norm_alias(s):
     hit = False
     for pat, rep in ALIASES:
@@ -196,6 +208,9 @@ def compare(prev, curr):
     for f, label in LIST_FIELDS.items():
         a, b = split_list(prev.get(f)), split_list(curr.get(f))
         gone, new = [x for x in a if x not in b], [x for x in b if x not in a]
+        # 근무지역 '광주, 전남' → '전남광주'처럼 이름만 바뀐 것은 변경 아님 (11-21 팀원 점검 7번, 규칙 ⑤ 별칭을 목록에도)
+        if label == "근무지역" and region_set(a) == region_set(b):
+            continue
         if gone or new:
             add({"field": label, "type": "list", "removed": gone, "added": new})
 

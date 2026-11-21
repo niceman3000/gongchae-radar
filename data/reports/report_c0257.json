@@ -1083,6 +1083,8 @@
       "사무",
       "기계",
       "ICT",
+      "전기",
+      "화학",
       "기타"
     ],
     "regions": [
@@ -1160,6 +1162,9 @@
       {
         "name": "행정사무",
         "track": "사무",
+        "tracks": [
+          "사무"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1167,6 +1172,9 @@
       {
         "name": "행정기술",
         "track": "사무",
+        "tracks": [
+          "사무"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1174,6 +1182,9 @@
       {
         "name": "기계기술",
         "track": "기계",
+        "tracks": [
+          "기계"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1181,6 +1192,9 @@
       {
         "name": "ICT",
         "track": "ICT",
+        "tracks": [
+          "ICT"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1188,6 +1202,9 @@
       {
         "name": "행정사무(장애)",
         "track": "사무",
+        "tracks": [
+          "사무"
+        ],
         "kind": "special",
         "note": "장애인고용촉진 및 직업재활법에 따른 장애인만 지원 가능(행정사무(장애), 행정기술(장애))",
         "evidence": [
@@ -1203,6 +1220,9 @@
       {
         "name": "행정기술(장애)",
         "track": "사무",
+        "tracks": [
+          "사무"
+        ],
         "kind": "special",
         "note": "장애인고용촉진 및 직업재활법에 따른 장애인만 지원 가능(행정사무(장애), 행정기술(장애))",
         "evidence": [
@@ -1218,6 +1238,9 @@
       {
         "name": "기계기술(보훈)",
         "track": "기계",
+        "tracks": [
+          "기계"
+        ],
         "kind": "special",
         "note": "국가유공자법 및 보훈관계법령에 따른 취업지원대상자만 지원 가능(기계기술(보훈))",
         "evidence": [
@@ -1232,9 +1255,13 @@
       },
       {
         "name": "전자기술(고졸)",
-        "track": "기타",
-        "kind": "special",
-        "note": "마감일 기준 최종학력 고졸자(2027.2월 졸업예정 포함)만 지원 가능, 전공 제한 없음. 대학(전문대 포함) 졸업자·졸업학점 이수자는 불가",
+        "track": "전기",
+        "tracks": [
+          "전기",
+          "ICT"
+        ],
+        "kind": "condition",
+        "note": "고졸 학력자만 지원할 수 있는 모집단위예요. 학력은 입력받지 않아 확정하지 않았어요.",
         "evidence": [
           {
             "side": "curr",
@@ -1254,7 +1281,10 @@
       },
       {
         "name": "화공",
-        "track": "기타",
+        "track": "화학",
+        "tracks": [
+          "화학"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1262,6 +1292,9 @@
       {
         "name": "디자인(조각)",
         "track": "기타",
+        "tracks": [
+          "기타"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []

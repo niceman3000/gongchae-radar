@@ -18,9 +18,8 @@ def test_kepco_report_opens_with_candidates_and_notice():
 
     assert not app.exception
     assert any("한국전력공사 채용공고 비교" in item.value for item in app.markdown)
-    assert any("지원 대상 기업: 한국전력공사" in item.value for item in app.markdown)
-    assert any("현재 지원 공고 (2026)" in item.value for item in app.markdown)
-    assert any("비교 기준 공고 (2025)" in item.value for item in app.markdown)
+    assert any("올해 공고 (2026)" in item.value for item in app.markdown)
+    assert any("작년 공고 (2025)" in item.value for item in app.markdown)
     assert any("자동으로 정리했어요" in item.value for item in app.caption)
     assert any(item.label == "작년 대비 변경 후보" and item.value.endswith("건") for item in app.metric)
     assert not any(item.label == "확인된 변경사항" for item in app.metric)
@@ -28,19 +27,23 @@ def test_kepco_report_opens_with_candidates_and_notice():
     assert any("접수기간:** 2026.09.02 ~ 2026.09.16" in item.value for item in app.markdown)
     assert any("421" in item.value and "490" in item.value for item in app.markdown)
     assert len(app.selectbox[0].options) == 30
-    assert app.selectbox[1].options == ["선택 안 함", "현재 공고 (2026)", "비교 공고 (2025)"]
+    assert app.selectbox[1].options == ["선택 안 함", "올해 공고 (2026)", "작년 공고 (2025)"]
 
-    app.selectbox[1].set_value("현재 공고 (2026)").run()
+    app.selectbox[1].set_value("올해 공고 (2026)").run()
     assert not app.exception
 
 
-def test_candidates_are_shown_by_default_with_notice():
+def test_candidates_are_shown_with_one_notice_and_minor_changes_folded():
+    """11-21 팀원 점검 6·7·13·15번: 안내는 한 번, 숫자 변경은 증감과 함께, 이름만 바뀐 건 접어 둠"""
     app = _open_report_page()
 
-    assert len(app.toggle) == 1 and app.toggle[0].value is True
-    assert any("코드로 비교해 찾은 후보" in item.value for item in app.info)
+    assert not app.toggle
+    assert sum("코드로 비교해 찾은 후보" in item.value for item in app.caption) == 1
     visible_text = " ".join(item.value for item in app.markdown)
-    assert "전남광주" in visible_text  # 지역명 표기 변경도 후보로는 보여준다 (원문 확인 권장)
+    assert "인원: 421명 → 490명 (+69명)" in visible_text
+    assert "뽑는 인원이 늘었어요 (69명)" in visible_text
+    assert "추가 확인 중" not in visible_text
+    assert any(item.label.startswith("이름·표기만 바뀐 사소한 변경") for item in app.expander)
 
 
 def test_user_can_switch_company():
@@ -51,7 +54,7 @@ def test_user_can_switch_company():
     assert not app.exception
     assert any("한국수력원자력 채용공고 비교" in item.value for item in app.markdown)
     visible_text = " ".join(item.value for item in app.markdown)
-    assert "전체 채용인원 증가: 421명 → 490명" not in visible_text  # 다른 기관 내용이 섞이지 않음
+    assert "421명 → 490명" not in visible_text  # 다른 기관 내용이 섞이지 않음
     assert "자기소개서" in visible_text
     assert "체험형인턴 우수인턴" in visible_text
     assert 'class="diff-removed"' in visible_text
@@ -81,7 +84,7 @@ def test_conditions_to_matches_to_report_flow_without_personal_data():
     text = " ".join(item.value for item in app.markdown)
     assert "지원 가능" in text
     assert "전기기사: 배전(일반) 10점, 송변전(일반) 10점" in text  # 한전 (AI 추출, 정답지와 같은 값)
-    assert "채용인원: 421 → 490" in text
+    assert "인원: 421명 → 490명 (+69명)" in text
     # T047: 결과를 PDF로 받기 버튼
     downloads = app.get("download_button")
     assert len(downloads) == 1 and "PDF" in downloads[0].proto.label

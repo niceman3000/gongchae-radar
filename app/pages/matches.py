@@ -6,10 +6,9 @@ from datetime import date
 from html import escape
 from typing import Any, Mapping
 
-import pandas as pd
 import streamlit as st
 
-from app.pages.report import _units
+from app.pages.report import _units, _is_minor
 from app.ui_components import apply_styles, concise_change_title, eligibility_badge, evidence_card, md_text
 from src.eligibility import EligibilityResult, UserCondition, evaluate_all
 from src.result_pdf import build_result_pdf
@@ -35,6 +34,8 @@ def representative_change(report: Mapping[str, Any]) -> str | None:
     units = _units(report)
     if not units:
         return None
+    # 이름·표기만 바뀐 사소한 변경은 대표로 고르지 않는다 (11-21)
+    units = [item for item in units if not all(_is_minor(change) for change in item["changes"])] or units
     unit = next((item for item in units if item["status"] == "confirmed"), units[0])
     change = unit["changes"][0]
     title, _ = concise_change_title(change, str(report["pair_id"]), report.get("notice_info"))
@@ -54,11 +55,30 @@ def _short(text: str, limit: int = 90) -> str:
     return text if len(text) <= limit else text[: limit - 1] + "…"
 
 
-def _deadline_chip(value: str) -> str:
+def region_text(regions: Any) -> str:
+    from src.eligibility import REGIONS
+
+    return "지역 상관없음" if set(regions) >= set(REGIONS) else ", ".join(regions)
+
+
+def is_open(value: str, today: date | None = None) -> bool:
+    """접수 마감일이 오늘 이후(오늘 포함)면 접수 중"""
+    if len(value) == 8 and value.isdigit():
+        return date(int(value[:4]), int(value[4:6]), int(value[6:])) >= (today or date.today())
+    return False
+
+
+def _deadline_chip(value: str) -> tuple[str, str]:
+    """(칩 글자, css 클래스). 접수 중은 파랑·굵게, 지난 공고는 회색 (11-21 팀원 점검 12번)"""
     text = format_deadline(value)
     if "마감됨" in text:
-        return f"마감 {text.split(' ')[0]} · 지난 공고"
-    return f"마감 {text}"
+        return f"마감 {text.split(' ')[0]} · 지난 공고", "chip"
+    if len(value) == 8 and value.isdigit():
+        return f"접수 중 · {text.split(' ')[0]}까지 {text.split(' ')[-1].strip('()')}", "chip chip-open"
+    return f"마감 {text}", "chip"
+
+
+PAST_LABELS = {"eligible": "조건 맞음", "ambiguous": "애매", "ineligible": "조건 안 맞음"}
 
 
 def _best_bonus(result: EligibilityResult) -> str | None:
@@ -80,7 +100,7 @@ def _best_bonus(result: EligibilityResult) -> str | None:
 def _headline_reason(result: EligibilityResult) -> str:
     """한 줄 요약: 판정을 가른 이유 하나"""
     if result.status == "ambiguous" and result.review_items:
-        return result.review_items[-1] if "직접 확인" in result.review_items[-1] else result.review_items[0]
+        return result.review_items[0]  # 모집단위 판정 이유가 먼저, 근무지 배치 안내는 맨 뒤 (eligibility.evaluate)
     return result.reasons[-1] if result.reasons else ""
 
 
@@ -88,7 +108,10 @@ def match_card(result: EligibilityResult, report: Mapping[str, Any], track: str)
     """공고 한 건 = 한 줄 요약(기관·판정·마감·가점·이유) + '자세히 보기'에 나머지 (11-20 디자인 정리)"""
     titles = {"prev": report["prev"]["title"], "curr": report["curr"]["title"]}
     status = result.status if result.status in {"eligible", "ambiguous", "ineligible"} else "ambiguous"
-    chips = [f'<span class="chip">{escape(_deadline_chip(result.deadline))}</span>']
+    chip_text, chip_class = _deadline_chip(result.deadline)
+    chips = [f'<span class="{chip_class}">{escape(chip_text)}</span>']
+    # 마감된 공고에는 '지원 가능' 대신 '조건 맞음' (지금 지원할 수 있다는 뜻으로 읽히지 않게)
+    label = result.label if is_open(result.deadline) else PAST_LABELS.get(status, result.label)
     best = _best_bonus(result)
     if best:
         chips.append(f'<span class="chip chip-bonus">{escape(best)}</span>')
@@ -98,7 +121,7 @@ def match_card(result: EligibilityResult, report: Mapping[str, Any], track: str)
         st.markdown(
             f"""<div class="row-top"><div><div class="row-inst">{escape(result.institution)}</div>
             <div class="row-title">{escape(result.title)}</div></div>
-            <span class="status-badge row-status status-{status}">{escape(result.label or '판정 없음')}</span></div>
+            <span class="status-badge row-status status-{status}">{escape(label or '판정 없음')}</span></div>
             <div class="row-meta">{''.join(chips)}</div>
             <div class="row-reason">{escape(_short(_headline_reason(result)))}</div>""",
             unsafe_allow_html=True,
@@ -117,19 +140,16 @@ def match_card(result: EligibilityResult, report: Mapping[str, Any], track: str)
                 if result.bonus_rule:
                     st.caption(md_text(result.bonus_rule))
             if result.common_checks:
-                st.caption("모든 지원자 공통 확인: " + md_text(" · ".join(result.common_checks)))
+                st.markdown("**모든 지원자 공통 확인**")
+                for item in result.common_checks:
+                    st.markdown(f"- {md_text(item)}")
             change = representative_change(report)
             if change:
                 st.markdown(f"**작년 대비 대표 변경:** {md_text(change)}")
             if result.units:
                 st.markdown(f"**모집단위별 판정 {len(result.units)}개**")
-                st.dataframe(
-                    pd.DataFrame(
-                        [{"모집단위": unit["name"], "판정": unit["label"], "이유": unit["reason"]} for unit in result.units]
-                    ),
-                    hide_index=True,
-                    use_container_width=True,
-                )
+                for unit in result.units:
+                    st.markdown(f"- **{md_text(unit['name'])}** · {unit['label']} — {md_text(unit['reason'])}")
             evidence = _unique_evidence(result.evidence)
             if evidence:
                 st.markdown(f"**판정에 쓴 공고 근거 {len(evidence)}개**")
@@ -144,7 +164,7 @@ def verdict_bar(results: list[EligibilityResult]) -> None:
     """맞춤 공고 맨 위: 판정 3가지가 몇 건인지 한 줄 색 막대로"""
     counts = {key: sum(1 for item in results if item.status == key) for key in ("eligible", "ambiguous", "ineligible")}
     total = sum(counts.values()) or 1
-    names = {"eligible": "지원 가능", "ambiguous": "애매", "ineligible": "지원 불가"}
+    names = {"eligible": "조건 맞음", "ambiguous": "애매", "ineligible": "조건 안 맞음"}
     colors = {"eligible": "#12A574", "ambiguous": "#F2B035", "ineligible": "#E5534B"}
     bar = "".join(f'<span class="vb-{key}" style="width:{counts[key] / total * 100:.1f}%"></span>'
                   for key in counts if counts[key])
@@ -188,8 +208,7 @@ def _pdf_button(condition: UserCondition, reports: Mapping[str, Any], matched: l
         file_name=f"공채레이더_{condition.track}_{date.today():%Y%m%d}.pdf",
         mime="application/pdf",
         icon="📄",
-        type="primary",
-        use_container_width=True,
+        type="secondary",
     )
 
 
@@ -200,13 +219,13 @@ def render_matches_page() -> None:
     saved = st.session_state.get("user_condition")
     if not saved:
         st.warning("먼저 희망 직렬·지역·자격증을 입력해 주세요.")
-        st.page_link(CONDITIONS_PAGE, label="내 조건 입력하러 가기", icon="📝")
+        st.page_link(CONDITIONS_PAGE, label="내 조건 입력하러 가기", icon=":material/tune:")
         return
 
     condition = UserCondition.from_mapping(saved)
     certificates = ", ".join(condition.certificates) or "없음"
     st.markdown(
-        f'<div class="radar-subtitle">{escape(condition.track)} 직렬 · {escape(", ".join(condition.regions))} · '
+        f'<div class="radar-subtitle">{escape(condition.track)} 직렬 · {escape(region_text(condition.regions))} · '
         f'자격증 {escape(certificates)}</div>',
         unsafe_allow_html=True,
     )
@@ -218,25 +237,33 @@ def render_matches_page() -> None:
     other_region = [item for item in results if item.relevance == "region_mismatch"]
     no_track = [item for item in results if item.relevance == "track_missing"]
 
-    left, right = st.columns([1, 1])
-    with left:
-        st.page_link(CONDITIONS_PAGE, label="조건 바꾸기", icon="📝")
-    with right:
-        _pdf_button(condition, reports, matched, other_region, no_track)
+    if st.button("조건 바꾸기", icon=":material/edit:"):
+        st.switch_page(CONDITIONS_PAGE)
 
+    open_now = [item for item in matched if is_open(item.deadline)]
+    past = [item for item in matched if not is_open(item.deadline)]
     st.subheader(f"조건에 맞는 공고 {len(matched)}건")
     if matched:
         verdict_bar(matched)
-    st.caption("합격 가능성이 아니라 공고에 적힌 지원 조건과 내 조건을 비교한 결과예요. "
-               "확정할 수 없으면 '애매'로 표시해요. " + DATA_NOTICE)
+    st.caption("합격 가능성이 아니라 공고에 적힌 지원 조건과 내 조건을 비교한 결과예요. 확정할 수 없으면 '애매'로 표시해요. "
+               "기관마다 가장 최근 신입 공채 기준이라, 접수가 끝난 공고는 다음 채용 준비용으로 보세요.")
     if not matched:
         st.info("희망 직렬과 지역이 모두 맞는 공고가 없어요. 아래 다른 지역 공고를 확인해 보세요.")
-    for result in matched:
-        match_card(result, reports[result.pair_id], condition.track)
+    if matched:
+        st.markdown(f'<div class="section-head">지금 접수 중 {len(open_now)}건</div>', unsafe_allow_html=True)
+        if not open_now:
+            st.caption("지금 접수 중인 공고는 없어요.")
+        for result in open_now:
+            match_card(result, reports[result.pair_id], condition.track)
+        if past:
+            st.markdown(f'<div class="section-head">접수 끝난 공고 {len(past)}건 · 다음 채용 대비</div>',
+                        unsafe_allow_html=True)
+            for result in past:
+                match_card(result, reports[result.pair_id], condition.track)
 
     if other_region:
         st.subheader(f"희망 지역에 근무지가 없는 공고 {len(other_region)}건")
-        st.caption("직렬은 맞지만 공고의 근무지역에 희망 지역이 없습니다.")
+        st.caption("직렬은 맞지만 공고의 근무지역에 희망 지역이 없어요.")
         for result in other_region:
             match_card(result, reports[result.pair_id], condition.track)
 
@@ -244,6 +271,10 @@ def render_matches_page() -> None:
         st.caption(
             f"{condition.track} 직렬을 뽑지 않는 공고: " + ", ".join(item.institution for item in no_track)
         )
+
+    st.divider()
+    _pdf_button(condition, reports, matched, other_region, no_track)
+    st.caption(DATA_NOTICE)
 
     skipped = collection_skipped()
     if skipped:

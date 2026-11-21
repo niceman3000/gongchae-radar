@@ -28,7 +28,7 @@ def test_list_change_title_names_the_added_benefit_target():
     title, impact = describe_change(_change("text", prev, curr))
 
     assert title == "우대 대상 추가: 체험형인턴 우수인턴"
-    assert "나머지 4개 대상은 작년과 같습니다" in impact
+    assert "나머지 4개 대상은 작년과 같아요" in impact
     assert "가점표" in impact
 
 
@@ -98,5 +98,5 @@ def test_list_change_says_which_selection_track_the_list_belongs_to():
     title, impact = describe_change(_change("text", prev, curr), notice_info)
 
     assert title == "우대 대상(사회형평, 보훈특별 전형) 추가: 체험형인턴 우수인턴"
-    assert impact.startswith("이 줄은 사회형평, 보훈특별 전형에서 가점을 받는 대상 목록입니다.")
+    assert impact.startswith("이 줄은 사회형평, 보훈특별 전형에서 가점을 받는 대상 목록이에요.")
     assert "체험형인턴 우수인턴이(가) 목록에 들어가" in impact

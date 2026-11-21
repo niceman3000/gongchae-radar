@@ -1772,6 +1772,9 @@
       {
         "name": "법무(변호사)",
         "track": "사무",
+        "tracks": [
+          "사무"
+        ],
         "kind": "condition",
         "note": "경력 5급: 변호사 자격 취득 후 해당직무 1년 이상 경력",
         "evidence": [
@@ -1794,6 +1797,9 @@
       {
         "name": "사무행정",
         "track": "사무",
+        "tracks": [
+          "사무"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1801,6 +1807,9 @@
       {
         "name": "IT기획개발",
         "track": "ICT",
+        "tracks": [
+          "ICT"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1808,6 +1817,9 @@
       {
         "name": "정보시스템 운영",
         "track": "ICT",
+        "tracks": [
+          "ICT"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1815,6 +1827,9 @@
       {
         "name": "정보보호",
         "track": "ICT",
+        "tracks": [
+          "ICT"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1822,6 +1837,9 @@
       {
         "name": "시설 (기계)",
         "track": "기계",
+        "tracks": [
+          "기계"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1829,6 +1847,9 @@
       {
         "name": "마케터(일본)_서울",
         "track": "기타",
+        "tracks": [
+          "기타"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1836,6 +1857,9 @@
       {
         "name": "마케터(일본)_부산",
         "track": "기타",
+        "tracks": [
+          "기타"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1843,6 +1867,9 @@
       {
         "name": "마케터(중국)_서울",
         "track": "기타",
+        "tracks": [
+          "기타"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1850,6 +1877,9 @@
       {
         "name": "마케터(중국)_부산",
         "track": "기타",
+        "tracks": [
+          "기타"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1857,6 +1887,9 @@
       {
         "name": "마케터(태국) ",
         "track": "기타",
+        "tracks": [
+          "기타"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1864,6 +1897,9 @@
       {
         "name": "딜러_서울",
         "track": "기타",
+        "tracks": [
+          "기타"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1871,6 +1907,9 @@
       {
         "name": "딜러_부산",
         "track": "기타",
+        "tracks": [
+          "기타"
+        ],
         "kind": "general",
         "note": null,
         "evidence": []
@@ -1878,6 +1917,9 @@
       {
         "name": "영업지원(칩스, 카지노경리, 전자게임)",
         "track": "기타",
+        "tracks": [
+          "기타"
+        ],
         "kind": "special",
         "note": "장애인 제한경쟁: 장애인복지법상 장애인, 3교대 가능, 색맹·색약 불가",
         "evidence": [
@@ -1893,6 +1935,9 @@
       {
         "name": "CS (안전관리)",
         "track": "기타",
+        "tracks": [
+          "기타"
+        ],
         "kind": "special",
         "note": "장애인 제한경쟁: 장애인 + 공인 무도 단증 보유자, 3교대 가능",
         "evidence": [
@@ -1915,6 +1960,9 @@
       {
         "name": "CS (고객지원)",
         "track": "기타",
+        "tracks": [
+          "기타"
+        ],
         "kind": "special",
         "note": "장애인 제한경쟁: 장애인복지법상 장애인, 3교대 가능",
         "evidence": [
@@ -1930,6 +1978,9 @@
       {
         "name": "전산운영지원",
         "track": "ICT",
+        "tracks": [
+          "ICT"
+        ],
         "kind": "condition",
         "note": "무기계약직 경력: 해당 직무 1년 이상 경력, 3교대 근무 가능자",
         "evidence": [

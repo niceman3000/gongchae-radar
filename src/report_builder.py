@@ -377,13 +377,29 @@ TRACK_PATTERNS = [
     ("전기", re.compile(r"전기|배전|송변전")),
     ("기계", re.compile(r"기계")),
     ("사무", re.compile(r"사무|행정|경영|회계|법무")),
-    ("ICT", re.compile(r"ICT|통신|전산|IT|정보")),
+    ("ICT", re.compile(r"ICT|통신|전산|IT|정보|시스템|인공지능|AX")),
     ("토목", re.compile(r"토목")),
     ("건축", re.compile(r"건축")),
     ("원자력", re.compile(r"원자력")),
-    ("화학", re.compile(r"화학|환경")),
+    ("화학", re.compile(r"화학|환경|화공")),
     ("수자원", re.compile(r"수자원")),
 ]
+# 한 모집단위가 두 직렬에 걸치는 이름 (11-21 팀원 점검 2번): 이 직렬들로 찾으면 모두 나온다
+MULTI_TRACKS = [
+    (re.compile(r"전기통신"), ["전기", "ICT"]),                       # 코레일 전기통신
+    (re.compile(r"차량(?!기계|전기|관리)"), ["기계", "전기"]),         # 코레일 차량 (차량기계·차량전기는 한쪽만)
+    (re.compile(r"(?<![가-힣])전자(?!통신|게임)"), ["전기", "ICT"]),  # 도로공사·지역난방·조폐 전자 ('유전자'·'전기전자'·'전자게임' 제외)
+]
+# 모집단위 이름으로 정하는 전형 구분 (11-21 팀원 점검 3번). AI 메모(unit_notes)보다 먼저 본다.
+#   excluded: 판정에서 뺌 (정규직 신입 공채가 아님) / special: 대상자만 지원 / condition: 별도 조건(애매)
+UNIT_KIND_RULES = [
+    ("excluded", re.compile(r"체험형"), "체험형 인턴은 정규직 채용이 아니라 판정에서 뺐어요."),
+    ("excluded", re.compile(r"경력(?!단절)"), "경력 채용이라 신입 판정에서 뺐어요."),
+    ("special", re.compile(r"장애|보훈|국가유공자|사회형평|자립준비|저소득|다문화|경력단절|동행|지역인재"), None),
+    ("condition", re.compile(r"고졸"), "고졸 학력자만 지원할 수 있는 모집단위예요. 학력은 입력받지 않아 확정하지 않았어요."),
+    ("condition", re.compile(r"거주지 제한"), "정해진 지역 거주자만 지원할 수 있는 모집단위예요. 공고문에서 거주 요건을 확인하세요."),
+]
+
 # 모집단위가 API에 없을 때 직무분야(NCS) 이름으로 직렬을 추정한다.
 NCS_TRACKS = [
     ("사무", re.compile(r"경영|회계|사무|금융|보험")),
@@ -395,12 +411,40 @@ NCS_TRACKS = [
 ]
 
 
-def unit_track(name: str) -> str:
-    """모집단위 이름 → 직렬. '원전발전-전기전자' → 전기, '배전(일반)' → 전기"""
+def unit_tracks(name: str) -> list[str]:
+    """모집단위 이름 → 직렬 목록. '원전발전-전기전자' → [전기], '대졸일반-발전기계' → [기계], '전기통신' → [전기, ICT]"""
+    text = (name or "").replace("발전", " ")  # '발전기계'의 '발전기'에 든 '전기'를 전기 직렬로 오인하지 않게 (11-21 동서발전)
+    for pattern, tracks in MULTI_TRACKS:
+        if pattern.search(text):
+            return list(tracks)
     for track, pattern in TRACK_PATTERNS:
-        if pattern.search(name or ""):
-            return track
-    return "기타"
+        if pattern.search(text):
+            return [track]
+    return ["기타"]
+
+
+def unit_track(name: str) -> str:
+    """대표 직렬 하나 (unit_tracks의 첫째)"""
+    return unit_tracks(name)[0]
+
+
+def unit_kind(name: str, ai_kind: str | None, ai_note: str | None) -> tuple[str, str | None]:
+    """모집단위 이름 규칙 → (kind, 안내). 규칙에 안 걸리면 AI 메모 그대로"""
+    for kind, pattern, note in UNIT_KIND_RULES:
+        found = pattern.findall(name or "")
+        # '비수도권 지역인재 할당제 적용'은 일반 모집 안의 할당 비율이지 대상자 전형이 아니다 (지역난방공사)
+        if kind == "special" and "할당제" in (name or ""):
+            found = [word for word in found if word != "지역인재"]
+        if found:
+            return kind, note or ai_note
+    return str(ai_kind or "general"), ai_note
+
+
+def _clean_ai_text(text: Any) -> Any:
+    """AI 문장에 섞여 나온 프로그램 필드 이름 정리 (11-21 가스기술공사 'unit_notes 참고')"""
+    if not isinstance(text, str):
+        return text
+    return re.sub(r",?\s*unit_notes\s*참고", ", 모집단위별 안내 참고", text).replace("unit_notes", "모집단위별 안내")
 
 
 def _verified(raw: Iterable[Mapping[str, Any]] | None, all_text: Mapping[str, str] | None, sn: str) -> list[dict[str, Any]]:
@@ -431,15 +475,23 @@ def _reviewed_requirements(
         if not name:
             continue
         note = next((item for item in notes if item.get("pattern") and item["pattern"] in name), None)
+        tracks = unit_tracks(str(name))
+        kind, text = unit_kind(str(name), (note or {}).get("kind"), _clean_ai_text((note or {}).get("text")))
         units.append(
             {
                 "name": str(name),
-                "track": unit_track(str(name)),
-                "kind": str((note or {}).get("kind") or "general"),
-                "note": (note or {}).get("text"),
+                "track": tracks[0],
+                "tracks": tracks,
+                "kind": kind,
+                "note": text,
                 "evidence": _verified((note or {}).get("evidence"), curr_all_text, curr_sn),
             }
         )
+    # 모든 일반 모집단위가 직렬을 알 수 없는 이름이면('5급갑 일반' 등) 모든 직렬에서 보이게 하고 판정은 애매로 (11-21 공항공사)
+    if units and all(unit["track"] == "기타" for unit in units if unit["kind"] == "general"):
+        for unit in units:
+            if unit["kind"] == "general":
+                unit["track"], unit["tracks"] = "전체", ["전체"]
 
     if not units:
         # 모집단위 행이 없는 공고: 직무분야(NCS)로 직렬만 추정한다 (판정은 '애매'로 남는다).
@@ -447,13 +499,13 @@ def _reviewed_requirements(
         for ncs in str(curr_api.get("ncsCdNmLst") or "").split(","):
             track = next((name for name, pattern in NCS_TRACKS if pattern.search(ncs)), None)
             if track and track not in {unit["track"] for unit in units}:
-                units.append({"name": f"{track} (직무분야 추정)", "track": track, "kind": "condition",
-                              "note": note, "evidence": []})
+                units.append({"name": f"{track} (직무분야 추정)", "track": track, "tracks": [track],
+                              "kind": "condition", "note": note, "evidence": []})
 
     certificates, majors = [], []
     for item in reviewed.get("items") or []:
         converted = {
-            "name": str(item["name"]),
+            "name": str(_clean_ai_text(item["name"])),
             "kind": "accepted" if item.get("kind") == "major" else str(item.get("kind")),
             "applicable_units": list(item.get("applicable_units") or []),
             "evidence": _verified(item.get("evidence"), curr_all_text, curr_sn),
@@ -466,7 +518,7 @@ def _reviewed_requirements(
     def note_block(raw: Mapping[str, Any] | None) -> dict[str, Any] | None:
         if not raw:
             return None
-        return {"text": str(raw["text"]), "evidence": _verified(raw.get("evidence"), curr_all_text, curr_sn)}
+        return {"text": str(_clean_ai_text(raw["text"])), "evidence": _verified(raw.get("evidence"), curr_all_text, curr_sn)}
 
     regions = [value.strip() for value in str(curr_api.get("workRgnNmLst") or "").split(",") if value.strip()]
     return {
@@ -492,8 +544,9 @@ def _reviewed_requirements(
 def _merge_requirements(stage2: dict[str, Any], reviewed: dict[str, Any]) -> dict[str, Any]:
     """2단계 AI 추출값(있으면)을 유지하고, API·사람 검토 값을 더한다."""
     merged = dict(stage2)
-    unit_tracks = [unit["track"] for unit in reviewed["units"]]
-    merged["tracks"] = list(dict.fromkeys(unit_tracks or stage2["tracks"]))
+    track_names = [track for unit in reviewed["units"] if unit["kind"] != "excluded"
+                   for track in unit.get("tracks") or [unit["track"]] if track != "전체"]
+    merged["tracks"] = list(dict.fromkeys(track_names or stage2["tracks"]))
     merged["regions"] = sorted(set(stage2["regions"]) | set(reviewed["regions"]))
     merged["certificates"] = stage2["certificates"] + reviewed["certificates"]
     merged["majors"] = stage2["majors"] + reviewed["majors"]
