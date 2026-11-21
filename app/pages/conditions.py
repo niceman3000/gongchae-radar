@@ -100,8 +100,15 @@ def _preview(reports: list[dict]) -> None:
     st.markdown(html, unsafe_allow_html=True)
 
 
+FEATURES = (  # 이 앱이 하는 일 3가지 (화면 정리 메모 1번: 미리보기 대신)
+    ("지원 가능 · 애매 · 안 맞음", "판정마다 공고문 쪽수를 붙여요"),
+    ("작년과 달라진 점 5줄", "인원·전형·자격·가점·일정"),
+    ("공고문에 물어보기", "공고문 원문 안에서만 답해요"),
+)
+
+
 def render_conditions_page() -> None:
-    """① 내 조건 입력: 입력만 받고 '공고 찾기'를 누르면 ② 맞춤 공고로 (11-21 저녁 절충안 1번: 오전 구조)"""
+    """① 내 조건 입력 (화면 정리 메모 1번): 소개 → 조건 입력 → 하는 일 3가지. 1440×900에서 스크롤 없이"""
     apply_styles()
     if st.session_state.pop("go_matches", False):
         st.switch_page(MATCHES_PAGE)
@@ -111,34 +118,39 @@ def render_conditions_page() -> None:
         f"""<div class="hero">
         <div class="hero-kicker">공기업 신입 공채 <b>{len(reports)}곳</b> · 작년 공고와 비교 · 공고문 쪽수로 근거 확인</div>
         <div class="hero-title">작년 공고와 뭐가 달라졌는지,<br>나는 지원할 수 있는지.</div>
-        <div class="hero-lead">직렬·지역·자격증만 고르면 지원 조건과 작년 대비 바뀐 점을<br>공고문 쪽수와 함께 보여 드려요.</div>
+        <div class="hero-lead">직렬·지역·자격증만 고르면 지원 조건과 작년 대비 바뀐 점을 공고문 쪽수와 함께 보여 드려요.</div>
         </div>""",
         unsafe_allow_html=True,
     )
-    _guide()
-
-    st.markdown('<div class="c-head">내 조건</div>', unsafe_allow_html=True)
     saved = st.session_state.get("user_condition") or {}
     st.session_state.setdefault("condition_tracks", [track for track in saved.get("tracks", [saved.get("track")]) if track in tracks]
                                 or ([tracks[0]] if tracks else []))
     st.session_state.setdefault("condition_regions", saved.get("region", "").split("·") if saved.get("region") else [])
     st.session_state.setdefault("condition_certificates", list(saved.get("certificates") or []))
-    columns = st.columns([1, 1.25, 1.25, 0.6], vertical_alignment="bottom")
-    with columns[0]:
-        chosen = st.multiselect("희망 직렬 (여러 개 가능)", options=tracks, key="condition_tracks", placeholder="직렬 고르기")
-    with columns[1]:
-        regions = st.multiselect("근무 지역 (여러 개)", options=[ANY_REGION, *REGIONS], key="condition_regions",
-                                 placeholder="지역을 골라 주세요")
-    with columns[2]:
-        certificates = st.multiselect(
-            "보유 자격증 (없으면 비워 두기)",
-            options=sorted(set(COMMON_CERTIFICATES) | set(st.session_state["condition_certificates"])),
-            key="condition_certificates", accept_new_options=True, placeholder="검색하거나 직접 입력",
-        )
-    with columns[3]:
-        clicked = st.button("공고 찾기", type="primary", use_container_width=True)
-    st.markdown('<div class="privacy-note">이름·연락처는 받지 않아요. 고른 조건은 이 창에서만 쓰고 저장하지 않아요.</div>',
-                unsafe_allow_html=True)
+    with st.container(key="condition-box"):
+        # 직렬은 좁게, 지역·자격증은 넓게 (지역 3개를 골라도 안 잘리게)
+        columns = st.columns([1.7, 3.6, 2.7, 1.3], vertical_alignment="bottom")
+        with columns[0]:
+            chosen = st.multiselect("희망 직렬", options=tracks, key="condition_tracks", placeholder="직렬")
+        with columns[1]:
+            regions = st.multiselect("근무 지역 (여러 개)", options=[ANY_REGION, *REGIONS], key="condition_regions",
+                                     placeholder="지역을 골라 주세요")
+        with columns[2]:
+            certificates = st.multiselect(
+                "보유 자격증 (없으면 비워 두기)",
+                options=sorted(set(COMMON_CERTIFICATES) | set(st.session_state["condition_certificates"])),
+                key="condition_certificates", accept_new_options=True, placeholder="검색하거나 직접 입력",
+            )
+        with columns[3]:
+            clicked = st.button("공고 찾기", type="primary", use_container_width=True)
+        label, first, second, _ = st.columns([1.15, 2.1, 2.1, 1.6], vertical_alignment="center")
+        label.markdown('<div class="ex-label">처음이라면 예시로</div>', unsafe_allow_html=True)
+        first.button("전기기사 있는 전기 준비생 ›", key="example-1", on_click=_use_example, args=(EXAMPLE,),
+                     use_container_width=True)
+        second.button("자격증 없는 전기 준비생 ›", key="example-2", on_click=_use_example, args=(EXAMPLE_NO_CERT,),
+                      use_container_width=True)
+        st.markdown('<div class="privacy-note">이름·연락처는 받지 않아요. 고른 조건은 이 창에서만 쓰고 저장하지 않아요.</div>',
+                    unsafe_allow_html=True)
     if clicked:
         if not chosen or not regions:
             st.warning("희망 직렬과 근무 지역을 하나 이상 골라 주세요.")
@@ -146,7 +158,9 @@ def render_conditions_page() -> None:
             st.session_state["user_condition"] = _condition(chosen, regions, certificates)
             st.switch_page(MATCHES_PAGE)
 
-    _preview(reports)
+    st.markdown('<div class="features">' + "".join(
+        f'<div class="feature"><div class="feature-title">{escape(title)}</div><div class="feature-text">{escape(text)}</div></div>'
+        for title, text in FEATURES) + "</div>", unsafe_allow_html=True)
     st.caption(DATA_NOTICE)
 
 

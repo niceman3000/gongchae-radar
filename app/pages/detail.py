@@ -84,6 +84,20 @@ def _section(title: str, side: str = "", anchor: str = "") -> None:
     st.markdown(f'{anchor_html}<div class="d-sec">{escape(title)}{side_html}</div>', unsafe_allow_html=True)
 
 
+def bonus_text(result: Any) -> str:
+    """'자격증 반영 전기기사 10점 · 전기공사기사 10점 (17쪽) · 기술 최대 20점' — 질문 화면과 같은 숫자에 근거 쪽을 붙임
+    (11-21 팀원 질문 테스트 5번). 동서발전처럼 가점이 아니라 서류 점수인 곳이 있어 '가점' 대신 '자격증 반영'"""
+    if not result.bonus:
+        return ""
+    held = " · ".join(dict.fromkeys(f"{row['certificate']} {row['points']:g}{row.get('unit') or '점'}" for row in result.bonus))
+    pages = sorted({item["page"] for row in result.bonus for item in row.get("evidence") or []
+                    if item.get("side") == "curr" and item.get("page")})
+    text = f"자격증 반영 {held}" + (f" ({', '.join(f'{page}쪽' for page in pages[:2])})" if pages else "")
+    rule = str(result.bonus_rule or "")
+    limit = re.search(r"기술[^.]*?최대\s*(\d+)\s*점\)?", rule) or re.search(r"기술\s*(\d+)\s*점\s*한도", rule)
+    return text + (f" · 기술 최대 {limit.group(1)}점" if limit else "")
+
+
 def _verdict(report: Mapping[str, Any], condition: Mapping[str, Any] | None) -> str:
     """구역 1. 나는 지원할 수 있나 — 3줄 (절충안 4번): 판정+모집단위 / 이유(쪽)·토익 기준·내 가점 / 자세히 ▾"""
     _section("나는 지원할 수 있나")
@@ -116,9 +130,9 @@ def _verdict(report: Mapping[str, Any], condition: Mapping[str, Any] | None) -> 
     if language:
         match = re.search(r"(TOEIC|토익)\s*\d{3}\s*점\s*이상", language)
         parts.append(escape(match.group(0).replace("TOEIC", "토익") if match else language.partition("(")[0].strip()[:30]))
-    bonus = _bonus_lines(result, track)
-    if bonus:
-        parts.append("내 " + escape(bonus[0]))
+    bonus = bonus_text(result)
+    if bonus and status != "ineligible":
+        parts.append(escape(bonus))
     if result.relevance != "match":
         parts.append("희망 지역에 근무지가 없어요")
     mark = {"eligible": "✓", "ambiguous": "?", "ineligible": "✕"}.get(status, "?") if tone != "past" else "✓"
@@ -161,11 +175,12 @@ def _changes(report: Mapping[str, Any], track: str) -> None:
     for row in summarize(report, track):
         link = ('<a href="#schedule" target="_self">전체 일정 ›</a>' if row.key == "schedule"
                 else '<a href="#raw" target="_self">원문 대조 ›</a>')
-        note = f'<span class="s-note">{escape(row.note)}</span> ' if row.note else ""
-        rows.append(
+        note = f'<span class="s-note">{escape(row.note)}</span>' if row.note else ""
+        rows.append(  # '원문 대조 ›'는 줄마다 맨 오른쪽 칸에 고정 (화면 정리 메모 3번)
             f'<tr><th>{escape(row.question)}</th>'
             f'<td class="s-state"><span class="s-chip s-{STATUS_CLASS[row.status]}">{escape(row.status)}</span></td>'
-            f'<td><div class="s-answer">{escape(row.answer)}</div><div class="s-sub">{note}{link}</div></td></tr>')
+            f'<td><div class="s-answer">{escape(row.answer)}</div>'
+            + (f'<div class="s-sub">{note}</div>' if note else "") + f'</td><td class="s-link">{link}</td></tr>')
     st.markdown(f'<table class="s-table">{"".join(rows)}</table>', unsafe_allow_html=True)
     st.caption("변경 기록으로 규칙에 따라 만든 요약이에요. 정확한 문구는 아래 원문 대조에서 확인하세요.")
 

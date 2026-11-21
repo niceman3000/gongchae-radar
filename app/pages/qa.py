@@ -13,11 +13,12 @@ import streamlit as st
 from app.report_data import load_reports
 from app.ui_components import apply_styles, md_text
 from src.model_client import AnthropicClient
-from src.qa_service import NOT_FOUND, GroundedAnswer, ask
+from src.qa_service import NOT_FOUND, NOT_FOUND_DETAIL, GroundedAnswer, ask
 
 ROOT = Path(__file__).resolve().parents[2]
 SESSION_LIMIT = 20  # 한 사람이 한 번 접속해서 할 수 있는 AI 질문 수 (비용 보호)
-EXAMPLES = ["토익 몇 점 필요해?", "자기소개서는 언제 내?", "전기기사 가점 몇 점이야?", "나이 제한 있어?"]
+# 시연 공고마다 눌러 본 질문 (11-21 팀원 질문 테스트 6번: 못 고친 버튼은 맞게 답하는 질문으로)
+EXAMPLES = ["토익 몇 점 필요해?", "자격증 점수 기준 알려줘", "필기시험 언제야?", "면접은 어떻게 봐?"]
 SIDE_LABEL = {"curr": "올해 공고", "prev": "작년 공고"}
 
 
@@ -81,13 +82,15 @@ def _render_answer(result: GroundedAnswer, report: Mapping[str, Any]) -> None:
             title = report[item["side"]]["title"]
             st.markdown(f"- **{SIDE_LABEL[item['side']]} {item['page']}쪽** · {md_text(title)}  \n  “{md_text(item['quote'])}”")
     elif result.status == "not_found":
-        st.info(f"**{NOT_FOUND}**  \n이 공고문에서 질문에 대한 내용을 찾지 못했어요. 기관 채용 문의처로 확인해 주세요.")
+        st.info(f"**{NOT_FOUND}**  \n{NOT_FOUND_DETAIL}")
+    elif result.status == "other_institution":
+        st.info(result.answer)
     else:
         st.warning(result.answer)
         if result.note:  # 왜 AI 답이 안 나왔는지 (키 없음, 모델 오류 내용 등)
             st.caption(f"사유: {result.note}")
     if result.excerpts and result.status != "answered":
-        with st.expander("관련 있어 보이는 공고문 원문 발췌", expanded=result.status == "unavailable"):
+        with st.expander("관련 있어 보이는 공고문 원문", expanded=result.status in {"unavailable", "not_found"}):
             for item in result.excerpts:
                 st.markdown(f"**{SIDE_LABEL[item['side']]} {item['page']}쪽**")
                 st.text(item["text"])
@@ -96,7 +99,7 @@ def _render_answer(result: GroundedAnswer, report: Mapping[str, Any]) -> None:
 def render_qa_page() -> None:
     apply_styles()
     st.markdown('<div class="radar-title">공고문에 물어보기</div>', unsafe_allow_html=True)  # 다른 화면과 같은 크기 (20번)
-    st.caption("선택한 공고의 공고문 원문 안에서만 답해요. 공고문에 없는 내용은 ‘공고문에 명시 없음’으로 답해요. "
+    st.caption("선택한 공고의 공고문 원문 안에서만 답해요. 답을 찾지 못하면 관련 원문을 보여 드려요. "
                "이름·연락처 같은 개인정보는 입력하지 마세요.")
     reports, _ = load_reports()
     if not reports:
@@ -150,14 +153,16 @@ def render_qa_box(report: Mapping[str, Any], examples: list[str] | None = None) 
         client = AnthropicClient(key) if key and used < SESSION_LIMIT else None
         try:
             with st.spinner("공고문에서 찾는 중..."):
-                result = ask(question, curr_text=curr_text, prev_text=prev_text, client=client)
+                names = [str(item["institution"]) for item in load_reports()[0]]
+                result = ask(question, curr_text=curr_text, prev_text=prev_text, client=client,
+                             selected=str(report["institution"]), institutions=names)
         except ValueError as exc:
             st.error(str(exc))
             return
         if result.model_called:
             st.session_state["qa_used"] = used + 1
         if key and used >= SESSION_LIMIT and result.status == "unavailable":
-            result.answer = f"이번 접속에서 AI 질문 {SESSION_LIMIT}회를 다 썼어요. 아래 원문 발췌를 확인해 주세요."
+            result.answer = f"이번 접속에서 AI 질문 {SESSION_LIMIT}회를 다 썼어요. 아래 공고문 원문을 확인해 주세요."
         answers[cache_key] = result
     st.markdown(f"**질문** {escape(question.strip())}")
     _render_answer(answers[cache_key], report)

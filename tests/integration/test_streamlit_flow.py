@@ -45,7 +45,7 @@ def test_kepco_detail_shows_verdict_five_rows_and_schedule():
     assert "2026년도 하반기 4직급 대졸수준 신입사원 채용공고" in text
     assert "나는 지원할 수 있나" in text and "조건 맞음" in text
     assert "토익 700점 이상" in text                                   # 판정 2줄째: 이유·토익·내 가점
-    assert "전기기사: 배전(일반) 10점, 송변전(일반) 10점" in text  # 한전 (AI 추출, 정답지와 같은 값)
+    assert "자격증 반영 전기기사 10점 (19쪽)" in text  # 한전 (AI 추출, 정답지와 같은 값) + 근거 쪽 (질문 테스트 5번)
     assert any(item.label.startswith("자세히: 공통 조건 · 모집단위별 판정 · 근거") for item in app.expander)
     assert "작년 공고: 2025년도 하반기 대졸수준 (2025.09 공고)" in text  # 연도만 쓰지 않음
     assert "421명 → 490명 (+69명)" in text                         # 완료 확인 4
@@ -101,7 +101,8 @@ def test_flow_conditions_matches_detail_qa_without_personal_data(monkeypatch):
     monkeypatch.setenv("GONGCHAE_IGNORE_SECRETS", "1")
     app = _app()
     assert not app.exception
-    assert any("예시로 먼저 해 보세요" in item.value for item in app.markdown)  # 예시는 안내 상자
+    assert any("처음이라면 예시로" in item.value for item in app.markdown)  # 예시는 입력칸 아래 버튼 2개 (화면 정리 1번)
+    assert any("작년과 달라진 점 5줄" in item.value for item in app.markdown)  # 미리보기 대신 하는 일 3가지
     # 입력 칸은 직렬·지역·자격증 세 개뿐이고 이름·연락처 같은 입력은 없다
     assert len(app.text_input) == 0 and len(app.number_input) == 0
     assert [item.label.split(" (")[0] for item in app.multiselect] == ["희망 직렬", "근무 지역", "보유 자격증"]
@@ -115,6 +116,11 @@ def test_flow_conditions_matches_detail_qa_without_personal_data(monkeypatch):
     text = _text(app)
     assert "내 조건에 맞는 공고" in text and "전기 직렬 공고 <b>" in text
     assert "바뀐 점" not in text                                          # 목록은 판정 이유만
+    assert "내 지역 <b>16건</b>" in text and "+ 다른 지역 8건" in text      # 화면 정리 2번: 내 지역 / 다른 지역
+    dongseo_row = text[text.index("한국동서발전"):].split('class="m-inst"')[0]
+    assert "가점" not in dongseo_row and "자격증 반영 10점" in dongseo_row
+    water = text[text.index("한국수자원공사"):].split('class="m-inst"')[0]
+    assert "자격증 반영" not in water                                      # 안 맞는 공고는 점수 숨김
     assert text.index("한국동서발전") < text.index("한전KPS")             # 접수 중 맨 위
     more = [button for button in app.button if button.label.startswith("지난 공고")]
     if more:
@@ -160,7 +166,7 @@ def test_qa_without_api_key_shows_original_excerpts(monkeypatch):
 
     assert not app.exception
     assert any("AI 답변을 만들 수 없어요" in item.value for item in app.warning)
-    assert any("원문 발췌" in item.label for item in app.expander)
+    assert any("공고문 원문" in item.label for item in app.expander)
 
 
 def test_qa_question_not_in_notice_is_not_found_without_ai(monkeypatch):
@@ -171,7 +177,7 @@ def test_qa_question_not_in_notice_is_not_found_without_ai(monkeypatch):
     [button for button in app.button if button.label == "물어보기"][0].click().run()
 
     assert not app.exception
-    assert any("공고문에 명시 없음" in item.value for item in app.info)
+    assert any("공고문에서 정확한 답을 찾지 못했어요" in item.value for item in app.info)
     used = app.session_state["qa_used"] if "qa_used" in app.session_state else 0
     assert used == 0  # AI를 부르지 않았으니 질문 횟수도 안 셈
 

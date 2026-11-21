@@ -106,3 +106,43 @@ def test_attached_words_and_everyday_words_find_notice_text():
     """11-19: '토익점수'처럼 붙여 쓰면 TOEIC 줄을 못 찾아 AI 없이 '명시 없음'이 나왔음."""
     assert any(item["page"] == 3 for item in find_passages("토익점수 필요해?", CURR))
     assert any(item["page"] == 3 for item in find_passages("영어 성적 몇 점?", CURR))
+
+
+# ---- 11-21 팀원 질문 테스트 (동서발전 11문항) 회귀 ----
+import json as _json
+from pathlib import Path as _Path
+
+from src.qa_service import ask as _qa_ask, find_passages as _find, other_institution as _other
+
+_DONGSEO = _json.loads((_Path(__file__).resolve().parents[2] / "stage2" / "bundle_307149.json")
+                       .read_text(encoding="utf-8"))["all_text"]
+
+
+def test_dongseo_table_pages_have_the_answers() -> None:
+    """공고문 글자에 표 내용이 있다 (17쪽 '기사 10', 9쪽 '2026. 12. 19.', 7쪽 '필기 전형 만점의 5%')"""
+    assert "기사 10" in _DONGSEO["17"]
+    assert "2026. 12. 19." in _DONGSEO["9"]
+    assert "필기 전형 만점의 5%" in _DONGSEO["7"]
+
+
+def test_table_pages_are_always_candidates() -> None:
+    """질문 종류가 맞으면 표 쪽 전체를 근거 후보로 (전에는 낱말 몇 개로만 골라 표 쪽을 놓침)"""
+    pages = lambda question: [item["page"] for item in _find(question, _DONGSEO)]
+    assert 17 in pages("전기기사 가점 몇 점이야?")
+    assert 17 in pages("전기기사랑 전기공사기사 둘 다 인정돼?")
+    assert 9 in pages("필기 과목이랑 날짜, 장소 알려줘") and 4 in pages("필기 과목이랑 날짜, 장소 알려줘")
+    assert 4 in pages("면접 몇 번 봐?")
+    assert {4, 9} <= set(pages("서류 합격 발표 언제야? 몇 배수?"))
+    assert 7 in pages("동서발전 청년인턴 했는데 가점 있어?")
+    assert 6 in pages("부산에서 대학 나왔는데 지역인재 우대 돼?")
+
+
+def test_other_institution_in_question_is_not_answered() -> None:
+    """동서발전을 고르고 '한전은 토익 몇 점이야?' → 답하지 않고 안내"""
+    names = ["한국동서발전", "한국전력공사", "한전KPS"]
+    assert _other("한전은 토익 몇 점이야?", "한국동서발전", names) == "한국전력공사"
+    assert _other("동서발전 청년인턴 했는데 가점 있어?", "한국동서발전", names) is None
+    assert _other("한전KPS 토익?", "한전KPS", names) is None
+    result = _qa_ask("한전은 토익 몇 점이야?", curr_text=_DONGSEO, selected="한국동서발전", institutions=names)
+    assert result.status == "other_institution" and not result.model_called
+    assert "지금 선택한 공고는 한국동서발전이에요" in result.answer
