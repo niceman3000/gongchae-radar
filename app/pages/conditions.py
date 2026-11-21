@@ -33,11 +33,40 @@ def available_tracks(reports: list[dict]) -> tuple[list[str], list[str]]:
     return ordered, [track for track in ordered if track in reviewed]
 
 
+EXAMPLES = (  # (예시, 누구 이야기인지, 무엇을 볼 수 있는지)
+    (EXAMPLE, "전기기사가 있는 전기 준비생", "지원 가능 공고와 내 자격증 가점을 볼 수 있어요"),
+    (EXAMPLE_NO_CERT, "자격증이 아직 없는 전기 준비생", "자격증 없이 낼 수 있는 곳과 '애매'한 곳이 갈려요"),
+)
+
+
+def _condition(tracks: list[str], regions: list[str], certificates: list[str]) -> dict:
+    if ANY_REGION in regions:
+        regions = list(REGIONS)
+    return {"tracks": list(tracks), "track": tracks[0], "region": "·".join(regions), "certificates": list(certificates)}
+
+
 def _use_example(example: dict) -> None:
-    """예시 링크: 위젯이 그려지기 전에 값을 넣어야 해서 on_click으로"""
-    st.session_state["condition_track"] = example["track"]
+    """예시 카드: 조건을 채우고 바로 맞춤 공고로 (위젯이 그려지기 전에 값을 넣어야 해서 on_click)"""
+    st.session_state["condition_tracks"] = [example["track"]]
     st.session_state["condition_regions"] = list(example["regions"])
     st.session_state["condition_certificates"] = list(example["certificates"])
+    st.session_state["user_condition"] = _condition([example["track"]], list(example["regions"]), list(example["certificates"]))
+    st.session_state["go_matches"] = True
+
+
+def _guide() -> None:
+    """'예시로 해 보기'를 안내 상자로 (11-21 사용자: 가이드처럼)"""
+    st.markdown('<div class="g-head"><span class="g-step">처음이라면</span> 예시로 먼저 해 보세요'
+                '<div class="g-sub">카드를 누르면 조건이 채워지고 바로 맞춤 공고로 넘어가요. 마음에 들면 아래에서 내 조건으로 바꾸면 돼요.</div></div>',
+                unsafe_allow_html=True)
+    for column, (index, (example, who, what)) in zip(st.columns(2), enumerate(EXAMPLES, 1)):
+        with column.container(border=True, key=f"example-card-{index}"):
+            chips = "".join(f'<span class="chip">{escape(text)}</span>' for text in
+                            (example["track"], "·".join(example["regions"]), ", ".join(example["certificates"]) or "자격증 없음"))
+            st.markdown(f'<div class="g-card-label">예시 {index}</div><div class="g-card-who">{escape(who)}</div>'
+                        f'<div class="g-chips">{chips}</div><div class="g-card-what">{escape(what)}</div>',
+                        unsafe_allow_html=True)
+            st.button("이 조건으로 보기 ›", key=f"example-{index}", type="tertiary", on_click=_use_example, args=(example,))
 
 
 def _preview(reports: list[dict]) -> None:
@@ -72,54 +101,49 @@ def _preview(reports: list[dict]) -> None:
 
 
 def render_conditions_page() -> None:
-    """첫 화면 (11-21 팀원 2차 점검 8번·예시 1): 숫자 줄·둥근 상자 걷어 내고, 입력 3칸 한 줄, '공고 찾기'를 첫 화면 안으로"""
+    """① 내 조건 입력: 입력만 받고 '공고 찾기'를 누르면 ② 맞춤 공고로 (11-21 저녁 절충안 1번: 오전 구조)"""
     apply_styles()
+    if st.session_state.pop("go_matches", False):
+        st.switch_page(MATCHES_PAGE)
     reports, _ = load_reports()
     tracks, _ = available_tracks(reports)
     st.markdown(
         f"""<div class="hero">
-        <div class="hero-kicker">공기업 신입 공채 <b>{len(reports)}곳</b> · 작년 공고와 비교</div>
+        <div class="hero-kicker">공기업 신입 공채 <b>{len(reports)}곳</b> · 작년 공고와 비교 · 공고문 쪽수로 근거 확인</div>
         <div class="hero-title">작년 공고와 뭐가 달라졌는지,<br>나는 지원할 수 있는지.</div>
         <div class="hero-lead">직렬·지역·자격증만 고르면 지원 조건과 작년 대비 바뀐 점을<br>공고문 쪽수와 함께 보여 드려요.</div>
-        </div><div class="c-head">내 조건</div>""",
+        </div>""",
         unsafe_allow_html=True,
     )
+    _guide()
+
+    st.markdown('<div class="c-head">내 조건</div>', unsafe_allow_html=True)
     saved = st.session_state.get("user_condition") or {}
-    track_default = saved.get("track") if saved.get("track") in tracks else (tracks[0] if tracks else None)
-    st.session_state.setdefault("condition_track", track_default)
+    st.session_state.setdefault("condition_tracks", [track for track in saved.get("tracks", [saved.get("track")]) if track in tracks]
+                                or ([tracks[0]] if tracks else []))
     st.session_state.setdefault("condition_regions", saved.get("region", "").split("·") if saved.get("region") else [])
     st.session_state.setdefault("condition_certificates", list(saved.get("certificates") or []))
-
-    left, middle, right = st.columns([1, 1.25, 1.25])
-    with left:
-        track = st.selectbox("희망 직렬", options=tracks, key="condition_track")
-    with middle:
+    columns = st.columns([1, 1.25, 1.25, 0.6], vertical_alignment="bottom")
+    with columns[0]:
+        chosen = st.multiselect("희망 직렬 (여러 개 가능)", options=tracks, key="condition_tracks", placeholder="직렬 고르기")
+    with columns[1]:
         regions = st.multiselect("근무 지역 (여러 개)", options=[ANY_REGION, *REGIONS], key="condition_regions",
                                  placeholder="지역을 골라 주세요")
-    with right:
+    with columns[2]:
         certificates = st.multiselect(
             "보유 자격증 (없으면 비워 두기)",
             options=sorted(set(COMMON_CERTIFICATES) | set(st.session_state["condition_certificates"])),
-            key="condition_certificates",
-            accept_new_options=True,
-            placeholder="검색하거나 직접 입력",
+            key="condition_certificates", accept_new_options=True, placeholder="검색하거나 직접 입력",
         )
-
-    label, first, second, find = st.columns([0.8, 1.45, 1.6, 1.25], vertical_alignment="center")
-    label.markdown('<div class="ex-label">예시로 해 보기</div>', unsafe_allow_html=True)
-    first.button("전기·부산·울산·전기기사", type="tertiary", on_click=_use_example, args=(EXAMPLE,))
-    second.button("전기·부산·울산·자격증 없음", type="tertiary", on_click=_use_example, args=(EXAMPLE_NO_CERT,))
-    clicked = find.button("공고 찾기", type="primary", use_container_width=True)
+    with columns[3]:
+        clicked = st.button("공고 찾기", type="primary", use_container_width=True)
     st.markdown('<div class="privacy-note">이름·연락처는 받지 않아요. 고른 조건은 이 창에서만 쓰고 저장하지 않아요.</div>',
                 unsafe_allow_html=True)
     if clicked:
-        if not track or not regions:
+        if not chosen or not regions:
             st.warning("희망 직렬과 근무 지역을 하나 이상 골라 주세요.")
         else:
-            if ANY_REGION in regions:
-                regions = list(REGIONS)
-            st.session_state["user_condition"] = {"track": track, "region": "·".join(regions),
-                                                  "certificates": list(certificates)}
+            st.session_state["user_condition"] = _condition(chosen, regions, certificates)
             st.switch_page(MATCHES_PAGE)
 
     _preview(reports)

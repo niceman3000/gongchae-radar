@@ -16,7 +16,7 @@ from src.result_pdf import build_result_pdf
 from app.report_data import DATA_NOTICE, collection_skipped, load_reports
 
 CONDITIONS_PAGE = "app/pages/conditions.py"
-REPORT_PAGE = "app/pages/report.py"
+REPORT_PAGE = "app/pages/detail.py"  # ③ 공고 비교 (11-21 저녁: 상세 화면)
 QA_PAGE = "app/pages/qa.py"
 
 
@@ -297,73 +297,135 @@ def _pdf_button(condition: UserCondition, reports: Mapping[str, Any], matched: l
     )
 
 
+BAR = '<span class="m-bar">·</span>'
+
+
+def initials(name: str) -> str:
+    """기관 머리글자: '한국동서발전' → '동서', '한전KPS' → 'KPS', '인천국제공항공사' → '인천'"""
+    name = re.sub(r"^(한국|주식회사)", "", name)
+    if name.startswith("한전") and len(name) > 2:
+        return name[2:5]
+    return name[:2]
+
+
+def _go_detail(pair_id: str) -> None:
+    st.session_state["selected_pair_id"] = pair_id
+    st.session_state["go_detail"] = True
+
+
+def _row(result: EligibilityResult, report: Mapping[str, Any], open_card: bool) -> None:
+    """공고 한 줄 (11-21 저녁 절충안 2·3번): 목록에는 판정 이유 한 줄만, '공고 비교 ›'는 새로고침 없이 이동"""
+    from src.change_summary import prev_start_text
+
+    status = result.status if result.status in {"eligible", "ambiguous", "ineligible"} else "ambiguous"
+    now = is_open(result.deadline)
+    label = VERDICT_TEXT[status] if now else PAST_LABELS.get(status, result.label or "")
+    tone = status if now or status != "eligible" else "past"
+    sub = [escape(_short_title(result)), f"{_date_short(result.deadline)} 마감"]
+    best = _best_bonus(result)
+    if best:
+        sub.append(escape(best))
+    hint = ""
+    if not now and prev_start_text(report):
+        hint = (f'<span class="cal-chip"><span class="cal-icon"></span>다음 공고 참고 · '
+                f'<b>작년엔 {escape(prev_start_text(report))} 접수 시작</b></span>')
+    with st.container(border=open_card, key=f"row-{'open' if open_card else 'past'}-{result.pair_id}"):
+        mark, main, side = st.columns([0.55, 5, 1.35], vertical_alignment="top")
+        mark.markdown(f'<div class="org-mark{" org-mark-open" if open_card else ""}">{escape(initials(result.institution))}</div>',
+                      unsafe_allow_html=True)
+        main.markdown(f'<div class="m-inst">{escape(result.institution)}</div>'
+                      f'<div class="m-sub">{BAR.join(sub)}</div>'
+                      f'<div class="m-reason">{_reason_line(result, status)}</div>{hint}', unsafe_allow_html=True)
+        dday = f'<span class="m-dday">{escape(_d_day(result.deadline))}</span>' if now else ""
+        side.markdown(f'<div class="m-side">{dday}<span class="badge b-{tone}">{escape(label)}</span></div>',
+                      unsafe_allow_html=True)
+        side.button("공고 비교 ›", key=f"go-{result.pair_id}", type="primary" if open_card else "tertiary",
+                    on_click=_go_detail, args=(result.pair_id,), use_container_width=open_card)
+
+
+def _list(items: list[EligibilityResult], reports: Mapping[str, Any], key: str, first: int | None = None,
+          more_label: str = "", open_cards: bool = False) -> None:
+    shown = items if first is None or st.session_state.get(f"more-{key}") else items[:first]
+    for result in shown:
+        _row(result, reports[result.pair_id], open_cards)
+    rest = len(items) - len(shown)
+    if rest > 0 and st.button(f"{more_label} {rest}건 더 보기 ▾", key=f"more-btn-{key}", type="tertiary"):
+        st.session_state[f"more-{key}"] = True
+        st.rerun()
+
+
+def _tiles(items: list[tuple[str, str, str]]) -> None:
+    st.markdown('<div class="tiles">' + "".join(
+        f'<div class="tile {css}"><div class="tile-label">{escape(label)}</div><div class="tile-value">{escape(value)}</div></div>'
+        for label, value, css in items) + "</div>", unsafe_allow_html=True)
+
+
 def render_matches_page() -> None:
+    """② 맞춤 공고 (11-21 저녁 절충안): 요약 칸 5개, 접수 중은 파란 테두리 카드, 지난 공고는 줄 + 작년 접수일 칩"""
+    from app.flow import best_results, current_condition
+
     apply_styles()
-    saved = st.session_state.get("user_condition")
-    if not saved:
+    if st.session_state.pop("go_detail", False):
+        st.switch_page(REPORT_PAGE)
+    condition = current_condition()
+    if not condition:
         st.markdown('<div class="radar-title">내 조건에 맞는 공고</div>', unsafe_allow_html=True)
         st.warning("먼저 희망 직렬·지역·자격증을 입력해 주세요.")
         st.page_link(CONDITIONS_PAGE, label="내 조건 입력하러 가기", icon=":material/tune:")
         return
-
-    condition = UserCondition.from_mapping(saved)
     loaded, _ = load_reports()
     reports = {report["pair_id"]: report for report in loaded}
-    results = evaluate_all(condition, reports.values())
+    pairs = best_results(condition, reports.values())
+    results = [result for result, _ in pairs]
     matched = [item for item in results if item.relevance == "match"]
     other_region = [item for item in results if item.relevance == "region_mismatch"]
     no_track = [item for item in results if item.relevance == "track_missing"]
     open_now = sorted((item for item in matched if is_open(item.deadline)), key=lambda item: item.deadline)
     past = sorted((item for item in matched if not is_open(item.deadline)), key=lambda item: item.deadline, reverse=True)
+    tracks = "·".join(condition.get("tracks") or [condition["track"]])
 
-    head, button = st.columns([5, 1.2], vertical_alignment="bottom")
+    head, button = st.columns([5, 1.2], vertical_alignment="center")
     with head:
-        certificates = ", ".join(condition.certificates) or "자격증 없음"
-        st.markdown(
-            f'<div class="radar-title">내 조건에 맞는 공고</div><div class="radar-subtitle m-cond">'
-            f'{escape(condition.track)} · {escape(region_text(condition.regions))} · {escape(certificates)}</div>',
-            unsafe_allow_html=True,
-        )
+        regions = region_text(str(condition["region"]).split("·"))
+        certificates = ", ".join(condition.get("certificates") or []) or "자격증 없음"
+        chips = "".join(f'<span class="chip">{escape(text)}</span>' for text in (tracks, regions, certificates))
+        st.markdown(f'<div class="radar-title">내 조건에 맞는 공고</div><div class="g-chips">{chips}</div>',
+                    unsafe_allow_html=True)
     with button:
         if st.button("조건 바꾸기", type="secondary", use_container_width=True):
             st.switch_page(CONDITIONS_PAGE)
 
     counts = {key: sum(1 for item in matched if item.status == key) for key in ("eligible", "ambiguous", "ineligible")}
-    st.markdown(
-        f'<div class="m-summary">{escape(condition.track)} 직렬 공고 <b>{len(matched)}</b>건 · 지금 접수 중 <b>{len(open_now)}</b>건 '
-        f'<span>(조건 맞음 {counts["eligible"]} · 애매 {counts["ambiguous"]} · 안 맞음 {counts["ineligible"]})</span></div>',
-        unsafe_allow_html=True,
-    )
+    _tiles([(f"{tracks} 직렬 공고", f"{len(matched)}건", "t-total"), ("지금 접수 중", str(len(open_now)), "t-open"),
+            ("조건 맞음", str(counts["eligible"]), "t-eligible"), ("애매", str(counts["ambiguous"]), "t-ambiguous"),
+            ("안 맞음", str(counts["ineligible"]), "t-ineligible")])
+    st.markdown(f'<div class="m-summary-hidden">{escape(tracks)} 직렬 공고 <b>{len(matched)}</b>건 · '
+                f'지금 접수 중 <b>{len(open_now)}</b>건</div>', unsafe_allow_html=True)
     st.caption("합격 가능성이 아니라 공고에 적힌 지원 조건과 내 조건을 비교한 결과예요. 확정할 수 없으면 '애매'로 표시해요.")
-    if not matched:
-        st.info("희망 직렬과 지역이 모두 맞는 공고가 없어요. 아래 다른 지역 공고를 확인해 보세요.")
-    else:
-        _list_head("지금 접수 중", len(open_now), "마감 빠른 순")
-        if not open_now:
-            st.markdown('<div class="m-empty">지금 접수 중인 공고는 없어요. 아래 지난 공고로 다음 채용을 준비해 보세요.</div>',
-                        unsafe_allow_html=True)
-        _render_list(open_now, reports, condition.track, "open")
-        if past:
-            _list_head("지난 공고", len(past), "다음 채용 대비 · 마감 최근 순")
-            st.markdown('<div class="m-empty">이미 마감됐어요. 기관마다 가장 최근 신입 공채 기준이라, 새 공고가 나오면 바뀌어요.</div>',
-                        unsafe_allow_html=True)
-            _render_list(past, reports, condition.track, "past", first=3, more_label="지난 공고")
 
+    _list_head("지금 접수 중", len(open_now), "마감 빠른 순")
+    if not open_now:
+        st.markdown('<div class="m-empty">지금 접수 중인 공고는 없어요. 아래 지난 공고로 다음 채용을 준비해 보세요.</div>',
+                    unsafe_allow_html=True)
+    _list(open_now, reports, "open", open_cards=True)
+    if past:
+        _list_head("지난 공고", len(past), "다음 채용 대비")
+        _list(past, reports, "past", first=3, more_label="지난 공고")
     if other_region:
         _list_head("희망 지역에 근무지가 없는 공고", len(other_region), "직렬은 맞지만 근무지역이 달라요")
-        _render_list(other_region, reports, condition.track, "region", first=3, more_label="다른 지역 공고")
-
+        _list(other_region, reports, "region", first=3, more_label="다른 지역 공고")
     if no_track:
-        st.markdown(f'<div class="m-empty m-notrack">{escape(condition.track)} 직렬을 뽑지 않는 공고: '
-                    + escape(", ".join(item.institution for item in no_track)) + "</div>", unsafe_allow_html=True)
+        st.markdown(f'<div class="m-empty m-notrack">{escape(tracks)} 직렬을 뽑지 않는 공고: '
+                    + escape(", ".join(item.institution for item in no_track))
+                    + ' · ‘공고 비교’ 메뉴에서는 어느 기관이든 볼 수 있어요.</div>', unsafe_allow_html=True)
 
     st.markdown('<div class="m-foot"></div>', unsafe_allow_html=True)
     note, pdf = st.columns([3, 1.2], vertical_alignment="center")
     with note:
         st.caption(DATA_NOTICE)
     with pdf:
-        _pdf_button(condition, reports, matched, other_region, no_track)
-
+        first = UserCondition(condition["track"], str(condition["region"]), tuple(condition.get("certificates") or ()))
+        _pdf_button(first, reports, matched, other_region, no_track)
     skipped = collection_skipped()
     if skipped:
         with st.expander(f"공고를 모으지 못한 기관 {len(skipped)}곳"):
