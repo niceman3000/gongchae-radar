@@ -13,6 +13,8 @@
 
 from __future__ import annotations
 
+import re
+
 from dataclasses import dataclass, field
 from typing import Any, Iterable, Mapping
 
@@ -117,7 +119,7 @@ def _check_unit(
         item = next(item for item in required if any(matches(cert, item.get("match") or {}) for cert in held))
         return {
             "status": "eligible",
-            "reason": f"보유 자격증 {', '.join(held)} → 필수 자격 충족: {item['name']}",
+            "reason": f"{_with_ro(', '.join(held))} 필수 자격을 갖췄어요",  # 11-21 팀원 2차 점검 5번: 기계 문장 → 해요체 한 줄
             "evidence": item["evidence"],
             "review": None,
         }
@@ -131,7 +133,7 @@ def _check_unit(
         if held:
             return {
                 "status": "eligible",
-                "reason": f"보유 자격증 {', '.join(held)} → {item['name']}",
+                "reason": f"{_with_ro(', '.join(held))} 지원 자격을 갖췄어요",
                 "evidence": item["evidence"],
                 "review": None,
             }
@@ -200,6 +202,31 @@ def _bonus(track: str, certificates: tuple[str, ...], requirements: Mapping[str,
     return [row for row in rows if best.get((row["certificate"], tuple(row["units"]), row.get("unit") or "점")) is row]
 
 
+REGION_WORDS = {"전국", "수도권", "비수도권", "서울", "부산", "대구", "인천", "광주", "대전", "울산", "세종", "경기", "강원",
+                "충북", "충남", "전북", "전남", "경북", "경남", "제주"}
+
+
+def readable_unit_name(name: str) -> str:
+    """화면용 모집단위 이름: '일반직_신입_6급2_전기_전국' → '6급 전기(전국)' (11-21 팀원 2차 점검 5번)"""
+    if "_" not in name:
+        return name
+    tokens = [token.strip() for token in name.split("_") if token.strip() and token.strip() not in {"일반직", "신입", "채용"}]
+    tokens = [re.sub(r"^(\d급)\d$", r"\1", token) for token in tokens]
+    if len(tokens) > 1 and tokens[-1] in REGION_WORDS:
+        tokens[-2] = f"{tokens[-2]} {tokens[-1]}" if tokens[-2].endswith(")") else f"{tokens[-2]}({tokens[-1]})"
+        tokens.pop()
+    return " ".join(tokens) or name
+
+
+def _with_ro(word: str) -> str:
+    """'전기기사로', '정보처리산업기사로', '건축기능장으로' (받침 있으면 '으로', ㄹ 받침은 '로')"""
+    last = word.rstrip()[-1:] if word.strip() else ""
+    if "가" <= last <= "힣":
+        final = (ord(last) - 0xAC00) % 28
+        return word + ("로" if final in (0, 8) else "으로")
+    return word + "로"
+
+
 def evaluate(condition: UserCondition, report: Mapping[str, Any]) -> EligibilityResult:
     requirements = report.get("requirements") or {}
     curr = report["curr"]
@@ -262,6 +289,20 @@ def evaluate(condition: UserCondition, report: Mapping[str, Any]) -> Eligibility
             result.review_items.append(row["review"])
 
     statuses = [unit["status"] for unit in result.units]
+    if not statuses and special:
+        # 대상자 전형만 있는 공고 (수자원공사 26 하반기: 원문 1쪽 "취업지원 대상자 또는 장애인에 한하여 지원 가능")
+        # → 일반 지원자는 '안 맞음' (11-21 팀원 2차 점검 1번: 전에는 '애매')
+        result.status = "ineligible"
+        result.label = LABELS["ineligible"]
+        result.reasons.insert(0, f"{condition.track} 모집단위가 모두 대상자 전형이에요")
+        result.reasons.append("보훈·장애인 등 해당 대상자만 지원할 수 있는 공고라 일반 지원자는 지원할 수 없어요.")
+        result.review_items.append(
+            f"취업지원 대상자(보훈)·장애인 등 해당 대상자라면 지원할 수 있어요: {', '.join(unit['name'] for unit in special)}"
+        )
+        if region_note:
+            result.review_items.append(str(region_note["text"]))
+        result.bonus = _bonus(condition.track, condition.certificates, requirements)
+        return result
     if "eligible" in statuses:
         result.status = "eligible"
     elif "ambiguous" in statuses or not statuses:

@@ -11,7 +11,7 @@ import streamlit as st
 
 from app.pages.report import _units, _is_minor
 from app.ui_components import apply_styles, concise_change_title, md_text
-from src.eligibility import EligibilityResult, UserCondition, evaluate_all
+from src.eligibility import readable_unit_name, EligibilityResult, UserCondition, evaluate_all
 from src.result_pdf import build_result_pdf
 from app.report_data import DATA_NOTICE, collection_skipped, load_reports
 
@@ -109,8 +109,13 @@ def _headline_reason(result: EligibilityResult) -> str:
 VERDICT_TEXT = {"eligible": "✓ 지원 가능", "ambiguous": "애매", "ineligible": "지원 불가"}
 
 
-def _date_short(value: str) -> str:
-    return f"{value[4:6]}.{value[6:]}" if len(value) == 8 and value.isdigit() else value
+def _date_short(value: str, today: date | None = None) -> str:
+    """올해 마감은 '12.01', 다른 해는 '2025.12.08' (11-21 팀원 2차 점검 4번: 연도가 없어 정렬이 틀려 보임)"""
+    if len(value) == 8 and value.isdigit():
+        if value[:4] == str((today or date.today()).year):
+            return f"{value[4:6]}.{value[6:]}"
+        return f"{value[:4]}.{value[4:6]}.{value[6:]}"
+    return value
 
 
 def _d_day(value: str, today: date | None = None) -> str:
@@ -121,10 +126,10 @@ def _d_day(value: str, today: date | None = None) -> str:
 
 
 def _short_title(result: EligibilityResult) -> str:
-    """공고 제목에서 기관 이름·괄호 꼬리를 빼서 한 줄로"""
-    title = re.sub(r"^\[?\(?" + re.escape(result.institution) + r"(\(주\))?\]?\)?\s*", "", result.title)
-    title = re.sub(r"\s*\([^)]*\)\s*", " ", title).strip()
-    return _short(title or result.title, 34)
+    """공고 제목 앞의 기관 이름만 떼고 그대로 (11-21 팀원 2차 점검 2번: 괄호를 지우다 앞부분까지 잘림 → 괄호는 두고 CSS로 한 줄 자름)"""
+    title = re.sub(r"^[\[(]?" + re.escape(result.institution) + r"(\(주\))?[\])]?\s*", "", result.title.strip())
+    title = re.sub(r"\s+([,.)])", r"\1", title)  # '일반직 , 연구직' → '일반직, 연구직'
+    return " ".join((title or result.title).split())
 
 
 def _reason_line(result: EligibilityResult, status: str) -> str:
@@ -133,13 +138,13 @@ def _reason_line(result: EligibilityResult, status: str) -> str:
     reason = _headline_reason(result)
     if unit and status != "ambiguous":
         reason = unit.get("reason") or reason
-    name = f"<b>{escape(str(unit['name']))}</b> · " if unit else ""
-    return name + escape(_short(reason, 60 if unit else 64))
+    name = f'<span class="m-unit">{escape(readable_unit_name(str(unit["name"])))}</span> · ' if unit else ""
+    return name + escape(" ".join(str(reason).split()))  # 길이는 CSS가 한 줄로 자름 (2차 점검 9번)
 
 
-def match_card(result: EligibilityResult, report: Mapping[str, Any], track: str, first: bool = False) -> None:
-    """공고 한 건 = 줄 하나: 기관명 · 보조 정보 한 줄 · 굵은 모집단위와 이유, 오른쪽 끝에 D-day와 판정
-    (11-21 팀원 예시 1: 상자 대신 회색 줄, 접수 중만 D-day, 지난 공고는 '마감')"""
+def match_row_html(result: EligibilityResult, first: bool = False) -> str:
+    """공고 한 건 = 줄 하나: 기관명 · 보조 정보 한 줄 · 이유 한 줄(넘치면 …), 오른쪽 끝에 D-day와 판정.
+    11-21 팀원 2차 점검 9번(예시 2): 이유 한 줄 자르기, 모집단위 이름은 회색 보통 글씨, 오른쪽 '마감' 글자 없앰, 구분 기호는 '·' 하나"""
     status = result.status if result.status in {"eligible", "ambiguous", "ineligible"} else "ambiguous"
     open_now = is_open(result.deadline)
     # 마감된 공고에는 '지원 가능' 대신 '조건 맞음' (지금 지원할 수 있다는 뜻으로 읽히지 않게)
@@ -148,18 +153,18 @@ def match_card(result: EligibilityResult, report: Mapping[str, Any], track: str,
     best = _best_bonus(result)
     if best:
         sub.append(escape(best))
-    side = (f'<span class="m-dday">{escape(_d_day(result.deadline))}</span>' if open_now
-            else '<span class="m-closed">마감</span>')
+    side = f'<span class="m-dday">{escape(_d_day(result.deadline))}</span>' if open_now else ""
     tone = status if open_now or status != "eligible" else "past"
-    st.markdown(
-        f"""<div class="m-row{' m-first' if first else ''}"><div class="m-main"><div class="m-inst">{escape(result.institution)}</div>
-        <div class="m-sub">{'<span class="m-bar">|</span>'.join(sub)}</div>
+    return (f"""<div class="m-row{' m-first' if first else ''}"><div class="m-main"><div class="m-inst">{escape(result.institution)}</div>
+        <div class="m-sub">{'<span class="m-bar">·</span>'.join(sub)}</div>
         <div class="m-reason">{_reason_line(result, status)}</div></div>
-        <div class="m-side">{side}<span class="m-verdict v-{tone}">{escape(label)}</span></div></div>""",
-        unsafe_allow_html=True,
-    )
+        <div class="m-side">{side}<span class="m-verdict v-{tone}">{escape(label)}</span></div></div>""")
+
+
+def match_card(result: EligibilityResult, report: Mapping[str, Any], track: str, first: bool = False) -> None:
+    st.markdown(match_row_html(result, first), unsafe_allow_html=True)
     with st.expander("자세히 보기"):
-        _render_detail(result, report, track, open_now)
+        _render_detail(result, report, track, is_open(result.deadline))
 
 
 def _section(title: str) -> None:
@@ -201,7 +206,7 @@ def _render_detail(result: EligibilityResult, report: Mapping[str, Any], track: 
     if result.units:
         _section(f"모집단위별 판정 {len(result.units)}개")
         rows = "".join(
-            f'<tr><td class="d-unit">{escape(str(unit["name"]))}</td>'
+            f'<tr><td class="d-unit">{escape(readable_unit_name(str(unit["name"])))}</td>'
             f'<td class="v-{unit.get("status", "ambiguous")}">'
             f'{escape(unit["label"] if open_now else PAST_LABELS.get(unit.get("status"), unit["label"]))}</td>'
             f'<td>{escape(str(unit["reason"]))}</td></tr>'
@@ -325,7 +330,7 @@ def render_matches_page() -> None:
 
     counts = {key: sum(1 for item in matched if item.status == key) for key in ("eligible", "ambiguous", "ineligible")}
     st.markdown(
-        f'<div class="m-summary">조건 맞는 공고 <b>{len(matched)}</b>건 · 지금 접수 중 <b>{len(open_now)}</b>건 '
+        f'<div class="m-summary">{escape(condition.track)} 직렬 공고 <b>{len(matched)}</b>건 · 지금 접수 중 <b>{len(open_now)}</b>건 '
         f'<span>(조건 맞음 {counts["eligible"]} · 애매 {counts["ambiguous"]} · 안 맞음 {counts["ineligible"]})</span></div>',
         unsafe_allow_html=True,
     )

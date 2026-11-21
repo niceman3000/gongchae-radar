@@ -45,7 +45,7 @@ def test_candidates_are_shown_with_one_notice_and_minor_changes_folded():
     assert "전기(배전, 송변전) 10배수 신설" in visible_text  # 13번: 바뀐 조각으로 제목
     assert "추가 확인 중" not in visible_text
     labels = [tab.label for tab in app.tabs]  # 11-21 예시 3: 전체 / 사소한 변경 탭
-    assert any(label.startswith("전체 ") for label in labels)
+    assert any(label.startswith("주요 ") for label in labels)
     assert any(label.startswith("사소한 변경 ") for label in labels)
 
 
@@ -71,12 +71,13 @@ def test_conditions_to_matches_to_report_flow_without_personal_data():
     app = AppTest.from_file(ROOT / "streamlit_app.py", default_timeout=10).run()
 
     assert not app.exception
-    assert any("내 조건으로 공고 찾기" in item.value for item in app.markdown)
+    assert any("내 조건</div>" in item.value for item in app.markdown)  # 2차 점검 8번: 검은 선 + '내 조건'
+    assert any("이렇게 보여 드려요" in item.value for item in app.markdown)  # 누르기 전 미리보기
     # 입력 칸은 직렬·지역·자격증 세 개뿐이고 이름·연락처 같은 입력은 없다
     assert len(app.text_input) == 0
     assert len(app.number_input) == 0
     assert [item.label.split(" (")[0] for item in list(app.selectbox) + list(app.multiselect)] == [
-        "희망 직렬", "희망 근무 지역", "보유 자격증"
+        "희망 직렬", "근무 지역", "보유 자격증"
     ]
 
     app.selectbox[0].set_value("전기")
@@ -86,7 +87,7 @@ def test_conditions_to_matches_to_report_flow_without_personal_data():
 
     assert not app.exception
     assert any("내 조건에 맞는 공고" in item.value for item in app.markdown)
-    assert any("조건 맞는 공고 <b>" in item.value for item in app.markdown)
+    assert any("전기 직렬 공고 <b>" in item.value for item in app.markdown)  # 2차 점검 3번
     assert any("지금 접수 중" in item.value for item in app.markdown)  # 11-21 예시 1: 접수 중 먼저
     more = [button for button in app.button if button.label.startswith("지난 공고")]  # 지난 공고는 3건 먼저
     if more:

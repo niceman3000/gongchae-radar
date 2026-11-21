@@ -208,7 +208,7 @@ def test_unit_required_certificate_beats_unrestricted_major():
     assert evaluate(UserCondition("전기", "부산", ()), report).status == "ineligible"
     result = evaluate(CONDITION, report)
     assert result.status == "eligible"
-    assert any("필수 자격 충족" in reason for reason in result.reasons)
+    assert any("필수 자격을 갖췄어요" in reason for reason in result.reasons)
 
 
 def test_several_required_items_for_one_unit_are_alternatives():

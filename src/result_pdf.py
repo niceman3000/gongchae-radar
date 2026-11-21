@@ -138,7 +138,9 @@ def _reason(result: Any) -> str:
         reason = unit.get("reason") or ""
     else:
         reason = result.reasons[-1] if result.reasons else ""
-    return (f"{unit['name']} · " if unit and status != "ambiguous" else "") + str(reason)
+    from src.eligibility import readable_unit_name
+
+    return (f"{readable_unit_name(unit['name'])} · " if unit and status != "ambiguous" else "") + str(reason)
 
 
 def _heading(doc: _Doc, title: str, count: int | None = None, hint: str = "") -> None:

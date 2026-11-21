@@ -94,8 +94,8 @@ def apply_styles() -> None:
     st.markdown(
         """
         <style>
-        .stApp { background: #f5f7fb; }
-        [data-testid="stHeader"] { background: rgba(245, 247, 251, 0.88); }
+        .stApp { background: #FFFFFF; }
+        [data-testid="stHeader"] { background: #FFFFFF; }
         .radar-eyebrow {
             color: #3157d5; font-size: .78rem; font-weight: 800;
             letter-spacing: .08em; margin-bottom: .35rem;
@@ -149,7 +149,7 @@ def apply_styles() -> None:
             font-family: "Pretendard Variable", Pretendard, -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
             letter-spacing: -0.01em;
         }
-        .stApp { background: #F3F5F8; }
+        .stApp { background: #FFFFFF; }
         [data-testid="stHeader"] { background: rgba(243, 245, 248, 0.9); }
         .block-container { max-width: 960px; padding-top: 3.2rem; }
         h1, h2, h3, h4, h5, h6, [data-testid="stHeading"] * {
@@ -214,7 +214,7 @@ def apply_styles() -> None:
         .block-container { padding-top: 4rem; }
         .section-head { font-size: 1.05rem; font-weight: 800; color: #16202E; margin: 1.6rem 0 .5rem 0; }
         /* ---- 11-21 팀원 예시 1~3: 상자 대신 줄, 구역은 검은 선 + 굵은 제목 ---- */
-        [data-testid="stHeader"] { background: #F3F5F8; }  /* 불투명: 내리면 메뉴 뒤로 글자가 비치던 것 (20번) */
+        [data-testid="stHeader"] { background: #FFFFFF; border-bottom: 1px solid #EEF1F5; }  /* 불투명: 내리면 메뉴 뒤로 글자가 비치던 것 (20번) */
         [data-testid="stCaptionContainer"], [data-testid="stCaptionContainer"] * {
             font-family: "Pretendard Variable", Pretendard, -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif !important;
         }
@@ -281,6 +281,26 @@ def apply_styles() -> None:
         .c-member { font-weight: 750; color: #16202E; margin: .7rem 0 .3rem 0; font-size: .95rem; }
         [data-baseweb="tab-list"] { gap: 1.4rem; border-bottom: 1px solid #DDE2EA; }
         [data-baseweb="tab"] p { font-size: 1.02rem; font-weight: 700; }
+        /* ---- 11-21 팀원 2차 점검 8·9번 ---- */
+        .hero { padding: .2rem 0 1.2rem 0; }
+        .hero-kicker { color: #5B6675; font-size: .95rem; margin-bottom: .55rem; }
+        .hero-kicker b { color: #2453E6; font-weight: 800; }
+        .c-head { border-top: 2px solid #16202E; padding-top: .8rem; margin: .6rem 0 .5rem 0;
+                  font-size: 1.15rem; font-weight: 800; color: #16202E; }
+        .ex-label { color: #5B6675; font-size: .9rem; white-space: nowrap; transform: translateY(-.45rem); }
+        .privacy-note { color: #5B6675; font-size: .85rem; margin: -.2rem 0 1.6rem 0; }
+        .p-label { color: #5B6675; font-size: .88rem; margin: .7rem 0 .35rem 0; }
+        .p-box { border: 1px solid #DDE2EA; border-radius: .5rem; padding: .2rem 1rem .7rem 1rem; margin-bottom: .4rem; }
+        .p-box .m-row { padding-top: .6rem; }
+        .p-box .c-title { margin-top: .6rem; }
+        .p-box .c-meaning { margin-bottom: 0; }
+        /* 이유는 한 줄, 넘치면 … (문장을 안 바꿔도 줄 높이가 같아짐). 강조는 기관명(굵게)·판정(색) 둘만 */
+        .m-main { min-width: 0; flex: 1; }
+        .m-sub, .m-reason { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .m-reason { color: #3B4656; font-size: .98rem; margin-top: .4rem; }
+        .m-unit { color: #5B6675; font-weight: 400; }
+        .m-side { justify-content: flex-start; }
+        .m-bar { margin: 0 .45rem; }
         @media (max-width: 640px) {
             .hero-title { font-size: 1.8rem; }
             .row-top, .m-row { flex-direction: column; }
@@ -345,24 +365,47 @@ def _shorten_equal_text(value: str, context: int = 24) -> str:
     )
 
 
+def _diff_key(token: str) -> str:
+    """색칠 전에 같게 볼 차이: 띄어쓰기·쉼표·괄호 같은 기호, 숫자 뒤 '점' ('사무20' = '사무20점')
+    11-21 팀원 2차 점검 9번(예시 3): 이런 조각까지 빨강·초록이 생겨서 진짜 바뀐 '전기(배전, 송변전) : 10배수'가 묻힘"""
+    if not token.strip() or re.fullmatch(r"[^\w\s]", token):
+        return ""
+    return re.sub(r"(\d)점$", r"\1", token)
+
+
 def diff_side_html(previous: str, current: str, side: str) -> str:
     """긴 문장에서 공통 부분은 접고 삭제·추가 구절만 강조한다."""
     previous_tokens = re.findall(r"\s+|[\w]+|[^\w\s]", previous)
     current_tokens = re.findall(r"\s+|[\w]+|[^\w\s]", current)
-    matcher = SequenceMatcher(None, previous_tokens, current_tokens, autojunk=False)
+    previous_keys = [_diff_key(token) for token in previous_tokens]
+    current_keys = [_diff_key(token) for token in current_tokens]
+    matcher = SequenceMatcher(None, previous_keys, current_keys, autojunk=False)
+    own = previous_tokens if side == "prev" else current_tokens
     output: list[str] = []
     for tag, prev_start, prev_end, curr_start, curr_end in matcher.get_opcodes():
+        start, end = (prev_start, prev_end) if side == "prev" else (curr_start, curr_end)
+        text = "".join(own[start:end])
+        keys = (previous_keys if side == "prev" else current_keys)[start:end]
         if tag == "equal":
-            output.append(_shorten_equal_text("".join(previous_tokens[prev_start:prev_end])))
-        elif side == "prev" and tag in {"delete", "replace"}:
-            removed = escape("".join(previous_tokens[prev_start:prev_end]))
-            if removed:
-                output.append(f'<span class="diff-removed">{removed}</span>')
-        elif side == "curr" and tag in {"insert", "replace"}:
-            added = escape("".join(current_tokens[curr_start:curr_end]))
-            if added:
-                output.append(f'<span class="diff-added">{added}</span>')
+            output.append(_shorten_equal_text(text))
+        elif not text:
+            continue
+        elif not any(keys):  # 기호·띄어쓰기만 다름 → 색칠 안 함
+            output.append(escape(text))
+        elif side == "prev":
+            output.append(f'<span class="diff-removed">{escape(text)}</span>')
+        else:
+            output.append(f'<span class="diff-added">{escape(text)}</span>')
     return "".join(output)
+
+
+def _tidy_list_text(text: str) -> str:
+    """"추가: ['배전(보훈)', '배전(일반)']" → "추가: 배전(보훈), 배전(일반)" (11-21 팀원 2차 점검 6번: 프로그램 목록 표기)"""
+    def join(match: re.Match[str]) -> str:
+        items = [item.strip(" '\"") for item in re.findall(r"'[^']*'|\"[^\"]*\"|[^,]+", match.group(1))]
+        items = [item for item in items if item]
+        return ", ".join(items[:4]) + (f" 외 {len(items) - 4}개" if len(items) > 4 else "")
+    return re.sub(r"\[([^\[\]]*)\]", join, text)
 
 
 def concise_change_title(
@@ -382,7 +425,7 @@ def concise_change_title(
     if described:
         return described
 
-    raw_title = str(change["title"])
+    raw_title = _tidy_list_text(str(change["title"]))
     if len(raw_title) <= 80:
         return raw_title, None
 
@@ -433,6 +476,38 @@ def _changed_fragment(prev: str, curr: str, numbers: list[str], added: bool) -> 
     return None
 
 
+def _multiples(text: str) -> dict[str, str]:
+    """'사무 : 50배수, 전기(배전, 송변전) : 10배수' → {'사무': '50', '전기(배전, 송변전)': '10'} (괄호 안 쉼표는 안 끊음)"""
+    pairs: dict[str, str] = {}
+    for match in re.finditer(r"([^:]*?)\s*:\s*(\d+)\s*배수", text):
+        head, depth, start = match.group(1), 0, 0
+        for index, char in enumerate(head):
+            depth += char == "("
+            depth -= char == ")"
+            if depth == 0 and char in ",/○":
+                start = index + 1
+        subject = head[start:].strip()
+        if subject:
+            pairs[subject] = match.group(2)
+    return pairs
+
+
+def _fragment_meaning(prev: str, curr: str, fragment: str, numbers: list[str], added: bool) -> str | None:
+    """'전기(배전, 송변전) 10배수 신설' → '작년엔 기술 분야 전체가 15배수였는데, 올해 전기(배전, 송변전)는 10배수예요.'
+    (11-21 팀원 2차 점검 6번: '새 기준이 생겼어요'는 두루뭉술). 배수가 아니거나 짝을 못 찾으면 None → 숨김"""
+    if not added or "배수" not in fragment:
+        return None
+    before, after = _multiples(prev), _multiples(curr)
+    gone = [(subject, number) for subject, number in before.items() if subject not in after]
+    target = next((subject for subject in after if subject in fragment), None)
+    if not (gone and target):
+        return None
+    subject, number = gone[0]
+    new_number = after[target]
+    trend = "줄었어요" if int(new_number) < int(number) else "늘었어요" if int(new_number) > int(number) else "같아요"
+    return f"작년엔 {subject} 분야 전체가 {number}배수였는데, 올해 {target}는 {new_number}배수로 {trend}."
+
+
 def number_title(change: Mapping[str, Any]) -> tuple[str, str | None] | None:
     """숫자가 바뀐 카드: '421명 → 490명 (+69명)', '15배수 → 10배수' + 규칙으로 쓴 의미 한 줄 (11-21 팀원 점검 6·15번)"""
     if change.get("change_type") != "number":
@@ -457,8 +532,7 @@ def number_title(change: Mapping[str, Any]) -> tuple[str, str | None] | None:
     title = f"{label}: {', '.join(gone) or '없음'} → {', '.join(new) or '없음'}"
     fragment = _changed_fragment(prev, curr, new or gone, added=bool(new))
     if fragment and not (gone and new):  # 한쪽에만 있는 숫자: 바뀐 조각으로 제목 (11-21 팀원 점검 13번 '전기(배전, 송변전) 10배수 신설')
-        return f"{fragment} {'신설' if new else '없어짐'}", ("새 기준이 생겼어요. 내 직렬에 해당하는지 아래 표시를 보세요." if new
-                                                           else "이 기준이 없어졌어요. 아래 표시를 보세요.")
+        return f"{fragment} {'신설' if new else '없어짐'}", _fragment_meaning(prev, curr, fragment, new or gone, bool(new))
     units = {re.sub(r"[\d.\s]", "", value) for value in gone + new}
     meaning = None
     if units == {"배수"} and gone and new:
@@ -666,7 +740,8 @@ def unit_card(
 
 # ---- 11-21 팀원 예시 3: 변경점은 상자 대신 줄, 작년|올해 두 칸 대비표 ----
 PREV_HEAD, CURR_HEAD = "작년 공고 (2025)", "올해 공고 (2026)"
-DIFF_LEGEND = '<div class="c-legend">빨강 + 취소선 = 빠진 글자 · 초록 + 밑줄 = 추가된 글자</div>'
+DIFF_LEGEND = ('<div class="c-legend">빨강 + 취소선 = 빠진 글자 · 초록 + 밑줄 = 추가된 글자 '
+               '(띄어쓰기·쉼표·괄호, \'20\'↔\'20점\' 같은 단위 차이는 색칠 안 함)</div>')
 
 
 def _title_html(title: str) -> str:
@@ -690,14 +765,14 @@ def change_values_table(change: Mapping[str, Any]) -> None:
         return
     if change.get("change_type") == "text" and is_list_like(previous) and is_list_like(current):
         removed, added, same = item_diff(previous, current)
-        st.markdown(_two_column(_chips(removed, "removed") or "빠진 항목 없음", _chips(added, "added") or "새 항목 없음")
-                    + DIFF_LEGEND, unsafe_allow_html=True)
+        st.markdown(_two_column(_chips(removed, "removed") or "빠진 항목 없음", _chips(added, "added") or "새 항목 없음"),
+                    unsafe_allow_html=True)
         with st.expander(f"그대로인 항목 {same}개와 원문 전체"):
             st.markdown(_two_column(escape(previous), escape(current)), unsafe_allow_html=True)
         return
     if isinstance(previous, str) and isinstance(current, str):
-        st.markdown(_two_column(diff_side_html(previous, current, "prev"), diff_side_html(previous, current, "curr"))
-                    + DIFF_LEGEND, unsafe_allow_html=True)
+        st.markdown(_two_column(diff_side_html(previous, current, "prev"), diff_side_html(previous, current, "curr")),
+                    unsafe_allow_html=True)
         if max(len(previous), len(current)) >= 60:
             with st.expander("원문 전체 비교"):
                 st.markdown(_two_column(escape(previous), escape(current)), unsafe_allow_html=True)
@@ -719,12 +794,9 @@ def change_row(
         title, impact = group_title(unit, pair_id, notice_info)
     else:
         title, impact = concise_change_title(members[0], pair_id, notice_info)
-    importance = IMPORTANCE_LABELS.get(unit["importance"], "참고")
-    tags = []
-    if track:
-        tags.append(f'<span class="c-tag-track">내 직렬({escape(track)}) 관련</span>')
-    tags.append(f'<span class="{"c-tag-imp" if importance == "중요" else "c-tag-low"}">{importance}</span>')
-    tags.append(f'<span class="c-tag-low">{escape(str(unit["category"]))}</span>')
+    # 꼬리표는 하나만: 내 직렬 관련이면 그것, 아니면 분류 (11-21 팀원 2차 점검 9번·예시 3)
+    tags = ([f'<span class="c-tag-track">내 직렬({escape(track)}) 관련</span>'] if track
+            else [f'<span class="c-tag-imp">{escape(str(unit["category"]))}</span>'])
     check = "원문 확인됨" if unit["status"] == "confirmed" else "원문 확인 권장"
     st.markdown(
         f'<div class="c-row{" m-first" if first else ""}"><div class="c-tags"><div>'

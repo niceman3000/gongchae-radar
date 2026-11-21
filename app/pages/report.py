@@ -9,7 +9,7 @@ from typing import Any, Mapping
 import pandas as pd
 import streamlit as st
 
-from app.ui_components import apply_styles, change_row, md_text
+from app.ui_components import DIFF_LEGEND, apply_styles, change_row, md_text
 from src.change_groups import display_units
 from app.report_data import DATA_NOTICE, load_reports
 from src.report_repository import ReportContractError
@@ -341,7 +341,7 @@ def render_report(report: Mapping[str, Any]) -> None:
     else:
         titles = {"prev": report["prev"]["title"], "curr": report["curr"]["title"]}
         pair_id, info = str(report["pair_id"]), report.get("notice_info")
-        tabs = ([(f"내 직렬({track}) 관련 {len(related)}", "related")] if related else []) + [(f"전체 {len(main)}", "all")]
+        tabs = ([(f"내 직렬({track}) 관련 {len(related)}", "related")] if related else []) + [(f"주요 {len(main)}", "all")]
         if minor:
             tabs.append((f"사소한 변경 {len(minor)}", "minor"))
         for tab, (_, kind) in zip(st.tabs([label for label, _ in tabs]), tabs):
@@ -362,6 +362,7 @@ def render_report(report: Mapping[str, Any]) -> None:
                     st.caption("행사·시스템 이름처럼 이름·표기만 바뀐 변경이에요.")
                     for index, unit in enumerate(minor):
                         change_row(unit, titles, pair_id, info, first=index == 0)
+                st.markdown(DIFF_LEGEND, unsafe_allow_html=True)  # 범례는 목록 맨 아래 한 번 (2차 점검 9번)
 
     _render_visual_summary(report)
     _render_notice_info(report)
