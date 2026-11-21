@@ -14,6 +14,7 @@ from app.ui_components import apply_styles, concise_change_title, md_text
 from src.eligibility import readable_unit_name, EligibilityResult, UserCondition, evaluate_all
 from src.result_pdf import build_result_pdf
 from app.report_data import DATA_NOTICE, collection_skipped, load_reports
+from src.clock import today_kst
 
 CONDITIONS_PAGE = "app/pages/conditions.py"
 REPORT_PAGE = "app/pages/detail.py"  # ③ 공고 비교 (11-21 저녁: 상세 화면)
@@ -24,7 +25,7 @@ def format_deadline(value: str, today: date | None = None) -> str:
     if len(value) == 8 and value.isdigit():
         deadline = date(int(value[:4]), int(value[4:6]), int(value[6:]))
         text = f"{deadline:%Y.%m.%d}"
-        today = today or date.today()
+        today = today or today_kst()
         if deadline < today:
             return f"{text} (접수 마감됨 · 지난 공고 시연 데이터)"
         return f"{text} (D-{(deadline - today).days})"
@@ -66,7 +67,7 @@ def region_text(regions: Any) -> str:
 def is_open(value: str, today: date | None = None) -> bool:
     """접수 마감일이 오늘 이후(오늘 포함)면 접수 중"""
     if len(value) == 8 and value.isdigit():
-        return date(int(value[:4]), int(value[4:6]), int(value[6:])) >= (today or date.today())
+        return date(int(value[:4]), int(value[4:6]), int(value[6:])) >= (today or today_kst())
     return False
 
 
@@ -83,9 +84,16 @@ def _deadline_chip(value: str) -> tuple[str, str]:
 PAST_LABELS = {"eligible": "조건 맞음", "ambiguous": "애매", "ineligible": "조건 안 맞음"}
 
 
+def relevant_bonus(result: EligibilityResult) -> list[dict[str, Any]]:
+    """판정에 쓴 모집단위의 자격증 점수만 (새벽 점검 19번: 중부발전 전기산업기사가 대졸 5점인데 고졸 모집단위 10점이 나옴)"""
+    decisive = {str(unit["name"]) for unit in result.units if unit.get("status") == result.status}
+    rows = [row for row in result.bonus if not row.get("units") or decisive & set(row["units"])]
+    return rows or list(result.bonus)
+
+
 def _best_bonus(result: EligibilityResult) -> str | None:
     best = None
-    for row in result.bonus:
+    for row in relevant_bonus(result):
         try:
             points = float(row["points"])
         except (TypeError, ValueError):
@@ -112,7 +120,7 @@ VERDICT_TEXT = {"eligible": "✓ 지원 가능", "ambiguous": "애매", "ineligi
 def _date_short(value: str, today: date | None = None) -> str:
     """올해 마감은 '12.01', 다른 해는 '2025.12.08' (11-21 팀원 2차 점검 4번: 연도가 없어 정렬이 틀려 보임)"""
     if len(value) == 8 and value.isdigit():
-        if value[:4] == str((today or date.today()).year):
+        if value[:4] == str((today or today_kst()).year):
             return f"{value[4:6]}.{value[6:]}"
         return f"{value[:4]}.{value[4:6]}.{value[6:]}"
     return value
@@ -120,7 +128,7 @@ def _date_short(value: str, today: date | None = None) -> str:
 
 def _d_day(value: str, today: date | None = None) -> str:
     if len(value) == 8 and value.isdigit():
-        days = (date(int(value[:4]), int(value[4:6]), int(value[6:])) - (today or date.today())).days
+        days = (date(int(value[:4]), int(value[4:6]), int(value[6:])) - (today or today_kst())).days
         return "오늘 마감" if days == 0 else f"D-{days}"
     return ""
 
@@ -290,7 +298,7 @@ def _pdf_button(condition: UserCondition, reports: Mapping[str, Any], matched: l
     st.download_button(
         "결과를 PDF로 받기",
         data=cache[1],
-        file_name=f"공채레이더_{condition.track}_{date.today():%Y%m%d}.pdf",
+        file_name=f"공채레이더_{condition.track}_{today_kst():%Y%m%d}.pdf",
         mime="application/pdf",
         type="secondary",
         use_container_width=True,
@@ -336,8 +344,10 @@ def _row(result: EligibilityResult, report: Mapping[str, Any], open_card: bool) 
     if best and status != "ineligible":
         sub.append(escape(best))
     hint = ""
+    if result.relevance == "region_mismatch":
+        hint = '<span class="cal-chip out-chip">희망 지역 밖</span>'
     if not now and prev_start_text(report):
-        hint = (f'<span class="cal-chip"><span class="cal-icon"></span>다음 공고 참고 · '
+        hint += (f'<span class="cal-chip"><span class="cal-icon"></span>다음 공고 참고 · '
                 f'<b>작년엔 {escape(prev_start_text(report))} 접수 시작</b></span>')
     with st.container(key=f"row-{'open' if open_card else 'past'}-{result.pair_id}"):
         main, side = st.columns([5, 1.25], vertical_alignment="top")
@@ -370,12 +380,14 @@ def _tiles(items: list[tuple[str, str, str]]) -> None:
 
 def render_matches_page() -> None:
     """② 맞춤 공고 (11-21 저녁 절충안): 요약 칸 5개, 접수 중은 파란 테두리 카드, 지난 공고는 줄 + 작년 접수일 칩"""
-    from app.flow import best_results, current_condition
+    from app.flow import best_results, current_condition, query
 
     apply_styles()
     if st.session_state.pop("go_detail", False):
         st.switch_page(REPORT_PAGE)
     condition = current_condition()
+    if condition:  # 주소에 조건을 남겨 새로고침·링크 공유에도 그대로 (새벽 점검 15번). 이동은 switch_page 그대로
+        st.query_params.from_dict(query(condition))
     if not condition:
         st.markdown('<div class="radar-title">내 조건에 맞는 공고</div>', unsafe_allow_html=True)
         st.warning("먼저 희망 직렬·지역·자격증을 입력해 주세요.")
@@ -388,8 +400,10 @@ def render_matches_page() -> None:
     matched = [item for item in results if item.relevance == "match"]
     other_region = [item for item in results if item.relevance == "region_mismatch"]
     no_track = [item for item in results if item.relevance == "track_missing"]
-    open_now = sorted((item for item in matched if is_open(item.deadline)), key=lambda item: item.deadline)
+    # 접수 중 공고는 지역과 상관없이 맨 위 (새벽 점검 1번: '사무·서울'이면 유일한 접수 중 동서발전이 다른 지역 맨 아래에 숨음)
+    open_now = sorted((item for item in matched + other_region if is_open(item.deadline)), key=lambda item: item.deadline)
     past = sorted((item for item in matched if not is_open(item.deadline)), key=lambda item: item.deadline, reverse=True)
+    other_region = [item for item in other_region if not is_open(item.deadline)]
     tracks = "·".join(condition.get("tracks") or [condition["track"]])
 
     head, button = st.columns([5, 1.2], vertical_alignment="center")
@@ -405,12 +419,13 @@ def render_matches_page() -> None:
 
     counts = {key: sum(1 for item in matched if item.status == key) for key in ("eligible", "ambiguous", "ineligible")}
     # '내 지역 16건'과 '다른 지역 8건'을 나눠 씀 (화면 정리 메모 2번: '전기 직렬 공고 16건' 아래에 8건이 더 나와 헷갈림)
-    cells = [("내 지역", f"{len(matched)}건", "t-total"), ("접수 중", str(len(open_now)), "t-open"),
-             ("조건 맞음", str(counts["eligible"]), "t-eligible"), ("애매", str(counts["ambiguous"]), "t-ambiguous"),
-             ("안 맞음", str(counts["ineligible"]), "t-ineligible")]
+    # '접수 중'은 판정 칩과 떼어 놓음 (새벽 점검 12번: 나란히 있으면 합이 17로 보임)
+    cells = [("내 지역", f"{len(matched)}건", "t-total"), ("조건 맞음", str(counts["eligible"]), "t-eligible"),
+             ("애매", str(counts["ambiguous"]), "t-ambiguous"), ("안 맞음", str(counts["ineligible"]), "t-ineligible")]
     st.markdown('<div class="sumrow">' + "".join(
         f'<span class="sum {css}">{escape(label)} <b>{escape(value)}</b></span>' for label, value, css in cells)
-        + (f'<span class="sum-more">+ 다른 지역 {len(other_region)}건 (아래)</span>' if other_region else "") + "</div>",
+        + (f'<span class="sum-more">+ 다른 지역 {len(other_region)}건 (아래)</span>' if other_region else "")
+        + f'<span class="sum t-open sum-apart">지금 접수 중 <b>{len(open_now)}</b></span></div>',
         unsafe_allow_html=True)
     st.markdown(f'<div class="m-summary-hidden">{escape(tracks)} 직렬 공고 <b>{len(matched)}</b>건 · '
                 f'지금 접수 중 <b>{len(open_now)}</b>건</div>', unsafe_allow_html=True)

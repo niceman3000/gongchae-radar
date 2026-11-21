@@ -16,6 +16,7 @@ import json
 from pathlib import Path
 import re
 from typing import Any, Iterable, Mapping
+from src.clock import today_kst
 
 ROOT = Path(__file__).resolve().parents[1]
 STATUSES = ("같음", "바뀜", "새로", "비교 어려움", "정보 없음")
@@ -398,7 +399,7 @@ def _all_stage_dates(report: Mapping[str, Any], side: str, year: int) -> dict[st
 
 def schedule(report: Mapping[str, Any], today: date | None = None) -> list[dict[str, Any]]:
     """올해 일정 표 (최대 5칸): 지원서 접수 · 필기(또는 서류) 합격 발표 · 자기소개서 · 면접 · 최종 발표"""
-    today = today or date.today()
+    today = today or today_kst()
     period = (report.get("curr") or {}).get("period") or {}
     year = int(str(period.get("start") or "2026")[:4])
     found = _all_stage_dates(report, "curr", year)
@@ -475,3 +476,26 @@ def prev_start_text(report: Mapping[str, Any]) -> str:
     """지난 공고 '다음 공고 참고': 작년 공고 접수 시작일 ('9월 9일')"""
     start = str(((report.get("prev") or {}).get("period") or {}).get("start") or "")
     return f"{int(start[4:6])}월 {int(start[6:])}일" if len(start) == 8 and start.isdigit() else ""
+
+
+def application_period(report: Mapping[str, Any]) -> tuple[date | None, date | None, str]:
+    """실제 지원서 접수 기간 + 마감 시각 (11-22 새벽 점검 2번: 맨 위에 '공고 게시일 ~ 마감'이 나와 일정표와 달랐음).
+    공고문·API의 '입사지원서 접수' 줄이 있으면 그 날짜, 없으면 채용정보 API 공고 기간"""
+    period = (report.get("curr") or {}).get("period") or {}
+    year = int(str(period.get("start") or "2026")[:4])
+    found = _all_stage_dates(report, "curr", year).get("지원서 접수")
+    start, end = str(period.get("start") or ""), str(period.get("end") or "")
+    if not found and len(start) == 8 and len(end) == 8:
+        found = [date(int(start[:4]), int(start[4:6]), int(start[6:])), date(int(end[:4]), int(end[4:6]), int(end[6:]))]
+    if not found:
+        return None, None, ""
+    hour = ""
+    lines = _schedule_lines(report, "curr") + _bundle_lines(str((report.get("curr") or {}).get("sn") or ""))
+    for line in lines:
+        if re.search(r"(입사)?지원서\s*접수|원서\s*접수|접수\s*기간", line) and not re.search(r"발표", line):
+            hours = [int(value) for value in re.findall(r"(\d{1,2})\s*(?:시|:\s*00)(?!\s*간)", DATE.sub("", line))]
+            hours = [value for value in hours if 0 < value <= 24]
+            if hours:  # '10:00 ~ 17:00'이면 마감 시각(뒤)
+                hour = f"{hours[-1]}시"
+                break
+    return found[0], found[-1], hour

@@ -188,3 +188,31 @@ def test_matches_page_without_condition_asks_for_input():
 
     assert not app.exception
     assert any("먼저 희망 직렬·지역·자격증을 입력해 주세요" in item.value for item in app.warning)
+
+
+def test_open_notice_from_other_region_is_on_top():
+    """새벽 점검 1번: '사무 · 서울'이어도 유일한 접수 중 동서발전이 맨 위 '지금 접수 중'에 '희망 지역 밖'으로"""
+    app = _app()
+    app.session_state["user_condition"] = {"tracks": ["사무"], "track": "사무", "region": "서울", "certificates": []}
+    app.switch_page("app/pages/matches.py").run()
+
+    assert not app.exception
+    text = _text(app)
+    assert "지금 접수 중 <b>1</b>" in text
+    head = text.index("지금 접수 중</span>")
+    assert text.index("한국동서발전", head) < text.index("지난 공고", head)
+    assert "희망 지역 밖" in text
+    assert app.query_params["t"] == ["사무"] or app.query_params["t"] == "사무"   # 15번: 주소에 조건
+
+
+def test_detail_header_period_query_and_raw_consistency():
+    """2·15·16·17·18번: 접수 11.24 ~ 12.01 17시, 주소에 공고, 일정 줄 짝 없음, 인원은 5줄과 같은 판단"""
+    dongseo = _pair("한국동서발전")
+    app = _open_detail(dongseo)
+    text = _text(app)
+    assert "접수 2026.11.24 ~ 12.01 17시" in text
+    assert dongseo in str(app.query_params["p"])
+    app.toggle[0].set_value(True).run()
+    raw = _text(app)[_text(app).index('<a id="raw"></a>'):]
+    assert "신체검사" not in raw and "2026.03.15" not in raw
+    assert "단순 비교가 어려워요" in raw and "뽑는 인원이 늘었어요" not in raw

@@ -13,15 +13,16 @@ from typing import Any, Mapping
 
 import streamlit as st
 
-from app.flow import current_condition, user_conditions
-from app.pages.matches import (LANGUAGE, PAST_LABELS, VERDICT_TEXT, _bonus_lines, _d_day, _short_title,
+from app.flow import current_condition, query, user_conditions
+from app.pages.matches import (relevant_bonus, LANGUAGE, PAST_LABELS, VERDICT_TEXT, _bonus_lines, _d_day, _short_title,
                                _unique_evidence, is_open)
 from app.pages.report import _is_minor, _mentions_track, _render_sources, _units
 from app.report_data import DATA_NOTICE, load_reports
 from app.ui_components import DIFF_LEGEND, apply_styles, change_row
-from src.change_summary import date_only_change, normalize, schedule, summarize
+from src.change_summary import application_period, date_only_change, is_schedule_line, normalize, schedule, summarize
 from src.eligibility import evaluate, expand_regions, readable_unit_name
 from src.result_pdf import notice_url
+from src.clock import today_kst
 
 STATUS_CLASS = {"같음": "same", "바뀜": "changed", "새로": "new", "비교 어려움": "hard", "정보 없음": "none"}
 RAW_GROUPS = (  # 원문 대조 묶음
@@ -52,14 +53,27 @@ def _go_qa(pair_id: str) -> None:
     st.session_state["go_qa"] = True
 
 
-def _header(report: Mapping[str, Any]) -> None:
+def work_places(report: Mapping[str, Any], mine: list[str]) -> str:
+    """근무지: 내 희망 지역을 먼저, 그다음 나머지 (새벽 점검 3번: 가나다순 앞 3개라 부산 준비생에게 고리가 안 보임)"""
+    regions = expand_regions((report.get("requirements") or {}).get("regions") or [])
+    if not regions:
+        return ""
+    if len(regions) >= 17:
+        return " · 근무지 전국"
+    ordered = [region for region in regions if region in mine] + [region for region in regions if region not in mine]
+    shown = ordered[:5]
+    return f" · 근무지 {'·'.join(shown)}{f' 외 {len(ordered) - 5}곳' if len(ordered) > 5 else ''}"
+
+
+def _header(report: Mapping[str, Any], mine: list[str] | None = None) -> None:
     """공고 띠 (남색): 기관·유형 / 공고명 / 접수·D-day·근무지 / PDF 열기 · 이 공고에 물어보기 ›"""
+    mine = mine or []
     curr = report["curr"]
     period = curr.get("period") or {}
     end = str(period.get("end") or "")
     category = f" · {report['category']} 공기업" if report.get("category") else ""
-    regions = expand_regions((report.get("requirements") or {}).get("regions") or [])
-    where = f" · 근무지 {'·'.join(regions[:3])}{' 등' if len(regions) > 3 else ''}" if regions else ""
+    where = work_places(report, mine)
+    first, last, hour = application_period(report)  # 공고 게시일이 아니라 실제 지원서 접수 기간 (새벽 점검 2번)
     status = (f'<span class="m-dday">{escape(_d_day(end))}</span>' if is_open(end)
               else '<span class="d-closed">접수 마감</span>')
     title = re.sub(r"^[\[(]?" + re.escape(str(report["institution"])) + r"(\(주\))?[\])]?\s*", "", str(curr["title"]))
@@ -67,7 +81,8 @@ def _header(report: Mapping[str, Any]) -> None:
         st.markdown(
             f'<div class="d-org">{escape(str(report["institution"]))}{escape(category)}</div>'
             f'<div class="d-title">{escape(title)}</div>'
-            f'<div class="d-meta">접수 {_ymd(str(period.get("start") or ""))} ~ {_ymd(end)[5:]} {status}{escape(where)}</div>',
+            f'<div class="d-meta">접수 {f"{first:%Y.%m.%d} ~ {last:%m.%d}" if first else _ymd(end)}'
+            f'{" " + hour if hour else ""} {status}{escape(where)}</div>',
             unsafe_allow_html=True,
         )
         left, right, _ = st.columns([1.1, 1.35, 3])
@@ -87,10 +102,11 @@ def _section(title: str, side: str = "", anchor: str = "") -> None:
 def bonus_text(result: Any) -> str:
     """'자격증 반영 전기기사 10점 · 전기공사기사 10점 (17쪽) · 기술 최대 20점' — 질문 화면과 같은 숫자에 근거 쪽을 붙임
     (11-21 팀원 질문 테스트 5번). 동서발전처럼 가점이 아니라 서류 점수인 곳이 있어 '가점' 대신 '자격증 반영'"""
-    if not result.bonus:
+    rows = relevant_bonus(result)
+    if not rows:
         return ""
-    held = " · ".join(dict.fromkeys(f"{row['certificate']} {row['points']:g}{row.get('unit') or '점'}" for row in result.bonus))
-    pages = sorted({item["page"] for row in result.bonus for item in row.get("evidence") or []
+    held = " · ".join(dict.fromkeys(f"{row['certificate']} {row['points']:g}{row.get('unit') or '점'}" for row in rows))
+    pages = sorted({item["page"] for row in rows for item in row.get("evidence") or []
                     if item.get("side") == "curr" and item.get("page")})
     text = f"자격증 반영 {held}" + (f" ({', '.join(f'{page}쪽' for page in pages[:2])})" if pages else "")
     rule = str(result.bonus_rule or "")
@@ -188,7 +204,7 @@ def _changes(report: Mapping[str, Any], track: str) -> None:
 def _schedule(report: Mapping[str, Any]) -> None:
     """구역 3. 올해 일정: 타임라인, 지금 단계만 파랑 + '지금' (절충안 5번)"""
     _section("올해 일정", anchor="schedule")
-    cells = schedule(report, date.today())
+    cells = schedule(report, today_kst())
     if not cells:
         st.markdown('<div class="m-empty">공고에서 일정 줄을 찾지 못했어요. 공고문 원문을 확인하세요.</div>', unsafe_allow_html=True)
         return
@@ -213,7 +229,10 @@ def _raw(report: Mapping[str, Any], track: str) -> None:
     st.markdown('<a id="raw"></a>', unsafe_allow_html=True)
     units = []
     for unit in _units(report):
+        # 날짜가 든 일정 줄끼리의 짝은 뺌: 채용정보 API 번호로 짝지어져 '2차 면접'↔'신체검사'처럼 어긋나고,
+        # API 오타('입사일 2026.03.15', 공고문은 2027.3.15)도 그대로라 일정은 '올해 일정'(공고문 기준)에서만 (새벽 점검 16·17번)
         members = [change for change in unit["changes"] if not date_only_change(change)
+                   and not (is_schedule_line(change.get("prev_value")) and is_schedule_line(change.get("curr_value")))
                    and not (change.get("change_type") == "text"
                             and normalize(change.get("prev_value")) == normalize(change.get("curr_value")))]
         if members:
@@ -223,6 +242,8 @@ def _raw(report: Mapping[str, Any], track: str) -> None:
         return
     titles = {"prev": report["prev"]["title"], "curr": report["curr"]["title"]}
     pair_id, info = str(report["pair_id"]), report.get("notice_info")
+    count = summarize(report, track)[0]  # 위 5줄과 같은 판단 (새벽 점검 18번: 5줄 '비교 어려움', 아래 '늘었어요')
+    count_note = count.answer if count.status == "비교 어려움" else None
     for name, _ in RAW_GROUPS:
         members = [unit for unit in units if _group(unit) == name]
         if not members:
@@ -230,7 +251,9 @@ def _raw(report: Mapping[str, Any], track: str) -> None:
         members.sort(key=lambda unit: (not _mentions_track(unit, track), _is_minor(unit), unit["importance"]))
         st.markdown(f'<div class="d-units-head">{escape(name)} {len(members)}건</div>', unsafe_allow_html=True)
         for index, unit in enumerate(members):
-            change_row(unit, titles, pair_id, info, track if _mentions_track(unit, track) else None, first=index == 0)
+            meaning = count_note if name == "인원" else None
+            change_row(unit, titles, pair_id, info, track if _mentions_track(unit, track) else None, first=index == 0,
+                       meaning=meaning)
     st.markdown(DIFF_LEGEND, unsafe_allow_html=True)
     _render_sources(report)
 
@@ -254,9 +277,10 @@ def render_detail_page() -> None:
     chosen = st.selectbox("비교할 공고 · 아무 기관이나 고를 수 있어요", ids, index=ids.index(pair_id),
                           format_func=lambda value: _option(by_id[value]), key=None)
     st.session_state["selected_pair_id"] = chosen  # ④ 질문 화면이 같은 공고를 연다
+    st.query_params.from_dict(query(condition, chosen))  # 주소를 복사해 새 창에서 열어도 같은 공고 (새벽 점검 15번)
     report = by_id[chosen]
 
-    _header(report)
+    _header(report, str((condition or {}).get("region") or "").split("·"))
     track = _verdict(report, condition) or (condition or {}).get("track", "")
     _changes(report, track)
     _schedule(report)

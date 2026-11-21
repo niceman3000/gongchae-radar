@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from html import escape
 import json
+import re
 import os
 from pathlib import Path
 from typing import Any, Mapping
@@ -17,8 +18,23 @@ from src.qa_service import NOT_FOUND, NOT_FOUND_DETAIL, GroundedAnswer, ask
 
 ROOT = Path(__file__).resolve().parents[2]
 SESSION_LIMIT = 20  # 한 사람이 한 번 접속해서 할 수 있는 AI 질문 수 (비용 보호)
-# 시연 공고마다 눌러 본 질문 (11-21 팀원 질문 테스트 6번: 못 고친 버튼은 맞게 답하는 질문으로)
-EXAMPLES = ["토익 몇 점 필요해?", "자격증 점수 기준 알려줘", "필기시험 언제야?", "면접은 어떻게 봐?"]
+# 예시 질문 후보: 공고문 글자에 답이 될 줄이 있을 때만 버튼으로 (새벽 점검 5번: 강원랜드에서 '자격증 점수 기준'이 못 찾음)
+EXAMPLE_POOL = (
+    ("토익 몇 점 필요해?", r"TOEIC|토익"),
+    ("자격증 점수 기준 알려줘", r"자격증[^\n]{0,30}(\d+\s*점|배점|가점|가산)|(기사|산업기사)\s*\|?\s*\d+\s*점"),
+    ("필기시험 언제야?", r"필기[^\n]{0,25}(\d{4}\s*\.\s*\d{1,2}|\d{1,2}\s*\.\s*\d{1,2}\s*\.?\s*\()"),
+    ("면접은 어떻게 봐?", r"면접[^\n]{0,30}(\d+\s*점|평가|토론|발표|인성)"),
+    ("몇 명 뽑아?", r"선발\s*(예정)?\s*인원|채용\s*(예정)?\s*인원|모집\s*인원"),
+    ("자기소개서는 언제 내?", r"자기소개서[^\n]{0,30}(\d{1,2}\s*\.\s*\d{1,2}|제출)"),
+    ("나이 제한 있어?", r"연령|나이"),
+)
+EXAMPLES = [question for question, _ in EXAMPLE_POOL[:4]]
+
+
+def examples_for(curr_text: Mapping[str, str] | None, limit: int = 4) -> list[str]:
+    """이 공고문에 답이 될 줄이 있는 예시 질문 최대 4개"""
+    text = "\n".join(str(value) for value in (curr_text or {}).values())
+    return [question for question, pattern in EXAMPLE_POOL if re.search(pattern, text)][:limit] or EXAMPLES
 SIDE_LABEL = {"curr": "올해 공고", "prev": "작년 공고"}
 
 
@@ -83,8 +99,11 @@ def _render_answer(result: GroundedAnswer, report: Mapping[str, Any]) -> None:
             st.markdown(f"- **{SIDE_LABEL[item['side']]} {item['page']}쪽** · {md_text(title)}  \n  “{md_text(item['quote'])}”")
     elif result.status == "not_found":
         st.info(f"**{NOT_FOUND}**  \n{NOT_FOUND_DETAIL}")
-    elif result.status == "other_institution":
+    elif result.status in {"other_institution", "off_topic"}:
         st.info(result.answer)
+    elif result.status == "guide_compare":
+        st.info(result.answer)
+        st.page_link("app/pages/detail.py", label="공고 비교로 가기 ›")
     else:
         st.warning(result.answer)
         if result.note:  # 왜 AI 답이 안 나왔는지 (키 없음, 모델 오류 내용 등)
@@ -110,6 +129,9 @@ def render_qa_page() -> None:
     ids = list(by_id)
     pair_id = st.selectbox("질문할 공고", ids, index=ids.index(default) if default in ids else 0,
                            format_func=lambda value: f"{by_id[value]['institution']} · {by_id[value]['curr']['title']}")
+    if st.session_state.get("qa_last_pair") not in (None, pair_id):  # 공고를 바꾸면 이전 질문을 지움 (새벽 점검 14번)
+        st.session_state["qa_question"] = ""
+    st.session_state["qa_last_pair"] = pair_id
     st.session_state["selected_pair_id"] = pair_id
     report = by_id[pair_id]
     render_qa_box(report)
@@ -132,9 +154,10 @@ def render_qa_box(report: Mapping[str, Any], examples: list[str] | None = None) 
                    "(PC: 키를 넣은 창에서 실행하거나 `.streamlit/secrets.toml`, 배포: Streamlit Cloud Secrets)"
                    + _secrets_hint())
     st.write("예시 질문")
-    columns = st.columns(len(examples or EXAMPLES))
+    examples = examples or examples_for(curr_text)
+    columns = st.columns(len(examples))
     clicked = False
-    for column, example in zip(columns, examples or EXAMPLES):
+    for column, example in zip(columns, examples):
         if column.button(example, key=f"example-{example}"):
             st.session_state["qa_question"] = example
             clicked = True

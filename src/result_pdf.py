@@ -12,6 +12,7 @@ import re
 from typing import Any, Iterable, Mapping
 
 from fpdf import FPDF
+from src.clock import today_kst
 
 FONT_DIR = Path(__file__).resolve().parents[1] / "assets" / "fonts"
 STATUS_COLOR = {"eligible": (22, 128, 61), "ambiguous": (180, 110, 0), "ineligible": (190, 30, 45)}
@@ -292,7 +293,7 @@ def build_result_pdf(
 ) -> bytes:
     """entries / other_region: (판정 결과, 리포트, 대표 변경 한 줄) 목록 → PDF 바이트.
     11-21: 공고마다 전체 내용을 늘어놓아 18쪽 → 화면과 같은 구조로 2~3쪽 (접수 중만 카드, 나머지는 한 줄 표)"""
-    today = date.today()
+    today = today_kst()
     made_at = made_at or today.strftime("%Y.%m.%d")
     doc = _Doc(made_at)
     doc.add_page()

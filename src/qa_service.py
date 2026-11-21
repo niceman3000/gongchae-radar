@@ -134,6 +134,8 @@ TABLE_TOPICS = (  # (질문에 이 말이 있으면, 이 말이 많은 쪽을 �
      re.compile(r"전형\s*일정|추진\s*내용|채용\s*일정|합격자\s*발표|\d{4}\s*\.\s*\d{1,2}\s*\.\s*\d{1,2}")),
     (re.compile(r"배수|면접|필기|전형|과목|몇\s*번|단계|선발|서류|NCS|인성"),
      re.compile(r"선발\s*배수|전형\s*절차|세부\s*내용|배수|면접\s*전형|필기\s*전형|직무수행능력")),
+    (re.compile(r"몇\s*명|인원|뽑아|뽑나|뽑는|선발\s*규모|채용\s*규모"),  # 새벽 점검 7번: 한수원 1쪽 선발예정인원 표
+     re.compile(r"선발\s*(예정)?\s*인원|채용\s*(예정)?\s*인원|모집\s*인원|채용\s*규모|모집\s*분야")),
     (re.compile(r"지역인재|지방|이전|비수도권|양성평등|채용\s*목표"),
      re.compile(r"채용\s*목표제|이전\s*지역인재|비수도권|양성평등")),
 )
@@ -151,7 +153,9 @@ def table_pages(question: str, pages: Mapping[str, str]) -> list[dict[str, Any]]
         for hits, page in ranked[:TABLE_PAGES]:
             if hits >= 3 and all(item["page"] != page for item in chosen):
                 text = str(pages[str(page)] if str(page) in pages else pages[page])
-                text = text.split("\n| ", 1)[0]  # 뒤에 붙은 표 칸 복사본(| … |)은 빼고 글자 줄만
+                # 뒤에 붙은 표 칸 복사본(| … |)은 칸 모양이 살아 있어 숫자 읽기에 도움 → 빈 칸만 줄여서 같이 넣음
+                text = re.sub(r"(\|\s*){3,}", "| ", text)
+                text = "\n".join(line for line in text.split("\n") if line.strip(" |"))
                 chosen.append({"side": "curr", "page": page, "text": text[:TABLE_PAGE_CHARS].strip(), "score": 99})
     return chosen
 
@@ -219,6 +223,10 @@ def _parse(text: str) -> dict[str, Any] | None:
     return None
 
 
+COMPARE_QUESTION = re.compile(r"(작년|전년|지난\s*공고)[^?]{0,20}(비교|달라|바뀌|차이)|(달라진|바뀐)\s*(점|게|거)\s*(뭐|무엇|알려)")
+OFF_TOPIC = re.compile(r"지시\s*(를|는)?\s*무시|이전\s*지시|프롬프트|니\s*생각|너의?\s*생각|합격\s*(팁|비법|확률|가능성)|붙을\s*수\s*있")
+
+
 # 질문 속 기관 이름 (11-21 팀원 질문 테스트 11번: 동서발전을 고르고 '한전은 토익 몇 점?'에 동서발전 내용으로 답함)
 ALIASES = {"한전": "한국전력공사", "한수원": "한국수력원자력", "코레일": "한국철도공사", "수공": "한국수자원공사",
            "LH": "한국토지주택공사", "도공": "한국도로공사", "가스공사": "한국가스공사", "인국공": "인천국제공항공사",
@@ -254,6 +262,12 @@ def ask(question: str, *, curr_text: Mapping[str, str] | None, prev_text: Mappin
         raise ValueError(f"질문은 {MAX_QUESTION}자 이내로 입력해 주세요.")
     if PERSONAL.search(question):
         raise ValueError("이름·연락처·주민등록번호 같은 개인정보는 입력하지 마세요.")
+    if COMPARE_QUESTION.search(question):  # 앱의 핵심 기능 질문 → 공고 비교로 안내 (새벽 점검 20번)
+        return GroundedAnswer("guide_compare", "작년과 달라진 점은 ‘공고 비교’ 메뉴에서 볼 수 있어요. 인원·전형·자격·가점·일정 5줄로 정리해 두었어요.",
+                              note="비교 질문 (AI 호출 안 함)")
+    if OFF_TOPIC.search(question):  # 공고문 밖 요청 (새벽 점검 21번)
+        return GroundedAnswer("off_topic", "공고문에 적힌 내용만 답할 수 있어요. 지원 자격·전형·일정처럼 공고문에 있는 것을 물어봐 주세요.",
+                              note="공고문 밖 요청 (AI 호출 안 함)")
     other = other_institution(question, selected, institutions or []) if selected else None
     if other:
         return GroundedAnswer("other_institution", f"지금 선택한 공고는 {selected}이에요. {other} 공고는 위에서 바꿔 주세요.",

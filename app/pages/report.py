@@ -13,6 +13,7 @@ from app.ui_components import DIFF_LEGEND, apply_styles, change_row, md_text
 from src.change_groups import display_units
 from app.report_data import DATA_NOTICE, load_reports
 from src.report_repository import ReportContractError
+from src.clock import today_kst
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -88,7 +89,7 @@ def _closed(report: Mapping[str, Any]) -> bool:
     from datetime import date
 
     end = str(report["curr"]["period"]["end"] or "")
-    return len(end) == 8 and end.isdigit() and end < date.today().strftime("%Y%m%d")
+    return len(end) == 8 and end.isdigit() and end < today_kst().strftime("%Y%m%d")
 
 
 def _render_header(report: Mapping[str, Any]) -> None:

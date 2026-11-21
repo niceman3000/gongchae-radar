@@ -112,7 +112,7 @@ def _check_unit(
         if not held:
             return {
                 "status": "ineligible",
-                "reason": "필수 자격증이 없어요: " + " 또는 ".join(item["name"] for item in required[:3]),
+                "reason": required_text(required),
                 "evidence": [evidence for item in required[:3] for evidence in item["evidence"]],
                 "review": None,
             }
@@ -155,7 +155,7 @@ def _check_unit(
     if required:
         return {
             "status": "ineligible",
-            "reason": f"필수 자격증이 없어요: {required[0]['name']}",
+            "reason": required_text(required[:1]),
             "evidence": required[0]["evidence"],
             "review": None,
         }
@@ -216,6 +216,27 @@ def readable_unit_name(name: str) -> str:
         tokens[-2] = f"{tokens[-2]} {tokens[-1]}" if tokens[-2].endswith(")") else f"{tokens[-2]}({tokens[-1]})"
         tokens.pop()
     return " ".join(tokens) or name
+
+
+def required_text(required: list[Mapping[str, Any]]) -> str:
+    """'필수 자격증이 없어요: 전기 직렬 필수 자격: 발송배전·… 또는 전기 직렬 필수 자격: 전기·… 기사'
+    → '전기·전기공사·전자 기사 이상 자격증이 필요해요' (새벽 점검 8·22번: 같은 말이 반복됨)"""
+    names = [re.sub(r"^.*?필수\s*자격\s*[:：]\s*", "", str(item.get("name") or "")).strip() for item in required[:3]]
+    names = [re.sub(r"\s*(자격증)?\s*소지자$", "", name).strip() for name in names if name]
+    grades = ("기술사", "기능장", "기사", "산업기사", "기능사")
+    lowest = None
+    for name in names:  # '… 기술사' 또는 '… 기사' → 가장 낮은 등급 하나로 ('기사 이상')
+        grade = next((value for value in sorted(grades, key=len, reverse=True) if name.endswith(value)), None)
+        if grade and (lowest is None or grades.index(grade) > grades.index(lowest[1])):
+            lowest = (name, grade)
+    if lowest and ("·" in lowest[0] or "," in lowest[0] or " 등" in lowest[0]):
+        return f"필수 자격증이 없어요: {lowest[0]} 이상이 필요해요"
+    if names:
+        joined = " 또는 ".join(dict.fromkeys(names))
+        last = joined[-1:]
+        particle = "이" if "가" <= last <= "힣" and (ord(last) - 0xAC00) % 28 else "가"
+        return f"필수 자격증이 없어요: {joined}{particle} 필요해요"
+    return "필수 자격증이 없어요"
 
 
 def _with_ro(word: str) -> str:

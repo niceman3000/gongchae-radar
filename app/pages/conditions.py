@@ -118,7 +118,7 @@ def render_conditions_page() -> None:
         f"""<div class="hero">
         <div class="hero-kicker">공기업 신입 공채 <b>{len(reports)}곳</b> · 작년 공고와 비교 · 공고문 쪽수로 근거 확인</div>
         <div class="hero-title">작년 공고와 뭐가 달라졌는지,<br>나는 지원할 수 있는지.</div>
-        <div class="hero-lead">직렬·지역·자격증만 고르면 지원 조건과 작년 대비 바뀐 점을 공고문 쪽수와 함께 보여 드려요.</div>
+        <div class="hero-lead">직렬·지역·자격증만 고르면 지원 조건과 작년 대비 바뀐 점을 공고문 쪽수와 함께 보여 줘요.</div>
         </div>""",
         unsafe_allow_html=True,
     )

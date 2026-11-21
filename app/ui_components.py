@@ -419,10 +419,10 @@ def apply_styles() -> None:
         .tl-now .t-name, .tl-now .t-date { color: #2453E6; }
         /* ---- 11-22 화면 정리 메모: 같은 왼쪽 끝, 안쪽 여백 20, 잘림 없음 ---- */
         .block-container { max-width: 960px; padding-left: 1.5rem; padding-right: 1.5rem; }
-        [data-testid="stTopNav"] { padding-left: max(0px, calc((100vw - 960px) / 2 + 1.5rem - 1rem)); }
+        [data-testid="stTopNav"] { padding-left: max(0px, calc((100vw - 960px) / 2 + 1.5rem)); }  /* 본문 왼쪽 끝과 맞춤 (새벽 점검 14번: 16px 차이) */
         .hero { padding: 0 0 var(--gap) 0; }
         .hero-title { font-size: var(--fs-title) !important; line-height: 1.35; margin: .3rem 0 .4rem 0; }
-        .hero-lead { font-size: var(--fs-body); color: #3B4656; }
+        .hero-lead { font-size: var(--fs-body); color: #3B4656; text-wrap: balance; }
         .st-key-condition-box { border: 1px solid #DDE2EA; border-radius: 12px; padding: var(--pad); background: #FFFFFF; }
         .st-key-condition-box .ex-label { transform: none; color: #5B6675; font-size: var(--fs-sub); }
         .st-key-condition-box .privacy-note { margin: 0; font-size: var(--fs-small); }
@@ -439,6 +439,8 @@ def apply_styles() -> None:
         .sum.t-open { background: #EEF3FF; } .sum.t-open b { color: #2453E6; }
         .sum.t-eligible b { color: #0B6E4C; } .sum.t-ambiguous b { color: #B86E00; } .sum.t-ineligible b { color: #B02A2A; }
         .sum-more { font-size: var(--fs-sub); color: #5B6675; margin-left: 4px; }
+        .sum-apart { margin-left: auto; }
+        .out-chip { background: #FFF1DC; color: #8A5300; margin-right: 6px; }
         [class*="st-key-row-"] { border: 1px solid #E3E8EF; border-radius: 12px; padding: var(--pad); margin-bottom: 10px; background: #FFFFFF; }
         [class*="st-key-row-open"] { background: #F5F8FF; border-color: #BFD0FA; }
         [class*="st-key-row-past"] { border-bottom: 1px solid #E3E8EF; padding: var(--pad); }
@@ -947,6 +949,7 @@ def change_row(
     notice_info: Mapping[str, Any] | None = None,
     track: str | None = None,
     first: bool = False,
+    meaning: str | None = None,
 ) -> None:
     """변경 한 건 = 줄 하나: 꼬리표(내 직렬 관련 | 중요) · 굵은 제목 · 의미 한 줄 · 대비표 (예시 3)"""
     members = list(unit["changes"])
@@ -954,6 +957,8 @@ def change_row(
         title, impact = group_title(unit, pair_id, notice_info)
     else:
         title, impact = concise_change_title(members[0], pair_id, notice_info)
+    if meaning:  # 위 요약과 같은 판단으로 (예: 전형 구분이 달라 '비교 어려움')
+        impact = meaning
     # 꼬리표는 하나만: 내 직렬 관련이면 그것, 아니면 분류 (11-21 팀원 2차 점검 9번·예시 3)
     tags = ([f'<span class="c-tag-track">내 직렬({escape(track)}) 관련</span>'] if track
             else [f'<span class="c-tag-imp">{escape(str(unit["category"]))}</span>'])
