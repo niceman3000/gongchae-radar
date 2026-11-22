@@ -1,11 +1,11 @@
 # 화면 색·모양 (11-20 디자인 정리). 키는 여기 넣지 않는다 (키는 secrets.toml, Git에 안 올라감)
 [theme]
-primaryColor = "#2453E6"
-backgroundColor = "#FFFFFF"  # 11-21 2차 점검 9번: 회색 바탕 위 회색 선이 안 보임
+primaryColor = "#1C1B19"
+backgroundColor = "#FCFBF8"  
 secondaryBackgroundColor = "#FFFFFF"
-textColor = "#16202E"
-baseRadius = "0.75rem"
-borderColor = "#E3E8EF"
+textColor = "#1C1B19"
+baseRadius = "0.375rem"
+borderColor = "#E3DED3"
 showWidgetBorder = true
 
 [client]
