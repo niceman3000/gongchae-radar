@@ -397,8 +397,11 @@ def apply_styles() -> None:
         .st-key-hero-band .d-org { color: #BDB6A6; margin-top: 0; }
         .st-key-hero-band .d-title { color: #FFFFFF; }
         .st-key-hero-band .d-meta { color: #E8E3D7; margin-bottom: .2rem; }
-        .st-key-hero-band .d-closed { background: #3D3A34; color: #E8E3D7; }
-        .st-key-hero-band .m-dday { background: #FFFFFF; color: #1C1B19; }
+        /* 11-22 16시: 흰 상자 D-9가 혼자 튐 → 상자 없이 같은 줄 글자로, 형광펜 노랑 글자만 */
+        .st-key-hero-band .d-closed, .st-key-hero-band .m-dday { background: none; border: 0; padding: 0; margin: 0;
+            font-size: inherit; font-weight: 700; }
+        .st-key-hero-band .m-dday { color: #F1DF94; }
+        .st-key-hero-band .d-closed { color: #BDB6A6; }
         .st-key-hero-band button, .st-key-hero-band a[data-testid="stBaseLinkButton-secondary"] { background: #FFFFFF !important; }
         [class*="st-key-verdict-"] { border-radius: 6px; padding: .9rem 1.1rem .4rem 1.1rem; border: 1px solid #E3DED3; }
         .st-key-verdict-eligible { background: #F0F9F4; border-color: #CDEBDD; }

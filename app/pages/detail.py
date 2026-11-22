@@ -82,7 +82,7 @@ def _header(report: Mapping[str, Any], mine: list[str] | None = None) -> None:
             f'<div class="d-org">{escape(str(report["institution"]))}{escape(category)}</div>'
             f'<div class="d-title">{escape(title)}</div>'
             f'<div class="d-meta">접수 {f"{first:%Y.%m.%d} ~ {last:%m.%d}" if first else _ymd(end)}'
-            f'{" " + hour if hour else ""} {status}{escape(where)}</div>',
+            f'{" " + hour if hour else ""} · {status}{escape(where)}</div>',
             unsafe_allow_html=True,
         )
         left, right, _ = st.columns([1.1, 1.35, 3])
