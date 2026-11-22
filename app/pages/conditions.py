@@ -100,6 +100,48 @@ def _preview(reports: list[dict]) -> None:
     st.markdown(html, unsafe_allow_html=True)
 
 
+def example_preview(reports: list[dict]) -> dict | None:
+    """첫 화면 오른쪽 미리보기 카드 (11-22 첫 화면 비율 메모 ③).
+    숫자는 손으로 쓰지 않고, 예시 버튼 '전기기사 있는 전기 준비생'과 같은 조건으로 앱이 실제로 낸 결과를 쓴다."""
+    from app.pages.matches import _short_notice, is_open, relevant_bonus
+    from src.change_summary import application_period, summarize
+    from src.eligibility import UserCondition, evaluate_all
+
+    condition = UserCondition(EXAMPLE["track"], "·".join(EXAMPLE["regions"]), tuple(EXAMPLE["certificates"]))
+    results = [item for item in evaluate_all(condition, reports) if item.relevance == "match" and item.status == "eligible"]
+    if not results:
+        return None
+    result = next((item for item in results if is_open(item.deadline)), results[0])
+    report = next(item for item in reports if item.get("pair_id") == result.pair_id)
+    rows = []
+    bonus = max(relevant_bonus(result), key=lambda row: row["points"], default=None)
+    if bonus:
+        pages = sorted({item["page"] for item in bonus.get("evidence") or [] if item.get("page")})
+        rows.append(("자격증 가점", f"{bonus['certificate']} {bonus['points']:g}{bonus.get('unit') or '점'}", pages[0] if pages else None))
+    changed = next((row for row in summarize(report) if row.status == "바뀜"), None)
+    if changed:
+        rows.append(("작년과 달라진 점", changed.answer.split(" · ")[0], None))
+    first, last, hour = application_period(report)
+    if first and last:
+        rows.append(("원서 접수", f"{first:%m.%d} ~ {last:%m.%d} {hour}".strip(), None))
+    return {"institution": result.institution, "notice": _short_notice(result), "label": "지원 가능", "rows": rows}
+
+
+def _preview_card(reports: list[dict]) -> None:
+    preview = example_preview(reports)
+    if not preview:
+        return
+    rows = "".join(
+        f'<div class="pv-row"><span>{escape(name)}</span><b>{escape(value)}'
+        + (f'<span class="pv-page">{page}쪽</span>' if page else "") + "</b></div>"
+        for name, value, page in preview["rows"])
+    st.markdown(
+        f'<div class="pv"><div class="pv-top"><span>실제 결과 예시 · 전기 · 부산·울산 · 전기기사</span></div>'
+        f'<div class="pv-title">{escape(preview["institution"])} {escape(preview["notice"])}'
+        f'<span class="pv-badge">{escape(preview["label"])}</span></div>{rows}</div>',
+        unsafe_allow_html=True)
+
+
 FEATURES = (  # 이 앱이 하는 일 3가지 (화면 정리 메모 1번: 미리보기 대신)
     ("지원 가능 · 애매 · 안 맞음", "판정마다 공고문 쪽수를 붙여요"),
     ("작년과 달라진 점 5줄", "인원·전형·자격·가점·일정"),
@@ -114,7 +156,8 @@ def render_conditions_page() -> None:
         st.switch_page(MATCHES_PAGE)
     reports, _ = load_reports()
     tracks, _ = available_tracks(reports)
-    st.markdown(
+    hero, side = st.columns([1.25, 1], vertical_alignment="center")
+    hero.markdown(
         f"""<div class="hero">
         <div class="hero-kicker">공기업 신입 공채 <b>{len(reports)}곳</b> · 작년 공고와 비교 · 공고문 쪽수로 근거 확인</div>
         <div class="hero-title">작년 공고와 뭐가 달라졌는지,<br>나는 지원할 수 있는지.</div>
@@ -122,6 +165,8 @@ def render_conditions_page() -> None:
         </div>""",
         unsafe_allow_html=True,
     )
+    with side:
+        _preview_card(reports)
     saved = st.session_state.get("user_condition") or {}
     st.session_state.setdefault("condition_tracks", [track for track in saved.get("tracks", [saved.get("track")]) if track in tracks]
                                 or ([tracks[0]] if tracks else []))

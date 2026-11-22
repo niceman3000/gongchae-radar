@@ -418,18 +418,28 @@ def apply_styles() -> None:
         .tl-now .tl-dot { background: #2453E6; border-color: #2453E6; box-shadow: 0 0 0 4px #DCE5FB; }
         .tl-now .t-name, .tl-now .t-date { color: #2453E6; }
         /* ---- 11-22 화면 정리 메모: 같은 왼쪽 끝, 안쪽 여백 20, 잘림 없음 ---- */
-        .block-container { max-width: 960px; padding-left: 1.5rem; padding-right: 1.5rem; }
-        [data-testid="stTopNav"] { padding-left: max(0px, calc((100vw - 960px) / 2 + 1.5rem)); }  /* 본문 왼쪽 끝과 맞춤 (새벽 점검 14번: 16px 차이) */
+        /* 11-22 첫 화면 비율 메모: 노트북(1288px)에서 화면 절반만 쓰던 것 → 내용 폭 1120 */
+        .block-container { max-width: 1120px; padding-left: 1.5rem; padding-right: 1.5rem; }
+        [data-testid="stTopNav"] { padding-left: max(0px, calc((100vw - 1120px) / 2 + 1.5rem)); }
+        [data-testid="stMarkdownContainer"] { word-break: keep-all; }  /* '작년 대 / 비'처럼 단어 중간 줄바꿈 막기 */  /* 본문 왼쪽 끝과 맞춤 (새벽 점검 14번: 16px 차이) */
         .hero { padding: 0 0 var(--gap) 0; }
         .hero-title { font-size: var(--fs-title) !important; line-height: 1.35; margin: .3rem 0 .4rem 0; }
-        .hero-lead { font-size: var(--fs-body); color: #3B4656; text-wrap: balance; }
+        .hero-lead { font-size: var(--fs-body); color: #3B4656; max-width: none; word-break: keep-all; }
+        /* 제목 오른쪽 미리보기 카드: 예시 조건으로 앱이 실제로 낸 결과 */
+        .pv { margin-bottom: 16px; border: 1.5px solid #CFE3D6; border-radius: 12px; padding: 14px 18px; background: #FFFFFF; box-shadow: 0 2px 10px rgba(22,32,46,.06); }
+        .pv-top { display: flex; justify-content: space-between; font-size: var(--fs-small); color: #5B6675; }
+        .pv-title { font-size: var(--fs-body); font-weight: 800; color: #16202E; margin: .35rem 0 .5rem 0; }
+        .pv-badge { display: inline-block; margin-left: .4rem; padding: 0 .5rem; border-radius: .35rem; background: #E3F4E8; color: #15803D; font-size: var(--fs-small); font-weight: 700; vertical-align: 1px; }
+        .pv-row { display: flex; justify-content: space-between; gap: 12px; padding: .45rem 0; border-top: 1px solid #EEF1F5; font-size: var(--fs-sub); color: #3B4656; }
+        .pv-row b { color: #16202E; font-weight: 700; text-align: right; }
+        .pv-page { display: inline-block; margin-left: .35rem; padding: 0 .35rem; border-radius: .3rem; background: #EEF3FF; color: #1D47C4; font-size: var(--fs-small); font-weight: 700; }
         .st-key-condition-box { border: 1px solid #DDE2EA; border-radius: 12px; padding: var(--pad); background: #FFFFFF; }
         .st-key-condition-box .ex-label { transform: none; color: #5B6675; font-size: var(--fs-sub); }
         .st-key-condition-box .privacy-note { margin: 0; font-size: var(--fs-small); }
         .st-key-example-1 button, .st-key-example-2 button { border-radius: 20px; border-color: #C9D6F7; background: #F4F7FF; }
         .st-key-example-1 button p, .st-key-example-2 button p { color: #1D47C4; font-size: var(--fs-sub); font-weight: 700; }
         .features { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin: var(--gap-section) 0 var(--gap) 0; }
-        .feature { background: #F5F7FA; border-radius: 12px; padding: 16px var(--pad); }
+        .feature { background: #FFFFFF; border: 1px solid #DDE2EA; border-left: 3px solid #2453E6; border-radius: 12px; padding: 16px var(--pad); }
         .feature-title { font-size: var(--fs-body); font-weight: 800; color: #16202E; }
         .feature-text { font-size: var(--fs-small); color: #5B6675; margin-top: .25rem; }
         .m-cond-line { color: #5B6675; font-size: var(--fs-sub); margin-top: .2rem; }
