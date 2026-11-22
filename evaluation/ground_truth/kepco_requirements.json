@@ -1,7 +1,7 @@
 {
   "pair_id": "kepco-2025-2026-h2",
   "reviewed_at": "2026-11-18",
-  "reviewer": "Claude (2026 공고 PDF 304551 대조, 사람 재확인 필요)",
+  "reviewer": "Claude (2026 공고 PDF 304551 대조, 사람 재확인 필요) · 11-22 공통 가점 누락분 추가 (원문 쪽수 근거, 수정기록_1122.md, 팀원 재확인 필요)",
   "scope": "사무·전기(배전·송변전)·ICT·토목",
   "region_note": {
     "text": "전국권(이전지역인재)을 뺀 모집단위는 최종학교 소재지·거주지와 관계없이 지원할 수 있습니다.",
@@ -606,6 +606,212 @@
           "page": 19,
           "quote": "3점 [산업기사] 조경, 도시계획, 건축, 콘크리트, 품질경영"
         }
+      ]
+    },
+    {
+      "kind": "bonus",
+      "track": null,
+      "points": 5,
+      "name": "공통 가점 한국사 5점",
+      "match": {
+        "names": [
+          "한국사능력검정시험3급"
+        ]
+      },
+      "evidence": [
+        {
+          "side": "curr",
+          "page": 18,
+          "quote": "한 국 사 5점 한국사능력검정시험 3급 이상"
+        }
+      ],
+      "added": "2026-11-22"
+    },
+    {
+      "kind": "bonus",
+      "track": null,
+      "points": 5,
+      "name": "공통 가점 국어능력 5점",
+      "match": {
+        "names": [
+          "국어능력인증3급",
+          "KBS한국어능력3급",
+          "한국실용글쓰기준2급"
+        ]
+      },
+      "evidence": [
+        {
+          "side": "curr",
+          "page": 18,
+          "quote": "국어능력 5점 국어능력인증 3급, KBS한국어능력 3+급, 한국실용글쓰기 준2급 이상"
+        }
+      ],
+      "added": "2026-11-22"
+    },
+    {
+      "kind": "bonus",
+      "track": null,
+      "points": 5,
+      "name": "공통 가점 IT 분야 5점",
+      "match": {
+        "names": [
+          "정보처리기사",
+          "정보처리산업기사",
+          "사무자동화산업기사",
+          "컴퓨터활용능력1급",
+          "ADsP",
+          "ADP",
+          "DAP",
+          "SQLP",
+          "SQLD",
+          "COSPro1급",
+          "COSPro2급",
+          "PCCPLv2",
+          "PCCPLv3",
+          "PCCPLv4",
+          "PCCPLv5",
+          "DAsP"
+        ]
+      },
+      "evidence": [
+        {
+          "side": "curr",
+          "page": 18,
+          "quote": "IT 분야 5점 정보처리(산업)기사, 사무자동화산업기사, 컴퓨터활용능력 1급, ADsP, ADP, DAP, SQLP, SQLD, COS Pro 1~2급, PCCP Lv2~5, DAsP"
+        }
+      ],
+      "added": "2026-11-22"
+    },
+    {
+      "kind": "bonus",
+      "track": "사무",
+      "points": 5,
+      "name": "공통 가점 외국어 구사능력(사무) 5점",
+      "match": {
+        "names": [
+          "토익스피킹AL",
+          "OPIcIH"
+        ]
+      },
+      "evidence": [
+        {
+          "side": "curr",
+          "page": 18,
+          "quote": "토익스피킹 ‘AL’ 이상 ‘IH’ 이상 / OPIc ‘IH’ 이상 ‘IM3’ 이상"
+        }
+      ],
+      "added": "2026-11-22"
+    },
+    {
+      "kind": "bonus",
+      "track": "전기",
+      "points": 5,
+      "name": "공통 가점 외국어 구사능력(기술) 5점",
+      "match": {
+        "names": [
+          "토익스피킹IH",
+          "OPIcIM3"
+        ]
+      },
+      "evidence": [
+        {
+          "side": "curr",
+          "page": 18,
+          "quote": "토익스피킹 ‘AL’ 이상 ‘IH’ 이상 / OPIc ‘IH’ 이상 ‘IM3’ 이상"
+        }
+      ],
+      "added": "2026-11-22"
+    },
+    {
+      "kind": "bonus",
+      "track": "ICT",
+      "points": 5,
+      "name": "공통 가점 외국어 구사능력(기술) 5점",
+      "match": {
+        "names": [
+          "토익스피킹IH",
+          "OPIcIM3"
+        ]
+      },
+      "evidence": [
+        {
+          "side": "curr",
+          "page": 18,
+          "quote": "토익스피킹 ‘AL’ 이상 ‘IH’ 이상 / OPIc ‘IH’ 이상 ‘IM3’ 이상"
+        }
+      ],
+      "added": "2026-11-22"
+    },
+    {
+      "kind": "bonus",
+      "track": "토목",
+      "points": 5,
+      "name": "공통 가점 외국어 구사능력(기술) 5점",
+      "match": {
+        "names": [
+          "토익스피킹IH",
+          "OPIcIM3"
+        ]
+      },
+      "evidence": [
+        {
+          "side": "curr",
+          "page": 18,
+          "quote": "토익스피킹 ‘AL’ 이상 ‘IH’ 이상 / OPIc ‘IH’ 이상 ‘IM3’ 이상"
+        }
+      ],
+      "added": "2026-11-22"
+    },
+    {
+      "kind": "bonus",
+      "track": "전기",
+      "points": 3,
+      "name": "배전 자격가점 3점 산업기사",
+      "match": {
+        "names": [
+          "전자산업기사",
+          "품질경영산업기사",
+          "산업안전산업기사",
+          "소방설비산업기사(전기)",
+          "신재생에너지발전설비산업기사(태양광)"
+        ]
+      },
+      "evidence": [
+        {
+          "side": "curr",
+          "page": 19,
+          "quote": "3점 [산업기사] 전자, 품질경영, 산업안전, 소방설비(전기), 신재생에너지발전설비(태양광)"
+        }
+      ],
+      "added": "2026-11-22",
+      "applicable_units": [
+        "배전(일반)"
+      ]
+    },
+    {
+      "kind": "bonus",
+      "track": "전기",
+      "points": 3,
+      "name": "송변전 자격가점 3점 산업기사",
+      "match": {
+        "names": [
+          "전자산업기사",
+          "품질경영산업기사",
+          "산업안전산업기사",
+          "소방설비산업기사(전기)",
+          "신재생에너지발전설비산업기사(태양광)"
+        ]
+      },
+      "evidence": [
+        {
+          "side": "curr",
+          "page": 19,
+          "quote": "3점 [산업기사] 전자, 품질경영, 산업안전, 소방설비(전기), 신재생에너지발전설비(태양광)"
+        }
+      ],
+      "added": "2026-11-22",
+      "applicable_units": [
+        "송변전(일반)"
       ]
     }
   ],

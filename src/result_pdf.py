@@ -303,12 +303,16 @@ def build_result_pdf(
     doc.text_block(f"{condition.track} · {regions} · {certificates}   ({made_at} 기준)", size=10, color=GRAY)
     doc.ln(4)
 
-    def is_open(result: Any) -> bool:
+    def is_open(result: Any) -> bool:  # 화면과 같은 기준: 공고문 접수 기간·마감 시각 (11-22 오류 수정 작업서 01)
+        if getattr(result, "app_state", ""):
+            return result.app_state == "open"
         days = _days_left(result.deadline, today)
         return days is not None and days >= 0
 
     open_now = sorted((item for item in entries if is_open(item[0])), key=lambda item: item[0].deadline)
-    past = sorted((item for item in entries if not is_open(item[0])), key=lambda item: item[0].deadline, reverse=True)
+    past = sorted((item for item in entries if not is_open(item[0]) and getattr(item[0], "app_state", "") != "upcoming"),
+                  key=lambda item: item[0].deadline, reverse=True)
+    upcoming = [item for item in entries if getattr(item[0], "app_state", "") == "upcoming"]
     counts = {key: sum(1 for result, _, _ in entries if result.status == key) for key in STATUS_COLOR}
     _tiles(doc, [(f"{condition.track} 직렬 공고", f"{len(entries)}건", INK), ("지금 접수 중", f"{len(open_now)}건", BLUE),
                  ("조건 맞음", str(counts["eligible"]), STATUS_COLOR["eligible"]),
@@ -323,6 +327,9 @@ def build_result_pdf(
     else:
         doc.text_block("지금 접수 중인 공고는 없어요. 아래 지난 공고로 다음 채용을 준비해 보세요.", size=9.5, color=GRAY)
 
+    if upcoming:
+        _heading(doc, "접수 예정", len(upcoming), "접수 시작 전")
+        _table(doc, [(result, report) for result, report, _ in upcoming], past=True)
     if past:
         _heading(doc, "지난 공고", len(past), "다음 채용 대비 · 기관 이름을 누르면 공고 원문")
         _table(doc, [(result, report) for result, report, _ in past], past=True)

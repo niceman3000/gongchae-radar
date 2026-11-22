@@ -1,3 +1,4 @@
+import json
 from pathlib import Path
 
 from streamlit.testing.v1 import AppTest
@@ -145,7 +146,8 @@ def test_second_example_card_goes_to_matches_with_open_notice():
     [button for button in app.button if button.key == "example-2"][0].click().run()
 
     assert not app.exception
-    assert "지금 접수 중 <b>1</b>건" in _text(app)
+    text = _text(app)  # 11.24 전에는 '접수 예정', 이후엔 '지금 접수 중' (11-22 오류 수정 작업서 01)
+    assert "지금 접수 중 <b>1</b>건" in text or "접수 예정</span>" in text
 
 
 def _open_qa_page(pair_id=KEPCO):
@@ -198,9 +200,8 @@ def test_open_notice_from_other_region_is_on_top():
 
     assert not app.exception
     text = _text(app)
-    assert "지금 접수 중 <b>1</b>" in text
     head = text.index("지금 접수 중</span>")
-    assert text.index("한국동서발전", head) < text.index("지난 공고", head)
+    assert text.index("한국동서발전", head) < text.index("다음 채용 대비", head)   # 접수 중이든 접수 예정이든 지난 공고보다 위
     assert "희망 지역 밖" in text
     assert app.query_params["t"] == ["사무"] or app.query_params["t"] == "사무"   # 15번: 주소에 조건
 
@@ -229,3 +230,20 @@ def test_raw_titles_match_summary_and_plain_words():
     import re
     titles = re.findall(r'<div class="c-title">([^<]*)', raw)
     assert titles and not any(re.search(r"^[○ㅇ□※-]|: [○ㅇ□※-] ", title) for title in titles)
+
+
+def test_application_state_by_korean_time():
+    """11-22 오류 수정 작업서 01·02: 동서발전 접수 11.24 ~ 12.01 17시 → 시작 전 '접수 예정', 17시 지나면 마감, '지금'은 기간 안에서만"""
+    from datetime import date, datetime
+
+    from src.change_summary import application_state, schedule
+
+    report = next(json.loads(path.read_text(encoding="utf-8")) for path in (ROOT / "data" / "reports").glob("*.json")
+                  if json.loads(path.read_text(encoding="utf-8"))["institution"] == "한국동서발전")
+    cases = {datetime(2026, 11, 22, 12): "upcoming", datetime(2026, 11, 24, 9): "open",
+             datetime(2026, 12, 1, 16, 59): "open", datetime(2026, 12, 1, 17, 1): "closed", datetime(2026, 12, 2): "closed"}
+    for now, expected in cases.items():
+        assert application_state(report, now)[0] == expected, now
+    assert not any(cell["current"] for cell in schedule(report, date(2026, 11, 22)))
+    assert next(cell for cell in schedule(report, date(2026, 11, 24)) if cell["current"])["name"] == "지원서 접수"
+    assert not any(cell["current"] for cell in schedule(report, date(2026, 12, 10)))   # 단계 사이 공백

@@ -64,11 +64,24 @@ def region_text(regions: Any) -> str:
     return "지역 상관없음" if set(regions) >= set(REGIONS) else ", ".join(regions)
 
 
-def is_open(value: str, today: date | None = None) -> bool:
-    """접수 마감일이 오늘 이후(오늘 포함)면 접수 중"""
+def is_open(value: Any, today: date | None = None) -> bool:
+    """접수 중인지. 판정 결과(EligibilityResult)를 주면 공고문 접수 기간(시작일·마감 시각) 기준 (11-22 오류 수정 작업서 01),
+    마감일 글자만 주면 예전처럼 마감일 기준"""
+    if getattr(value, "app_state", ""):
+        return value.app_state == "open"
+    value = getattr(value, "deadline", value)
     if len(value) == 8 and value.isdigit():
         return date(int(value[:4]), int(value[4:6]), int(value[6:])) >= (today or today_kst())
     return False
+
+
+def is_upcoming(result: Any) -> bool:
+    return getattr(result, "app_state", "") == "upcoming"
+
+
+def _start_text(result: Any) -> str:
+    start = getattr(result, "app_start", None)
+    return f"{start.month}.{start.day} 접수 시작" if start else "접수 예정"
 
 
 def _deadline_chip(value: str) -> tuple[str, str]:
@@ -154,7 +167,7 @@ def match_row_html(result: EligibilityResult, first: bool = False) -> str:
     """공고 한 건 = 줄 하나: 기관명 · 보조 정보 한 줄 · 이유 한 줄(넘치면 …), 오른쪽 끝에 D-day와 판정.
     11-21 팀원 2차 점검 9번(예시 2): 이유 한 줄 자르기, 모집단위 이름은 회색 보통 글씨, 오른쪽 '마감' 글자 없앰, 구분 기호는 '·' 하나"""
     status = result.status if result.status in {"eligible", "ambiguous", "ineligible"} else "ambiguous"
-    open_now = is_open(result.deadline)
+    open_now = is_open(result)
     # 마감된 공고에는 '지원 가능' 대신 '조건 맞음' (지금 지원할 수 있다는 뜻으로 읽히지 않게)
     label = VERDICT_TEXT[status] if open_now else PAST_LABELS.get(status, result.label or "")
     sub = [escape(_short_title(result)), f"{_date_short(result.deadline)} 마감"]
@@ -172,7 +185,7 @@ def match_row_html(result: EligibilityResult, first: bool = False) -> str:
 def match_card(result: EligibilityResult, report: Mapping[str, Any], track: str, first: bool = False) -> None:
     st.markdown(match_row_html(result, first), unsafe_allow_html=True)
     with st.expander("자세히 보기"):
-        _render_detail(result, report, track, is_open(result.deadline))
+        _render_detail(result, report, track, is_open(result))
 
 
 def _section(title: str) -> None:
@@ -336,7 +349,7 @@ def _row(result: EligibilityResult, report: Mapping[str, Any], open_card: bool) 
     from src.change_summary import prev_start_text
 
     status = result.status if result.status in {"eligible", "ambiguous", "ineligible"} else "ambiguous"
-    now = is_open(result.deadline)
+    now = is_open(result)
     label = VERDICT_TEXT[status] if now else PAST_LABELS.get(status, result.label or "")
     tone = status if now or status != "eligible" else "past"
     sub = [escape(_short_notice(result)), f"{_date_short(result.deadline)} 마감"]
@@ -346,7 +359,7 @@ def _row(result: EligibilityResult, report: Mapping[str, Any], open_card: bool) 
     hint = ""
     if result.relevance == "region_mismatch":
         hint = '<span class="cal-chip out-chip">희망 지역 밖</span>'
-    if not now and prev_start_text(report):
+    if not now and not is_upcoming(result) and prev_start_text(report):
         hint += (f'<span class="cal-chip"><span class="cal-icon"></span>다음 공고 참고 · '
                 f'<b>작년엔 {escape(prev_start_text(report))} 접수 시작</b></span>')
     with st.container(key=f"row-{'open' if open_card else 'past'}-{result.pair_id}"):
@@ -354,7 +367,8 @@ def _row(result: EligibilityResult, report: Mapping[str, Any], open_card: bool) 
         main.markdown(f'<div class="m-inst">{escape(result.institution)}</div>'
                       f'<div class="m-sub">{BAR.join(sub)}</div>'
                       f'<div class="m-reason m-wrap">{_reason_line(result, status)}</div>{hint}', unsafe_allow_html=True)
-        dday = f'<span class="m-dday">{escape(_d_day(result.deadline))}</span>' if now else ""
+        dday = (f'<span class="m-dday">{escape(_d_day(result.deadline))}</span>' if now
+                else f'<span class="m-dday m-soon">{escape(_start_text(result))}</span>' if is_upcoming(result) else "")
         side.markdown(f'<div class="m-side">{dday}<span class="badge b-{tone}">{escape(label)}</span></div>',
                       unsafe_allow_html=True)
         side.button("공고 비교 ›", key=f"go-{result.pair_id}", on_click=_go_detail, args=(result.pair_id,),
@@ -401,9 +415,12 @@ def render_matches_page() -> None:
     other_region = [item for item in results if item.relevance == "region_mismatch"]
     no_track = [item for item in results if item.relevance == "track_missing"]
     # 접수 중 공고는 지역과 상관없이 맨 위 (새벽 점검 1번: '사무·서울'이면 유일한 접수 중 동서발전이 다른 지역 맨 아래에 숨음)
-    open_now = sorted((item for item in matched + other_region if is_open(item.deadline)), key=lambda item: item.deadline)
-    past = sorted((item for item in matched if not is_open(item.deadline)), key=lambda item: item.deadline, reverse=True)
-    other_region = [item for item in other_region if not is_open(item.deadline)]
+    open_now = sorted((item for item in matched + other_region if is_open(item)), key=lambda item: item.deadline)
+    # 접수 시작 전 공고는 '접수 중' 집계에서 빼고 따로 (11-22 오류 수정 작업서 01)
+    upcoming = sorted((item for item in matched + other_region if is_upcoming(item)), key=lambda item: str(item.app_start))
+    past = sorted((item for item in matched if not is_open(item) and not is_upcoming(item)),
+                  key=lambda item: item.deadline, reverse=True)
+    other_region = [item for item in other_region if not is_open(item) and not is_upcoming(item)]
     tracks = "·".join(condition.get("tracks") or [condition["track"]])
 
     head, button = st.columns([5, 1.2], vertical_alignment="center")
@@ -433,9 +450,12 @@ def render_matches_page() -> None:
 
     _list_head("지금 접수 중", len(open_now), "마감 빠른 순")
     if not open_now:
-        st.markdown('<div class="m-empty">지금 접수 중인 공고는 없어요. 아래 지난 공고로 다음 채용을 준비해 보세요.</div>',
-                    unsafe_allow_html=True)
+        hint = "곧 접수가 시작되는 공고는 아래 ‘접수 예정’에 있어요." if upcoming else "아래 지난 공고로 다음 채용을 준비해 보세요."
+        st.markdown(f'<div class="m-empty">지금 접수 중인 공고는 없어요. {hint}</div>', unsafe_allow_html=True)
     _list(open_now, reports, "open", open_cards=True)
+    if upcoming:
+        _list_head("접수 예정", len(upcoming), "접수 시작 빠른 순")
+        _list(upcoming, reports, "soon")
     if past:
         _list_head("지난 공고", len(past), "다음 채용 대비")
         _list(past, reports, "past", first=3, more_label="지난 공고")

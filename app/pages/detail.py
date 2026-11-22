@@ -19,7 +19,7 @@ from app.pages.matches import (relevant_bonus, LANGUAGE, PAST_LABELS, VERDICT_TE
 from app.pages.report import _is_minor, _mentions_track, _render_sources, _units
 from app.report_data import DATA_NOTICE, load_reports
 from app.ui_components import DIFF_LEGEND, apply_styles, change_row, skip_unit
-from src.change_summary import application_period, date_only_change, is_schedule_line, normalize, schedule, summarize, schedule_page
+from src.change_summary import application_period, date_only_change, is_schedule_line, normalize, schedule, summarize, schedule_page, application_state
 from src.eligibility import evaluate, expand_regions, readable_unit_name
 from src.result_pdf import notice_url
 from src.clock import today_kst
@@ -74,7 +74,9 @@ def _header(report: Mapping[str, Any], mine: list[str] | None = None) -> None:
     category = f" · {report['category']} 공기업" if report.get("category") else ""
     where = work_places(report, mine)
     first, last, hour = application_period(report)  # 공고 게시일이 아니라 실제 지원서 접수 기간 (새벽 점검 2번)
-    status = (f'<span class="m-dday">{escape(_d_day(end))}</span>' if is_open(end)
+    state, start = application_state(report)  # 목록·PDF와 같은 기준 (11-22 오류 수정 작업서 01)
+    status = (f'<span class="m-dday">{escape(_d_day(end))}</span>' if state == "open"
+              else f'<span class="m-dday">접수 예정 · {start.month}.{start.day} 시작</span>' if state == "upcoming" and start
               else '<span class="d-closed">접수 마감</span>')
     title = re.sub(r"^[\[(]?" + re.escape(str(report["institution"])) + r"(\(주\))?[\])]?\s*", "", str(curr["title"]))
     with st.container(key="hero-band"):
@@ -129,7 +131,7 @@ def _verdict(report: Mapping[str, Any], condition: Mapping[str, Any] | None) -> 
         st.markdown(f'<div class="m-empty">이 공고에는 {escape(track)} 직렬 모집단위가 없어요.</div>', unsafe_allow_html=True)
         return track
     status = result.status or "ambiguous"
-    open_now = is_open(result.deadline)
+    open_now = is_open(result)
     label = VERDICT_TEXT[status] if open_now else PAST_LABELS.get(status, result.label or "")
     tone = status if open_now or status != "eligible" else "past"
     unit = next((item for item in result.units if item.get("status") == status), None)

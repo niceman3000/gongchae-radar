@@ -1,7 +1,7 @@
 {
   "pair_id": "khnp-2025-2026-round3",
   "reviewed_at": "2026-11-18",
-  "reviewer": "Claude (2026 공고 PDF 302968 대조, 사람 재확인 필요)",
+  "reviewer": "Claude (2026 공고 PDF 302968 대조, 사람 재확인 필요) · 11-22 공통 가점 누락분 추가 (원문 쪽수 근거, 수정기록_1122.md, 팀원 재확인 필요)",
   "scope": "사무·기계·전기전자·원자력·화학·수자원·토목·건축·통신 (전산은 특별전형에만 있어 제외)",
   "region_note": null,
   "items": [
@@ -1327,6 +1327,146 @@
           "quote": "통신 무선설비, 방송통신, 전파전자통신, 정보통신, 통신선로"
         }
       ]
+    },
+    {
+      "kind": "bonus",
+      "track": null,
+      "points": 2,
+      "name": "공통 가점 한국어 2점",
+      "match": {
+        "names": [
+          "KBS한국어능력시험2급",
+          "한국실용글쓰기790점"
+        ]
+      },
+      "evidence": [
+        {
+          "side": "curr",
+          "page": 28,
+          "quote": "2점 KBS한국어능력시험 2+급 이상 / 한국실용글쓰기 790점 이상"
+        }
+      ],
+      "added": "2026-11-22"
+    },
+    {
+      "kind": "bonus",
+      "track": null,
+      "points": 1,
+      "name": "공통 가점 한국어 1점",
+      "match": {
+        "names": [
+          "KBS한국어능력시험3급",
+          "한국실용글쓰기630점"
+        ]
+      },
+      "evidence": [
+        {
+          "side": "curr",
+          "page": 28,
+          "quote": "1점 KBS한국어능력시험 3+급 이상 / 한국실용글쓰기 630점 이상"
+        }
+      ],
+      "added": "2026-11-22"
+    },
+    {
+      "kind": "bonus",
+      "track": null,
+      "points": 2,
+      "name": "공통 가점 한국사 2점",
+      "match": {
+        "names": [
+          "한국사능력검정시험2급"
+        ]
+      },
+      "evidence": [
+        {
+          "side": "curr",
+          "page": 28,
+          "quote": "2점 한국사능력검정시험 2급 이상"
+        }
+      ],
+      "added": "2026-11-22"
+    },
+    {
+      "kind": "bonus",
+      "track": null,
+      "points": 1,
+      "name": "공통 가점 한국사 1점",
+      "match": {
+        "names": [
+          "한국사능력검정시험3급"
+        ]
+      },
+      "evidence": [
+        {
+          "side": "curr",
+          "page": 28,
+          "quote": "1점 한국사능력검정시험 3급 이상"
+        }
+      ],
+      "added": "2026-11-22"
+    },
+    {
+      "kind": "bonus",
+      "track": null,
+      "points": 2,
+      "name": "공통 가점 IT 2점",
+      "match": {
+        "names": [
+          "컴퓨터활용능력1급",
+          "사무자동화산업기사"
+        ]
+      },
+      "evidence": [
+        {
+          "side": "curr",
+          "page": 28,
+          "quote": "IT 2점 컴퓨터활용능력(대한상공회의소) 1급/사무자동화산업기사"
+        }
+      ],
+      "added": "2026-11-22"
+    },
+    {
+      "kind": "bonus",
+      "track": null,
+      "points": 2,
+      "name": "공통 가점 영어스피킹 2점",
+      "match": {
+        "names": [
+          "TOEIC스피킹AM",
+          "TEPS스피킹74점",
+          "OPIcAL"
+        ]
+      },
+      "evidence": [
+        {
+          "side": "curr",
+          "page": 28,
+          "quote": "2점 TOEIC스피킹 AM 이상/ TEPS스피킹 74점 이상/ OPIc AL 이상"
+        }
+      ],
+      "added": "2026-11-22"
+    },
+    {
+      "kind": "bonus",
+      "track": null,
+      "points": 1,
+      "name": "공통 가점 영어스피킹 1점",
+      "match": {
+        "names": [
+          "TOEIC스피킹AL",
+          "TEPS스피킹68점",
+          "OPIcIH"
+        ]
+      },
+      "evidence": [
+        {
+          "side": "curr",
+          "page": 28,
+          "quote": "1점 TOEIC스피킹 AL 이상/ TEPS스피킹 68점 이상/ OPIc IH 이상"
+        }
+      ],
+      "added": "2026-11-22"
     }
   ],
   "bonus_rule": {

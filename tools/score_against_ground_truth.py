@@ -21,13 +21,14 @@ from __future__ import annotations
 
 from datetime import date
 import json
+import re
 from pathlib import Path
 import sys
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
-from src.certificates import COMMON_CERTIFICATES, GRADE_RANK, normalize  # noqa: E402
+from src.certificates import COMMON_CERTIFICATES, GRADE_RANK, item_names, normalize  # noqa: E402
 from src.eligibility import UserCondition, evaluate  # noqa: E402
 from src.report_builder import _reviewed_requirements, load_api_item  # noqa: E402
 
@@ -35,12 +36,17 @@ CORE = {"kepco": "한국전력공사", "khnp": "한국수력원자력", "komipo"
 GRADES = sorted(GRADE_RANK, key=GRADE_RANK.get)
 
 
+def _key(name: str) -> str:
+    """'한국사능력검정시험3급이상'과 '한국사능력검정시험3급'은 같은 기준 (11-22: 양쪽에 똑같이 적용)"""
+    return re.sub(r"이상$", "", normalize(name))
+
+
 def expand(match: dict) -> set[str]:
-    """인정 목록 → 자격증 이름 집합 (이름 나열 + 종목×등급)."""
-    names = {normalize(name) for name in match.get("names") or []}
-    for item in match.get("items") or []:
+    """인정 목록 → 자격증 이름 집합 (이름 나열 + 종목×등급). 앱 판정과 같은 규칙으로 묶음 종목(비파괴검사)을 펼침."""
+    names = {_key(name) for name in match.get("names") or []}
+    for item in item_names(match.get("items") or []):
         for grade in match.get("grades") or []:
-            names.add(normalize(f"{item}{grade}"))
+            names.add(_key(f"{item}{grade}"))
     return names
 
 

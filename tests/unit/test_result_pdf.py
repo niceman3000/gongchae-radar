@@ -28,6 +28,7 @@ def test_open_notice_is_a_card_with_bonus_and_evidence() -> None:
     """접수 중 공고는 카드: 판정·가점·근거 한 개 (11-21: 18쪽 → 2쪽으로 줄이면서 접수 중만 자세히)"""
     condition, report, result = _kepco()
     result.deadline = "20991231"  # 접수 중으로
+    result.app_state = "open"
     data = build_result_pdf(condition, [(result, report, None)], made_at="2026.11.20")
 
     assert data[:5] == b"%PDF-"

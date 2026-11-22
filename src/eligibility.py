@@ -71,6 +71,8 @@ class EligibilityResult:
     bonus: list[dict[str, Any]] = field(default_factory=list)
     bonus_rule: str | None = None
     common_checks: list[str] = field(default_factory=list)
+    app_state: str = ""          # upcoming | open | closed (공고문 접수 기간 기준, 한국 시각)
+    app_start: Any = None        # 접수 시작일 (접수 예정 안내용)
 
 
 def expand_regions(values: Iterable[str]) -> list[str]:
@@ -262,6 +264,9 @@ def evaluate(condition: UserCondition, report: Mapping[str, Any]) -> Eligibility
         common_checks=[str(item["text"]) for item in requirements.get("common_checks") or []],
         bonus_rule=(requirements.get("bonus_rule") or {}).get("text"),
     )
+    from src.change_summary import application_state  # 순환 import 피하려고 여기서
+
+    result.app_state, result.app_start = application_state(report)
 
     # 한 모집단위가 여러 직렬에 걸칠 수 있음(전기통신 → 전기·ICT), '전체'는 직렬 구분 없는 모집단위 (11-21)
     all_units = [unit for unit in requirements.get("units") or []

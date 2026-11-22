@@ -77,7 +77,7 @@ def _preview(reports: list[dict]) -> None:
 
     condition = UserCondition(EXAMPLE["track"], "·".join(EXAMPLE["regions"]), tuple(EXAMPLE["certificates"]))
     results = [item for item in evaluate_all(condition, reports) if item.relevance == "match"]
-    row = next((item for item in results if is_open(item.deadline)), results[0] if results else None)
+    row = next((item for item in results if is_open(item)), results[0] if results else None)
     change = None
     for report in reports:
         if report.get("pair_id") != "kepco-2025-2026-h2":
@@ -111,7 +111,9 @@ def example_preview(reports: list[dict]) -> dict | None:
     results = [item for item in evaluate_all(condition, reports) if item.relevance == "match" and item.status == "eligible"]
     if not results:
         return None
-    result = next((item for item in results if is_open(item.deadline)), results[0])
+    from app.pages.matches import is_upcoming
+    result = next((item for item in results if is_open(item)), None) or \
+        next((item for item in results if is_upcoming(item)), results[0])
     report = next(item for item in reports if item.get("pair_id") == result.pair_id)
     rows = []
     bonus = max(relevant_bonus(result), key=lambda row: row["points"], default=None)

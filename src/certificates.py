@@ -42,6 +42,21 @@ def parse(name: str) -> tuple[str, str | None]:
     return normalize(item), found.group("grade")
 
 
+# 공고문이 한 이름으로 묶어 쓰는 종목 (중부발전 23쪽 '비파괴검사(방사선·초음파·자기·침투·와전류·누설)').
+# AI가 '비파괴검사'로만 뽑으면 '방사선비파괴검사기사' 보유자가 가점 0점이 됨 (11-22 정답지 대조에서 발견)
+FAMILIES = {"비파괴검사": ["방사선비파괴검사", "초음파비파괴검사", "자기비파괴검사", "침투비파괴검사", "와전류비파괴검사", "누설비파괴검사"]}
+
+
+def item_names(items: Iterable[str]) -> set[str]:
+    """인정 종목 목록 → 비교용 이름 집합 (묶음 종목은 세부 종목까지)"""
+    output = set()
+    for value in items:
+        key = normalize(value)
+        output.add(key)
+        output.update(normalize(member) for member in FAMILIES.get(key, []))
+    return output
+
+
 def matches(name: str, rule: Mapping[str, Any]) -> bool:
     """자격증 하나가 공고의 인정 목록(rule)에 들어가는지."""
     if normalize(name) in {normalize(item) for item in rule.get("names") or []}:
@@ -49,7 +64,7 @@ def matches(name: str, rule: Mapping[str, Any]) -> bool:
     item, grade = parse(name)
     if grade is None or not rule.get("items"):
         return False
-    return item in {normalize(value) for value in rule["items"]} and grade in set(rule.get("grades") or [])
+    return item in item_names(rule["items"]) and grade in set(rule.get("grades") or [])
 
 
 def keep_highest_grade(names: Iterable[str]) -> list[str]:

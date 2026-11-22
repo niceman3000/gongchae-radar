@@ -69,3 +69,12 @@ def test_every_schedule_is_in_order() -> None:
         cells = [cell for cell in schedule(json.loads(path.read_text(encoding="utf-8"))) if cell["name"] in order]
         firsts = [cell["first"] for cell in cells]
         assert firsts == sorted(firsts), path.name
+
+
+def test_grouped_certificate_family_is_recognized() -> None:
+    """11-22 정답지 대조: 공고 '비파괴검사(방사선·초음파…)'를 AI가 '비파괴검사'로 뽑아도 세부 종목 보유자 인정 (중부발전 23쪽)"""
+    from src.certificates import matches
+
+    rule = {"items": ["전기", "비파괴검사"], "grades": ["기사"]}
+    assert matches("방사선비파괴검사기사", rule) and matches("초음파비파괴검사기사", rule)
+    assert not matches("방사선비파괴검사산업기사", rule)

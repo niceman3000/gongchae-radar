@@ -10,14 +10,14 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from datetime import date, timedelta
+from datetime import date, datetime, time, timedelta
 from itertools import combinations
 from difflib import SequenceMatcher
 import json
 from pathlib import Path
 import re
 from typing import Any, Iterable, Mapping
-from src.clock import today_kst
+from src.clock import now_kst, today_kst
 
 ROOT = Path(__file__).resolve().parents[1]
 STATUSES = ("같음", "바뀜", "새로", "비교 어려움", "정보 없음")
@@ -557,7 +557,8 @@ def schedule(report: Mapping[str, Any], today: date | None = None) -> list[dict[
             text = f"{dates[0]:%m.%d}" + (f"~{dates[-1]:%m.%d}" if len(dates) > 1 and dates[-1] != dates[0] else "")
             cells.append({"name": name, "text": text.lstrip("0").replace("~0", "~").replace(".0", "."),
                           "first": dates[0], "last": dates[-1]})
-    current = next((cell for cell in cells if cell["last"] >= today), None)
+    # 오늘이 그 단계 기간 안일 때만 '지금' (11-22 오류 수정 작업서 02: 시작 전 접수에 '지금'이 붙음)
+    current = next((cell for cell in cells if cell["first"] <= today <= cell["last"]), None)
     for cell in cells:
         cell["current"] = cell is current
     return cells[:5]
@@ -660,3 +661,23 @@ def application_period(report: Mapping[str, Any]) -> tuple[date | None, date | N
                 hour = f"{hours[-1]}시"
                 break
     return found[0], found[-1], hour
+
+
+_PERIODS: dict[str, tuple[date | None, date | None, str]] = {}
+
+
+def application_state(report: Mapping[str, Any], now: datetime | None = None) -> tuple[str, date | None]:
+    """접수 상태 (접수 예정 upcoming / 접수 중 open / 마감 closed)와 접수 시작일.
+    목록·상세·결과 PDF가 같은 기준을 쓰도록 한곳에서 판정 (11-22 오류 수정 작업서 01: 11.24 시작 공고가 11.22에 '접수 중').
+    공고문의 지원서 접수 기간을 쓰고, 마감 시각('17시')을 읽었으면 그 시각까지만 접수 중"""
+    key = str(report.get("pair_id") or id(report))
+    if key not in _PERIODS:
+        _PERIODS[key] = application_period(report)
+    first, last, hour = _PERIODS[key]
+    if not last:
+        return "closed", first
+    now = now or now_kst()
+    closes = datetime.combine(last, time()) + timedelta(hours=int(hour[:-1]) if hour else 24)
+    if first and now.date() < first:
+        return "upcoming", first
+    return ("open" if now < closes else "closed"), first

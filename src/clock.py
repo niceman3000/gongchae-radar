@@ -10,3 +10,8 @@ KST = ZoneInfo("Asia/Seoul")
 
 def today_kst() -> date:
     return datetime.now(KST).date()
+
+
+def now_kst() -> datetime:
+    """한국 시각 (시간대 정보 없이) — 접수 마감 '17시' 비교용"""
+    return datetime.now(KST).replace(tzinfo=None)
