@@ -19,7 +19,7 @@ from app.pages.matches import (relevant_bonus, LANGUAGE, PAST_LABELS, VERDICT_TE
 from app.pages.report import _is_minor, _mentions_track, _render_sources, _units
 from app.report_data import DATA_NOTICE, load_reports
 from app.ui_components import DIFF_LEGEND, apply_styles, change_row
-from src.change_summary import application_period, date_only_change, is_schedule_line, normalize, schedule, summarize
+from src.change_summary import application_period, date_only_change, is_schedule_line, normalize, schedule, summarize, schedule_page
 from src.eligibility import evaluate, expand_regions, readable_unit_name
 from src.result_pdf import notice_url
 from src.clock import today_kst
@@ -214,6 +214,10 @@ def _schedule(report: Mapping[str, Any]) -> None:
         f'<div class="t-name">{escape(cell["name"])}</div><div class="t-date">{escape(cell["text"])}</div></div>'
         for cell in cells)
     st.markdown(f'<div class="timeline">{html}</div>', unsafe_allow_html=True)
+    if len(cells) <= 2:  # 접수 말고 읽은 단계가 거의 없음 → 숨긴 날짜는 공고문에서 (11-22 일정 점검 A·B 임시 대책)
+        page = schedule_page(report)
+        where = f"공고문 {page}쪽 일정 표" if page else "공고문 '채용절차 및 일정' 표"
+        st.caption(f"자동으로 읽지 못했거나 순서가 맞지 않아 뺀 단계가 있어요. 나머지 일정은 {where}에서 확인하세요.")
 
 
 def _group(unit: Mapping[str, Any]) -> str:

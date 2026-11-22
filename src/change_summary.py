@@ -10,7 +10,8 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from datetime import date
+from datetime import date, timedelta
+from itertools import combinations
 from difflib import SequenceMatcher
 import json
 from pathlib import Path
@@ -30,6 +31,7 @@ GLOSSARY = {
 BULLET = re.compile(r"^\s*(?:[□■○●◦ㅇ※\-·•*▶▷>]|\d{1,2}[.)]|\(\d{1,2}\)|[①-⑳]|[가-하][.)])\s*")
 DATE = re.compile(r"(?:(\d{4})|['’‘](\d{2}))\s*[.년]\s*(\d{1,2})\s*[.월]\s*(\d{1,2})")
 DATE_SHORT = re.compile(r"(?<![\d.])(\d{1,2})\s*\.\s*(\d{1,2})\s*\.?")
+NOT_DATE_AFTER = re.compile(r"\s*(?:[~∼～-]\s*[\d.]+\s*)?(?:배|점|%|명|개|년|시간)")
 
 
 @dataclass
@@ -128,6 +130,8 @@ def _dates(text: str, default_year: int) -> list[date]:
             continue
     if not found:  # 공고문 원문의 '10.24.(금)', '10. 24.(금) ~ 10. 28.(화)' (연도 없음 → 공고 연도)
         for match in DATE_SHORT.finditer(text):
+            if NOT_DATE_AFTER.match(text, match.end()):  # '1.5~2배수', '1.1배수', '0.3점' (11-22 일정 점검 C-1)
+                continue
             try:
                 found.append(date(default_year, int(match.group(1)), int(match.group(2))))
             except ValueError:
@@ -343,28 +347,88 @@ STAGES = (  # (칸 이름, 찾는 말, 빼는 말)
     ("필기 합격 발표", r"필기\s*(전형\s*)?합격(자)?\s*발표", r""),
     ("서류 합격 발표", r"서류\s*(전형\s*)?합격(자)?\s*발표", r""),
     ("자기소개서", r"자기소개서", r""),
-    ("면접", r"면접(전형)?", r"발표|대상자|합격"),
+    ("면접", r"면접(전형)?", r"발표|대상자|합격|장소\s*및\s*시간|본인\s*확인"),
     ("최종 발표", r"최종\s*합격(자)?\s*발표", r""),
 )
 
 
-def _stage_dates(lines: Iterable[str], year: int) -> dict[str, list[date]]:
-    output: dict[str, list[date]] = {}
+NOISE = re.compile(r"기준|이후\s*(발급|응시)|발급|유효|부터\s*.*(최종일|까지\s*계속)|이전까지|진위|장소\s*및\s*시간\s*안내|본인\s*확인")
+
+
+def _candidates(lines: Iterable[str], year: int) -> dict[str, list[tuple[int, list[date]]]]:
+    """단계별 (점수, 날짜) 후보 전부. 점수: 단계 이름이 날짜 앞에 있고 짧은 줄 +, '○○일 기준·이후 발급' 같은 줄 −
+    (11-22 일정 점검 A: 첫 줄만 쓰다 '’26년 1월 1일부터 면접시험 최종일까지'를 면접 날짜로 읽음)"""
+    output: dict[str, list[tuple[int, list[date]]]] = {}
     for line in lines:
         text = strip_bullet(line)
         for name, pattern, exclude in STAGES:
-            if name in output or not re.search(pattern, text) or (exclude and re.search(exclude, text)):
+            found = re.search(pattern, text)
+            if not found or (exclude and re.search(exclude, text)):
                 continue
             dates = _dates(text, year)
             if len(dates) > 1 and dates[-1] < dates[0]:  # 끝이 앞보다 이르면 뒤 날짜는 버림 (다른 줄이 섞인 것)
                 dates = dates[:1]
-            if dates:
-                output[name] = dates
-                break
+            if not dates:
+                continue
+            first_date = min((m.start() for m in (DATE.search(text), DATE_SHORT.search(text)) if m), default=len(text))
+            score = (2 if found.start() < first_date else 0) + (1 if len(text) <= 80 else 0) - (5 if NOISE.search(text) else 0)
+            output.setdefault(name, []).append((score, dates))
+            break
     return output
 
 
-def _bundle_lines(sn: str) -> list[str]:
+def _stage_dates(lines: Iterable[str], year: int) -> dict[str, list[date]]:
+    output = {}
+    for name, items in _candidates(lines, year).items():
+        best = max(items, key=lambda item: item[0])  # 같은 점수면 먼저 나온 줄
+        if best[0] >= 0:
+            output[name] = best[1]
+    return output
+
+
+STAGE_WORD = re.compile(r"([123])\s*차\s*전형|(서류|필기|면접)\s*전형")
+STAGE_BY_WORD = {"1": "서류", "2": "필기", "3": "면접", "서류": "서류", "필기": "필기", "면접": "면접"}
+
+
+def _stage_of(text: str) -> str | None:
+    found = list(STAGE_WORD.finditer(text))
+    if not found:
+        return None
+    match = found[-1]
+    return STAGE_BY_WORD[match.group(1) or match.group(2)]
+
+
+def _labeled_lines(raw: list[str]) -> list[str]:
+    """단계 이름과 날짜가 떨어진 일정 표를 '단계 + 날짜' 한 줄로 (11-22 일정 점검 B)
+    - 표 행 '| 필기 전형 | … | □ 합격자 발표 - 2026.10.26 |' → '필기 합격자 발표 2026.10.26'
+    - 한전처럼 칸이 흩어진 글자: '①합격자 발표 : ’26. 9.23' 앞쪽 가까운 줄의 '1차전형' → '서류 합격자 발표 …',
+      '①일정 : ’26.11. 9~11.27' 바로 다음 줄이 '3차전형 ① 직무면접' → '면접 …'"""
+    output: list[str] = []
+    for index, line in enumerate(raw):
+        if line.startswith("|"):
+            cells = [cell.strip() for cell in line.strip("|").split("|")]
+            stage = _stage_of(cells[0] + " 전형") if cells and re.search(r"서류|필기|면접", cells[0]) else None
+            if stage:
+                for part in re.split(r"□", " ".join(cells[1:]))[1:]:  # 가스공사처럼 '□ 합격자 발표 - 날짜'로 칸 안에 나열된 표만
+                    if not DATE.search(part):
+                        continue
+                    if re.match(r"\s*합격자\s*발표", part):
+                        output.append(("최종 합격자 발표 " if stage == "면접" else f"{stage} 합격자 발표 ") + part)
+                    elif stage == "면접" and re.match(r"\s*면접\s*(일자|일정)", part):
+                        output.append(f"면접 {part}")
+            continue
+        if not DATE.search(line) or _stage_of(line):
+            continue
+        if re.search(r"합격자\s*발표", line) and not re.search(r"서류|필기|면접|최종", line):
+            stage = next((_stage_of(prev) for prev in reversed(raw[max(0, index - 5):index]) if _stage_of(prev)), None)
+            if stage:  # 3차(면접)전형 합격자 발표 = 최종 발표 (한전)
+                output.append(("최종 합격자 발표 " if stage == "면접" else f"{stage} 합격자 발표 ") + line)
+        elif re.search(r"일\s*정\s*[:：]|일\s*자\s*[:：]", line) and index + 1 < len(raw) and _stage_of(raw[index + 1]) == "면접":
+            output.append(f"면접 {line}")
+    return output
+
+
+def _bundle_pages(sn: str) -> list[str]:
     path = ROOT / "stage2" / f"bundle_{sn}.json"
     if not sn or not path.exists():
         return []
@@ -372,8 +436,21 @@ def _bundle_lines(sn: str) -> list[str]:
         pages = json.loads(path.read_text(encoding="utf-8")).get("all_text") or {}
     except (OSError, ValueError):
         return []
-    texts = pages.values() if isinstance(pages, dict) else pages
-    return [line.strip() for text in texts for line in str(text).splitlines() if 6 <= len(line.strip()) <= 120]
+    return [str(text) for text in (pages.values() if isinstance(pages, dict) else pages)]
+
+
+def _bundle_lines(sn: str, limit: int = 120) -> list[str]:
+    return [line.strip() for text in _bundle_pages(sn) for line in text.splitlines() if 6 <= len(line.strip()) <= limit]
+
+
+def schedule_page(report: Mapping[str, Any]) -> int | None:
+    """공고문에서 '채용절차 및 일정' 표가 있는 쪽 (일정을 못 읽었을 때 안내용)"""
+    pages = _bundle_pages(str((report.get("curr") or {}).get("sn") or ""))
+    for number, text in enumerate(pages, 1):
+        if re.search(r"(채용|전형)\s*(절차|일정)|세부\s*일정", text) and (DATE.search(text) or DATE_SHORT.search(text)):
+            if re.search(r"합격자\s*발표|면접", text):
+                return number
+    return None
 
 
 def _schedule_lines(report: Mapping[str, Any], side: str) -> list[str]:
@@ -392,9 +469,48 @@ def _all_stage_dates(report: Mapping[str, Any], side: str, year: int) -> dict[st
     """변경 기록(API 문장)에서 먼저 찾고, 없는 단계만 공고문 원문 글자에서. 원문의 '접수' 줄은 안 씀 (다른 줄이 섞임)"""
     found = _stage_dates(_schedule_lines(report, side), year)
     sn = str((report.get(side) or {}).get("sn") or "")
-    extra = _stage_dates([line for line in _bundle_lines(sn) if DATE.search(line) or DATE_SHORT.search(line)], year)
+    raw = _bundle_lines(sn, limit=600)
+    labeled = _stage_dates(_labeled_lines(raw), year)
+    extra = _stage_dates([line for line in raw if len(line) <= 120 and (DATE.search(line) or DATE_SHORT.search(line))], year)
     extra.pop("지원서 접수", None)
-    return {**extra, **found}
+    labeled.pop("지원서 접수", None)
+    merged = {**extra, **labeled, **found}
+    return _checked(merged, report, side)
+
+
+def _checked(found: dict[str, list[date]], report: Mapping[str, Any], side: str) -> dict[str, list[date]]:
+    """순서가 안 맞는 날짜는 버림 (11-22 일정 점검 A: 철도 면접 1.1, 수자원 최종 발표 8.26).
+    접수 시작일 7일 전 ~ 210일 뒤만 인정, 단계 순서(서류 발표 → 필기 발표 → 면접 → 최종 발표)를 거스르면 뒤 단계를 버림"""
+    period = (report.get(side) or {}).get("period") or {}
+    start = str(period.get("start") or "")
+    if len(start) != 8 or not start.isdigit():
+        return found
+    anchor = date(int(start[:4]), int(start[4:6]), int(start[6:]))
+    output: dict[str, list[date]] = {}
+    for name, dates in found.items():
+        first = dates[0]
+        if first < anchor - timedelta(days=7):  # '1.25' 같은 연도 없는 날짜가 해를 넘긴 경우
+            try:
+                moved = [value.replace(year=value.year + 1) for value in dates]
+            except ValueError:
+                continue
+            if moved[0] - anchor <= timedelta(days=210):
+                dates, first = moved, moved[0]
+        if name != "지원서 접수" and not (anchor - timedelta(days=7) <= first <= anchor + timedelta(days=210)):
+            continue
+        output[name] = dates
+    order = [name for name in ("서류 합격 발표", "필기 합격 발표", "면접", "최종 발표") if name in output]
+    best: tuple[str, ...] = ()
+    for size in range(len(order), 0, -1):  # 순서가 맞는 가장 긴 묶음만 남김 (같은 길이면 날짜가 덜 튀는 쪽)
+        chains = [chain for chain in combinations(order, size)
+                  if all(output[a][0] <= output[b][0] for a, b in zip(chain, chain[1:]))]
+        if chains:
+            best = min(chains, key=lambda chain: max(output[name][0] for name in chain))
+            break
+    for name in order:
+        if name not in best:
+            output.pop(name)
+    return output
 
 
 def schedule(report: Mapping[str, Any], today: date | None = None) -> list[dict[str, Any]]:
@@ -428,6 +544,14 @@ def _schedule_row(report: Mapping[str, Any]) -> SummaryRow:
     prev_year = int(str(((report.get("prev") or {}).get("period") or {}).get("start") or year - 1)[:4])
     curr = _all_stage_dates(report, "curr", year)
     prev = _all_stage_dates(report, "prev", prev_year)
+    curr.pop("지원서 접수", None)
+    shift = _period_shift(report)
+    if curr and shift is not None and abs(shift) > 90:  # 11-22 일정 점검 C-2: 서부발전 작년 짝이 4월 공고
+        name, dates = next(iter(curr.items()))
+        prev_start = str(((report.get("prev") or {}).get("period") or {}).get("start") or "")
+        return SummaryRow("schedule", "일정", "비교 어려움",
+                          f"올해 {name} {dates[0]:%m.%d}. 작년 비교 공고는 {int(prev_start[4:6])}월 접수라 시기가 달라 날짜를 비교하지 않았어요.",
+                          "", ["일정"])
     for name in ("필기 합격 발표", "서류 합격 발표", "면접"):
         if name in curr and name in prev:
             now, before = curr[name][0], prev[name][0]
@@ -452,7 +576,19 @@ def _schedule_row(report: Mapping[str, Any]) -> SummaryRow:
         name, dates = next(iter(curr.items()))
         return SummaryRow("schedule", "일정", "정보 없음",
                           f"올해 {name} {dates[0]:%m.%d}. 작년 같은 단계 날짜는 공고문에서 확인하세요.", "", ["일정"])
-    return SummaryRow("schedule", "일정", "정보 없음", "공고에서 일정 줄을 찾지 못했어요.", "", ["일정"])
+    page = schedule_page(report)
+    where = f"공고문 {page}쪽 일정 표에서" if page else "공고문 '채용절차 및 일정' 표에서"
+    return SummaryRow("schedule", "일정", "정보 없음", f"일정을 자동으로 읽지 못했어요. {where} 확인하세요.", "", ["일정"])
+
+
+def _period_shift(report: Mapping[str, Any]) -> int | None:
+    """올해·작년 공고 접수 시작일이 해 안에서 며칠 차이 나는지 (짝이 상반기↔하반기로 엇갈렸는지 보려고)"""
+    values = [str(((report.get(side) or {}).get("period") or {}).get("start") or "") for side in ("curr", "prev")]
+    if not all(len(value) == 8 and value.isdigit() for value in values):
+        return None
+    curr, prev = (date(2000, int(value[4:6]), int(value[6:])) for value in values)
+    gap = (curr - prev).days
+    return gap - 366 if gap > 183 else gap + 366 if gap < -183 else gap
 
 
 def summarize(report: Mapping[str, Any], track: str = "") -> list[SummaryRow]:
