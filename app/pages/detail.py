@@ -18,7 +18,7 @@ from app.pages.matches import (relevant_bonus, LANGUAGE, PAST_LABELS, VERDICT_TE
                                _unique_evidence, is_open)
 from app.pages.report import _is_minor, _mentions_track, _render_sources, _units
 from app.report_data import DATA_NOTICE, load_reports
-from app.ui_components import DIFF_LEGEND, apply_styles, change_row
+from app.ui_components import DIFF_LEGEND, apply_styles, change_row, skip_unit
 from src.change_summary import application_period, date_only_change, is_schedule_line, normalize, schedule, summarize, schedule_page
 from src.eligibility import evaluate, expand_regions, readable_unit_name
 from src.result_pdf import notice_url
@@ -239,7 +239,7 @@ def _raw(report: Mapping[str, Any], track: str) -> None:
                    and not (is_schedule_line(change.get("prev_value")) and is_schedule_line(change.get("curr_value")))
                    and not (change.get("change_type") == "text"
                             and normalize(change.get("prev_value")) == normalize(change.get("curr_value")))]
-        if members:
+        if members and not skip_unit({**unit, "changes": members}):  # 기호만 바뀐 것·내용 없는 소제목 (11-22 15시 7·14번)
             units.append({**unit, "changes": members})
     if not st.toggle(f"원문 대조: 작년·올해 문구 차이 {len(units)}건 보기", key=f"raw-{report['pair_id']}"):
         st.caption("인원·전형·자격·가점으로 묶어서 보여 줘요. 줄 단위 비교는 여기에만 있어요.")
@@ -248,6 +248,7 @@ def _raw(report: Mapping[str, Any], track: str) -> None:
     pair_id, info = str(report["pair_id"]), report.get("notice_info")
     count = summarize(report, track)[0]  # 위 5줄과 같은 판단 (새벽 점검 18번: 5줄 '비교 어려움', 아래 '늘었어요')
     count_note = count.answer if count.status == "비교 어려움" else None
+    bonus = next((row for row in summarize(report, track) if row.key == "bonus"), None)
     for name, _ in RAW_GROUPS:
         members = [unit for unit in units if _group(unit) == name]
         if not members:
@@ -256,8 +257,13 @@ def _raw(report: Mapping[str, Any], track: str) -> None:
         st.markdown(f'<div class="d-units-head">{escape(name)} {len(members)}건</div>', unsafe_allow_html=True)
         for index, unit in enumerate(members):
             meaning = count_note if name == "인원" else None
+            override = None
+            if bonus and bonus.status in {"같음", "바뀜"} and unit["category"] == "가점":
+                subject = bonus.answer.split(" ")[0] + " " + bonus.answer.split(" ")[1] if " " in bonus.answer else ""
+                if subject and any(subject in str(change.get("prev_value") or "") for change in unit["changes"]):
+                    override = f"{bonus.answer.split('.')[0]}"  # 위 5줄 가점 줄과 같은 말
             change_row(unit, titles, pair_id, info, track if _mentions_track(unit, track) else None, first=index == 0,
-                       meaning=meaning)
+                       meaning=meaning, title_override=override)
     st.markdown(DIFF_LEGEND, unsafe_allow_html=True)
     _render_sources(report)
 

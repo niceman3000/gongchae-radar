@@ -72,14 +72,14 @@ def test_raw_comparison_keeps_cards_when_opened():
 
 
 def test_dongseo_detail_follows_spec_checks():
-    """인원 '비교 어려움', 가점 '같음(30% 그대로)', 요약에 '신설' 없음, 일정 5칸, 원문 대조 접힘"""
+    """인원 '비교 어려움', 가점 '30% 그대로, 대상에서 IT 빠짐'(11-22 15시 2번), 요약에 '신설' 없음, 일정 5칸, 원문 대조 접힘"""
     app = _open_detail(_pair("한국동서발전"))
 
     assert not app.exception
     text = _text(app)
     table = text[text.index('<table class="s-table">'):text.index("</table>", text.index('<table class="s-table">'))]
     assert 's-hard">비교 어려움' in table and "고졸 전형이 새로 들어가" in table
-    assert "30% 그대로" in table and 's-same">같음' in table
+    assert "30% 그대로, 대상에서 IT 빠짐" in table
     assert "신설" not in table
     assert text[text.index('class="timeline"'):].count('class="t-name"') == 5
     assert app.toggle[0].value is False
@@ -216,3 +216,16 @@ def test_detail_header_period_query_and_raw_consistency():
     raw = _text(app)[_text(app).index('<a id="raw"></a>'):]
     assert "신체검사" not in raw and "2026.03.15" not in raw
     assert "단순 비교가 어려워요" in raw and "뽑는 인원이 늘었어요" not in raw
+
+
+def test_raw_titles_match_summary_and_plain_words():
+    """11-22 15시 애매한 표현: 원문 대조 가점 제목 = 5줄, 개발자 말투·낱말 나열·'명시 없음' 없음, 목록은 '작년에만 있음'"""
+    app = _open_detail(_pair("한국동서발전"))
+    app.toggle[0].set_value(True).run()
+    raw = _text(app)[_text(app).index('<a id="raw"></a>'):]
+    assert "본사이전 지역인재 30% 그대로, 대상에서 IT 빠짐" in raw and "본사이전 지역인재 우대 신설" not in raw
+    assert "한 장으로 묶었어요" not in raw and "명시 없음" not in raw and " 관련 변경 " not in raw
+    assert "작년에만 있음" in raw and "빠진 직무분야(NCS) 2개: 운전.운송, 정보통신" in raw
+    import re
+    titles = re.findall(r'<div class="c-title">([^<]*)', raw)
+    assert titles and not any(re.search(r"^[○ㅇ□※-]|: [○ㅇ□※-] ", title) for title in titles)

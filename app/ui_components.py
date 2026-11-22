@@ -517,11 +517,11 @@ def eligibility_badge(status: str | None) -> None:
     st.markdown(f'<span class="status-badge status-{safe}">{escape(label)}</span>', unsafe_allow_html=True)
 
 
-def display_value(value: Any) -> str:
-    if value is None:
-        return "명시 없음"
+def display_value(value: Any, side: str | None = None) -> str:
+    if value is None:  # '명시 없음'은 공고 속 '명시 없음 = 제한 없음'과 헷갈림 (11-22 15시 애매한 표현 8번)
+        return {"prev": "작년 공고에 없던 문구", "curr": "올해 공고에 없는 문구"}.get(side or "", "공고에 없음")
     if value == []:
-        return "없음"
+        return {"prev": "빠진 것 없음", "curr": "새로 생긴 것 없음"}.get(side or "", "없음")
     if isinstance(value, list):
         return ", ".join(str(item) for item in value)
     if isinstance(value, (dict, tuple)):
@@ -711,7 +711,12 @@ def number_title(change: Mapping[str, Any]) -> tuple[str, str | None] | None:
     if any(value.replace(".", "").isdigit() for value in gone + new):  # 단위 없는 숫자(날짜·번호)가 섞이면 숫자 제목을 쓰지 않음
         return None
     label = {"전형": "전형 기준", "가점": "가점"}.get(category, category or "숫자")
-    title = f"{label}: {', '.join(gone) or '없음'} → {', '.join(new) or '없음'}"
+    if not gone:  # 12번: '없음 → 1%'는 작년에 없던 게 아니라 작년 공고 이 문장에 안 적힌 것
+        title = f"{label}: {', '.join(new)} (작년 공고 이 문장엔 안 적힘)"
+    elif not new:
+        title = f"{label}: {', '.join(gone)} (올해 공고 이 문장엔 안 적힘)"
+    else:
+        title = f"{label}: {', '.join(gone)} → {', '.join(new)}"
     fragment = _changed_fragment(prev, curr, new or gone, added=bool(new))
     if fragment and not (gone and new):  # 한쪽에만 있는 숫자: 바뀐 조각으로 제목 (11-21 팀원 점검 13번 '전기(배전, 송변전) 10배수 신설')
         return f"{fragment} {'신설' if new else '없어짐'}", _fragment_meaning(prev, curr, fragment, new or gone, bool(new))
@@ -858,12 +863,11 @@ def group_title(
     if first:
         return (
             f'{first} 외 {len(unit["changes"]) - 1}건',
-            "같은 변경이 공고 여러 곳에 나뉘어 잡혀 한 장으로 묶었어요. 아래 문구별 차이를 함께 확인하세요.",
+            f'관련된 변경 {len(unit["changes"])}개를 한곳에 모았어요.',
         )
-    terms = ", ".join(group.get("shared_terms") or [])
     return (
-        f'{unit["category"]} 관련 변경 {len(unit["changes"])}건' + (f" · {terms}" if terms else ""),
-        "같은 변경이 공고 여러 곳에 나뉘어 잡혀 한 장으로 묶었어요. 아래 문구별 차이를 함께 확인하세요.",
+        f'{unit["category"]} 문구 {len(unit["changes"])}곳 변경',
+        f'관련된 변경 {len(unit["changes"])}개를 한곳에 모았어요.',
     )
 
 
@@ -872,7 +876,14 @@ def _member_label(change: Mapping[str, Any], notice_info: Mapping[str, Any] | No
     if section and str(change.get("category")) == "가점":
         where = section if "전형" in section else f"{section} 전형"
         return f"{where} 가점 대상 목록"
+    if change.get("change_type") == "number" and _same_numbers(change):  # 2번: 숫자는 같은데 '바뀐 숫자'
+        return "바뀐 적용 대상"
     return MEMBER_LABELS.get(str(change.get("change_type")), "바뀐 내용")
+
+
+def _same_numbers(change: Mapping[str, Any]) -> bool:
+    found = [set(re.findall(r"\d+(?:\.\d+)?\s*(?:%|점|배수|명)", str(change.get(key) or ""))) for key in ("prev_value", "curr_value")]
+    return bool(found[0]) and found[0] == found[1]
 
 
 def group_card(
@@ -935,8 +946,8 @@ def _title_html(title: str) -> str:
     return f'{escape(title[:match.start()])}<span class="{css}">({escape(match.group(1) + match.group(2))})</span>'
 
 
-def _two_column(prev_html: str, curr_html: str) -> str:
-    return (f'<table class="c-table"><thead><tr><th>{PREV_HEAD}</th><th>{CURR_HEAD}</th></tr></thead>'
+def _two_column(prev_html: str, curr_html: str, heads: tuple[str, str] = (PREV_HEAD, CURR_HEAD)) -> str:
+    return (f'<table class="c-table"><thead><tr><th>{heads[0]}</th><th>{heads[1]}</th></tr></thead>'
             f"<tbody><tr><td>{prev_html}</td><td>{curr_html}</td></tr></tbody></table>")
 
 
@@ -947,8 +958,8 @@ def change_values_table(change: Mapping[str, Any]) -> None:
         return
     if change.get("change_type") == "text" and is_list_like(previous) and is_list_like(current):
         removed, added, same = item_diff(previous, current)
-        st.markdown(_two_column(_chips(removed, "removed") or "빠진 항목 없음", _chips(added, "added") or "새 항목 없음"),
-                    unsafe_allow_html=True)
+        st.markdown(_two_column(_chips(removed, "removed") or "빠진 것 없음", _chips(added, "added") or "새로 생긴 것 없음",
+                                heads=("작년에만 있음", "올해 새로 생김")), unsafe_allow_html=True)
         with st.expander(f"그대로인 항목 {same}개와 원문 전체"):
             st.markdown(_two_column(escape(previous), escape(current)), unsafe_allow_html=True)
         return
@@ -959,7 +970,92 @@ def change_values_table(change: Mapping[str, Any]) -> None:
             with st.expander("원문 전체 비교"):
                 st.markdown(_two_column(escape(previous), escape(current)), unsafe_allow_html=True)
         return
-    st.markdown(_two_column(escape(display_value(previous)), escape(display_value(current))), unsafe_allow_html=True)
+    if change.get("change_type") == "list":  # 3번: 한쪽에만 있는 항목만 들어 있음
+        st.markdown(_two_column(escape(display_value(previous, "prev")), escape(display_value(current, "curr")),
+                                heads=("작년에만 있음", "올해 새로 생김")), unsafe_allow_html=True)
+        return
+    st.markdown(_two_column(escape(display_value(previous, "prev")), escape(display_value(current, "curr"))),
+                unsafe_allow_html=True)
+
+
+BULLET = re.compile(r"^[\s○ㅇ◦•∙·\-–□■※▸▶◎◇◆‣>*]+")
+QUOTE = re.compile(r"[ʻ‘']([^’']*)[’']")
+
+
+def _clean(text: str) -> str:
+    return BULLET.sub("", text).strip()
+
+
+def _particle(word: str, pair: tuple[str, str] = ("이", "가")) -> str:
+    last = word.rstrip("’'\")」 ")[-1:]
+    if "가" <= last <= "힣":
+        return pair[0] if (ord(last) - 0xAC00) % 28 else pair[1]
+    return pair[1]
+
+
+def list_title(change: Mapping[str, Any]) -> tuple[str, str] | None:
+    """3번: '모집단위 목록 변경' + 기계 | 없음 → '빠진 모집단위: 건축, 발전' (채용정보 목록 기준)"""
+    if change.get("change_type") != "list":
+        return None
+    field = re.sub(r"\s*목록\s*변경$", "", str(change.get("title") or "")).strip() or str(change.get("category") or "목록")
+    gone, new = list(change.get("prev_value") or []), list(change.get("curr_value") or [])
+    parts = ([f"빠진 {field} {len(gone)}개: {', '.join(map(str, gone[:4]))}"] if gone else []) + \
+            ([f"새로 생긴 {field}: {', '.join(map(str, new[:4]))}"] if new else [])
+    if not parts:
+        return None
+    note = ("채용정보 목록 기준이에요. 빠진 것은 올해 공고에서 못 찾은 것일 수도 있어 원문 확인이 필요해요." if gone
+            else "채용정보 목록 기준이에요.")
+    return " · ".join(parts), note
+
+
+def plain_title(title: str, impact: str | None, unit: Mapping[str, Any]) -> tuple[str, str | None]:
+    """화면 제목을 취준생 말로 (11-22 15시 애매한 표현 1·5·6·7·10번)"""
+    head, sep, rest = title.partition(":")
+    if sep and len(head) <= 20:
+        rest = _clean(rest)
+        title = f"{head.strip()}: {rest}" if rest else head.strip()
+    title = _clean(title)
+    title = re.sub(r"\s*외 0건$", "", title)                     # 10번 '외 0건'
+    title = re.sub(r"(\S+) \1(?=\s)", r"\1", title)               # 10번 '기준 기준'
+    title = re.sub(r"^(\d\.|[ㄱ-ㅎ]\s)\s*", "", title)
+    quotes = QUOTE.findall(title)                                  # 6번 조각난 인용
+    if quotes and any(" / " in quote or not re.search(r"[가-힣A-Za-z0-9]{2,}", quote) for quote in quotes):
+        subject = head.strip() if sep and len(head) <= 20 else f"{unit.get('category') or '공고'} 문구"
+        subject = subject if "문구" in subject else f"{subject} 문구"
+        more = re.search(r"외 (\d+)건$", title)
+        title = f"{subject} {int(more.group(1)) + 1}곳 변경" if more else f"{subject} 변경"
+    if impact:
+        impact = re.sub(r"'([^']+)'이\(가\)", lambda m: f"'{m.group(1)}'{_particle(m.group(1))}", impact)
+    loose = re.search(r"제한\s*없", impact or "") or re.search(r"제한\s*없", title)
+    if re.search(r"삭제(\s*외 \d+건)?$", title) and loose:     # 1번 '제한없음'이 빠진 걸 '삭제'로
+        return re.sub(r"\s*삭제(\s*외 \d+건)?$", "", title) + ": '제한없음' 문구가 빠짐", \
+            "제한이 새로 생겼다는 뜻은 아닐 수 있어요. 공고문에서 확인하세요."
+    if re.search(r"신설(\s*외 \d+건)?$", title) and loose:
+        return re.sub(r"\s*신설(\s*외 \d+건)?$", "", title) + ": '제한없음'으로 적힘", "제한이 없다는 뜻이에요."
+    if re.search(r"삭제(\s*외 \d+건)?$", title) and "문구" not in title and not QUOTE.search(title) \
+            and (not impact or impact.startswith("관련된 변경")) and unit.get("category") in {"전형", "자격", "가점", "기타"} \
+            and not re.search(r"\d+\s*(명|점|%|배수)", title):    # 1번 전형·자격 '삭제'는 번호·표 모양 변경일 때가 많음
+        impact = "단계 번호나 표 모양만 바뀐 것일 수 있어요. 원문 확인이 필요해요."
+    return title, impact
+
+
+def skip_unit(unit: Mapping[str, Any]) -> bool:
+    """뺄 항목: 기호·괄호만 바뀐 것(14번), 내용 없는 소제목만 추가·삭제된 것(7번)"""
+    def letters(value: Any) -> str:
+        return re.sub(r"[^가-힣A-Za-z0-9]", "", str(value or ""))
+
+    for change in unit["changes"]:
+        kind, prev, curr = change.get("change_type"), change.get("prev_value"), change.get("curr_value")
+        if kind == "text" and isinstance(prev, str) and isinstance(curr, str) and letters(prev) != letters(curr):
+            return False
+        if kind in {"added", "removed"}:
+            raw = str(curr if kind == "added" else prev or "").strip()
+            heading = bool(BULLET.match(raw)) or raw.startswith(("(", "[", "<")) or raw.endswith((":", "：", ")"))
+            if not (raw.endswith((":", "：")) or (heading and len(letters(raw)) <= 6 and not re.search(r"\d", raw))):
+                return False
+        elif kind not in {"text"}:
+            return False
+    return True
 
 
 def change_row(
@@ -970,13 +1066,17 @@ def change_row(
     track: str | None = None,
     first: bool = False,
     meaning: str | None = None,
+    title_override: str | None = None,
 ) -> None:
     """변경 한 건 = 줄 하나: 꼬리표(내 직렬 관련 | 중요) · 굵은 제목 · 의미 한 줄 · 대비표 (예시 3)"""
     members = list(unit["changes"])
     if unit["kind"] == "group":
         title, impact = group_title(unit, pair_id, notice_info)
     else:
-        title, impact = concise_change_title(members[0], pair_id, notice_info)
+        title, impact = list_title(members[0]) or concise_change_title(members[0], pair_id, notice_info)
+    title, impact = plain_title(title, impact, unit)
+    if title_override:  # 위 5줄과 같은 말로 (11-22 15시 2번: 동서 가점 5줄 '같음' vs 아래 '신설')
+        title = title_override
     if meaning:  # 위 요약과 같은 판단으로 (예: 전형 구분이 달라 '비교 어려움')
         impact = meaning
     # 꼬리표는 하나만: 내 직렬 관련이면 그것, 아니면 분류 (11-21 팀원 2차 점검 9번·예시 3)

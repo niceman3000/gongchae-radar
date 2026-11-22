@@ -279,7 +279,7 @@ def _stage_row(report: Mapping[str, Any], track: str) -> SummaryRow:
     wording = [change for change in changes if not date_only_change(change)
                and not same_after_normalize(change.get("prev_value"), change.get("curr_value"))]
     if wording:
-        return SummaryRow("stages", "전형 단계", "바뀜", f"문구 바뀜 {len(wording)}건", "", ["전형"])
+        return SummaryRow("stages", "전형 단계", "바뀜", f"문구 {len(wording)}곳 수정 · 원문 대조에서 확인", "", ["전형"])
     return SummaryRow("stages", "전형 단계", "같음", "단계는 같고 날짜만 바뀌었어요.", "", ["전형"])
 
 
@@ -293,7 +293,7 @@ def _eligibility_row(report: Mapping[str, Any]) -> SummaryRow:
         note = "대졸 일반 지원자에게 직접 영향은 적어요" if "일반" not in changed else ""
         return SummaryRow("eligibility", "지원 자격", "바뀜", sentence, note, categories)
     if changes:
-        return SummaryRow("eligibility", "지원 자격", "바뀜", f"문구 바뀜 {len(changes)}건", "", categories)
+        return SummaryRow("eligibility", "지원 자격", "바뀜", f"문구 {len(changes)}곳 수정 · 원문 대조에서 확인", "", categories)
     if any(change.get("category") in categories for change in report.get("changes") or []):
         return SummaryRow("eligibility", "지원 자격", "같음", "띄어쓰기·표기만 바뀌었어요.", "", categories)
     return SummaryRow("eligibility", "지원 자격", "정보 없음", "작년과 비교할 자격 기록이 없어요.", "", categories)
@@ -301,6 +301,27 @@ def _eligibility_row(report: Mapping[str, Any]) -> SummaryRow:
 
 def _numbers(text: Any) -> list[str]:
     return re.findall(r"\d+(?:\.\d+)?\s*(?:%|점|배수|명)", str(text or ""))
+
+
+TARGET_STOP = {"대졸수준", "고졸수준", "일반", "채용인원의", "채용인원", "이상", "이하", "해당", "아래", "분야", "전형",
+               "본사이전", "지역인재", "적용", "모집인원", "인원"}
+
+
+def _missing_targets(before: str, now: str, changes: list[Mapping[str, Any]]) -> list[str]:
+    """작년 적용 대상(분야 이름) 중 올해 문구·같은 가점 변경 어디에도 없는 것. 올해가 '아래 분야'처럼 다른 줄을 가리키면 그 줄까지 봄"""
+    if not re.search(r"아래|다음|별표", now):  # 올해 문구가 다른 줄을 가리킬 때만 (그 외엔 문장 다듬기라 단정하지 않음)
+        return []
+    tokens = [re.sub(r"분야$", "", token) for token in re.split(r"[\s,·ㆍ()/:]+", before)]
+    tokens = [token for token in dict.fromkeys(tokens)
+              if len(token) >= 2 and not re.search(r"\d", token) and token not in TARGET_STOP and re.search(r"[가-힣A-Za-z]", token)]
+    if len(tokens) < 2:
+        return []
+    related = [str(change.get("curr_value") or "") for change in changes
+               if sum(normalize(token) in normalize(change.get("curr_value")) for token in tokens) >= 2]
+    pool = normalize(" ".join([now, *related]))
+    if sum(normalize(token) in pool for token in tokens) < len(tokens) / 2:  # 올해 목록을 못 찾음 → 단정 안 함
+        return []
+    return [token for token in tokens if normalize(token) not in pool]
 
 
 def _bonus_row(report: Mapping[str, Any]) -> SummaryRow:
@@ -321,7 +342,11 @@ def _bonus_row(report: Mapping[str, Any]) -> SummaryRow:
             if set(_numbers(now)) != set(_numbers(before)) and _numbers(now):
                 changed.append(f"{name} {', '.join(dict.fromkeys(_numbers(before)))} → {', '.join(dict.fromkeys(_numbers(now)))}")
             elif _numbers(now):
-                kept.append(f"{name} {', '.join(dict.fromkeys(_numbers(now)))} 그대로. 적용 대상 표기만 바뀜")
+                gone = _missing_targets(str(before), str(now), changes)
+                if gone:  # 11-22 15시 2번: 동서 본사이전 지역인재 대상에서 IT분야가 빠졌는데 '표기만 바뀜'이라고 함
+                    changed.append(f"{name} {', '.join(dict.fromkeys(_numbers(now)))} 그대로, 대상에서 {'·'.join(gone)} 빠짐")
+                else:
+                    kept.append(f"{name} {', '.join(dict.fromkeys(_numbers(now)))} 그대로. 적용 대상 표기만 바뀜")
             if "지역인재" in name:
                 note = GLOSSARY["지역인재"]
         elif benefit.get("change") == "new" and now and _numbers(now):
@@ -337,7 +362,7 @@ def _bonus_row(report: Mapping[str, Any]) -> SummaryRow:
         return SummaryRow("bonus", "가점·우대", "같음", kept[0], note, ["가점"])
     wording = [change for change in changes if not same_after_normalize(change.get("prev_value"), change.get("curr_value"))]
     if wording:
-        return SummaryRow("bonus", "가점·우대", "바뀜", f"문구 바뀜 {len(wording)}건 (점수·비율은 그대로)", note, ["가점"])
+        return SummaryRow("bonus", "가점·우대", "바뀜", f"문구 {len(wording)}곳 수정 (점수·비율은 그대로) · 원문 대조에서 확인", note, ["가점"])
     return SummaryRow("bonus", "가점·우대", "같음", "작년과 같아요.", note, ["가점"])
 
 
@@ -599,7 +624,7 @@ def summarize(report: Mapping[str, Any], track: str = "") -> list[SummaryRow]:
 
 def changed_points(report: Mapping[str, Any], track: str = "", limit: int = 2) -> list[str]:
     """목록 한 줄용 '바뀐 점': 상태가 '바뀜'·'새로'인 줄의 답 최대 2개"""
-    rows = [row for row in summarize(report, track) if row.status in {"바뀜", "새로"} and not row.answer.startswith("문구 바뀜")]
+    rows = [row for row in summarize(report, track) if row.status in {"바뀜", "새로"} and not row.answer.startswith("문구 ")]
     return [_short(row.answer) for row in rows[:limit]]
 
 
